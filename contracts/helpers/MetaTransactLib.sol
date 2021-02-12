@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
+import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract MetaTransactLib {
+contract MetaTransactLib is AccessControl {
     
     function _msgSender()
         internal
+        override
         view
         returns (address payable sender)
     {
