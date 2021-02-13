@@ -33,7 +33,7 @@ contract NetworkAgnostic is EIP712Base {
         string memory name,
         string memory version,
         uint256 chainId
-    ) public EIP712Base(name, version, chainId) {}
+    ) EIP712Base(name, version, chainId) {}
 
     function executeMetaTransaction(
         address userAddress,

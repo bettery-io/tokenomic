@@ -20,7 +20,7 @@ contract EIP712Base {
         string memory name,
         string memory version,
         uint256 _chainId
-    ) public {
+    ) {
         domainSeperator = keccak256(
             abi.encode(
                 EIP712_DOMAIN_TYPEHASH,

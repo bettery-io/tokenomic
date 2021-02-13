@@ -9,8 +9,7 @@ contract BET is ERC20 {
          string memory _symbol,
          uint8 _decimals,
          uint256 _initialSupplyCoins
-        ) public ERC20(_name, _symbol) {
-
+        ) ERC20(_name, _symbol) {
             _setupDecimals(_decimals);
             _mint(msg.sender, _initialSupplyCoins * (10**uint256(_decimals)));
         }

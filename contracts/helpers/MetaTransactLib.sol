@@ -1,8 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 import {AccessControl} from "@openzeppelin/contracts/access/AccessControl.sol";
+import {NetworkAgnostic} from "./common/NetworkAgnostic.sol";
 
-contract MetaTransactLib is AccessControl {
+contract MetaTransactLib is AccessControl, NetworkAgnostic {
+
+    constructor(
+        string memory _name, 
+        string memory _version, 
+        uint _chain_id 
+    ) NetworkAgnostic(_name, _version, _chain_id){}
     
     function _msgSender()
         internal
