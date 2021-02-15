@@ -11,9 +11,8 @@ contract MetaTransactLib is AccessControl, NetworkAgnostic {
         uint _chain_id 
     ) NetworkAgnostic(_name, _version, _chain_id){}
     
-    function _msgSender()
+    function msgSender()
         internal
-        override
         view
         returns (address payable sender)
     {

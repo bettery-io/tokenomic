@@ -21,7 +21,7 @@ contract PrivateEvent is MetaTransactLib, TimeValidation {
         events[_id].id = _id;
         events[_id].startTime = _startTime;
         events[_id].endTime = _endTime;
-        events[_id].host = _msgSender();
+        events[_id].host = msgSender();
         events[_id].correctAnswerSetter = _correctAnswerSetter;
         events[_id].questionQuantity = _questionQuantity;
     }
@@ -31,7 +31,7 @@ contract PrivateEvent is MetaTransactLib, TimeValidation {
         address payable _correctAnswerSetter
     ) public payable {
         require(
-            _msgSender() == events[_id].host,
+            msgSender() == events[_id].host,
             "Only owner can set admin of event"
         );
         events[_id].correctAnswerSetter = _correctAnswerSetter;
@@ -40,14 +40,14 @@ contract PrivateEvent is MetaTransactLib, TimeValidation {
     function setAnswer(int256 _id, uint8 _whichAnswer) public payable {
         require(timeAnswer(events[_id].startTime, events[_id].endTime) == 0, "Time is not valid");
         PrivStruct.Participant memory parts;
-        parts = PrivStruct.Participant(_msgSender());
+        parts = PrivStruct.Participant(msgSender());
         events[_id].participant[_whichAnswer].push(parts);
     }
 
     function setCorrectAnswer(int256 _id, uint8 _correctAnswer) public payable{
         if(events[_id].correctAnswerSetter != address(0)){
         require(
-            _msgSender() == events[_id].correctAnswerSetter,
+            msgSender() == events[_id].correctAnswerSetter,
             "Only admin can set correct answer"
         );
         }
