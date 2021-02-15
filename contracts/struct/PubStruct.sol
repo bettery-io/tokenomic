@@ -2,35 +2,35 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 library PubStruct {
-    struct Participant {
-        address payable participants;
+    struct Player {
+        address payable player;
         uint256 amount;
+        mapping(uint256 => Referrers[]) referals;
     }
 
-    struct Validator {
-        address payable validators;
+    struct Referrers {
+        address[] referal;
+    }
+
+    struct Expert {
+        address payable expert;
+        int256 rating; 
     }
 
     struct EventData {
-        uint256 id;
+        int256 id;
         uint256 startTime;
         uint256 endTime;
-        uint8 questionQuantity;
-        uint256 pool;
-        uint8 percentHost;
-        uint8 percentValidator;
-        mapping(uint256 => Participant[]) participant;
-        mapping(uint256 => Validator[]) validator;
-        uint256 validatorsAmount;
-        bool expertsQuantityWay;
-        uint256 activeValidators;
-        address payable hostWallet;
-        uint256 persentFeeCompany;
-        uint256 persentFeeHost;
-        uint256 persentForEachValidators;
+        uint8 questAmount;
+        mapping(uint256 => Player[]) players;
+        mapping(uint256 => Expert[]) expert;
+        uint256 amountExperts;
+        bool calculateExperts;
+        uint256 activeExperts;
+        address payable host;
         uint256 correctAnswer;
-        address[] allParticipant;
-        bool payEther;
+        address[] allPlayers;
+        uint256 pool;
         bool reverted;
     }
 }

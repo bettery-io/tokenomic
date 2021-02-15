@@ -39,9 +39,9 @@ contract PrivateEvent is MetaTransactLib, TimeValidation {
 
     function setAnswer(int256 _id, uint8 _whichAnswer) public payable {
         require(timeAnswer(events[_id].startTime, events[_id].endTime) == 0, "Time is not valid");
-        PrivStruct.Participant memory parts;
-        parts = PrivStruct.Participant(msgSender());
-        events[_id].participant[_whichAnswer].push(parts);
+        PrivStruct.Player memory play;
+        play = PrivStruct.Player(msgSender());
+        events[_id].player[_whichAnswer].push(play);
     }
 
     function setCorrectAnswer(int256 _id, uint8 _correctAnswer) public payable{
