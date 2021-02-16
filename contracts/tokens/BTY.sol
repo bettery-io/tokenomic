@@ -8,16 +8,20 @@ import {MetaTransactLib} from "../helpers/MetaTransactLib.sol";
 contract BTY is ERC20, MetaTransactLib {
     BET private betToken;
 
+    address public childChainManagerProxy;
+    address deployer;
+
     constructor(
         string memory _name,
         string memory _symbol,
         uint8 _decimals,
-        uint256 _initialSupplyCoins,
-        BET _betAddress
+        BET _betAddress,
+        address _childChainManagerProxy
     ) ERC20(_name, _symbol) MetaTransactLib("BTY_token", "1", 5) {
         betToken = _betAddress;
+        childChainManagerProxy = _childChainManagerProxy;
+        deployer = msg.sender;
         _setupDecimals(_decimals);
-        _mint(msg.sender, _initialSupplyCoins * (10**uint256(_decimals)));
     }
 
     function swipe(uint256 _amount) public {
@@ -27,5 +31,31 @@ contract BTY is ERC20, MetaTransactLib {
         );
         betToken.burn(_amount);
         _mint(msgSender(), _amount);
+    }
+
+    function updateChildChainManager(address newChildChainManagerProxy)
+        external
+    {
+        require(
+            newChildChainManagerProxy != address(0),
+            "Bad ChildChainManagerProxy address"
+        );
+        require(msg.sender == deployer, "You're not allowed");
+
+        childChainManagerProxy = newChildChainManagerProxy;
+    }
+
+    function deposit(address user, bytes calldata depositData) external {
+        require(
+            msg.sender == childChainManagerProxy,
+            "You're not allowed to deposit"
+        );
+
+        uint256 amount = abi.decode(depositData, (uint256));
+        _mint(user, amount);
+    }
+
+    function withdraw(uint256 amount) external {
+        _burn(msg.sender, amount);
     }
 }

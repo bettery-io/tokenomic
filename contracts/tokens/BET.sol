@@ -11,12 +11,10 @@ contract BET is MetaTransactLib, ERC20 {
     constructor(
         string memory _name,
         string memory _symbol,
-        uint8 _decimals,
-        uint256 _initialSupplyCoins
+        uint8 _decimals
     ) ERC20(_name, _symbol) MetaTransactLib("BET_token", "1", 5) {
         owner = msg.sender;
         _setupDecimals(_decimals);
-        _mint(msg.sender, _initialSupplyCoins * (10**uint256(_decimals)));
     }
 
     function setPublicContract(address wallet) public {
