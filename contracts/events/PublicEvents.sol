@@ -6,9 +6,9 @@ import {PubStruct} from "../struct/PubStruct.sol";
 import {TimeValidation} from "../helpers/TimeValidation.sol";
 import {BET} from "../tokens/BET.sol";
 import {BTY} from "../tokens/BTY.sol";
-import {Percentages} from "../config/Percentages.sol";
+import {ConfigVariables} from "../config/ConfigVariables.sol";
 
-contract PublicEvents is MetaTransactLib, TimeValidation, Percentages {
+contract PublicEvents is MetaTransactLib, TimeValidation, ConfigVariables {
     address payable owner;
     mapping(int256 => PubStruct.EventData) events;
 

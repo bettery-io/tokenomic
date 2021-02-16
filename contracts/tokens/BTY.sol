@@ -4,12 +4,14 @@ pragma solidity >=0.4.22 <0.9.0;
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {BET} from "./BET.sol";
 import {MetaTransactLib} from "../helpers/MetaTransactLib.sol";
+import {ConfigVariables} from "../config/ConfigVariables.sol";
 
-contract BTY is ERC20, MetaTransactLib {
+contract BTY is ERC20, MetaTransactLib, ConfigVariables {
     BET private betToken;
 
     address public childChainManagerProxy;
     address deployer;
+    mapping(address => bool) public wallets;
 
     constructor(
         string memory _name,
@@ -56,6 +58,14 @@ contract BTY is ERC20, MetaTransactLib {
     }
 
     function withdraw(uint256 amount) external {
-        _burn(msg.sender, amount);
+        if (wallets[msgSender()]) {
+            _burn(msgSender(), amount);
+        } else {
+            if(amount >= getFirstWithdraw()){
+                wallets[msgSender()] = true;
+               _burn(msgSender(), amount);
+            }
+        }
     }
+    
 }

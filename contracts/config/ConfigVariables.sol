@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Percentages {
+contract ConfigVariables {
     uint256 private companyPerc;
     uint256 private hostPerc;
     uint256 private expertPerc;
     uint256 private playerPers;
     address private owner;
+    uint256 private firstWithdraw = 100000000000000000000;
 
     constructor() {
         owner = msg.sender;
@@ -32,23 +33,31 @@ contract Percentages {
         expertPerc = _expertPerc;
     }
 
-    function setPlayerPers(uint256 _playerPers) public ownerOnly() {
+    function setFirstWithdraw(uint256 _playerPers) public ownerOnly() {
         playerPers = _playerPers;
     }
 
-    function getCompanyPerc() public view returns(uint256) {
+    function setPlayerPers(uint256 _firstWithdraw) public ownerOnly() {
+        firstWithdraw = _firstWithdraw;
+    }
+
+    function getCompanyPerc() public view returns (uint256) {
         return companyPerc;
     }
 
-    function setHostPerc() public view returns(uint256)  {
+    function getHostPerc() public view returns (uint256) {
         return hostPerc;
     }
 
-    function setExpertPerc() public view returns(uint256)  {
+    function getExpertPerc() public view returns (uint256) {
         return expertPerc;
     }
 
-    function setPlayerPers() public view returns(uint256) {
+    function getPlayerPers() public view returns (uint256) {
         return playerPers;
+    }
+
+    function getFirstWithdraw() public view returns (uint256) {
+        return firstWithdraw;
     }
 }
