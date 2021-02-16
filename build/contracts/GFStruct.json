@@ -1,0 +1,483 @@
+{
+  "contractName": "GFStruct",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/GFStruct.sol\":\"GFStruct\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/GFStruct.sol\":{\"keccak256\":\"0xd409fd1570c2fd1da34dd82e843bb01dcb565b8d71eda72dc3c50eff9d0a92ed\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3969ab84d923a00f1b3184bc807d109800788c9e3bdaa028710e350bcac1ad37\",\"dweb:/ipfs/QmRiCGoYinVGsBEWhwGNNbV1qrtQCcMwCk3PmndmnG4Ru9\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220fd66517cdf5087e8b3ed3db97d6a6505e90e3742ee48a4cc610300d88044f09f64736f6c63430007060033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220fd66517cdf5087e8b3ed3db97d6a6505e90e3742ee48a4cc610300d88044f09f64736f6c63430007060033",
+  "immutableReferences": {},
+  "sourceMap": "73:225:9:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "73:225:9:-:0;;;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\n//TODO\nlibrary GFStruct {\n    struct Player {\n        address payable players;\n    }\n\n    struct EventData {\n        int256 id;\n        uint256 startTime;\n        uint256 endTime;\n        mapping(uint256 => Player[]) player;\n    }\n}",
+  "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/GFStruct.sol",
+  "ast": {
+    "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/GFStruct.sol",
+    "exportedSymbols": {
+      "GFStruct": [
+        951
+      ]
+    },
+    "id": 952,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 935,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 951,
+        "linearizedBaseContracts": [
+          951
+        ],
+        "name": "GFStruct",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "GFStruct.Player",
+            "id": 938,
+            "members": [
+              {
+                "constant": false,
+                "id": 937,
+                "mutability": "mutable",
+                "name": "players",
+                "nodeType": "VariableDeclaration",
+                "scope": 938,
+                "src": "120:23:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 936,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "120:15:9",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Player",
+            "nodeType": "StructDefinition",
+            "scope": 951,
+            "src": "96:54:9",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "GFStruct.EventData",
+            "id": 950,
+            "members": [
+              {
+                "constant": false,
+                "id": 940,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "183:9:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 939,
+                  "name": "int256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "183:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 942,
+                "mutability": "mutable",
+                "name": "startTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "202:17:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 941,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "202:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 944,
+                "mutability": "mutable",
+                "name": "endTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "229:15:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 943,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "229:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 949,
+                "mutability": "mutable",
+                "name": "player",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "254:35:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$938_storage_$dyn_storage_$",
+                  "typeString": "mapping(uint256 => struct GFStruct.Player[])"
+                },
+                "typeName": {
+                  "id": 948,
+                  "keyType": {
+                    "id": 945,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "262:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "254:28:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$938_storage_$dyn_storage_$",
+                    "typeString": "mapping(uint256 => struct GFStruct.Player[])"
+                  },
+                  "valueType": {
+                    "baseType": {
+                      "id": 946,
+                      "name": "Player",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 938,
+                      "src": "273:6:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Player_$938_storage_ptr",
+                        "typeString": "struct GFStruct.Player"
+                      }
+                    },
+                    "id": 947,
+                    "nodeType": "ArrayTypeName",
+                    "src": "273:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Player_$938_storage_$dyn_storage_ptr",
+                      "typeString": "struct GFStruct.Player[]"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "EventData",
+            "nodeType": "StructDefinition",
+            "scope": 951,
+            "src": "156:140:9",
+            "visibility": "public"
+          }
+        ],
+        "scope": 952,
+        "src": "73:225:9"
+      }
+    ],
+    "src": "32:266:9"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/GFStruct.sol",
+    "exportedSymbols": {
+      "GFStruct": [
+        951
+      ]
+    },
+    "id": 952,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 935,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 951,
+        "linearizedBaseContracts": [
+          951
+        ],
+        "name": "GFStruct",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "GFStruct.Player",
+            "id": 938,
+            "members": [
+              {
+                "constant": false,
+                "id": 937,
+                "mutability": "mutable",
+                "name": "players",
+                "nodeType": "VariableDeclaration",
+                "scope": 938,
+                "src": "120:23:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address_payable",
+                  "typeString": "address payable"
+                },
+                "typeName": {
+                  "id": 936,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "120:15:9",
+                  "stateMutability": "payable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Player",
+            "nodeType": "StructDefinition",
+            "scope": 951,
+            "src": "96:54:9",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "GFStruct.EventData",
+            "id": 950,
+            "members": [
+              {
+                "constant": false,
+                "id": 940,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "183:9:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 939,
+                  "name": "int256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "183:6:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 942,
+                "mutability": "mutable",
+                "name": "startTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "202:17:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 941,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "202:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 944,
+                "mutability": "mutable",
+                "name": "endTime",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "229:15:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 943,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "229:7:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 949,
+                "mutability": "mutable",
+                "name": "player",
+                "nodeType": "VariableDeclaration",
+                "scope": 950,
+                "src": "254:35:9",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$938_storage_$dyn_storage_$",
+                  "typeString": "mapping(uint256 => struct GFStruct.Player[])"
+                },
+                "typeName": {
+                  "id": 948,
+                  "keyType": {
+                    "id": 945,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "262:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "254:28:9",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$938_storage_$dyn_storage_$",
+                    "typeString": "mapping(uint256 => struct GFStruct.Player[])"
+                  },
+                  "valueType": {
+                    "baseType": {
+                      "id": 946,
+                      "name": "Player",
+                      "nodeType": "UserDefinedTypeName",
+                      "referencedDeclaration": 938,
+                      "src": "273:6:9",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Player_$938_storage_ptr",
+                        "typeString": "struct GFStruct.Player"
+                      }
+                    },
+                    "id": 947,
+                    "nodeType": "ArrayTypeName",
+                    "src": "273:8:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_Player_$938_storage_$dyn_storage_ptr",
+                      "typeString": "struct GFStruct.Player[]"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "EventData",
+            "nodeType": "StructDefinition",
+            "scope": 951,
+            "src": "156:140:9",
+            "visibility": "public"
+          }
+        ],
+        "scope": 952,
+        "src": "73:225:9"
+      }
+    ],
+    "src": "32:266:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Linux.g++"
+  },
+  "networks": {},
+  "schemaVersion": "3.2.2",
+  "updatedAt": "2021-02-16T11:26:55.856Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
