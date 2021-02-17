@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 library PrivStruct {
     struct Player {
-        address payable players;
+        address players;
     }
 
     struct EventData {
@@ -13,7 +13,7 @@ library PrivStruct {
         uint8 correctAnswer;
         mapping(uint256 => Player[]) player;
         uint8 questionQuantity;
-        address payable host;
-        address payable correctAnswerSetter;
+        address host;
+        address correctAnswerSetter;
     }
 }

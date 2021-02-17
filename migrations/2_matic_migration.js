@@ -1,5 +1,8 @@
 const BETTokenContract = artifacts.require("BET.sol")
 const BTYTokenContract = artifacts.require("BTY.sol");
+const PrivateEventContract = artifacts.require("PrivateEvent.sol");
+const PublicEventContract = artifacts.require("PublicEvents.sol");
+const GrowthFactorEvents = artifacts.require("GrowthFactorEvents.sol");
 const maticNetwork = require("../config/matic.json");
 const config = require("../config/tokensConfig");
 
@@ -17,6 +20,11 @@ module.exports = async function (deployer, network) {
     let ChildChainManagerProxy = maticNetwork.child.ChildChainManagerProxy
     await deployer.deploy(BTYTokenContract, nameBTY, symbolBTY, decimals, BETTokenContract.address, ChildChainManagerProxy);
 
+    await deployer.deploy(PrivateEventContract);
+
+    await deployer.deploy(PublicEventContract, BETTokenContract.address, BTYTokenContract.address);
+
+    await deployer.deploy(GrowthFactorEvents);
 
   }else{
     return;
