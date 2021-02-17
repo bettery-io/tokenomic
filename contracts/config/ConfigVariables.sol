@@ -8,6 +8,8 @@ contract ConfigVariables {
     uint256 private playerPers;
     address private owner;
     uint256 private firstWithdraw = 100000000000000000000;
+    uint256 private GFrewards = 100000000000000000000;
+    uint256 private GFindex = 1;
 
     constructor() {
         owner = msg.sender;
@@ -41,6 +43,14 @@ contract ConfigVariables {
         firstWithdraw = _firstWithdraw;
     }
 
+    function setGFrewards(uint256 _GFrewards) public ownerOnly() {
+        GFrewards = _GFrewards;
+    }
+
+    function setGFindex(uint256 _GFindex) public ownerOnly() {
+        GFindex = _GFindex;
+    }
+
     function getCompanyPerc() public view returns (uint256) {
         return companyPerc;
     }
@@ -60,4 +70,14 @@ contract ConfigVariables {
     function getFirstWithdraw() public view returns (uint256) {
         return firstWithdraw;
     }
+
+    function getGFrewards() public view returns (uint256) {
+        return GFrewards;
+    }
+
+    function getGFindex() public view returns (uint256) {
+        return GFindex;
+    }
+
+    
 }

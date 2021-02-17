@@ -27,29 +27,43 @@ contract PrivateEvent is TimeValidation, ConfigVariables {
         events[_id].questionQuantity = _questionQuantity;
     }
 
-    function setRoleOfAdmin(
-        int256 _id,
-        address _correctAnswerSetter
-    ) public ownerOnly() {
+    function setRoleOfAdmin(int256 _id, address _correctAnswerSetter)
+        public
+        ownerOnly()
+    {
         events[_id].correctAnswerSetter = _correctAnswerSetter;
     }
 
-    function setAnswer(int256 _id, uint8 _whichAnswer, address playerWallet) public ownerOnly() {
-        require(timeAnswer(events[_id].startTime, events[_id].endTime) == 0, "Time is not valid");
+    function setAnswer(
+        int256 _id,
+        uint8 _whichAnswer,
+        address playerWallet
+    ) public ownerOnly() {
+        require(
+            timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
+            "Time is not valid"
+        );
         PrivStruct.Player memory play;
         play = PrivStruct.Player(playerWallet);
         events[_id].player[_whichAnswer].push(play);
     }
 
-    function setCorrectAnswer(int256 _id, uint8 _correctAnswer, address expertWallet) public ownerOnly(){
-        if(events[_id].correctAnswerSetter != address(0)){
-        require(
-            expertWallet == events[_id].correctAnswerSetter,
-            "Only admin can set correct answer"
-        );
+    function setCorrectAnswer(
+        int256 _id,
+        uint8 _correctAnswer,
+        address expertWallet
+    ) public ownerOnly() {
+        if (events[_id].correctAnswerSetter != address(0)) {
+            require(
+                expertWallet == events[_id].correctAnswerSetter,
+                "Only admin can set correct answer"
+            );
         }
 
-        require(timeAnswer(events[_id].startTime, events[_id].endTime) == 2, "Time is not valid");
+        require(
+            timeAnswer(events[_id].startTime, events[_id].endTime) == 2,
+            "Time is not valid"
+        );
         events[_id].correctAnswer = _correctAnswer;
 
         emit eventIsFinish(_id, _correctAnswer);

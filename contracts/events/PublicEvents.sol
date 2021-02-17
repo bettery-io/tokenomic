@@ -75,6 +75,10 @@ contract PublicEvents is
         );
         require(events[_id].reverted, "event is reverted");
         require(events[_id].eventFinish, "event is finish");
+        require(
+            events[_id].allPlayers[_playerWallet] == true,
+            "user already participate in event"
+        );
 
         PubStruct.Player memory player;
         // TODO add Referrers
