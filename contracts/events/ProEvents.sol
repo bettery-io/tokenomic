@@ -7,7 +7,7 @@ import {ConfigVariables} from "../config/ConfigVariables.sol";
 import {BET} from "../tokens/BET.sol";
 import {BTY} from "../tokens/BTY.sol";
 
-contract GrowthFactorEvents is TimeValidation, ConfigVariables {
+contract ProEvents is TimeValidation, ConfigVariables {
     BET private betToken;
     BTY private btyToken;
 

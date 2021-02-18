@@ -12,6 +12,7 @@ library PrivStruct {
         uint256 endTime;
         uint8 correctAnswer;
         mapping(uint256 => Player[]) player;
+        mapping(address => bool) allPlayers; // added for validation if players whant ot be expers
         uint8 questionQuantity;
         address host;
         address correctAnswerSetter;

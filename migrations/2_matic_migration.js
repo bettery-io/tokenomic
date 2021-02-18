@@ -1,6 +1,6 @@
 const BETTokenContract = artifacts.require("BET.sol")
 const BTYTokenContract = artifacts.require("BTY.sol");
-const PrivateEventContract = artifacts.require("PrivateEvent.sol");
+const PrivateEventContract = artifacts.require("PrivateEvents.sol");
 const PublicEventContract = artifacts.require("PublicEvents.sol");
 const GrowthFactorEvents = artifacts.require("GrowthFactorEvents.sol");
 const ProEventsContract = artifacts.require("ProEvents.sol")
