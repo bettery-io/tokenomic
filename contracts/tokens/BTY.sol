@@ -10,7 +10,6 @@ contract BTY is ERC20, MetaTransactLib, ConfigVariables {
     BET private betToken;
 
     address public childChainManagerProxy;
-    address deployer;
     mapping(address => bool) public wallets;
 
     constructor(
@@ -22,28 +21,26 @@ contract BTY is ERC20, MetaTransactLib, ConfigVariables {
     ) ERC20(_name, _symbol) MetaTransactLib("BTY_token", "1", 5) {
         betToken = _betAddress;
         childChainManagerProxy = _childChainManagerProxy;
-        deployer = msg.sender;
         _setupDecimals(_decimals);
     }
 
     function swipe(uint256 _amount) public {
         require(
             betToken.balanceOf(msgSender()) >= _amount,
-            "do not enought tokens"
+            "do not enough tokens"
         );
-        betToken.burn(_amount);
+        betToken.burn(msgSender(), _amount);
         _mint(msgSender(), _amount);
     }
 
     function updateChildChainManager(address newChildChainManagerProxy)
         external
+        ownerOnly()
     {
         require(
             newChildChainManagerProxy != address(0),
             "Bad ChildChainManagerProxy address"
         );
-        require(msg.sender == deployer, "You're not allowed");
-
         childChainManagerProxy = newChildChainManagerProxy;
     }
 
@@ -61,11 +58,9 @@ contract BTY is ERC20, MetaTransactLib, ConfigVariables {
         if (wallets[msgSender()]) {
             _burn(msgSender(), amount);
         } else {
-            if(amount >= getFirstWithdraw()){
-                wallets[msgSender()] = true;
-               _burn(msgSender(), amount);
-            }
+            require(amount >= getFirstWithdraw(), "do not have enough tokens for first withdraw");
+            wallets[msgSender()] = true;
+            _burn(msgSender(), amount);
         }
     }
-    
 }

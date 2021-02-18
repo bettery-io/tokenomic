@@ -1,5 +1,4 @@
 const ProEventsContract = artifacts.require("../contracts/events/PrivateEvents.sol")
-const Web3 = require("web3");
 
 contract('privateEvents', (accounts) => {
     let event,
