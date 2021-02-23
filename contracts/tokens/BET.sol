@@ -7,6 +7,7 @@ import {ConfigVariables} from "../config/ConfigVariables.sol";
 
 contract BET is MetaTransactLib, ERC20, ConfigVariables {
     address publicContract;
+    address btyContract;
 
     constructor(
         string memory _name,
@@ -16,12 +17,14 @@ contract BET is MetaTransactLib, ERC20, ConfigVariables {
         _setupDecimals(_decimals);
     }
 
-    function setPublicContract(address wallet) public ownerOnly() {
-        publicContract = wallet;
+    function setConfigContract(address _publicEvents, address _bty) public ownerOnly() {
+        publicContract = _publicEvents;
+        btyContract = _bty;
     }
 
-    function mint(address wallet, uint256 amount) public ownerOnly() {
-         // TODO check user amount 
+    function mint(address wallet) public ownerOnly() {
+        require(balanceOf(wallet) == 0, "User has tokens on balance");
+        uint256 amount = getWelcomeBTYTokens();
         _mint(wallet, amount);
     }
 
@@ -34,7 +37,7 @@ contract BET is MetaTransactLib, ERC20, ConfigVariables {
     }
 
     function burn(address wallet, uint256 amount) public {
-        // TODO add validation for BTY tokens
+        require(msg.sender == btyContract, "Only BTY tokens can burn BET tokens");
         _burn(wallet, amount);
     }
 }

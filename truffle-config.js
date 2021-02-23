@@ -11,7 +11,7 @@ module.exports = {
 
         return new HDWalletProvider(mnemonic, config.maticMumbai)
       },
-      network_id: 80001,
+      network_id: config.maticMumbaiId,
       gasPrice: 0,
       confirmations: 2,
       timeoutBlocks: 200,
@@ -21,6 +21,18 @@ module.exports = {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
+    },
+    main: {
+      provider: () => {
+        const mnemonic = readFileSync(path.join(__dirname, 'keys/goerli_mnemonic'), 'utf-8')
+
+        return new HDWalletProvider(mnemonic, config.maticMain)
+      },
+      network_id: config.maticMainId,
+      gasPrice: 0,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
     }
   },
   compilers: {

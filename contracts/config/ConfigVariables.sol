@@ -7,9 +7,10 @@ contract ConfigVariables {
     uint256 private expertPerc;
     uint256 private playerPers;
     address private owner;
-    uint256 private firstWithdraw = 100000000000000000000;
+    uint256 private firstWithdrawIndex = 10;
     uint256 private GFrewards = 100000000000000000000;
     uint256 private GFindex = 1;
+    uint256 private welcomeBTYTokens = 10000000000000000000;
 
     constructor() {
         owner = msg.sender;
@@ -35,16 +36,20 @@ contract ConfigVariables {
         expertPerc = _expertPerc;
     }
 
-    function setFirstWithdraw(uint256 _playerPers) public ownerOnly() {
+    function setPlayerPers(uint256 _playerPers) public ownerOnly() {
         playerPers = _playerPers;
     }
 
-    function setPlayerPers(uint256 _firstWithdraw) public ownerOnly() {
-        firstWithdraw = _firstWithdraw;
+    function setFirstWithdraw(uint256 _firstWithdrawIndex) public ownerOnly() {
+        firstWithdrawIndex = _firstWithdrawIndex;
     }
 
     function setGFrewards(uint256 _GFrewards) public ownerOnly() {
         GFrewards = _GFrewards;
+    }
+
+    function setWelcomeBTYTokens(uint256 _welcomeBTYTokens) public ownerOnly() {
+        welcomeBTYTokens = _welcomeBTYTokens;
     }
 
     function setGFindex(uint256 _GFindex) public ownerOnly() {
@@ -68,7 +73,7 @@ contract ConfigVariables {
     }
 
     function getFirstWithdraw() public view returns (uint256) {
-        return firstWithdraw;
+        return welcomeBTYTokens * firstWithdrawIndex;
     }
 
     function getGFrewards() public view returns (uint256) {
@@ -79,5 +84,7 @@ contract ConfigVariables {
         return GFindex;
     }
 
-    
+    function getWelcomeBTYTokens() public view returns (uint256) {
+        return welcomeBTYTokens;
+    }
 }
