@@ -24,20 +24,25 @@ contract ProEvents is TimeValidation, ConfigVariables {
         uint256 _endTime,
         uint8 _questAmount,
         address payable _host,
-        uint256 _amount
+        uint256 _prizeAmount,
+        bool _eventFinishWay,
+        uint256 _playersNeeded
     ) public payable ownerOnly() {
         events[_id].id = _id;
         events[_id].startTime = _startTime;
         events[_id].endTime = _endTime;
         events[_id].questAmount = _questAmount;
         events[_id].host = _host;
+        events[_id].prizeAmount = _prizeAmount;
+        events[_id].eventFinishWay = _eventFinishWay;
+        events[_id].playersNeeded = _playersNeeded;
 
         require(
-            btyToken.allowance(_host, address(this)) >= _amount,
+            btyToken.allowance(_host, address(this)) >= _prizeAmount,
             "Allowance error"
         );
         require(
-            btyToken.transferFrom(_host, address(this), _amount),
+            btyToken.transferFrom(_host, address(this), _prizeAmount),
             "Transfer BTY tokens for PRO event error"
         );
     }
@@ -45,7 +50,6 @@ contract ProEvents is TimeValidation, ConfigVariables {
     function setAnswer(
         int256 _id,
         uint8 _whichAnswer,
-        uint256 _amount,
         address payable _playerWallet,
         uint8 _reputation
     ) public payable ownerOnly() {
@@ -60,20 +64,11 @@ contract ProEvents is TimeValidation, ConfigVariables {
         );
 
         ProStruct.Player memory player;
-        player = ProStruct.Player(_playerWallet, _amount, _reputation);
+        player = ProStruct.Player(_playerWallet, _reputation);
         events[_id].player[_whichAnswer].push(player);
         events[_id].allPlayers[_playerWallet] = true;
         events[_id].activePlayers += 1;
-        events[_id].pool += _amount;
 
-        require(
-            betToken.allowance(_playerWallet, address(this)) >= _amount,
-            "Allowance error"
-        );
-        require(
-            betToken.transferFrom(_playerWallet, address(this), _amount),
-            "Transfer BTY from players error"
-        );
     }
 
     //TODO add event finish logic

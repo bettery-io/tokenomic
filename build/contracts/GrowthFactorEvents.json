@@ -36,7 +36,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -49,7 +50,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -62,7 +64,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -75,7 +78,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -88,7 +92,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -101,7 +106,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -114,7 +120,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -127,7 +134,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -255,7 +263,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -274,7 +283,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -5064,9 +5074,37 @@
     "name": "solc",
     "version": "0.7.6+commit.7338295f.Linux.g++"
   },
-  "networks": {},
+  "networks": {
+    "80001": {
+      "events": {
+        "0xb2ce968840ae229a799f5eaa854b1366708b242855976804bc004892ffe679a5": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "_id",
+              "type": "int256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint8",
+              "name": "correctAnswer",
+              "type": "uint8"
+            }
+          ],
+          "name": "GFIsFinish",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x051710B02657c634027cD03Df59f6Fb86b625b97",
+      "transactionHash": "0xcab469db5e46f73a8acc495f404b3b1d644b489633cde3d7b379ad63088caf38"
+    }
+  },
   "schemaVersion": "3.2.2",
-  "updatedAt": "2021-02-23T12:00:59.020Z",
+  "updatedAt": "2021-02-24T10:17:43.147Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {},

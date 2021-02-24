@@ -7,8 +7,7 @@ module.exports = {
   networks: {
     matic: {
       provider: () => {
-        const mnemonic = readFileSync(path.join(__dirname, 'keys/goerli_mnemonic'), 'utf-8')
-
+        const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
         return new HDWalletProvider(mnemonic, config.maticMumbai)
       },
       network_id: config.maticMumbaiId,
@@ -24,8 +23,7 @@ module.exports = {
     },
     main: {
       provider: () => {
-        const mnemonic = readFileSync(path.join(__dirname, 'keys/goerli_mnemonic'), 'utf-8')
-
+        const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
         return new HDWalletProvider(mnemonic, config.maticMain)
       },
       network_id: config.maticMainId,
