@@ -4,37 +4,6 @@ pragma solidity >=0.4.22 <0.9.0;
 contract Libs {
     uint256[] public sortedArray;
 
-    function calculateExpertAmount(uint256 players)
-        public
-        pure
-        returns (uint256)
-    {
-        // TODO rewrite to formula
-        if (players <= 2) {
-            return 1;
-        } else if (players >= 3 && players <= 11) {
-            return 3;
-        } else if (players >= 12 && players <= 30) {
-            return 5;
-        } else if (players >= 31 && players <= 56) {
-            return 7;
-        } else if (players >= 57 && players <= 91) {
-            return 9;
-        } else if (players >= 92 && players <= 133) {
-            return 11;
-        } else if (players >= 134 && players <= 300) {
-            return 15;
-        } else if (players >= 301 && players <= 500) {
-            return 23;
-        } else if (players >= 501 && players <= 1000) {
-            return 33;
-        } else if (players >= 1001 && players <= 5000) {
-            return 70;
-        } else {
-            return 100;
-        }
-    }
-
     function getPersent(uint256 _percent, uint256 _from)
         public
         pure

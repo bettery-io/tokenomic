@@ -1,20 +1,21 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-library PubStruct {
+contract PubStruct {
     struct Player {
+        int256 playerId;
         address payable player;
         uint256 amount;
-    //    mapping(uint256 => Referrers[]) referals;
+        uint8 referrersDeep;
     }
 
     struct Referrers {
-        address[] referal;
+        address[] referrer;
     }
 
     struct Expert {
         address payable expert;
-        int256 rating;
+        int256 reputation;
     }
 
     struct EventData {
@@ -30,6 +31,7 @@ library PubStruct {
         uint256 amountExperts; // expers needed for finish event, can be 0 if calculateExperts is true
         bool calculateExperts; 
         address payable host;
+        address payable advisor;
         uint256 correctAnswer;
         uint256 pool;
         bool reverted; 
@@ -37,4 +39,7 @@ library PubStruct {
         uint256 amountPremiumEvent; 
         bool eventFinish;
     }
+
+    mapping(int256 => EventData) events;
+    mapping(string => Referrers) referrers; // include eventID + userID + referrersDeep
 }

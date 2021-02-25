@@ -1,4 +1,4 @@
-const PublicContract = artifacts.require("../contracts/events/PublicEvents.sol")
+const PublicContract = artifacts.require("../contracts/events/PublicEvents/PublicEvents.sol")
 
 contract('Public Events', (accounts) => {
     let events,

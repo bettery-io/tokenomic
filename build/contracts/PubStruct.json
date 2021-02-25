@@ -1,27 +1,27 @@
 {
   "contractName": "PubStruct",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":\"PubStruct\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":{\"keccak256\":\"0xb25f708db30b3c6fee0512865239f515d6dec1f32b138c8e21280e8768af1775\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e997ff85061a5e6a4c5c7529a3e03614d81babef69740e47bf25f9a104d5dc02\",\"dweb:/ipfs/QmfVNfkAkjEtgP2UNtueNxLPHcQamAV6EWRAhxevUeWMgW\"]}},\"version\":1}",
-  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212208618526abedd8735e02ee9bd446c209ed94b80bb9323dec1999395910fc529c864736f6c63430007060033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212208618526abedd8735e02ee9bd446c209ed94b80bb9323dec1999395910fc529c864736f6c63430007060033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":\"PubStruct\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":{\"keccak256\":\"0x88d7ec60d474285d4b54eac292154a2f7af4e6d17286fba24d3b04926cc718c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://869f6760f6aa2fc825aa2d96c4688093e076babec91498328c1c1b0bacf861a2\",\"dweb:/ipfs/QmXfRueEj6yJhJQuAizrh8BnCsboAMxA5nC845fYyYyFze\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122085ff8465c4df839e76f6587c78311156c7209eef558afc0785a8c3053057850f64736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122085ff8465c4df839e76f6587c78311156c7209eef558afc0785a8c3053057850f64736f6c63430007060033",
   "immutableReferences": {},
-  "sourceMap": "66:1087:14:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "66:1087:14:-:0;;;;;;;;",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\nlibrary PubStruct {\n    struct Player {\n        address payable player;\n        uint256 amount;\n    //    mapping(uint256 => Referrers[]) referals;\n    }\n\n    struct Referrers {\n        address[] referal;\n    }\n\n    struct Expert {\n        address payable expert;\n        int256 rating;\n    }\n\n    struct EventData {\n        int256 id;\n        uint256 startTime;\n        uint256 endTime;\n        uint8 questAmount;\n        mapping(uint256 => Player[]) players;\n        mapping(address => bool) allPlayers; // added for validation if players whant ot be expers\n        uint256 activePlayers; // amount of all players\n        mapping(uint256 => Expert[]) expert;\n        uint256 activeExperts; // amount of all expers\n        uint256 amountExperts; // expers needed for finish event, can be 0 if calculateExperts is true\n        bool calculateExperts; \n        address payable host;\n        uint256 correctAnswer;\n        uint256 pool;\n        bool reverted; \n        bool premium; // if true amountProEvent can't be 0\n        uint256 amountPremiumEvent; \n        bool eventFinish;\n    }\n}\n",
+  "sourceMap": "66:1140:15:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:1140:15:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract PubStruct {\n    struct Player {\n        address payable player;\n        uint256 amount;\n    //    mapping(uint256 => Referrers[]) referals;\n    }\n\n    struct Referrers {\n        address[] referal;\n    }\n\n    struct Expert {\n        address payable expert;\n        int256 rating;\n    }\n\n    struct EventData {\n        int256 id;\n        uint256 startTime;\n        uint256 endTime;\n        uint8 questAmount;\n        mapping(uint256 => Player[]) players;\n        mapping(address => bool) allPlayers; // added for validation if players whant ot be expers\n        uint256 activePlayers; // amount of all players\n        mapping(uint256 => Expert[]) expert;\n        uint256 activeExperts; // amount of all expers\n        uint256 amountExperts; // expers needed for finish event, can be 0 if calculateExperts is true\n        bool calculateExperts; \n        address payable host;\n        uint256 correctAnswer;\n        uint256 pool;\n        bool reverted; \n        bool premium; // if true amountProEvent can't be 0\n        uint256 amountPremiumEvent; \n        bool eventFinish;\n    }\n\n    mapping(int256 => PubStruct.EventData) events;\n}\n",
   "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol",
   "ast": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol",
     "exportedSymbols": {
       "PubStruct": [
-        2541
+        2454
       ]
     },
-    "id": 2542,
+    "id": 2455,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2481,
+        "id": 2390,
         "literals": [
           "solidity",
           ">=",
@@ -32,33 +32,33 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:14"
+        "src": "32:32:15"
       },
       {
         "abstract": false,
         "baseContracts": [],
         "contractDependencies": [],
-        "contractKind": "library",
+        "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2541,
+        "id": 2454,
         "linearizedBaseContracts": [
-          2541
+          2454
         ],
         "name": "PubStruct",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "PubStruct.Player",
-            "id": 2486,
+            "id": 2395,
             "members": [
               {
                 "constant": false,
-                "id": 2483,
+                "id": 2392,
                 "mutability": "mutable",
                 "name": "player",
                 "nodeType": "VariableDeclaration",
-                "scope": 2486,
-                "src": "114:22:14",
+                "scope": 2395,
+                "src": "115:22:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -66,10 +66,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2482,
+                  "id": 2391,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "114:15:14",
+                  "src": "115:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -80,12 +80,12 @@
               },
               {
                 "constant": false,
-                "id": 2485,
+                "id": 2394,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 2486,
-                "src": "146:14:14",
+                "scope": 2395,
+                "src": "147:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -93,10 +93,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2484,
+                  "id": 2393,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "146:7:14",
+                  "src": "147:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -107,22 +107,22 @@
             ],
             "name": "Player",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "90:129:14",
+            "scope": 2454,
+            "src": "91:129:15",
             "visibility": "public"
           },
           {
             "canonicalName": "PubStruct.Referrers",
-            "id": 2490,
+            "id": 2399,
             "members": [
               {
                 "constant": false,
-                "id": 2489,
+                "id": 2398,
                 "mutability": "mutable",
                 "name": "referal",
                 "nodeType": "VariableDeclaration",
-                "scope": 2490,
-                "src": "252:17:14",
+                "scope": 2399,
+                "src": "253:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -131,19 +131,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 2487,
+                    "id": 2396,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "252:7:14",
+                    "src": "253:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 2488,
+                  "id": 2397,
                   "nodeType": "ArrayTypeName",
-                  "src": "252:9:14",
+                  "src": "253:9:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
@@ -154,22 +154,22 @@
             ],
             "name": "Referrers",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "225:51:14",
+            "scope": 2454,
+            "src": "226:51:15",
             "visibility": "public"
           },
           {
             "canonicalName": "PubStruct.Expert",
-            "id": 2495,
+            "id": 2404,
             "members": [
               {
                 "constant": false,
-                "id": 2492,
+                "id": 2401,
                 "mutability": "mutable",
                 "name": "expert",
                 "nodeType": "VariableDeclaration",
-                "scope": 2495,
-                "src": "306:22:14",
+                "scope": 2404,
+                "src": "307:22:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -177,10 +177,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2491,
+                  "id": 2400,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "306:15:14",
+                  "src": "307:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -191,12 +191,12 @@
               },
               {
                 "constant": false,
-                "id": 2494,
+                "id": 2403,
                 "mutability": "mutable",
                 "name": "rating",
                 "nodeType": "VariableDeclaration",
-                "scope": 2495,
-                "src": "338:13:14",
+                "scope": 2404,
+                "src": "339:13:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -204,10 +204,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 2493,
+                  "id": 2402,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "338:6:14",
+                  "src": "339:6:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -218,22 +218,22 @@
             ],
             "name": "Expert",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "282:76:14",
+            "scope": 2454,
+            "src": "283:76:15",
             "visibility": "public"
           },
           {
             "canonicalName": "PubStruct.EventData",
-            "id": 2540,
+            "id": 2449,
             "members": [
               {
                 "constant": false,
-                "id": 2497,
+                "id": 2406,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "391:9:14",
+                "scope": 2449,
+                "src": "392:9:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -241,10 +241,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 2496,
+                  "id": 2405,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "391:6:14",
+                  "src": "392:6:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -254,12 +254,12 @@
               },
               {
                 "constant": false,
-                "id": 2499,
+                "id": 2408,
                 "mutability": "mutable",
                 "name": "startTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "410:17:14",
+                "scope": 2449,
+                "src": "411:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -267,10 +267,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2498,
+                  "id": 2407,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "410:7:14",
+                  "src": "411:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -280,12 +280,12 @@
               },
               {
                 "constant": false,
-                "id": 2501,
+                "id": 2410,
                 "mutability": "mutable",
                 "name": "endTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "437:15:14",
+                "scope": 2449,
+                "src": "438:15:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -293,10 +293,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2500,
+                  "id": 2409,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "437:7:14",
+                  "src": "438:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -306,12 +306,12 @@
               },
               {
                 "constant": false,
-                "id": 2503,
+                "id": 2412,
                 "mutability": "mutable",
                 "name": "questAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "462:17:14",
+                "scope": 2449,
+                "src": "463:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -319,10 +319,10 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 2502,
+                  "id": 2411,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "462:5:14",
+                  "src": "463:5:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -332,53 +332,53 @@
               },
               {
                 "constant": false,
-                "id": 2508,
+                "id": 2417,
                 "mutability": "mutable",
                 "name": "players",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "489:36:14",
+                "scope": 2449,
+                "src": "490:36:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2486_storage_$dyn_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2395_storage_$dyn_storage_$",
                   "typeString": "mapping(uint256 => struct PubStruct.Player[])"
                 },
                 "typeName": {
-                  "id": 2507,
+                  "id": 2416,
                   "keyType": {
-                    "id": 2504,
+                    "id": 2413,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "497:7:14",
+                    "src": "498:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "489:28:14",
+                  "src": "490:28:15",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2486_storage_$dyn_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2395_storage_$dyn_storage_$",
                     "typeString": "mapping(uint256 => struct PubStruct.Player[])"
                   },
                   "valueType": {
                     "baseType": {
-                      "id": 2505,
+                      "id": 2414,
                       "name": "Player",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 2486,
-                      "src": "508:6:14",
+                      "referencedDeclaration": 2395,
+                      "src": "509:6:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$2486_storage_ptr",
+                        "typeIdentifier": "t_struct$_Player_$2395_storage_ptr",
                         "typeString": "struct PubStruct.Player"
                       }
                     },
-                    "id": 2506,
+                    "id": 2415,
                     "nodeType": "ArrayTypeName",
-                    "src": "508:8:14",
+                    "src": "509:8:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Player_$2486_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Player_$2395_storage_$dyn_storage_ptr",
                       "typeString": "struct PubStruct.Player[]"
                     }
                   }
@@ -387,12 +387,12 @@
               },
               {
                 "constant": false,
-                "id": 2512,
+                "id": 2421,
                 "mutability": "mutable",
                 "name": "allPlayers",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "535:35:14",
+                "scope": 2449,
+                "src": "536:35:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -400,28 +400,28 @@
                   "typeString": "mapping(address => bool)"
                 },
                 "typeName": {
-                  "id": 2511,
+                  "id": 2420,
                   "keyType": {
-                    "id": 2509,
+                    "id": 2418,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "543:7:14",
+                    "src": "544:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "535:24:14",
+                  "src": "536:24:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                     "typeString": "mapping(address => bool)"
                   },
                   "valueType": {
-                    "id": 2510,
+                    "id": 2419,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "554:4:14",
+                    "src": "555:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -432,12 +432,12 @@
               },
               {
                 "constant": false,
-                "id": 2514,
+                "id": 2423,
                 "mutability": "mutable",
                 "name": "activePlayers",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "634:21:14",
+                "scope": 2449,
+                "src": "635:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -445,10 +445,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2513,
+                  "id": 2422,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "634:7:14",
+                  "src": "635:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -458,53 +458,53 @@
               },
               {
                 "constant": false,
-                "id": 2519,
+                "id": 2428,
                 "mutability": "mutable",
                 "name": "expert",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "690:35:14",
+                "scope": 2449,
+                "src": "691:35:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2495_storage_$dyn_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2404_storage_$dyn_storage_$",
                   "typeString": "mapping(uint256 => struct PubStruct.Expert[])"
                 },
                 "typeName": {
-                  "id": 2518,
+                  "id": 2427,
                   "keyType": {
-                    "id": 2515,
+                    "id": 2424,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "698:7:14",
+                    "src": "699:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "690:28:14",
+                  "src": "691:28:15",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2495_storage_$dyn_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2404_storage_$dyn_storage_$",
                     "typeString": "mapping(uint256 => struct PubStruct.Expert[])"
                   },
                   "valueType": {
                     "baseType": {
-                      "id": 2516,
+                      "id": 2425,
                       "name": "Expert",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 2495,
-                      "src": "709:6:14",
+                      "referencedDeclaration": 2404,
+                      "src": "710:6:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Expert_$2495_storage_ptr",
+                        "typeIdentifier": "t_struct$_Expert_$2404_storage_ptr",
                         "typeString": "struct PubStruct.Expert"
                       }
                     },
-                    "id": 2517,
+                    "id": 2426,
                     "nodeType": "ArrayTypeName",
-                    "src": "709:8:14",
+                    "src": "710:8:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Expert_$2495_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Expert_$2404_storage_$dyn_storage_ptr",
                       "typeString": "struct PubStruct.Expert[]"
                     }
                   }
@@ -513,12 +513,12 @@
               },
               {
                 "constant": false,
-                "id": 2521,
+                "id": 2430,
                 "mutability": "mutable",
                 "name": "activeExperts",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "735:21:14",
+                "scope": 2449,
+                "src": "736:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -526,10 +526,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2520,
+                  "id": 2429,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "735:7:14",
+                  "src": "736:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -539,12 +539,12 @@
               },
               {
                 "constant": false,
-                "id": 2523,
+                "id": 2432,
                 "mutability": "mutable",
                 "name": "amountExperts",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "790:21:14",
+                "scope": 2449,
+                "src": "791:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -552,10 +552,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2522,
+                  "id": 2431,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "790:7:14",
+                  "src": "791:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -565,12 +565,12 @@
               },
               {
                 "constant": false,
-                "id": 2525,
+                "id": 2434,
                 "mutability": "mutable",
                 "name": "calculateExperts",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "893:21:14",
+                "scope": 2449,
+                "src": "894:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -578,10 +578,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2524,
+                  "id": 2433,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "893:4:14",
+                  "src": "894:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -591,12 +591,12 @@
               },
               {
                 "constant": false,
-                "id": 2527,
+                "id": 2436,
                 "mutability": "mutable",
                 "name": "host",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "925:20:14",
+                "scope": 2449,
+                "src": "926:20:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -604,10 +604,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2526,
+                  "id": 2435,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "925:15:14",
+                  "src": "926:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -618,12 +618,12 @@
               },
               {
                 "constant": false,
-                "id": 2529,
+                "id": 2438,
                 "mutability": "mutable",
                 "name": "correctAnswer",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "955:21:14",
+                "scope": 2449,
+                "src": "956:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -631,10 +631,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2528,
+                  "id": 2437,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "955:7:14",
+                  "src": "956:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -644,12 +644,12 @@
               },
               {
                 "constant": false,
-                "id": 2531,
+                "id": 2440,
                 "mutability": "mutable",
                 "name": "pool",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "986:12:14",
+                "scope": 2449,
+                "src": "987:12:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -657,10 +657,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2530,
+                  "id": 2439,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "986:7:14",
+                  "src": "987:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -670,12 +670,12 @@
               },
               {
                 "constant": false,
-                "id": 2533,
+                "id": 2442,
                 "mutability": "mutable",
                 "name": "reverted",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1008:13:14",
+                "scope": 2449,
+                "src": "1009:13:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -683,10 +683,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2532,
+                  "id": 2441,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1008:4:14",
+                  "src": "1009:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -696,12 +696,12 @@
               },
               {
                 "constant": false,
-                "id": 2535,
+                "id": 2444,
                 "mutability": "mutable",
                 "name": "premium",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1032:12:14",
+                "scope": 2449,
+                "src": "1033:12:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -709,10 +709,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2534,
+                  "id": 2443,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1032:4:14",
+                  "src": "1033:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -722,12 +722,12 @@
               },
               {
                 "constant": false,
-                "id": 2537,
+                "id": 2446,
                 "mutability": "mutable",
                 "name": "amountPremiumEvent",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1091:26:14",
+                "scope": 2449,
+                "src": "1092:26:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -735,10 +735,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2536,
+                  "id": 2445,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1091:7:14",
+                  "src": "1092:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -748,12 +748,12 @@
               },
               {
                 "constant": false,
-                "id": 2539,
+                "id": 2448,
                 "mutability": "mutable",
                 "name": "eventFinish",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1128:16:14",
+                "scope": 2449,
+                "src": "1129:16:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -761,10 +761,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2538,
+                  "id": 2447,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1128:4:14",
+                  "src": "1129:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -775,30 +775,76 @@
             ],
             "name": "EventData",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "364:787:14",
+            "scope": 2454,
+            "src": "365:787:15",
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 2453,
+            "mutability": "mutable",
+            "name": "events",
+            "nodeType": "VariableDeclaration",
+            "scope": 2454,
+            "src": "1158:45:15",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2449_storage_$",
+              "typeString": "mapping(int256 => struct PubStruct.EventData)"
+            },
+            "typeName": {
+              "id": 2452,
+              "keyType": {
+                "id": 2450,
+                "name": "int256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1166:6:15",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1158:38:15",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2449_storage_$",
+                "typeString": "mapping(int256 => struct PubStruct.EventData)"
+              },
+              "valueType": {
+                "id": 2451,
+                "name": "PubStruct.EventData",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 2449,
+                "src": "1176:19:15",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_EventData_$2449_storage_ptr",
+                  "typeString": "struct PubStruct.EventData"
+                }
+              }
+            },
+            "visibility": "internal"
           }
         ],
-        "scope": 2542,
-        "src": "66:1087:14"
+        "scope": 2455,
+        "src": "66:1140:15"
       }
     ],
-    "src": "32:1122:14"
+    "src": "32:1175:15"
   },
   "legacyAST": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol",
     "exportedSymbols": {
       "PubStruct": [
-        2541
+        2454
       ]
     },
-    "id": 2542,
+    "id": 2455,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 2481,
+        "id": 2390,
         "literals": [
           "solidity",
           ">=",
@@ -809,33 +855,33 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:14"
+        "src": "32:32:15"
       },
       {
         "abstract": false,
         "baseContracts": [],
         "contractDependencies": [],
-        "contractKind": "library",
+        "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 2541,
+        "id": 2454,
         "linearizedBaseContracts": [
-          2541
+          2454
         ],
         "name": "PubStruct",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "PubStruct.Player",
-            "id": 2486,
+            "id": 2395,
             "members": [
               {
                 "constant": false,
-                "id": 2483,
+                "id": 2392,
                 "mutability": "mutable",
                 "name": "player",
                 "nodeType": "VariableDeclaration",
-                "scope": 2486,
-                "src": "114:22:14",
+                "scope": 2395,
+                "src": "115:22:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -843,10 +889,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2482,
+                  "id": 2391,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "114:15:14",
+                  "src": "115:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -857,12 +903,12 @@
               },
               {
                 "constant": false,
-                "id": 2485,
+                "id": 2394,
                 "mutability": "mutable",
                 "name": "amount",
                 "nodeType": "VariableDeclaration",
-                "scope": 2486,
-                "src": "146:14:14",
+                "scope": 2395,
+                "src": "147:14:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -870,10 +916,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2484,
+                  "id": 2393,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "146:7:14",
+                  "src": "147:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -884,22 +930,22 @@
             ],
             "name": "Player",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "90:129:14",
+            "scope": 2454,
+            "src": "91:129:15",
             "visibility": "public"
           },
           {
             "canonicalName": "PubStruct.Referrers",
-            "id": 2490,
+            "id": 2399,
             "members": [
               {
                 "constant": false,
-                "id": 2489,
+                "id": 2398,
                 "mutability": "mutable",
                 "name": "referal",
                 "nodeType": "VariableDeclaration",
-                "scope": 2490,
-                "src": "252:17:14",
+                "scope": 2399,
+                "src": "253:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -908,19 +954,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 2487,
+                    "id": 2396,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "252:7:14",
+                    "src": "253:7:15",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 2488,
+                  "id": 2397,
                   "nodeType": "ArrayTypeName",
-                  "src": "252:9:14",
+                  "src": "253:9:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
@@ -931,22 +977,22 @@
             ],
             "name": "Referrers",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "225:51:14",
+            "scope": 2454,
+            "src": "226:51:15",
             "visibility": "public"
           },
           {
             "canonicalName": "PubStruct.Expert",
-            "id": 2495,
+            "id": 2404,
             "members": [
               {
                 "constant": false,
-                "id": 2492,
+                "id": 2401,
                 "mutability": "mutable",
                 "name": "expert",
                 "nodeType": "VariableDeclaration",
-                "scope": 2495,
-                "src": "306:22:14",
+                "scope": 2404,
+                "src": "307:22:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -954,10 +1000,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2491,
+                  "id": 2400,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "306:15:14",
+                  "src": "307:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -968,12 +1014,12 @@
               },
               {
                 "constant": false,
-                "id": 2494,
+                "id": 2403,
                 "mutability": "mutable",
                 "name": "rating",
                 "nodeType": "VariableDeclaration",
-                "scope": 2495,
-                "src": "338:13:14",
+                "scope": 2404,
+                "src": "339:13:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -981,10 +1027,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 2493,
+                  "id": 2402,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "338:6:14",
+                  "src": "339:6:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -995,22 +1041,22 @@
             ],
             "name": "Expert",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "282:76:14",
+            "scope": 2454,
+            "src": "283:76:15",
             "visibility": "public"
           },
           {
             "canonicalName": "PubStruct.EventData",
-            "id": 2540,
+            "id": 2449,
             "members": [
               {
                 "constant": false,
-                "id": 2497,
+                "id": 2406,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "391:9:14",
+                "scope": 2449,
+                "src": "392:9:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1018,10 +1064,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 2496,
+                  "id": 2405,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "391:6:14",
+                  "src": "392:6:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -1031,12 +1077,12 @@
               },
               {
                 "constant": false,
-                "id": 2499,
+                "id": 2408,
                 "mutability": "mutable",
                 "name": "startTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "410:17:14",
+                "scope": 2449,
+                "src": "411:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1044,10 +1090,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2498,
+                  "id": 2407,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "410:7:14",
+                  "src": "411:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1057,12 +1103,12 @@
               },
               {
                 "constant": false,
-                "id": 2501,
+                "id": 2410,
                 "mutability": "mutable",
                 "name": "endTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "437:15:14",
+                "scope": 2449,
+                "src": "438:15:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1070,10 +1116,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2500,
+                  "id": 2409,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "437:7:14",
+                  "src": "438:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1083,12 +1129,12 @@
               },
               {
                 "constant": false,
-                "id": 2503,
+                "id": 2412,
                 "mutability": "mutable",
                 "name": "questAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "462:17:14",
+                "scope": 2449,
+                "src": "463:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1096,10 +1142,10 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 2502,
+                  "id": 2411,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "462:5:14",
+                  "src": "463:5:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -1109,53 +1155,53 @@
               },
               {
                 "constant": false,
-                "id": 2508,
+                "id": 2417,
                 "mutability": "mutable",
                 "name": "players",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "489:36:14",
+                "scope": 2449,
+                "src": "490:36:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2486_storage_$dyn_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2395_storage_$dyn_storage_$",
                   "typeString": "mapping(uint256 => struct PubStruct.Player[])"
                 },
                 "typeName": {
-                  "id": 2507,
+                  "id": 2416,
                   "keyType": {
-                    "id": 2504,
+                    "id": 2413,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "497:7:14",
+                    "src": "498:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "489:28:14",
+                  "src": "490:28:15",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2486_storage_$dyn_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$2395_storage_$dyn_storage_$",
                     "typeString": "mapping(uint256 => struct PubStruct.Player[])"
                   },
                   "valueType": {
                     "baseType": {
-                      "id": 2505,
+                      "id": 2414,
                       "name": "Player",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 2486,
-                      "src": "508:6:14",
+                      "referencedDeclaration": 2395,
+                      "src": "509:6:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$2486_storage_ptr",
+                        "typeIdentifier": "t_struct$_Player_$2395_storage_ptr",
                         "typeString": "struct PubStruct.Player"
                       }
                     },
-                    "id": 2506,
+                    "id": 2415,
                     "nodeType": "ArrayTypeName",
-                    "src": "508:8:14",
+                    "src": "509:8:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Player_$2486_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Player_$2395_storage_$dyn_storage_ptr",
                       "typeString": "struct PubStruct.Player[]"
                     }
                   }
@@ -1164,12 +1210,12 @@
               },
               {
                 "constant": false,
-                "id": 2512,
+                "id": 2421,
                 "mutability": "mutable",
                 "name": "allPlayers",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "535:35:14",
+                "scope": 2449,
+                "src": "536:35:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1177,28 +1223,28 @@
                   "typeString": "mapping(address => bool)"
                 },
                 "typeName": {
-                  "id": 2511,
+                  "id": 2420,
                   "keyType": {
-                    "id": 2509,
+                    "id": 2418,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "543:7:14",
+                    "src": "544:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "535:24:14",
+                  "src": "536:24:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                     "typeString": "mapping(address => bool)"
                   },
                   "valueType": {
-                    "id": 2510,
+                    "id": 2419,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "554:4:14",
+                    "src": "555:4:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1209,12 +1255,12 @@
               },
               {
                 "constant": false,
-                "id": 2514,
+                "id": 2423,
                 "mutability": "mutable",
                 "name": "activePlayers",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "634:21:14",
+                "scope": 2449,
+                "src": "635:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1222,10 +1268,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2513,
+                  "id": 2422,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "634:7:14",
+                  "src": "635:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1235,53 +1281,53 @@
               },
               {
                 "constant": false,
-                "id": 2519,
+                "id": 2428,
                 "mutability": "mutable",
                 "name": "expert",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "690:35:14",
+                "scope": 2449,
+                "src": "691:35:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2495_storage_$dyn_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2404_storage_$dyn_storage_$",
                   "typeString": "mapping(uint256 => struct PubStruct.Expert[])"
                 },
                 "typeName": {
-                  "id": 2518,
+                  "id": 2427,
                   "keyType": {
-                    "id": 2515,
+                    "id": 2424,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "698:7:14",
+                    "src": "699:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "690:28:14",
+                  "src": "691:28:15",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2495_storage_$dyn_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2404_storage_$dyn_storage_$",
                     "typeString": "mapping(uint256 => struct PubStruct.Expert[])"
                   },
                   "valueType": {
                     "baseType": {
-                      "id": 2516,
+                      "id": 2425,
                       "name": "Expert",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 2495,
-                      "src": "709:6:14",
+                      "referencedDeclaration": 2404,
+                      "src": "710:6:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Expert_$2495_storage_ptr",
+                        "typeIdentifier": "t_struct$_Expert_$2404_storage_ptr",
                         "typeString": "struct PubStruct.Expert"
                       }
                     },
-                    "id": 2517,
+                    "id": 2426,
                     "nodeType": "ArrayTypeName",
-                    "src": "709:8:14",
+                    "src": "710:8:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Expert_$2495_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Expert_$2404_storage_$dyn_storage_ptr",
                       "typeString": "struct PubStruct.Expert[]"
                     }
                   }
@@ -1290,12 +1336,12 @@
               },
               {
                 "constant": false,
-                "id": 2521,
+                "id": 2430,
                 "mutability": "mutable",
                 "name": "activeExperts",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "735:21:14",
+                "scope": 2449,
+                "src": "736:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1303,10 +1349,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2520,
+                  "id": 2429,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "735:7:14",
+                  "src": "736:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1316,12 +1362,12 @@
               },
               {
                 "constant": false,
-                "id": 2523,
+                "id": 2432,
                 "mutability": "mutable",
                 "name": "amountExperts",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "790:21:14",
+                "scope": 2449,
+                "src": "791:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1329,10 +1375,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2522,
+                  "id": 2431,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "790:7:14",
+                  "src": "791:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1342,12 +1388,12 @@
               },
               {
                 "constant": false,
-                "id": 2525,
+                "id": 2434,
                 "mutability": "mutable",
                 "name": "calculateExperts",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "893:21:14",
+                "scope": 2449,
+                "src": "894:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1355,10 +1401,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2524,
+                  "id": 2433,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "893:4:14",
+                  "src": "894:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1368,12 +1414,12 @@
               },
               {
                 "constant": false,
-                "id": 2527,
+                "id": 2436,
                 "mutability": "mutable",
                 "name": "host",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "925:20:14",
+                "scope": 2449,
+                "src": "926:20:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1381,10 +1427,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 2526,
+                  "id": 2435,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "925:15:14",
+                  "src": "926:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -1395,12 +1441,12 @@
               },
               {
                 "constant": false,
-                "id": 2529,
+                "id": 2438,
                 "mutability": "mutable",
                 "name": "correctAnswer",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "955:21:14",
+                "scope": 2449,
+                "src": "956:21:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1408,10 +1454,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2528,
+                  "id": 2437,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "955:7:14",
+                  "src": "956:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1421,12 +1467,12 @@
               },
               {
                 "constant": false,
-                "id": 2531,
+                "id": 2440,
                 "mutability": "mutable",
                 "name": "pool",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "986:12:14",
+                "scope": 2449,
+                "src": "987:12:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1434,10 +1480,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2530,
+                  "id": 2439,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "986:7:14",
+                  "src": "987:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1447,12 +1493,12 @@
               },
               {
                 "constant": false,
-                "id": 2533,
+                "id": 2442,
                 "mutability": "mutable",
                 "name": "reverted",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1008:13:14",
+                "scope": 2449,
+                "src": "1009:13:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1460,10 +1506,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2532,
+                  "id": 2441,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1008:4:14",
+                  "src": "1009:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1473,12 +1519,12 @@
               },
               {
                 "constant": false,
-                "id": 2535,
+                "id": 2444,
                 "mutability": "mutable",
                 "name": "premium",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1032:12:14",
+                "scope": 2449,
+                "src": "1033:12:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1486,10 +1532,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2534,
+                  "id": 2443,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1032:4:14",
+                  "src": "1033:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1499,12 +1545,12 @@
               },
               {
                 "constant": false,
-                "id": 2537,
+                "id": 2446,
                 "mutability": "mutable",
                 "name": "amountPremiumEvent",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1091:26:14",
+                "scope": 2449,
+                "src": "1092:26:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1512,10 +1558,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 2536,
+                  "id": 2445,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1091:7:14",
+                  "src": "1092:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -1525,12 +1571,12 @@
               },
               {
                 "constant": false,
-                "id": 2539,
+                "id": 2448,
                 "mutability": "mutable",
                 "name": "eventFinish",
                 "nodeType": "VariableDeclaration",
-                "scope": 2540,
-                "src": "1128:16:14",
+                "scope": 2449,
+                "src": "1129:16:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1538,10 +1584,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 2538,
+                  "id": 2447,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1128:4:14",
+                  "src": "1129:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -1552,16 +1598,62 @@
             ],
             "name": "EventData",
             "nodeType": "StructDefinition",
-            "scope": 2541,
-            "src": "364:787:14",
+            "scope": 2454,
+            "src": "365:787:15",
             "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 2453,
+            "mutability": "mutable",
+            "name": "events",
+            "nodeType": "VariableDeclaration",
+            "scope": 2454,
+            "src": "1158:45:15",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2449_storage_$",
+              "typeString": "mapping(int256 => struct PubStruct.EventData)"
+            },
+            "typeName": {
+              "id": 2452,
+              "keyType": {
+                "id": 2450,
+                "name": "int256",
+                "nodeType": "ElementaryTypeName",
+                "src": "1166:6:15",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "1158:38:15",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2449_storage_$",
+                "typeString": "mapping(int256 => struct PubStruct.EventData)"
+              },
+              "valueType": {
+                "id": 2451,
+                "name": "PubStruct.EventData",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 2449,
+                "src": "1176:19:15",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_EventData_$2449_storage_ptr",
+                  "typeString": "struct PubStruct.EventData"
+                }
+              }
+            },
+            "visibility": "internal"
           }
         ],
-        "scope": 2542,
-        "src": "66:1087:14"
+        "scope": 2455,
+        "src": "66:1140:15"
       }
     ],
-    "src": "32:1122:14"
+    "src": "32:1175:15"
   },
   "compiler": {
     "name": "solc",
@@ -1569,7 +1661,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.2",
-  "updatedAt": "2021-02-23T12:00:59.056Z",
+  "updatedAt": "2021-02-24T17:07:32.441Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
