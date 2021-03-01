@@ -2,15 +2,16 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract ConfigVariables {
-    uint256 private companyPerc;
-    uint256 private hostPerc;
-    uint256 private expertPerc;
-    uint256 private playerPers;
-    address private owner;
-    uint256 private firstWithdrawIndex = 10;
-    uint256 private GFrewards = 100000000000000000000;
-    uint256 private GFindex = 1;
-    uint256 private welcomeBTYTokens = 10000000000000000000;
+    uint256 public communityMarketingFund; // 8 or 5 and 2 for advisor + 1 additional for host
+    uint256 public companyPerc = 10; 
+    uint256 public hostPerc = 10;
+    uint256 public expertPerc = 10;
+    uint256 public playerPers;
+    address public owner;
+    uint256 public firstWithdrawIndex = 10;
+    uint256 public GFrewards = 100000000000000000000;
+    uint256 public GFindex = 1;
+    uint256 public welcomeBTYTokens = 10000000000000000000;
 
     constructor() {
         owner = msg.sender;
@@ -56,35 +57,7 @@ contract ConfigVariables {
         GFindex = _GFindex;
     }
 
-    function getCompanyPerc() public view returns (uint256) {
-        return companyPerc;
-    }
-
-    function getHostPerc() public view returns (uint256) {
-        return hostPerc;
-    }
-
-    function getExpertPerc() public view returns (uint256) {
-        return expertPerc;
-    }
-
-    function getPlayerPers() public view returns (uint256) {
-        return playerPers;
-    }
-
     function getFirstWithdraw() public view returns (uint256) {
         return welcomeBTYTokens * firstWithdrawIndex;
-    }
-
-    function getGFrewards() public view returns (uint256) {
-        return GFrewards;
-    }
-
-    function getGFindex() public view returns (uint256) {
-        return GFindex;
-    }
-
-    function getWelcomeBTYTokens() public view returns (uint256) {
-        return welcomeBTYTokens;
     }
 }

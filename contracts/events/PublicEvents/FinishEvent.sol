@@ -10,6 +10,12 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
     BET public betToken;
     BTY public btyToken;
     event revertedEvent(int256 id, string purpose);
+    event calculateTokensAmount(
+        int256 id,
+        uint256 activePlayers,
+        uint256 pool,
+        uint256 GFindex
+    );
 
     constructor(BET _betAddress, BTY _btyAddress) {
         betToken = _betAddress;
@@ -67,11 +73,30 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
                 revertPayment(_id, "duplicates validators");
             } else {
                 events[_id].correctAnswer = correctAnswer;
-                findLosersPool(_id);
+                findLosersPool(correctAnswer, _id);
             }
         } else {
             events[_id].correctAnswer = correctAnswer;
-            findLosersPool(_id);
+            findLosersPool(correctAnswer, _id);
+        }
+    }
+
+    function findLosersPool(uint256 correctAnswer, int256 _id) private {
+        uint256 B;
+        uint256 n = events[_id].players[correctAnswer].length;
+        for (uint8 i = 0; i < n; i++) {
+            B = B + events[_id].players[correctAnswer][i].amount;
+        }
+        uint256 loserPool = events[_id].pool - B;
+        if (loserPool == 0) {
+            revertedPayment(_id, "players chose only one answer");
+        } else {
+            emit calculateTokensAmount(
+                _id,
+                events[_id].activePlayers,
+                events[_id].pool,
+                GFindex
+            );
         }
     }
 
@@ -98,5 +123,52 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
         emit revertedEvent(_id, purpose);
     }
 
-    function findLosersPool(int256 _id) private {}
+    function letsFinishEvent(int256 _id, uint256 _tokens) public ownerOnly() {
+        events[_id].tokenMinted = _tokens;
+        // pay for company
+        uint256 persentFee = getPersent(_tokens, companyPerc);
+        require(
+            betToken.mintFromPublicContract(owner, persentFee),
+            "Revert BET token to players is error"
+        );
+        paytoHost(_id);
+    }
+
+    function paytoHost(int256 _id) private {
+        uint256 persentFee = getPersent(events[_id].tokenMinted, hostPerc);
+        require(
+            betToken.mintFromPublicContract(events[_id].host, persentFee),
+            "Revert BET token to players is error"
+        );
+        payToExperts(_id);
+    }
+
+    function payToExperts(int256 _id) private {
+        uint256 correctAnswer = events[_id].correctAnswer;
+        uint256 allReputation;
+
+        for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {
+            allReputation =
+                allReputation +
+                events[_id].expert[correctAnswer][i].reputation;
+        }
+
+        for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {
+            uint256 persentFee =
+                getPersent(events[_id].tokenMinted, expertPerc);
+            uint256 amount =
+                (persentFee * events[_id].expert[correctAnswer][i].reputation) /
+                    allReputation;
+            require(
+                betToken.mintFromPublicContract(
+                    events[_id].expert[correctAnswer][i].expert,
+                    amount
+                ),
+                "Revert BET token to players is error"
+            );
+        }
+        payToPlayers(_id);
+    }
+
+    function payToPlayers(int256 _id) private {}
 }

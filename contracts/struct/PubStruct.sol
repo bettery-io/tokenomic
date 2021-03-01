@@ -10,12 +10,12 @@ contract PubStruct {
     }
 
     struct Referrers {
-        address[] referrer;
+        address payable[] referrer;
     }
 
     struct Expert {
         address payable expert;
-        int256 reputation;
+        uint256 reputation;
     }
 
     struct EventData {
@@ -34,6 +34,7 @@ contract PubStruct {
         address payable advisor;
         uint256 correctAnswer;
         uint256 pool;
+        uint256 tokenMinted;
         bool reverted; 
         bool premium; // if true amountProEvent can't be 0
         uint256 amountPremiumEvent; 

@@ -12,14 +12,9 @@ contract PublicEvents is
     PubStruct,
     FinishEvent
 {
-    address payable owner;
-
-    event calculateExpert(int256 id);
-
-    constructor(BET _betAddress, BTY _btyAddress) FinishEvent(_betAddress, _btyAddress)
-    {
-        owner = msg.sender;
-    }
+    event calculateExpert(int256 id, uint256 activePlayers);
+    constructor(BET _betAddress, BTY _btyAddress) FinishEvent(_betAddress, _btyAddress){}
+    uint256 minBet = 10000000000000000;
 
     function newEvent(
         int256 _id,
@@ -78,6 +73,7 @@ contract PublicEvents is
             events[_id].allPlayers[_playerWallet] == true,
             "user already participate in event"
         );
+        require(_amount >= minBet, "bet amount must be bigger or equal to 0.01 tokens" );
 
         PubStruct.Player memory player;
         player = PubStruct.Player(_playerId, _playerWallet, _amount, _referrersDeep);
@@ -96,7 +92,7 @@ contract PublicEvents is
         );
     }
 
-    function setReferrers(string memory _key, address[] memory _referrers) public ownerOnly(){
+    function setReferrers(string memory _key, address payable[] calldata _referrers) public ownerOnly(){
         referrers[_key].referrer = _referrers;
     }
 
@@ -121,7 +117,7 @@ contract PublicEvents is
             if (
                 events[_id].calculateExperts && events[_id].amountExperts == 0
             ) {
-                emit calculateExpert(_id);
+                emit calculateExpert(_id, events[_id].activePlayers);
             } else {
                 PubStruct.Expert memory expert;
                 expert = PubStruct.Expert(_expertWallet, _reputation);

@@ -24,16 +24,16 @@ contract BET is MetaTransactLib, ERC20, ConfigVariables {
 
     function mint(address wallet) public ownerOnly() {
         require(balanceOf(wallet) == 0, "User has tokens on balance");
-        uint256 amount = getWelcomeBTYTokens();
-        _mint(wallet, amount);
+        _mint(wallet, welcomeBTYTokens);
     }
 
-    function mintPublicContract(address wallet, uint256 amount) public {
+    function mintFromPublicContract(address wallet, uint256 amount) public returns(bool) {
         require(
             msg.sender == publicContract,
             "This function could only be executed by the public contract"
         );
         _mint(wallet, amount);
+        return true;
     }
 
     function burn(address wallet, uint256 amount) public {
