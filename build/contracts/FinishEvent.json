@@ -507,13 +507,13 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"int256\",\"name\":\"id\",\"type\":\"int256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"activePlayers\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"pool\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"GFindex\",\"type\":\"uint256\"}],\"name\":\"calculateTokensAmount\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"int256\",\"name\":\"id\",\"type\":\"int256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"}],\"name\":\"revertedEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"GFindex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GFrewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"advisorPepc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"advisorPercMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"betToken\",\"outputs\":[{\"internalType\":\"contract BET\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"btyToken\",\"outputs\":[{\"internalType\":\"contract BTY\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"communityMarketingFund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"companyPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expertExptraPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expertPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expertPercMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"firstWithdrawIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFirstWithdraw\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_percent\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_from\",\"type\":\"uint256\"}],\"name\":\"getPersent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hostPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hostPercMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"}],\"name\":\"letsFindCorrectAnswer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"_tokens\",\"type\":\"uint256\"}],\"name\":\"letsFinishEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"playerPers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"},{\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"}],\"name\":\"revertedPayment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_companyPerc\",\"type\":\"uint256\"}],\"name\":\"setCompanyPerc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_expertPerc\",\"type\":\"uint256\"}],\"name\":\"setExpertPerc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_firstWithdrawIndex\",\"type\":\"uint256\"}],\"name\":\"setFirstWithdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_GFindex\",\"type\":\"uint256\"}],\"name\":\"setGFindex\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_GFrewards\",\"type\":\"uint256\"}],\"name\":\"setGFrewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_hostPercMint\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hostPerc\",\"type\":\"uint256\"}],\"name\":\"setHostPerc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_playerPers\",\"type\":\"uint256\"}],\"name\":\"setPlayerPers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_data\",\"type\":\"uint256[]\"}],\"name\":\"setSort\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_welcomeBTYTokens\",\"type\":\"uint256\"}],\"name\":\"setWelcomeBTYTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sort\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"sortedArray\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"welcomeBTYTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol\":\"FinishEvent\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/ConfigVariables.sol\":{\"keccak256\":\"0xe66d7d15ed24ab76ebed602561aa2ae47688d0c4def1febe80d486d7ae1aaf1b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e2ecca064ff3c920c7677bba139689ddd853bdc53acf6f867eb56ff7b73976e0\",\"dweb:/ipfs/QmZAabqxUuSX1kLZrdTGw42VmmG9jMD1Q6BSGpQ3gEHdUE\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol\":{\"keccak256\":\"0xdb2f0d0f5cbbf8f2e9010ddcc92af12ecd810e6489f3b8f20915e5e76f723fa8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://583cd4fd57b65f5a524c6294af278a36e35d3ac426a00d04467107074834d7fb\",\"dweb:/ipfs/QmbQS1w5UZMnaWeQJDcNjNtpEwcT3qMSwrYdYHCgX9nSEr\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/Libs.sol\":{\"keccak256\":\"0xce013f9039f5525bcea9487c1e8d057c4cdad299d1aabcb3dcbebb219dfb500c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://71fb4200f8831814bfd4c0aed5106bac2a2f3ac02df497bbc44d2dcab975d4b2\",\"dweb:/ipfs/QmXuAYf9bJiZ5cE3ZL81uqom8SiuYNd5PcUvcukxVovsme\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/MetaTransactLib.sol\":{\"keccak256\":\"0x212f38f7650263af4e548d3131cd5a8779351414fbb6b41e259ab0669a70761e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://766aec88242dac17a4c9ec2695e10309545926c9ad130e9a2ee1ec6439d78eb1\",\"dweb:/ipfs/QmfKvLYc7Ky6DTgH8rUFkd3KKVejZkoXYLSVhrEKAsJJJ3\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/common/EIP712Base.sol\":{\"keccak256\":\"0xabf82690509d325f9b76b3c5167f426dd1eadbe4f69438c594aa4431b13958c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7290b6cf2808cadce199c1ad5c1ed027253fdf6f374e2a9d86a6918c74354b26\",\"dweb:/ipfs/QmTibYrjHPjBz26TduKHPyKxhSyTkg9z9oKeCaWNKhiAfe\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/common/NetworkAgnostic.sol\":{\"keccak256\":\"0x4525fd0f773978cdacabc6d6b6acdcb35c06941cf87230c530c3775e0f17d373\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://54e95be23f317452361dd7b6a577e93acb9746801dad4a78d416567703a1d5c6\",\"dweb:/ipfs/QmUQ9efSBZqHXdzv96kVWc4rafrBYGmmoQAqzvfu8vhbBY\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":{\"keccak256\":\"0xc0d12f7a5a07b6a4b8ffa47d9a70a56331ecfd6ff326e36a91e714a239349bec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8efdc741a3262f84d30301a4610bc8ed360d7c1ca0732e7f18b240f25f25a5a3\",\"dweb:/ipfs/Qmf1C2ECJMUjbYoXqjwuxFrUtmaeHmv26thoqf1xzyKgpk\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BET.sol\":{\"keccak256\":\"0x06586909555053db3b184c8bbdfecf9b74af3fa2c95979c4f9d6f6f3f6d2d7f8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3d66cf47b5efec92a5dc49b336f479c6eeb615329b61627fc92cecb301d1faad\",\"dweb:/ipfs/QmRmqzJcM9H335k1za3cwKsoZ5tDdsS2j3WfTgUq58g3E6\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BTY.sol\":{\"keccak256\":\"0x4add29277395a0bdada6165e52a949cda67339c4a8e7754a64973c05f2875a0b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b15f7e81c7375a44ebf065ae9a7a6d6ef3d459869742ee723d1d75e71308666\",\"dweb:/ipfs/Qmei5B1TscDfdu7AfHJdUJ1XcNKpqtxsMCPTLkHPhERckx\"]},\"@openzeppelin/contracts/access/AccessControl.sol\":{\"keccak256\":\"0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa\",\"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://991b44ff44e0496e8554a90f4c0512c28faed45104d40430019f3c67ea67740e\",\"dweb:/ipfs/Qmc3nRapVbcctELoZS5qe17zLkFB3bETBfwzCTMF1CSuGE\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08\",\"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec\",\"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"int256\",\"name\":\"id\",\"type\":\"int256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"activePlayers\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"pool\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"GFindex\",\"type\":\"uint256\"}],\"name\":\"calculateTokensAmount\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"int256\",\"name\":\"id\",\"type\":\"int256\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"}],\"name\":\"revertedEvent\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"GFindex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GFrewards\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"advisorPepc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"advisorPercMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"betToken\",\"outputs\":[{\"internalType\":\"contract BET\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"btyToken\",\"outputs\":[{\"internalType\":\"contract BTY\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"communityMarketingFund\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"companyPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expertExptraPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expertPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"expertPercMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"firstWithdrawIndex\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getFirstWithdraw\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_percent\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_from\",\"type\":\"uint256\"}],\"name\":\"getPersent\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hostPerc\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"hostPercMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"}],\"name\":\"letsFindCorrectAnswer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"_tokens\",\"type\":\"uint256\"}],\"name\":\"letsFinishEvent\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"playerPers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"},{\"internalType\":\"string\",\"name\":\"purpose\",\"type\":\"string\"}],\"name\":\"revertedPayment\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_companyPerc\",\"type\":\"uint256\"}],\"name\":\"setCompanyPerc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_expertPerc\",\"type\":\"uint256\"}],\"name\":\"setExpertPerc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_firstWithdrawIndex\",\"type\":\"uint256\"}],\"name\":\"setFirstWithdraw\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_GFindex\",\"type\":\"uint256\"}],\"name\":\"setGFindex\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_GFrewards\",\"type\":\"uint256\"}],\"name\":\"setGFrewards\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_hostPercMint\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_hostPerc\",\"type\":\"uint256\"}],\"name\":\"setHostPerc\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_playerPers\",\"type\":\"uint256\"}],\"name\":\"setPlayerPers\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256[]\",\"name\":\"_data\",\"type\":\"uint256[]\"}],\"name\":\"setSort\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_welcomeBTYTokens\",\"type\":\"uint256\"}],\"name\":\"setWelcomeBTYTokens\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"sort\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"sortedArray\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"welcomeBTYTokens\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol\":\"FinishEvent\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/ConfigVariables.sol\":{\"keccak256\":\"0xe66d7d15ed24ab76ebed602561aa2ae47688d0c4def1febe80d486d7ae1aaf1b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e2ecca064ff3c920c7677bba139689ddd853bdc53acf6f867eb56ff7b73976e0\",\"dweb:/ipfs/QmZAabqxUuSX1kLZrdTGw42VmmG9jMD1Q6BSGpQ3gEHdUE\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol\":{\"keccak256\":\"0x6694405b799b2f53fd3a0b992a278f98755432524e760e993cd8aab54cb77bcd\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c2bd907a1b09e3c2191692f6ad86490c465734390a7e4c94b5585f536d19a938\",\"dweb:/ipfs/QmZRZVQ5BANoK4peg6MVQdEG6tqwDLnw6fywuGxaGcki5p\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/Libs.sol\":{\"keccak256\":\"0xce013f9039f5525bcea9487c1e8d057c4cdad299d1aabcb3dcbebb219dfb500c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://71fb4200f8831814bfd4c0aed5106bac2a2f3ac02df497bbc44d2dcab975d4b2\",\"dweb:/ipfs/QmXuAYf9bJiZ5cE3ZL81uqom8SiuYNd5PcUvcukxVovsme\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/MetaTransactLib.sol\":{\"keccak256\":\"0x212f38f7650263af4e548d3131cd5a8779351414fbb6b41e259ab0669a70761e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://766aec88242dac17a4c9ec2695e10309545926c9ad130e9a2ee1ec6439d78eb1\",\"dweb:/ipfs/QmfKvLYc7Ky6DTgH8rUFkd3KKVejZkoXYLSVhrEKAsJJJ3\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/common/EIP712Base.sol\":{\"keccak256\":\"0xabf82690509d325f9b76b3c5167f426dd1eadbe4f69438c594aa4431b13958c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7290b6cf2808cadce199c1ad5c1ed027253fdf6f374e2a9d86a6918c74354b26\",\"dweb:/ipfs/QmTibYrjHPjBz26TduKHPyKxhSyTkg9z9oKeCaWNKhiAfe\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/common/NetworkAgnostic.sol\":{\"keccak256\":\"0x4525fd0f773978cdacabc6d6b6acdcb35c06941cf87230c530c3775e0f17d373\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://54e95be23f317452361dd7b6a577e93acb9746801dad4a78d416567703a1d5c6\",\"dweb:/ipfs/QmUQ9efSBZqHXdzv96kVWc4rafrBYGmmoQAqzvfu8vhbBY\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":{\"keccak256\":\"0xc0d12f7a5a07b6a4b8ffa47d9a70a56331ecfd6ff326e36a91e714a239349bec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8efdc741a3262f84d30301a4610bc8ed360d7c1ca0732e7f18b240f25f25a5a3\",\"dweb:/ipfs/Qmf1C2ECJMUjbYoXqjwuxFrUtmaeHmv26thoqf1xzyKgpk\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BET.sol\":{\"keccak256\":\"0x06586909555053db3b184c8bbdfecf9b74af3fa2c95979c4f9d6f6f3f6d2d7f8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3d66cf47b5efec92a5dc49b336f479c6eeb615329b61627fc92cecb301d1faad\",\"dweb:/ipfs/QmRmqzJcM9H335k1za3cwKsoZ5tDdsS2j3WfTgUq58g3E6\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BTY.sol\":{\"keccak256\":\"0x4add29277395a0bdada6165e52a949cda67339c4a8e7754a64973c05f2875a0b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8b15f7e81c7375a44ebf065ae9a7a6d6ef3d459869742ee723d1d75e71308666\",\"dweb:/ipfs/Qmei5B1TscDfdu7AfHJdUJ1XcNKpqtxsMCPTLkHPhERckx\"]},\"@openzeppelin/contracts/access/AccessControl.sol\":{\"keccak256\":\"0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa\",\"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://991b44ff44e0496e8554a90f4c0512c28faed45104d40430019f3c67ea67740e\",\"dweb:/ipfs/Qmc3nRapVbcctELoZS5qe17zLkFB3bETBfwzCTMF1CSuGE\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08\",\"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec\",\"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\nimport {PubStruct} from \"../../struct/PubStruct.sol\";\nimport {Libs} from \"./Libs.sol\";\nimport {ConfigVariables} from \"../../config/ConfigVariables.sol\";\nimport {BET} from \"../../tokens/BET.sol\";\nimport {BTY} from \"../../tokens/BTY.sol\";\n\nabstract contract FinishEvent is PubStruct, Libs, ConfigVariables {\n    BET public betToken;\n    BTY public btyToken;\n    event revertedEvent(int256 id, string purpose);\n    event calculateTokensAmount(\n        int256 id,\n        uint256 activePlayers,\n        uint256 pool,\n        uint256 GFindex\n    );\n\n    constructor(BET _betAddress, BTY _btyAddress) {\n        betToken = _betAddress;\n        btyToken = _btyAddress;\n    }\n\n    function letsFindCorrectAnswer(int256 _id) public {\n        uint256 biggestValue = 0;\n        uint256 correctAnswer;\n\n        // find correct answer\n        for (uint8 i = 0; i < events[_id].questAmount; i++) {\n            if (events[_id].expert[i].length > biggestValue) {\n                biggestValue = events[_id].expert[i].length;\n                correctAnswer = i;\n            }\n        }\n\n        findDuplicates(\n            correctAnswer,\n            biggestValue,\n            _id,\n            events[_id].questAmount\n        );\n    }\n\n    function findDuplicates(\n        uint256 correctAnswer,\n        uint256 biggestValue,\n        int256 _id,\n        uint8 questAmount\n    ) private {\n        if (events[_id].activeExperts > 1) {\n            uint8 duplicatesAnswers = 0;\n            uint256[] memory expertAnswers = new uint256[](questAmount);\n            for (uint8 i = 0; i < questAmount; i++) {\n                expertAnswers[i] = events[_id].expert[i].length;\n            }\n\n            setSort(expertAnswers);\n            sort();\n\n            for (uint8 i = 0; i < sortedArray.length - 1; i++) {\n                if ((i + 1) < sortedArray.length) {\n                    if (sortedArray[i + 1] == sortedArray[i]) {\n                        if (biggestValue == sortedArray[i]) {\n                            duplicatesAnswers++;\n                        }\n                    }\n                }\n            }\n\n            if (duplicatesAnswers > 0) {\n                events[_id].reverted = true;\n                revertPayment(_id, \"duplicates validators\");\n            } else {\n                events[_id].correctAnswer = correctAnswer;\n                findLosersPool(correctAnswer, _id);\n            }\n        } else {\n            events[_id].correctAnswer = correctAnswer;\n            findLosersPool(correctAnswer, _id);\n        }\n    }\n\n    function findLosersPool(uint256 correctAnswer, int256 _id) private {\n        uint256 B;\n        uint256 n = events[_id].players[correctAnswer].length;\n        for (uint8 i = 0; i < n; i++) {\n            B = B + events[_id].players[correctAnswer][i].amount;\n        }\n        uint256 loserPool = events[_id].pool - B;\n        if (loserPool == 0) {\n            revertedPayment(_id, \"players chose only one answer\");\n        } else {\n            emit calculateTokensAmount(\n                _id,\n                events[_id].activePlayers,\n                events[_id].pool,\n                GFindex\n            );\n        }\n    }\n\n    function revertedPayment(int256 _id, string memory purpose)\n        public\n        ownerOnly()\n    {\n        revertPayment(_id, purpose);\n    }\n\n    function revertPayment(int256 _id, string memory purpose) private {\n        for (uint8 i = 0; i < events[_id].questAmount; i++) {\n            for (uint8 z = 0; z < events[_id].players[i].length; z++) {\n                require(\n                    betToken.transfer(\n                        events[_id].players[i][z].player,\n                        events[_id].players[i][z].amount\n                    ),\n                    \"Revert BET token to players is error\"\n                );\n            }\n        }\n        events[_id].reverted = true;\n        emit revertedEvent(_id, purpose);\n    }\n\n    function letsFinishEvent(int256 _id, uint256 _tokens) public ownerOnly() {\n        events[_id].tokenMinted = _tokens;\n        // pay for company\n        uint256 persentFee = getPersent(_tokens, companyPerc);\n        require(\n            betToken.mintFromPublicContract(owner, persentFee),\n            \"Revert BET token to players is error\"\n        );\n        paytoHost(_id);\n    }\n\n    function paytoHost(int256 _id) private {\n        if (events[_id].advisor != address(0)) {\n            // pay minted tokens\n            uint256 persHostFeeMint =\n                getPersent(events[_id].tokenMinted, hostPercMint + 1);\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].host,\n                    persHostFeeMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            uint256 persAdvisorFeeMint =\n                getPersent(events[_id].tokenMinted, advisorPercMint + 1);\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].advisor,\n                    persAdvisorFeeMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            // pay not minted tokens\n            uint256 percHostFee =\n                getPersent(events[_id].pool, hostPerc + advisorPepc);\n            require(\n                betToken.transfer(events[_id].host, percHostFee),\n                \"Revert BET token to players is error\"\n            );\n            uint256 percAdvisorFee = getPersent(events[_id].pool, advisorPepc);\n            require(\n                betToken.transfer(events[_id].advisor, percAdvisorFee),\n                \"Revert BET token to players is error\"\n            );\n        } else {\n            // pay minted tokens\n            uint256 persentFeeMint =\n                getPersent(events[_id].tokenMinted, hostPercMint);\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].host,\n                    persentFeeMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            // pay not minted tokens\n            uint256 persentFee = getPersent(events[_id].pool, hostPerc);\n            require(\n                betToken.transfer(events[_id].host, persentFee),\n                \"Revert BET token to players is error\"\n            );\n        }\n        payToExperts(_id);\n    }\n\n    function payToExperts(int256 _id) private {\n        uint256 correctAnswer = events[_id].correctAnswer;\n        uint256 allReputation;\n        uint256 percent = events[_id].advisor != address(0) ? expertPerc : expertPerc + expertExptraPerc;\n\n        for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {\n            allReputation =\n                allReputation +\n                events[_id].expert[correctAnswer][i].reputation;\n        }\n\n        for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {\n            // pay minted tokens\n            uint256 persentFeeMint =\n                getPersent(events[_id].tokenMinted, expertPercMint);\n            uint256 amountMint =\n                (persentFeeMint * events[_id].expert[correctAnswer][i].reputation) /\n                    allReputation;\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].expert[correctAnswer][i].expert,\n                    amountMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            // pay not minted tokens\n            uint256 persentFee =\n                getPersent(events[_id].pool, percent);\n            uint256 amount =\n                (persentFee * events[_id].expert[correctAnswer][i].reputation) /\n                    allReputation;\n            require(\n                betToken.transfer(\n                    events[_id].expert[correctAnswer][i].expert,\n                    amount\n                ),\n                \"Revert BET token to players is error\"\n            );\n        }\n        payToPlayers(_id);\n    }\n\n    function payToPlayers(int256 _id) private {}\n}\n",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\nimport {PubStruct} from \"../../struct/PubStruct.sol\";\nimport {Libs} from \"./Libs.sol\";\nimport {ConfigVariables} from \"../../config/ConfigVariables.sol\";\nimport {BET} from \"../../tokens/BET.sol\";\nimport {BTY} from \"../../tokens/BTY.sol\";\n\nabstract contract FinishEvent is PubStruct, Libs, ConfigVariables {\n    BET public betToken;\n    BTY public btyToken;\n    event revertedEvent(int256 id, string purpose);\n    event calculateTokensAmount(\n        int256 id,\n        uint256 activePlayers,\n        uint256 pool,\n        uint256 GFindex\n    );\n\n    constructor(BET _betAddress, BTY _btyAddress) {\n        betToken = _betAddress;\n        btyToken = _btyAddress;\n    }\n\n    function letsFindCorrectAnswer(int256 _id) public {\n        uint256 biggestValue = 0;\n        uint256 correctAnswer;\n\n        // find correct answer\n        for (uint8 i = 0; i < events[_id].questAmount; i++) {\n            if (events[_id].expert[i].length > biggestValue) {\n                biggestValue = events[_id].expert[i].length;\n                correctAnswer = i;\n            }\n        }\n\n        findDuplicates(\n            correctAnswer,\n            biggestValue,\n            _id,\n            events[_id].questAmount\n        );\n    }\n\n    function findDuplicates(\n        uint256 correctAnswer,\n        uint256 biggestValue,\n        int256 _id,\n        uint8 questAmount\n    ) private {\n        if (events[_id].activeExperts > 1) {\n            uint8 duplicatesAnswers = 0;\n            uint256[] memory expertAnswers = new uint256[](questAmount);\n            for (uint8 i = 0; i < questAmount; i++) {\n                expertAnswers[i] = events[_id].expert[i].length;\n            }\n\n            setSort(expertAnswers);\n            sort();\n\n            for (uint8 i = 0; i < sortedArray.length - 1; i++) {\n                if ((i + 1) < sortedArray.length) {\n                    if (sortedArray[i + 1] == sortedArray[i]) {\n                        if (biggestValue == sortedArray[i]) {\n                            duplicatesAnswers++;\n                        }\n                    }\n                }\n            }\n\n            if (duplicatesAnswers > 0) {\n                events[_id].reverted = true;\n                revertPayment(_id, \"duplicates validators\");\n            } else {\n                events[_id].correctAnswer = correctAnswer;\n                findLosersPool(correctAnswer, _id);\n            }\n        } else {\n            events[_id].correctAnswer = correctAnswer;\n            findLosersPool(correctAnswer, _id);\n        }\n    }\n\n    function findLosersPool(uint256 correctAnswer, int256 _id) private {\n        uint256 B;\n        uint256 n = events[_id].players[correctAnswer].length;\n        for (uint8 i = 0; i < n; i++) {\n            B = B + events[_id].players[correctAnswer][i].amount;\n        }\n        uint256 loserPool = events[_id].pool - B;\n        if (loserPool == 0) {\n            revertedPayment(_id, \"players chose only one answer\");\n        } else {\n            emit calculateTokensAmount(\n                _id,\n                events[_id].activePlayers,\n                events[_id].pool,\n                GFindex\n            );\n        }\n    }\n\n    function revertedPayment(int256 _id, string memory purpose)\n        public\n        ownerOnly()\n    {\n        revertPayment(_id, purpose);\n    }\n\n    function revertPayment(int256 _id, string memory purpose) private {\n        for (uint8 i = 0; i < events[_id].questAmount; i++) {\n            for (uint8 z = 0; z < events[_id].players[i].length; z++) {\n                require(\n                    betToken.transfer(\n                        events[_id].players[i][z].player,\n                        events[_id].players[i][z].amount\n                    ),\n                    \"Revert BET token to players is error\"\n                );\n            }\n        }\n        events[_id].reverted = true;\n        emit revertedEvent(_id, purpose);\n    }\n\n    function letsFinishEvent(int256 _id, uint256 _tokens) public ownerOnly() {\n        events[_id].tokenMinted = _tokens;\n        // pay for company\n        uint256 persentFee = getPersent(_tokens, companyPerc);\n        require(\n            betToken.mintFromPublicContract(owner, persentFee),\n            \"Revert BET token to players is error\"\n        );\n        paytoHost(_id);\n    }\n\n    function paytoHost(int256 _id) private {\n        if (events[_id].advisor != address(0)) {\n            // pay minted tokens\n            uint256 persHostFeeMint =\n                getPersent(events[_id].tokenMinted, hostPercMint + 1);\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].host,\n                    persHostFeeMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            uint256 persAdvisorFeeMint =\n                getPersent(events[_id].tokenMinted, advisorPercMint + 1);\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].advisor,\n                    persAdvisorFeeMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            // pay not minted tokens\n            uint256 percHostFee =\n                getPersent(events[_id].pool, hostPerc + advisorPepc);\n            require(\n                betToken.transfer(events[_id].host, percHostFee),\n                \"Revert BET token to players is error\"\n            );\n            uint256 percAdvisorFee = getPersent(events[_id].pool, advisorPepc);\n            require(\n                betToken.transfer(events[_id].advisor, percAdvisorFee),\n                \"Revert BET token to players is error\"\n            );\n        } else {\n            // pay minted tokens\n            uint256 persentFeeMint =\n                getPersent(events[_id].tokenMinted, hostPercMint);\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].host,\n                    persentFeeMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            // pay not minted tokens\n            uint256 persentFee = getPersent(events[_id].pool, hostPerc);\n            require(\n                betToken.transfer(events[_id].host, persentFee),\n                \"Revert BET token to players is error\"\n            );\n        }\n        payToExperts(_id);\n    }\n\n    function payToExperts(int256 _id) private {\n        uint256 correctAnswer = events[_id].correctAnswer;\n        uint256 allReputation;\n        uint256 percent =\n            events[_id].advisor != address(0)\n                ? expertPerc\n                : expertPerc + expertExptraPerc;\n\n        for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {\n            allReputation =\n                allReputation +\n                events[_id].expert[correctAnswer][i].reputation;\n        }\n\n        for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {\n            // pay minted tokens\n            uint256 persentFeeMint =\n                getPersent(events[_id].tokenMinted, expertPercMint);\n            uint256 amountMint =\n                (persentFeeMint *\n                    events[_id].expert[correctAnswer][i].reputation) /\n                    allReputation;\n            require(\n                betToken.mintFromPublicContract(\n                    events[_id].expert[correctAnswer][i].expert,\n                    amountMint\n                ),\n                \"Revert BET token to players is error\"\n            );\n            // pay not minted tokens\n            uint256 persentFee = getPersent(events[_id].pool, percent);\n            uint256 amount =\n                (persentFee * events[_id].expert[correctAnswer][i].reputation) /\n                    allReputation;\n            require(\n                betToken.transfer(\n                    events[_id].expert[correctAnswer][i].expert,\n                    amount\n                ),\n                \"Revert BET token to players is error\"\n            );\n        }\n        payToPlayers(_id);\n    }\n\n    function payToPlayers(int256 _id) private {\n        // TODO\n    }\n}\n",
   "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol",
   "ast": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol",
@@ -8729,7 +8729,7 @@
             "body": {
               "id": 1695,
               "nodeType": "Block",
-              "src": "6451:1589:5",
+              "src": "6451:1637:5",
               "statements": [
                 {
                   "assignments": [
@@ -8907,7 +8907,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 2945,
-                            "src": "6569:6:5",
+                            "src": "6581:6:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -8920,7 +8920,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1523,
-                            "src": "6576:3:5",
+                            "src": "6588:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_int256",
                               "typeString": "int256"
@@ -8931,7 +8931,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "6569:11:5",
+                          "src": "6581:11:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                             "typeString": "struct PubStruct.EventData storage ref"
@@ -8945,7 +8945,7 @@
                         "memberName": "advisor",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": 2926,
-                        "src": "6569:19:5",
+                        "src": "6581:19:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -8964,7 +8964,7 @@
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "6600:1:5",
+                            "src": "6612:1:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
                               "typeString": "int_const 0"
@@ -8985,7 +8985,7 @@
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "6592:7:5",
+                          "src": "6604:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
@@ -8994,7 +8994,7 @@
                             "id": 1542,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
-                            "src": "6592:7:5",
+                            "src": "6604:7:5",
                             "typeDescriptions": {}
                           }
                         },
@@ -9006,14 +9006,14 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "6592:10:5",
+                        "src": "6604:10:5",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
                         }
                       },
-                      "src": "6569:33:5",
+                      "src": "6581:33:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -9035,7 +9035,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 51,
-                        "src": "6618:10:5",
+                        "src": "6662:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -9049,13 +9049,13 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 54,
-                        "src": "6631:16:5",
+                        "src": "6675:16:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         }
                       },
-                      "src": "6618:29:5",
+                      "src": "6662:29:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -9067,14 +9067,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "Conditional",
-                    "src": "6569:78:5",
+                    "src": "6581:110:5",
                     "trueExpression": {
                       "id": 1547,
                       "name": "expertPerc",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 51,
-                      "src": "6605:10:5",
+                      "src": "6633:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -9086,13 +9086,13 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "6551:96:5"
+                  "src": "6551:140:5"
                 },
                 {
                   "body": {
                     "id": 1583,
                     "nodeType": "Block",
-                    "src": "6727:136:5",
+                    "src": "6771:136:5",
                     "statements": [
                       {
                         "expression": {
@@ -9107,7 +9107,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1534,
-                            "src": "6741:13:5",
+                            "src": "6785:13:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -9131,7 +9131,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1534,
-                              "src": "6773:13:5",
+                              "src": "6817:13:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -9150,7 +9150,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 2945,
-                                        "src": "6805:6:5",
+                                        "src": "6849:6:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                           "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -9163,7 +9163,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1523,
-                                        "src": "6812:3:5",
+                                        "src": "6856:3:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_int256",
                                           "typeString": "int256"
@@ -9174,7 +9174,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "6805:11:5",
+                                      "src": "6849:11:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                         "typeString": "struct PubStruct.EventData storage ref"
@@ -9188,7 +9188,7 @@
                                     "memberName": "expert",
                                     "nodeType": "MemberAccess",
                                     "referencedDeclaration": 2916,
-                                    "src": "6805:18:5",
+                                    "src": "6849:18:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                       "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -9201,7 +9201,7 @@
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
                                     "referencedDeclaration": 1527,
-                                    "src": "6824:13:5",
+                                    "src": "6868:13:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
@@ -9212,7 +9212,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "nodeType": "IndexAccess",
-                                  "src": "6805:33:5",
+                                  "src": "6849:33:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                     "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -9225,7 +9225,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1554,
-                                  "src": "6839:1:5",
+                                  "src": "6883:1:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint8",
                                     "typeString": "uint8"
@@ -9236,7 +9236,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "6805:36:5",
+                                "src": "6849:36:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                   "typeString": "struct PubStruct.Expert storage ref"
@@ -9250,19 +9250,19 @@
                               "memberName": "reputation",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": 2891,
-                              "src": "6805:47:5",
+                              "src": "6849:47:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
                               }
                             },
-                            "src": "6773:79:5",
+                            "src": "6817:79:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "6741:111:5",
+                          "src": "6785:111:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -9270,7 +9270,7 @@
                         },
                         "id": 1582,
                         "nodeType": "ExpressionStatement",
-                        "src": "6741:111:5"
+                        "src": "6785:111:5"
                       }
                     ]
                   },
@@ -9290,7 +9290,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1554,
-                      "src": "6676:1:5",
+                      "src": "6720:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -9308,7 +9308,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 2945,
-                              "src": "6680:6:5",
+                              "src": "6724:6:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                 "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -9321,7 +9321,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1523,
-                              "src": "6687:3:5",
+                              "src": "6731:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_int256",
                                 "typeString": "int256"
@@ -9332,7 +9332,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "6680:11:5",
+                            "src": "6724:11:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_EventData_$2941_storage",
                               "typeString": "struct PubStruct.EventData storage ref"
@@ -9346,7 +9346,7 @@
                           "memberName": "expert",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 2916,
-                          "src": "6680:18:5",
+                          "src": "6724:18:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                             "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -9359,7 +9359,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1527,
-                          "src": "6699:13:5",
+                          "src": "6743:13:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -9370,7 +9370,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "6680:33:5",
+                        "src": "6724:33:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                           "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -9383,13 +9383,13 @@
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "6680:40:5",
+                      "src": "6724:40:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "6676:44:5",
+                    "src": "6720:44:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -9408,7 +9408,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 1584,
-                        "src": "6663:7:5",
+                        "src": "6707:7:5",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -9419,7 +9419,7 @@
                           "id": 1553,
                           "name": "uint8",
                           "nodeType": "ElementaryTypeName",
-                          "src": "6663:5:5",
+                          "src": "6707:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -9438,7 +9438,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "6673:1:5",
+                      "src": "6717:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
@@ -9446,7 +9446,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "6663:11:5"
+                    "src": "6707:11:5"
                   },
                   "loopExpression": {
                     "expression": {
@@ -9458,14 +9458,14 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "6722:3:5",
+                      "src": "6766:3:5",
                       "subExpression": {
                         "id": 1566,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1554,
-                        "src": "6722:1:5",
+                        "src": "6766:1:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -9478,16 +9478,16 @@
                     },
                     "id": 1568,
                     "nodeType": "ExpressionStatement",
-                    "src": "6722:3:5"
+                    "src": "6766:3:5"
                   },
                   "nodeType": "ForStatement",
-                  "src": "6658:205:5"
+                  "src": "6702:205:5"
                 },
                 {
                   "body": {
                     "id": 1689,
                     "nodeType": "Block",
-                    "src": "6942:1065:5",
+                    "src": "6986:1069:5",
                     "statements": [
                       {
                         "assignments": [
@@ -9501,7 +9501,7 @@
                             "name": "persentFeeMint",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "6989:22:5",
+                            "src": "7033:22:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -9512,7 +9512,7 @@
                               "id": 1601,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "6989:7:5",
+                              "src": "7033:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -9532,7 +9532,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2945,
-                                  "src": "7041:6:5",
+                                  "src": "7085:6:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                     "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -9545,7 +9545,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1523,
-                                  "src": "7048:3:5",
+                                  "src": "7092:3:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_int256",
                                     "typeString": "int256"
@@ -9556,7 +9556,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "7041:11:5",
+                                "src": "7085:11:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                   "typeString": "struct PubStruct.EventData storage ref"
@@ -9570,7 +9570,7 @@
                               "memberName": "tokenMinted",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": 2932,
-                              "src": "7041:23:5",
+                              "src": "7085:23:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -9582,7 +9582,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 48,
-                              "src": "7066:14:5",
+                              "src": "7110:14:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -9605,7 +9605,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1725,
-                            "src": "7030:10:5",
+                            "src": "7074:10:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                               "typeString": "function (uint256,uint256) pure returns (uint256)"
@@ -9619,7 +9619,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7030:51:5",
+                          "src": "7074:51:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -9627,7 +9627,7 @@
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "6989:92:5"
+                        "src": "7033:92:5"
                       },
                       {
                         "assignments": [
@@ -9641,7 +9641,7 @@
                             "name": "amountMint",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "7095:18:5",
+                            "src": "7139:18:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -9652,7 +9652,7 @@
                               "id": 1611,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "7095:7:5",
+                              "src": "7139:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -9690,7 +9690,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1602,
-                                  "src": "7133:14:5",
+                                  "src": "7177:14:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -9709,7 +9709,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7150:6:5",
+                                            "src": "7214:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -9722,7 +9722,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7157:3:5",
+                                            "src": "7221:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -9733,7 +9733,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7150:11:5",
+                                          "src": "7214:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -9747,7 +9747,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7150:18:5",
+                                        "src": "7214:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -9760,7 +9760,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7169:13:5",
+                                        "src": "7233:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -9771,7 +9771,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7150:33:5",
+                                      "src": "7214:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -9784,7 +9784,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7184:1:5",
+                                      "src": "7248:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -9795,7 +9795,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7150:36:5",
+                                    "src": "7214:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -9809,13 +9809,13 @@
                                   "memberName": "reputation",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2891,
-                                  "src": "7150:47:5",
+                                  "src": "7214:47:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "7133:64:5",
+                                "src": "7177:84:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -9829,7 +9829,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "7132:66:5",
+                            "src": "7176:86:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -9843,20 +9843,20 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1534,
-                            "src": "7221:13:5",
+                            "src": "7285:13:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "7132:102:5",
+                          "src": "7176:122:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "7095:139:5"
+                        "src": "7139:159:5"
                       },
                       {
                         "expression": {
@@ -9874,7 +9874,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7326:6:5",
+                                            "src": "7390:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -9887,7 +9887,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7333:3:5",
+                                            "src": "7397:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -9898,7 +9898,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7326:11:5",
+                                          "src": "7390:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -9912,7 +9912,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7326:18:5",
+                                        "src": "7390:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -9925,7 +9925,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7345:13:5",
+                                        "src": "7409:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -9936,7 +9936,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7326:33:5",
+                                      "src": "7390:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -9949,7 +9949,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7360:1:5",
+                                      "src": "7424:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -9960,7 +9960,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7326:36:5",
+                                    "src": "7390:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -9974,7 +9974,7 @@
                                   "memberName": "expert",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2889,
-                                  "src": "7326:43:5",
+                                  "src": "7390:43:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address_payable",
                                     "typeString": "address payable"
@@ -9986,7 +9986,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1612,
-                                  "src": "7391:10:5",
+                                  "src": "7455:10:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -10010,7 +10010,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 900,
-                                  "src": "7273:8:5",
+                                  "src": "7337:8:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_contract$_BET_$3078",
                                     "typeString": "contract BET"
@@ -10024,7 +10024,7 @@
                                 "memberName": "mintFromPublicContract",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 3056,
-                                "src": "7273:31:5",
+                                "src": "7337:31:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
                                   "typeString": "function (address,uint256) external returns (bool)"
@@ -10038,7 +10038,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "7273:146:5",
+                              "src": "7337:146:5",
                               "tryCall": false,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
@@ -10054,7 +10054,7 @@
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "7437:38:5",
+                              "src": "7501:38:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_bee7dd4c26bb2cfe31a0234e3247d58140bb18e4b4871690e29daabe46397e27",
                                 "typeString": "literal_string \"Revert BET token to players is error\""
@@ -10081,7 +10081,7 @@
                               -18
                             ],
                             "referencedDeclaration": -18,
-                            "src": "7248:7:5",
+                            "src": "7312:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                               "typeString": "function (bool,string memory) pure"
@@ -10095,7 +10095,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7248:241:5",
+                          "src": "7312:241:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
@@ -10104,7 +10104,7 @@
                         },
                         "id": 1644,
                         "nodeType": "ExpressionStatement",
-                        "src": "7248:241:5"
+                        "src": "7312:241:5"
                       },
                       {
                         "assignments": [
@@ -10118,7 +10118,7 @@
                             "name": "persentFee",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "7540:18:5",
+                            "src": "7604:18:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -10129,7 +10129,7 @@
                               "id": 1645,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "7540:7:5",
+                              "src": "7604:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -10149,7 +10149,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2945,
-                                  "src": "7588:6:5",
+                                  "src": "7636:6:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                     "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -10162,7 +10162,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1523,
-                                  "src": "7595:3:5",
+                                  "src": "7643:3:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_int256",
                                     "typeString": "int256"
@@ -10173,7 +10173,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "7588:11:5",
+                                "src": "7636:11:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                   "typeString": "struct PubStruct.EventData storage ref"
@@ -10187,7 +10187,7 @@
                               "memberName": "pool",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": 2930,
-                              "src": "7588:16:5",
+                              "src": "7636:16:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -10199,7 +10199,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1537,
-                              "src": "7606:7:5",
+                              "src": "7654:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -10222,7 +10222,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1725,
-                            "src": "7577:10:5",
+                            "src": "7625:10:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                               "typeString": "function (uint256,uint256) pure returns (uint256)"
@@ -10236,7 +10236,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7577:37:5",
+                          "src": "7625:37:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -10244,7 +10244,7 @@
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "7540:74:5"
+                        "src": "7604:58:5"
                       },
                       {
                         "assignments": [
@@ -10258,7 +10258,7 @@
                             "name": "amount",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "7628:14:5",
+                            "src": "7676:14:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -10269,7 +10269,7 @@
                               "id": 1655,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "7628:7:5",
+                              "src": "7676:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -10307,7 +10307,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1646,
-                                  "src": "7662:10:5",
+                                  "src": "7710:10:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -10326,7 +10326,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7675:6:5",
+                                            "src": "7723:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -10339,7 +10339,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7682:3:5",
+                                            "src": "7730:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -10350,7 +10350,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7675:11:5",
+                                          "src": "7723:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -10364,7 +10364,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7675:18:5",
+                                        "src": "7723:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -10377,7 +10377,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7694:13:5",
+                                        "src": "7742:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -10388,7 +10388,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7675:33:5",
+                                      "src": "7723:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -10401,7 +10401,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7709:1:5",
+                                      "src": "7757:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -10412,7 +10412,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7675:36:5",
+                                    "src": "7723:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -10426,13 +10426,13 @@
                                   "memberName": "reputation",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2891,
-                                  "src": "7675:47:5",
+                                  "src": "7723:47:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "7662:60:5",
+                                "src": "7710:60:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -10446,7 +10446,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "7661:62:5",
+                            "src": "7709:62:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -10460,20 +10460,20 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1534,
-                            "src": "7746:13:5",
+                            "src": "7794:13:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "7661:98:5",
+                          "src": "7709:98:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "7628:131:5"
+                        "src": "7676:131:5"
                       },
                       {
                         "expression": {
@@ -10491,7 +10491,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7837:6:5",
+                                            "src": "7885:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -10504,7 +10504,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7844:3:5",
+                                            "src": "7892:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -10515,7 +10515,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7837:11:5",
+                                          "src": "7885:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -10529,7 +10529,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7837:18:5",
+                                        "src": "7885:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -10542,7 +10542,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7856:13:5",
+                                        "src": "7904:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -10553,7 +10553,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7837:33:5",
+                                      "src": "7885:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -10566,7 +10566,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7871:1:5",
+                                      "src": "7919:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -10577,7 +10577,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7837:36:5",
+                                    "src": "7885:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -10591,7 +10591,7 @@
                                   "memberName": "expert",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2889,
-                                  "src": "7837:43:5",
+                                  "src": "7885:43:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address_payable",
                                     "typeString": "address payable"
@@ -10603,7 +10603,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1656,
-                                  "src": "7902:6:5",
+                                  "src": "7950:6:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -10627,7 +10627,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 900,
-                                  "src": "7798:8:5",
+                                  "src": "7846:8:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_contract$_BET_$3078",
                                     "typeString": "contract BET"
@@ -10641,7 +10641,7 @@
                                 "memberName": "transfer",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 4024,
-                                "src": "7798:17:5",
+                                "src": "7846:17:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
                                   "typeString": "function (address,uint256) external returns (bool)"
@@ -10655,7 +10655,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "7798:128:5",
+                              "src": "7846:128:5",
                               "tryCall": false,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
@@ -10671,7 +10671,7 @@
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "7944:38:5",
+                              "src": "7992:38:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_bee7dd4c26bb2cfe31a0234e3247d58140bb18e4b4871690e29daabe46397e27",
                                 "typeString": "literal_string \"Revert BET token to players is error\""
@@ -10698,7 +10698,7 @@
                               -18
                             ],
                             "referencedDeclaration": -18,
-                            "src": "7773:7:5",
+                            "src": "7821:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                               "typeString": "function (bool,string memory) pure"
@@ -10712,7 +10712,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7773:223:5",
+                          "src": "7821:223:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
@@ -10721,7 +10721,7 @@
                         },
                         "id": 1688,
                         "nodeType": "ExpressionStatement",
-                        "src": "7773:223:5"
+                        "src": "7821:223:5"
                       }
                     ]
                   },
@@ -10741,7 +10741,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1586,
-                      "src": "6891:1:5",
+                      "src": "6935:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -10759,7 +10759,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 2945,
-                              "src": "6895:6:5",
+                              "src": "6939:6:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                 "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -10772,7 +10772,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1523,
-                              "src": "6902:3:5",
+                              "src": "6946:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_int256",
                                 "typeString": "int256"
@@ -10783,7 +10783,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "6895:11:5",
+                            "src": "6939:11:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_EventData_$2941_storage",
                               "typeString": "struct PubStruct.EventData storage ref"
@@ -10797,7 +10797,7 @@
                           "memberName": "expert",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 2916,
-                          "src": "6895:18:5",
+                          "src": "6939:18:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                             "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -10810,7 +10810,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1527,
-                          "src": "6914:13:5",
+                          "src": "6958:13:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -10821,7 +10821,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "6895:33:5",
+                        "src": "6939:33:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                           "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -10834,13 +10834,13 @@
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "6895:40:5",
+                      "src": "6939:40:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "6891:44:5",
+                    "src": "6935:44:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -10859,7 +10859,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 1690,
-                        "src": "6878:7:5",
+                        "src": "6922:7:5",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -10870,7 +10870,7 @@
                           "id": 1585,
                           "name": "uint8",
                           "nodeType": "ElementaryTypeName",
-                          "src": "6878:5:5",
+                          "src": "6922:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -10889,7 +10889,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "6888:1:5",
+                      "src": "6932:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
@@ -10897,7 +10897,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "6878:11:5"
+                    "src": "6922:11:5"
                   },
                   "loopExpression": {
                     "expression": {
@@ -10909,14 +10909,14 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "6937:3:5",
+                      "src": "6981:3:5",
                       "subExpression": {
                         "id": 1598,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1586,
-                        "src": "6937:1:5",
+                        "src": "6981:1:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -10929,10 +10929,10 @@
                     },
                     "id": 1600,
                     "nodeType": "ExpressionStatement",
-                    "src": "6937:3:5"
+                    "src": "6981:3:5"
                   },
                   "nodeType": "ForStatement",
-                  "src": "6873:1134:5"
+                  "src": "6917:1138:5"
                 },
                 {
                   "expression": {
@@ -10943,7 +10943,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1523,
-                        "src": "8029:3:5",
+                        "src": "8077:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_int256",
                           "typeString": "int256"
@@ -10962,7 +10962,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1702,
-                      "src": "8016:12:5",
+                      "src": "8064:12:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_int256_$returns$__$",
                         "typeString": "function (int256)"
@@ -10976,7 +10976,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "8016:17:5",
+                    "src": "8064:17:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
@@ -10985,7 +10985,7 @@
                   },
                   "id": 1694,
                   "nodeType": "ExpressionStatement",
-                  "src": "8016:17:5"
+                  "src": "8064:17:5"
                 }
               ]
             },
@@ -11035,7 +11035,7 @@
               "src": "6451:0:5"
             },
             "scope": 1703,
-            "src": "6409:1631:5",
+            "src": "6409:1679:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "private"
@@ -11044,7 +11044,7 @@
             "body": {
               "id": 1701,
               "nodeType": "Block",
-              "src": "8088:2:5",
+              "src": "8136:23:5",
               "statements": []
             },
             "id": 1702,
@@ -11064,7 +11064,7 @@
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
                   "scope": 1702,
-                  "src": "8068:10:5",
+                  "src": "8116:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -11075,7 +11075,7 @@
                     "id": 1697,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8068:6:5",
+                    "src": "8116:6:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -11084,26 +11084,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "8067:12:5"
+              "src": "8115:12:5"
             },
             "returnParameters": {
               "id": 1700,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "8088:0:5"
+              "src": "8136:0:5"
             },
             "scope": 1703,
-            "src": "8046:44:5",
+            "src": "8094:65:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "private"
           }
         ],
         "scope": 1704,
-        "src": "303:7789:5"
+        "src": "303:7858:5"
       }
     ],
-    "src": "32:8061:5"
+    "src": "32:8130:5"
   },
   "legacyAST": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/FinishEvent.sol",
@@ -19319,7 +19319,7 @@
             "body": {
               "id": 1695,
               "nodeType": "Block",
-              "src": "6451:1589:5",
+              "src": "6451:1637:5",
               "statements": [
                 {
                   "assignments": [
@@ -19497,7 +19497,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 2945,
-                            "src": "6569:6:5",
+                            "src": "6581:6:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -19510,7 +19510,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1523,
-                            "src": "6576:3:5",
+                            "src": "6588:3:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_int256",
                               "typeString": "int256"
@@ -19521,7 +19521,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "6569:11:5",
+                          "src": "6581:11:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                             "typeString": "struct PubStruct.EventData storage ref"
@@ -19535,7 +19535,7 @@
                         "memberName": "advisor",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": 2926,
-                        "src": "6569:19:5",
+                        "src": "6581:19:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -19554,7 +19554,7 @@
                             "kind": "number",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "6600:1:5",
+                            "src": "6612:1:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_rational_0_by_1",
                               "typeString": "int_const 0"
@@ -19575,7 +19575,7 @@
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "6592:7:5",
+                          "src": "6604:7:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
@@ -19584,7 +19584,7 @@
                             "id": 1542,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
-                            "src": "6592:7:5",
+                            "src": "6604:7:5",
                             "typeDescriptions": {}
                           }
                         },
@@ -19596,14 +19596,14 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "6592:10:5",
+                        "src": "6604:10:5",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
                         }
                       },
-                      "src": "6569:33:5",
+                      "src": "6581:33:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -19625,7 +19625,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 51,
-                        "src": "6618:10:5",
+                        "src": "6662:10:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -19639,13 +19639,13 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 54,
-                        "src": "6631:16:5",
+                        "src": "6675:16:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         }
                       },
-                      "src": "6618:29:5",
+                      "src": "6662:29:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -19657,14 +19657,14 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "Conditional",
-                    "src": "6569:78:5",
+                    "src": "6581:110:5",
                     "trueExpression": {
                       "id": 1547,
                       "name": "expertPerc",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 51,
-                      "src": "6605:10:5",
+                      "src": "6633:10:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -19676,13 +19676,13 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "6551:96:5"
+                  "src": "6551:140:5"
                 },
                 {
                   "body": {
                     "id": 1583,
                     "nodeType": "Block",
-                    "src": "6727:136:5",
+                    "src": "6771:136:5",
                     "statements": [
                       {
                         "expression": {
@@ -19697,7 +19697,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1534,
-                            "src": "6741:13:5",
+                            "src": "6785:13:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -19721,7 +19721,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1534,
-                              "src": "6773:13:5",
+                              "src": "6817:13:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -19740,7 +19740,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 2945,
-                                        "src": "6805:6:5",
+                                        "src": "6849:6:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                           "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -19753,7 +19753,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1523,
-                                        "src": "6812:3:5",
+                                        "src": "6856:3:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_int256",
                                           "typeString": "int256"
@@ -19764,7 +19764,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "6805:11:5",
+                                      "src": "6849:11:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                         "typeString": "struct PubStruct.EventData storage ref"
@@ -19778,7 +19778,7 @@
                                     "memberName": "expert",
                                     "nodeType": "MemberAccess",
                                     "referencedDeclaration": 2916,
-                                    "src": "6805:18:5",
+                                    "src": "6849:18:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                       "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -19791,7 +19791,7 @@
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
                                     "referencedDeclaration": 1527,
-                                    "src": "6824:13:5",
+                                    "src": "6868:13:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
@@ -19802,7 +19802,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "nodeType": "IndexAccess",
-                                  "src": "6805:33:5",
+                                  "src": "6849:33:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                     "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -19815,7 +19815,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1554,
-                                  "src": "6839:1:5",
+                                  "src": "6883:1:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint8",
                                     "typeString": "uint8"
@@ -19826,7 +19826,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "6805:36:5",
+                                "src": "6849:36:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                   "typeString": "struct PubStruct.Expert storage ref"
@@ -19840,19 +19840,19 @@
                               "memberName": "reputation",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": 2891,
-                              "src": "6805:47:5",
+                              "src": "6849:47:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
                               }
                             },
-                            "src": "6773:79:5",
+                            "src": "6817:79:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "6741:111:5",
+                          "src": "6785:111:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -19860,7 +19860,7 @@
                         },
                         "id": 1582,
                         "nodeType": "ExpressionStatement",
-                        "src": "6741:111:5"
+                        "src": "6785:111:5"
                       }
                     ]
                   },
@@ -19880,7 +19880,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1554,
-                      "src": "6676:1:5",
+                      "src": "6720:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -19898,7 +19898,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 2945,
-                              "src": "6680:6:5",
+                              "src": "6724:6:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                 "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -19911,7 +19911,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1523,
-                              "src": "6687:3:5",
+                              "src": "6731:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_int256",
                                 "typeString": "int256"
@@ -19922,7 +19922,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "6680:11:5",
+                            "src": "6724:11:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_EventData_$2941_storage",
                               "typeString": "struct PubStruct.EventData storage ref"
@@ -19936,7 +19936,7 @@
                           "memberName": "expert",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 2916,
-                          "src": "6680:18:5",
+                          "src": "6724:18:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                             "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -19949,7 +19949,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1527,
-                          "src": "6699:13:5",
+                          "src": "6743:13:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -19960,7 +19960,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "6680:33:5",
+                        "src": "6724:33:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                           "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -19973,13 +19973,13 @@
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "6680:40:5",
+                      "src": "6724:40:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "6676:44:5",
+                    "src": "6720:44:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -19998,7 +19998,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 1584,
-                        "src": "6663:7:5",
+                        "src": "6707:7:5",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -20009,7 +20009,7 @@
                           "id": 1553,
                           "name": "uint8",
                           "nodeType": "ElementaryTypeName",
-                          "src": "6663:5:5",
+                          "src": "6707:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -20028,7 +20028,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "6673:1:5",
+                      "src": "6717:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
@@ -20036,7 +20036,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "6663:11:5"
+                    "src": "6707:11:5"
                   },
                   "loopExpression": {
                     "expression": {
@@ -20048,14 +20048,14 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "6722:3:5",
+                      "src": "6766:3:5",
                       "subExpression": {
                         "id": 1566,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1554,
-                        "src": "6722:1:5",
+                        "src": "6766:1:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -20068,16 +20068,16 @@
                     },
                     "id": 1568,
                     "nodeType": "ExpressionStatement",
-                    "src": "6722:3:5"
+                    "src": "6766:3:5"
                   },
                   "nodeType": "ForStatement",
-                  "src": "6658:205:5"
+                  "src": "6702:205:5"
                 },
                 {
                   "body": {
                     "id": 1689,
                     "nodeType": "Block",
-                    "src": "6942:1065:5",
+                    "src": "6986:1069:5",
                     "statements": [
                       {
                         "assignments": [
@@ -20091,7 +20091,7 @@
                             "name": "persentFeeMint",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "6989:22:5",
+                            "src": "7033:22:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -20102,7 +20102,7 @@
                               "id": 1601,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "6989:7:5",
+                              "src": "7033:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20122,7 +20122,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2945,
-                                  "src": "7041:6:5",
+                                  "src": "7085:6:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                     "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -20135,7 +20135,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1523,
-                                  "src": "7048:3:5",
+                                  "src": "7092:3:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_int256",
                                     "typeString": "int256"
@@ -20146,7 +20146,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "7041:11:5",
+                                "src": "7085:11:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                   "typeString": "struct PubStruct.EventData storage ref"
@@ -20160,7 +20160,7 @@
                               "memberName": "tokenMinted",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": 2932,
-                              "src": "7041:23:5",
+                              "src": "7085:23:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20172,7 +20172,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 48,
-                              "src": "7066:14:5",
+                              "src": "7110:14:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20195,7 +20195,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1725,
-                            "src": "7030:10:5",
+                            "src": "7074:10:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                               "typeString": "function (uint256,uint256) pure returns (uint256)"
@@ -20209,7 +20209,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7030:51:5",
+                          "src": "7074:51:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -20217,7 +20217,7 @@
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "6989:92:5"
+                        "src": "7033:92:5"
                       },
                       {
                         "assignments": [
@@ -20231,7 +20231,7 @@
                             "name": "amountMint",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "7095:18:5",
+                            "src": "7139:18:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -20242,7 +20242,7 @@
                               "id": 1611,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "7095:7:5",
+                              "src": "7139:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20280,7 +20280,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1602,
-                                  "src": "7133:14:5",
+                                  "src": "7177:14:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -20299,7 +20299,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7150:6:5",
+                                            "src": "7214:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -20312,7 +20312,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7157:3:5",
+                                            "src": "7221:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -20323,7 +20323,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7150:11:5",
+                                          "src": "7214:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -20337,7 +20337,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7150:18:5",
+                                        "src": "7214:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -20350,7 +20350,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7169:13:5",
+                                        "src": "7233:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -20361,7 +20361,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7150:33:5",
+                                      "src": "7214:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -20374,7 +20374,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7184:1:5",
+                                      "src": "7248:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -20385,7 +20385,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7150:36:5",
+                                    "src": "7214:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -20399,13 +20399,13 @@
                                   "memberName": "reputation",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2891,
-                                  "src": "7150:47:5",
+                                  "src": "7214:47:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "7133:64:5",
+                                "src": "7177:84:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -20419,7 +20419,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "7132:66:5",
+                            "src": "7176:86:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -20433,20 +20433,20 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1534,
-                            "src": "7221:13:5",
+                            "src": "7285:13:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "7132:102:5",
+                          "src": "7176:122:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "7095:139:5"
+                        "src": "7139:159:5"
                       },
                       {
                         "expression": {
@@ -20464,7 +20464,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7326:6:5",
+                                            "src": "7390:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -20477,7 +20477,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7333:3:5",
+                                            "src": "7397:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -20488,7 +20488,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7326:11:5",
+                                          "src": "7390:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -20502,7 +20502,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7326:18:5",
+                                        "src": "7390:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -20515,7 +20515,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7345:13:5",
+                                        "src": "7409:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -20526,7 +20526,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7326:33:5",
+                                      "src": "7390:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -20539,7 +20539,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7360:1:5",
+                                      "src": "7424:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -20550,7 +20550,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7326:36:5",
+                                    "src": "7390:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -20564,7 +20564,7 @@
                                   "memberName": "expert",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2889,
-                                  "src": "7326:43:5",
+                                  "src": "7390:43:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address_payable",
                                     "typeString": "address payable"
@@ -20576,7 +20576,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1612,
-                                  "src": "7391:10:5",
+                                  "src": "7455:10:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -20600,7 +20600,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 900,
-                                  "src": "7273:8:5",
+                                  "src": "7337:8:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_contract$_BET_$3078",
                                     "typeString": "contract BET"
@@ -20614,7 +20614,7 @@
                                 "memberName": "mintFromPublicContract",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 3056,
-                                "src": "7273:31:5",
+                                "src": "7337:31:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
                                   "typeString": "function (address,uint256) external returns (bool)"
@@ -20628,7 +20628,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "7273:146:5",
+                              "src": "7337:146:5",
                               "tryCall": false,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
@@ -20644,7 +20644,7 @@
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "7437:38:5",
+                              "src": "7501:38:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_bee7dd4c26bb2cfe31a0234e3247d58140bb18e4b4871690e29daabe46397e27",
                                 "typeString": "literal_string \"Revert BET token to players is error\""
@@ -20671,7 +20671,7 @@
                               -18
                             ],
                             "referencedDeclaration": -18,
-                            "src": "7248:7:5",
+                            "src": "7312:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                               "typeString": "function (bool,string memory) pure"
@@ -20685,7 +20685,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7248:241:5",
+                          "src": "7312:241:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
@@ -20694,7 +20694,7 @@
                         },
                         "id": 1644,
                         "nodeType": "ExpressionStatement",
-                        "src": "7248:241:5"
+                        "src": "7312:241:5"
                       },
                       {
                         "assignments": [
@@ -20708,7 +20708,7 @@
                             "name": "persentFee",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "7540:18:5",
+                            "src": "7604:18:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -20719,7 +20719,7 @@
                               "id": 1645,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "7540:7:5",
+                              "src": "7604:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20739,7 +20739,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 2945,
-                                  "src": "7588:6:5",
+                                  "src": "7636:6:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                     "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -20752,7 +20752,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1523,
-                                  "src": "7595:3:5",
+                                  "src": "7643:3:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_int256",
                                     "typeString": "int256"
@@ -20763,7 +20763,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "7588:11:5",
+                                "src": "7636:11:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                   "typeString": "struct PubStruct.EventData storage ref"
@@ -20777,7 +20777,7 @@
                               "memberName": "pool",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": 2930,
-                              "src": "7588:16:5",
+                              "src": "7636:16:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20789,7 +20789,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1537,
-                              "src": "7606:7:5",
+                              "src": "7654:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20812,7 +20812,7 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1725,
-                            "src": "7577:10:5",
+                            "src": "7625:10:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                               "typeString": "function (uint256,uint256) pure returns (uint256)"
@@ -20826,7 +20826,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7577:37:5",
+                          "src": "7625:37:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -20834,7 +20834,7 @@
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "7540:74:5"
+                        "src": "7604:58:5"
                       },
                       {
                         "assignments": [
@@ -20848,7 +20848,7 @@
                             "name": "amount",
                             "nodeType": "VariableDeclaration",
                             "scope": 1689,
-                            "src": "7628:14:5",
+                            "src": "7676:14:5",
                             "stateVariable": false,
                             "storageLocation": "default",
                             "typeDescriptions": {
@@ -20859,7 +20859,7 @@
                               "id": 1655,
                               "name": "uint256",
                               "nodeType": "ElementaryTypeName",
-                              "src": "7628:7:5",
+                              "src": "7676:7:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -20897,7 +20897,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1646,
-                                  "src": "7662:10:5",
+                                  "src": "7710:10:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -20916,7 +20916,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7675:6:5",
+                                            "src": "7723:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -20929,7 +20929,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7682:3:5",
+                                            "src": "7730:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -20940,7 +20940,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7675:11:5",
+                                          "src": "7723:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -20954,7 +20954,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7675:18:5",
+                                        "src": "7723:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -20967,7 +20967,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7694:13:5",
+                                        "src": "7742:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -20978,7 +20978,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7675:33:5",
+                                      "src": "7723:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -20991,7 +20991,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7709:1:5",
+                                      "src": "7757:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -21002,7 +21002,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7675:36:5",
+                                    "src": "7723:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -21016,13 +21016,13 @@
                                   "memberName": "reputation",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2891,
-                                  "src": "7675:47:5",
+                                  "src": "7723:47:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
                                   }
                                 },
-                                "src": "7662:60:5",
+                                "src": "7710:60:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -21036,7 +21036,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "TupleExpression",
-                            "src": "7661:62:5",
+                            "src": "7709:62:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -21050,20 +21050,20 @@
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": 1534,
-                            "src": "7746:13:5",
+                            "src": "7794:13:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
                             }
                           },
-                          "src": "7661:98:5",
+                          "src": "7709:98:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         "nodeType": "VariableDeclarationStatement",
-                        "src": "7628:131:5"
+                        "src": "7676:131:5"
                       },
                       {
                         "expression": {
@@ -21081,7 +21081,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 2945,
-                                            "src": "7837:6:5",
+                                            "src": "7885:6:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                               "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -21094,7 +21094,7 @@
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
                                             "referencedDeclaration": 1523,
-                                            "src": "7844:3:5",
+                                            "src": "7892:3:5",
                                             "typeDescriptions": {
                                               "typeIdentifier": "t_int256",
                                               "typeString": "int256"
@@ -21105,7 +21105,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "nodeType": "IndexAccess",
-                                          "src": "7837:11:5",
+                                          "src": "7885:11:5",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_struct$_EventData_$2941_storage",
                                             "typeString": "struct PubStruct.EventData storage ref"
@@ -21119,7 +21119,7 @@
                                         "memberName": "expert",
                                         "nodeType": "MemberAccess",
                                         "referencedDeclaration": 2916,
-                                        "src": "7837:18:5",
+                                        "src": "7885:18:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                                           "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -21132,7 +21132,7 @@
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
                                         "referencedDeclaration": 1527,
-                                        "src": "7856:13:5",
+                                        "src": "7904:13:5",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_uint256",
                                           "typeString": "uint256"
@@ -21143,7 +21143,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "nodeType": "IndexAccess",
-                                      "src": "7837:33:5",
+                                      "src": "7885:33:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                                         "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -21156,7 +21156,7 @@
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
                                       "referencedDeclaration": 1586,
-                                      "src": "7871:1:5",
+                                      "src": "7919:1:5",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint8",
                                         "typeString": "uint8"
@@ -21167,7 +21167,7 @@
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "nodeType": "IndexAccess",
-                                    "src": "7837:36:5",
+                                    "src": "7885:36:5",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_struct$_Expert_$2892_storage",
                                       "typeString": "struct PubStruct.Expert storage ref"
@@ -21181,7 +21181,7 @@
                                   "memberName": "expert",
                                   "nodeType": "MemberAccess",
                                   "referencedDeclaration": 2889,
-                                  "src": "7837:43:5",
+                                  "src": "7885:43:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address_payable",
                                     "typeString": "address payable"
@@ -21193,7 +21193,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 1656,
-                                  "src": "7902:6:5",
+                                  "src": "7950:6:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
                                     "typeString": "uint256"
@@ -21217,7 +21217,7 @@
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
                                   "referencedDeclaration": 900,
-                                  "src": "7798:8:5",
+                                  "src": "7846:8:5",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_contract$_BET_$3078",
                                     "typeString": "contract BET"
@@ -21231,7 +21231,7 @@
                                 "memberName": "transfer",
                                 "nodeType": "MemberAccess",
                                 "referencedDeclaration": 4024,
-                                "src": "7798:17:5",
+                                "src": "7846:17:5",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
                                   "typeString": "function (address,uint256) external returns (bool)"
@@ -21245,7 +21245,7 @@
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "7798:128:5",
+                              "src": "7846:128:5",
                               "tryCall": false,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
@@ -21261,7 +21261,7 @@
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "7944:38:5",
+                              "src": "7992:38:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_bee7dd4c26bb2cfe31a0234e3247d58140bb18e4b4871690e29daabe46397e27",
                                 "typeString": "literal_string \"Revert BET token to players is error\""
@@ -21288,7 +21288,7 @@
                               -18
                             ],
                             "referencedDeclaration": -18,
-                            "src": "7773:7:5",
+                            "src": "7821:7:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                               "typeString": "function (bool,string memory) pure"
@@ -21302,7 +21302,7 @@
                           "lValueRequested": false,
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "7773:223:5",
+                          "src": "7821:223:5",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
@@ -21311,7 +21311,7 @@
                         },
                         "id": 1688,
                         "nodeType": "ExpressionStatement",
-                        "src": "7773:223:5"
+                        "src": "7821:223:5"
                       }
                     ]
                   },
@@ -21331,7 +21331,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1586,
-                      "src": "6891:1:5",
+                      "src": "6935:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
                         "typeString": "uint8"
@@ -21349,7 +21349,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 2945,
-                              "src": "6895:6:5",
+                              "src": "6939:6:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$2941_storage_$",
                                 "typeString": "mapping(int256 => struct PubStruct.EventData storage ref)"
@@ -21362,7 +21362,7 @@
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 1523,
-                              "src": "6902:3:5",
+                              "src": "6946:3:5",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_int256",
                                 "typeString": "int256"
@@ -21373,7 +21373,7 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "6895:11:5",
+                            "src": "6939:11:5",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_EventData_$2941_storage",
                               "typeString": "struct PubStruct.EventData storage ref"
@@ -21387,7 +21387,7 @@
                           "memberName": "expert",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 2916,
-                          "src": "6895:18:5",
+                          "src": "6939:18:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Expert_$2892_storage_$dyn_storage_$",
                             "typeString": "mapping(uint256 => struct PubStruct.Expert storage ref[] storage ref)"
@@ -21400,7 +21400,7 @@
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 1527,
-                          "src": "6914:13:5",
+                          "src": "6958:13:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -21411,7 +21411,7 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "6895:33:5",
+                        "src": "6939:33:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_struct$_Expert_$2892_storage_$dyn_storage",
                           "typeString": "struct PubStruct.Expert storage ref[] storage ref"
@@ -21424,13 +21424,13 @@
                       "lValueRequested": false,
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "6895:40:5",
+                      "src": "6939:40:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "6891:44:5",
+                    "src": "6935:44:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -21449,7 +21449,7 @@
                         "name": "i",
                         "nodeType": "VariableDeclaration",
                         "scope": 1690,
-                        "src": "6878:7:5",
+                        "src": "6922:7:5",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -21460,7 +21460,7 @@
                           "id": 1585,
                           "name": "uint8",
                           "nodeType": "ElementaryTypeName",
-                          "src": "6878:5:5",
+                          "src": "6922:5:5",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint8",
                             "typeString": "uint8"
@@ -21479,7 +21479,7 @@
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "6888:1:5",
+                      "src": "6932:1:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
@@ -21487,7 +21487,7 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "6878:11:5"
+                    "src": "6922:11:5"
                   },
                   "loopExpression": {
                     "expression": {
@@ -21499,14 +21499,14 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": false,
-                      "src": "6937:3:5",
+                      "src": "6981:3:5",
                       "subExpression": {
                         "id": 1598,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1586,
-                        "src": "6937:1:5",
+                        "src": "6981:1:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint8",
                           "typeString": "uint8"
@@ -21519,10 +21519,10 @@
                     },
                     "id": 1600,
                     "nodeType": "ExpressionStatement",
-                    "src": "6937:3:5"
+                    "src": "6981:3:5"
                   },
                   "nodeType": "ForStatement",
-                  "src": "6873:1134:5"
+                  "src": "6917:1138:5"
                 },
                 {
                   "expression": {
@@ -21533,7 +21533,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1523,
-                        "src": "8029:3:5",
+                        "src": "8077:3:5",
                         "typeDescriptions": {
                           "typeIdentifier": "t_int256",
                           "typeString": "int256"
@@ -21552,7 +21552,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1702,
-                      "src": "8016:12:5",
+                      "src": "8064:12:5",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_int256_$returns$__$",
                         "typeString": "function (int256)"
@@ -21566,7 +21566,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "8016:17:5",
+                    "src": "8064:17:5",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
@@ -21575,7 +21575,7 @@
                   },
                   "id": 1694,
                   "nodeType": "ExpressionStatement",
-                  "src": "8016:17:5"
+                  "src": "8064:17:5"
                 }
               ]
             },
@@ -21625,7 +21625,7 @@
               "src": "6451:0:5"
             },
             "scope": 1703,
-            "src": "6409:1631:5",
+            "src": "6409:1679:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "private"
@@ -21634,7 +21634,7 @@
             "body": {
               "id": 1701,
               "nodeType": "Block",
-              "src": "8088:2:5",
+              "src": "8136:23:5",
               "statements": []
             },
             "id": 1702,
@@ -21654,7 +21654,7 @@
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
                   "scope": 1702,
-                  "src": "8068:10:5",
+                  "src": "8116:10:5",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -21665,7 +21665,7 @@
                     "id": 1697,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8068:6:5",
+                    "src": "8116:6:5",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -21674,26 +21674,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "8067:12:5"
+              "src": "8115:12:5"
             },
             "returnParameters": {
               "id": 1700,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "8088:0:5"
+              "src": "8136:0:5"
             },
             "scope": 1703,
-            "src": "8046:44:5",
+            "src": "8094:65:5",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "private"
           }
         ],
         "scope": 1704,
-        "src": "303:7789:5"
+        "src": "303:7858:5"
       }
     ],
-    "src": "32:8061:5"
+    "src": "32:8130:5"
   },
   "compiler": {
     "name": "solc",
@@ -21701,7 +21701,7 @@
   },
   "networks": {},
   "schemaVersion": "3.2.2",
-  "updatedAt": "2021-03-01T15:22:53.988Z",
+  "updatedAt": "2021-03-01T16:01:19.182Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

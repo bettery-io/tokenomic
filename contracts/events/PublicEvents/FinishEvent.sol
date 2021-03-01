@@ -191,7 +191,10 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
     function payToExperts(int256 _id) private {
         uint256 correctAnswer = events[_id].correctAnswer;
         uint256 allReputation;
-        uint256 percent = events[_id].advisor != address(0) ? expertPerc : expertPerc + expertExptraPerc;
+        uint256 percent =
+            events[_id].advisor != address(0)
+                ? expertPerc
+                : expertPerc + expertExptraPerc;
 
         for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {
             allReputation =
@@ -204,7 +207,8 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
             uint256 persentFeeMint =
                 getPersent(events[_id].tokenMinted, expertPercMint);
             uint256 amountMint =
-                (persentFeeMint * events[_id].expert[correctAnswer][i].reputation) /
+                (persentFeeMint *
+                    events[_id].expert[correctAnswer][i].reputation) /
                     allReputation;
             require(
                 betToken.mintFromPublicContract(
@@ -214,8 +218,7 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
                 "Revert BET token to players is error"
             );
             // pay not minted tokens
-            uint256 persentFee =
-                getPersent(events[_id].pool, percent);
+            uint256 persentFee = getPersent(events[_id].pool, percent);
             uint256 amount =
                 (persentFee * events[_id].expert[correctAnswer][i].reputation) /
                     allReputation;
@@ -230,5 +233,7 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
         payToPlayers(_id);
     }
 
-    function payToPlayers(int256 _id) private {}
+    function payToPlayers(int256 _id) private {
+        // TODO
+    }
 }

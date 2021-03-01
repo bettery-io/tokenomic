@@ -8,7 +8,6 @@ const maticNetwork = require("../config/matic.json");
 const config = require("../config/tokensConfig");
 
 module.exports = async function (deployer, network) {
-
   if (network === 'matic' || network === "development") {
     let decimals = config.decimals;
     let nameBET = config.betName;
