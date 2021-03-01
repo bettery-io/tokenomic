@@ -4,8 +4,13 @@ pragma solidity >=0.4.22 <0.9.0;
 contract ConfigVariables {
     uint256 public communityMarketingFund; // 8 or 5 and 2 for advisor + 1 additional for host
     uint256 public companyPerc = 10; 
-    uint256 public hostPerc = 10;
-    uint256 public expertPerc = 10;
+    uint256 public hostPercMint = 10;
+    uint256 public hostPerc = 4;
+    uint256 public expertPercMint = 10;
+    uint256 public expertPerc = 4;
+    uint256 public expertExptraPerc = 2;
+    uint256 public advisorPercMint = 2;
+    uint256 public advisorPepc = 1;
     uint256 public playerPers;
     address public owner;
     uint256 public firstWithdrawIndex = 10;
@@ -29,7 +34,8 @@ contract ConfigVariables {
         companyPerc = _companyPerc;
     }
 
-    function setHostPerc(uint256 _hostPerc) public ownerOnly() {
+    function setHostPerc(uint256 _hostPercMint, uint256 _hostPerc) public ownerOnly() {
+        hostPercMint = _hostPercMint;
         hostPerc = _hostPerc;
     }
 

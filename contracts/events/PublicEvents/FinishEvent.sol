@@ -135,17 +135,63 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
     }
 
     function paytoHost(int256 _id) private {
-        uint256 persentFee = getPersent(events[_id].tokenMinted, hostPerc);
-        require(
-            betToken.mintFromPublicContract(events[_id].host, persentFee),
-            "Revert BET token to players is error"
-        );
+        if (events[_id].advisor != address(0)) {
+            // pay minted tokens
+            uint256 persHostFeeMint =
+                getPersent(events[_id].tokenMinted, hostPercMint + 1);
+            require(
+                betToken.mintFromPublicContract(
+                    events[_id].host,
+                    persHostFeeMint
+                ),
+                "Revert BET token to players is error"
+            );
+            uint256 persAdvisorFeeMint =
+                getPersent(events[_id].tokenMinted, advisorPercMint + 1);
+            require(
+                betToken.mintFromPublicContract(
+                    events[_id].advisor,
+                    persAdvisorFeeMint
+                ),
+                "Revert BET token to players is error"
+            );
+            // pay not minted tokens
+            uint256 percHostFee =
+                getPersent(events[_id].pool, hostPerc + advisorPepc);
+            require(
+                betToken.transfer(events[_id].host, percHostFee),
+                "Revert BET token to players is error"
+            );
+            uint256 percAdvisorFee = getPersent(events[_id].pool, advisorPepc);
+            require(
+                betToken.transfer(events[_id].advisor, percAdvisorFee),
+                "Revert BET token to players is error"
+            );
+        } else {
+            // pay minted tokens
+            uint256 persentFeeMint =
+                getPersent(events[_id].tokenMinted, hostPercMint);
+            require(
+                betToken.mintFromPublicContract(
+                    events[_id].host,
+                    persentFeeMint
+                ),
+                "Revert BET token to players is error"
+            );
+            // pay not minted tokens
+            uint256 persentFee = getPersent(events[_id].pool, hostPerc);
+            require(
+                betToken.transfer(events[_id].host, persentFee),
+                "Revert BET token to players is error"
+            );
+        }
         payToExperts(_id);
     }
 
     function payToExperts(int256 _id) private {
         uint256 correctAnswer = events[_id].correctAnswer;
         uint256 allReputation;
+        uint256 percent = events[_id].advisor != address(0) ? expertPerc : expertPerc + expertExptraPerc;
 
         for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {
             allReputation =
@@ -154,13 +200,27 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
         }
 
         for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {
+            // pay minted tokens
+            uint256 persentFeeMint =
+                getPersent(events[_id].tokenMinted, expertPercMint);
+            uint256 amountMint =
+                (persentFeeMint * events[_id].expert[correctAnswer][i].reputation) /
+                    allReputation;
+            require(
+                betToken.mintFromPublicContract(
+                    events[_id].expert[correctAnswer][i].expert,
+                    amountMint
+                ),
+                "Revert BET token to players is error"
+            );
+            // pay not minted tokens
             uint256 persentFee =
-                getPersent(events[_id].tokenMinted, expertPerc);
+                getPersent(events[_id].pool, percent);
             uint256 amount =
                 (persentFee * events[_id].expert[correctAnswer][i].reputation) /
                     allReputation;
             require(
-                betToken.mintFromPublicContract(
+                betToken.transfer(
                     events[_id].expert[correctAnswer][i].expert,
                     amount
                 ),

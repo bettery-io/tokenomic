@@ -100,7 +100,7 @@ contract PublicEvents is
         int256 _id,
         uint8 _whichAnswer,
         address payable _expertWallet,
-        int256 _reputation
+        uint256 _reputation
     ) public payable ownerOnly() {
         require(timeValidate(events[_id].endTime) == 0, "Time is not valid");
         require(
