@@ -3,11 +3,13 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract ConfigVariables {
     uint256 public developFundPerc = 10; // mint token percent for Development Fund
+    uint256 public developFundPercPremim = 10; // pay token pervent for Developement Fund in Premium events
     uint256 public hostPercMint = 10; // mint token percent for host 
     uint256 public hostPerc = 4; // pay token percent for host
     uint256 public expertPercMint = 10; // mint token percent for expert 
     uint256 public expertPerc = 4; // pay token percent for expert 
-    uint256 public expertExptraPerc = 2; // extra pay token parcent for expert if advisor not exist
+    uint256 public expertExtraPerc = 2; // extra pay token parcent for expert if advisor not exist
+    uint256 public expertPremiumPerc = 15; // bty percent in premium events for experts
     uint256 public advisorPercMint = 2; // mint token parcent for advisor 
     uint256 public advisorPepc = 1;  // pay token parcent for advisor 
     uint256 public extraHostPerc = 1; // if advisor exist we add extra coins to host

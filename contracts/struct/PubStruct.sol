@@ -15,7 +15,7 @@ contract PubStruct {
 
     struct Expert {
         address payable expert;
-        uint256 reputation;
+        int256 reputation;
     }
 
     struct EventData {
