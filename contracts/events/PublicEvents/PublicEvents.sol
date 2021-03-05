@@ -132,7 +132,7 @@ contract PublicEvents is
         }
     }
 
-    function setActivePlayersFromOracl(uint256 _amount, int256 _id) public ownerOnly {
+    function setActiveExpertsFromOracl(uint256 _amount, int256 _id) public ownerOnly {
         events[_id].amountExperts = _amount;
     }
 

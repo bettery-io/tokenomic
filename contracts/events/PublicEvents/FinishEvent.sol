@@ -84,11 +84,25 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
 
     function letsFinishEvent(int256 _id, uint256 _tokens) public ownerOnly() {
         events[_id].tokenMinted = _tokens;
-        // pay for company
-        uint256 persentFee = getPersent(_tokens, companyPerc);
+        // pay to Development Fund
+        uint256 percentFee = getPersent(_tokens, developFundPerc);
         require(
-            betToken.mintFromPublicContract(owner, persentFee),
-            "Revert BET token to players is error"
+            betToken.mintFromPublicContract(owner, percentFee),
+            "Mint to Development Fund error"
+        );
+        // pay to Community Marketing Fund
+        uint256 percentCMF = events[_id].advisor != address(0) ? comMarketFundPerc : comMarketFundPerc + extraHostPercMint + advisorPercMint;
+        uint256 calcPercCMF = getPersent(_tokens, percentCMF);
+       require(
+            betToken.mintFromPublicContract(comMarketFundWallet, calcPercCMF),
+            "Mint to Community Marketing Fund error"
+        );
+
+        // pay to Moderators Fund
+        uint256 percentFeeModerFund = getPersent(_tokens, moderatorsFundPerc);
+        require(
+            betToken.mintFromPublicContract(moderatorsFundWallet, percentFeeModerFund),
+            "Min to Moderators Fund"
         );
         paytoHost(_id);
     }
@@ -96,52 +110,52 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
     function paytoHost(int256 _id) private {
         if (events[_id].advisor != address(0)) {
             // pay minted tokens
-            uint256 persHostFeeMint =
-                getPersent(events[_id].tokenMinted, hostPercMint + 1);
+            uint256 percHostFeeMint =
+                getPersent(events[_id].tokenMinted, hostPercMint + extraHostPercMint);
             require(
                 betToken.mintFromPublicContract(
                     events[_id].host,
-                    persHostFeeMint
+                    percHostFeeMint
                 ),
-                "Revert BET token to players is error"
+                "Min to Host with advisor error"
             );
-            uint256 persAdvisorFeeMint =
-                getPersent(events[_id].tokenMinted, advisorPercMint + 1);
+            uint256 percAdvisorFeeMint =
+                getPersent(events[_id].tokenMinted, advisorPercMint);
             require(
                 betToken.mintFromPublicContract(
                     events[_id].advisor,
-                    persAdvisorFeeMint
+                    percAdvisorFeeMint
                 ),
-                "Revert BET token to players is error"
+                "Mint to Advisor error"
             );
             // pay not minted tokens
             uint256 percHostFee =
-                getPersent(events[_id].pool, hostPerc + advisorPepc);
+                getPersent(events[_id].pool, hostPerc + extraHostPerc);
             require(
                 betToken.transfer(events[_id].host, percHostFee),
-                "Revert BET token to players is error"
+                "Pay to Host with advisor error"
             );
             uint256 percAdvisorFee = getPersent(events[_id].pool, advisorPepc);
             require(
                 betToken.transfer(events[_id].advisor, percAdvisorFee),
-                "Revert BET token to players is error"
+                "Pay to Advisor error"
             );
         } else {
             // pay minted tokens
-            uint256 persentFeeMint =
+            uint256 percFeeMint =
                 getPersent(events[_id].tokenMinted, hostPercMint);
             require(
                 betToken.mintFromPublicContract(
                     events[_id].host,
-                    persentFeeMint
+                    percFeeMint
                 ),
-                "Revert BET token to players is error"
+                "Mint to Host error"
             );
             // pay not minted tokens
-            uint256 persentFee = getPersent(events[_id].pool, hostPerc);
+            uint256 percFee = getPersent(events[_id].pool, hostPerc);
             require(
-                betToken.transfer(events[_id].host, persentFee),
-                "Revert BET token to players is error"
+                betToken.transfer(events[_id].host, percFee),
+                "Pay to Host error"
             );
         }
         payToExperts(_id);
@@ -163,10 +177,10 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
 
         for (uint8 i = 0; i < events[_id].expert[correctAnswer].length; i++) {
             // pay minted tokens
-            uint256 persentFeeMint =
+            uint256 percFeeMint =
                 getPersent(events[_id].tokenMinted, expertPercMint);
             uint256 amountMint =
-                (persentFeeMint *
+                (percFeeMint *
                     events[_id].expert[correctAnswer][i].reputation) /
                     allReputation;
             require(
@@ -174,19 +188,19 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
                     events[_id].expert[correctAnswer][i].expert,
                     amountMint
                 ),
-                "Revert BET token to players is error"
+                "Mint to Experts error"
             );
             // pay not minted tokens
-            uint256 persentFee = getPersent(events[_id].pool, percent);
+            uint256 percFee = getPersent(events[_id].pool, percent);
             uint256 amount =
-                (persentFee * events[_id].expert[correctAnswer][i].reputation) /
+                (percFee * events[_id].expert[correctAnswer][i].reputation) /
                     allReputation;
             require(
                 betToken.transfer(
                     events[_id].expert[correctAnswer][i].expert,
                     amount
                 ),
-                "Revert BET token to players is error"
+                "Pay to Experts error"
             );
         }
         payToPlayers(_id);
