@@ -67,10 +67,10 @@ contract PublicEvents is
             timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
             "Time is not valid"
         );
-        require(events[_id].reverted, "event is reverted");
-        require(events[_id].eventFinish, "event is finish");
+        require(events[_id].reverted != true, "event is reverted");
+        require(events[_id].eventFinish != true, "event is finish");
         require(
-            events[_id].allPlayers[_playerWallet] == true,
+            events[_id].allPlayers[_playerWallet] != true,
             "user already participate in event"
         );
         require(_amount >= minBet, "bet amount must be bigger or equal to 0.01 tokens" );
@@ -104,11 +104,11 @@ contract PublicEvents is
     ) public payable ownerOnly() {
         require(timeValidate(events[_id].endTime) == 0, "Time is not valid");
         require(
-            events[_id].allPlayers[_expertWallet] == true,
+            events[_id].allPlayers[_expertWallet] != true,
             "user already participate in event"
         );
-        require(events[_id].reverted, "event is reverted");
-        require(events[_id].eventFinish, "event is finish");
+        require(events[_id].reverted != true, "event is reverted");
+        require(events[_id].eventFinish != true, "event is finish");
 
         if (events[_id].activePlayers == 0) {
             events[_id].reverted = true;

@@ -10,12 +10,6 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
     BET public betToken;
     BTY public btyToken;
     event revertedEvent(int256 id, string purpose);
-    event calculateTokensAmount(
-        int256 id,
-        uint256 activePlayers,
-        uint256 pool,
-        uint256 GFindex
-    );
 
     constructor(BET _betAddress, BTY _btyAddress) {
         betToken = _betAddress;
@@ -24,6 +18,7 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
 
     function letsFindCorrectAnswer(int256 _id) public {
         uint256 biggestValue = 0;
+        uint256 candidateOfDublicates = 0;
         uint256 correctAnswer;
 
         // find correct answer
@@ -31,51 +26,15 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
             if (events[_id].expert[i].length > biggestValue) {
                 biggestValue = events[_id].expert[i].length;
                 correctAnswer = i;
+            }else if(events[_id].expert[i].length == biggestValue){
+                candidateOfDublicates = events[_id].expert[i].length;
             }
         }
 
-        findDuplicates(
-            correctAnswer,
-            biggestValue,
-            _id,
-            events[_id].questAmount
-        );
-    }
-
-    function findDuplicates(
-        uint256 correctAnswer,
-        uint256 biggestValue,
-        int256 _id,
-        uint8 questAmount
-    ) private {
-        if (events[_id].activeExperts > 1) {
-            uint8 duplicatesAnswers = 0;
-            uint256[] memory expertAnswers = new uint256[](questAmount);
-            for (uint8 i = 0; i < questAmount; i++) {
-                expertAnswers[i] = events[_id].expert[i].length;
-            }
-
-            setSort(expertAnswers);
-            sort();
-
-            for (uint8 i = 0; i < sortedArray.length - 1; i++) {
-                if ((i + 1) < sortedArray.length) {
-                    if (sortedArray[i + 1] == sortedArray[i]) {
-                        if (biggestValue == sortedArray[i]) {
-                            duplicatesAnswers++;
-                        }
-                    }
-                }
-            }
-
-            if (duplicatesAnswers > 0) {
-                events[_id].reverted = true;
-                revertPayment(_id, "duplicates validators");
-            } else {
-                events[_id].correctAnswer = correctAnswer;
-                findLosersPool(correctAnswer, _id);
-            }
-        } else {
+        if(candidateOfDublicates == biggestValue){
+            events[_id].reverted = true;
+            revertPayment(_id, "duplicates validators");
+        }else{
             events[_id].correctAnswer = correctAnswer;
             findLosersPool(correctAnswer, _id);
         }
@@ -91,12 +50,12 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
         if (loserPool == 0) {
             revertedPayment(_id, "players chose only one answer");
         } else {
-            emit calculateTokensAmount(
-                _id,
-                events[_id].activePlayers,
-                events[_id].pool,
-                GFindex
-            );
+            // calculate minted tokens
+            uint256 controversy = (100 - events[_id].activePlayers) / 100;
+            uint256 averageBet = events[_id].pool / events[_id].activePlayers;
+            uint256 tokens = ((averageBet * events[_id].activePlayers * controversy * GFindex ) * 1000000000000000000 ) / 100 ;
+            events[_id].tokenMinted = tokens;
+            letsFinishEvent(_id, tokens);
         }
     }
 
