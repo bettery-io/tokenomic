@@ -53,13 +53,12 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
         } else {
             events[_id].loserPool = loserPool;
             // calculate minted tokens
-            uint256 controversy = (100 - events[_id].activePlayers) / 100;
-            uint256 averageBet = events[_id].pool / events[_id].activePlayers;
             uint256 tokens =
-                ((averageBet *
-                    events[_id].activePlayers *
-                    controversy *
-                    GFindex) * 1000000000000000000) / 100;
+                calcMintedTokens(
+                    events[_id].activePlayers,
+                    events[_id].pool,
+                    GFindex
+                );
             events[_id].tokenMinted = tokens;
             letsFinishEvent(_id, tokens);
         }
@@ -244,13 +243,16 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
 
     function payToPlayers(int256 _id) private {
         uint256 correctAnswer = events[_id].correctAnswer;
-        uint256 userAmount = events[_id].players[correctAnswer].length;
+        // uint256 userAmount = events[_id].players[correctAnswer].length;
+        uint256 userAmount = events[_id].activePlayers;
 
-        uint256 mintedTokens = getPercent(playersPersMint, events[_id].tokenMinted);
+        uint256 mintedTokens =
+            getPercent(playersPersMint, events[_id].tokenMinted);
         uint256 loserRoolPerc = getPercent(playersPers, events[_id].loserPool);
         uint256 winPool = loserRoolPerc / userAmount;
-        
-        uint256 premiumToken = getPercent(playersPersPremiun, events[_id].amountPremiumEvent);
+
+        uint256 premiumToken =
+            getPercent(playersPersPremiun, events[_id].amountPremiumEvent);
         uint256 premimWin = premiumToken / userAmount;
 
         uint256 betAmount = 0;
@@ -265,8 +267,11 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
         for (uint8 i = 0; i < userAmount; i++) {
             // mint token to users
             uint256 userBet = events[_id].players[correctAnswer][i].amount;
-            address payable userWallet = events[_id].players[correctAnswer][i].player;
-            uint256 mintWin = (userBet / avarageBet) * (mintedTokens / userAmount);
+            address payable userWallet =
+                events[_id].players[correctAnswer][i].player;
+            uint256 mintWin =
+                (userBet / avarageBet) * (mintedTokens / userAmount);
+            // TODO pay to referers
             require(
                 betToken.mintFromPublicContract(userWallet, mintWin),
                 "Mint to Players error"
@@ -278,7 +283,7 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
                 betToken.transfer(userWallet, tokenWin),
                 "Pay to Players error"
             );
-            if(events[_id].premium){
+            if (events[_id].premium) {
                 // pay premium tokens to user
                 uint256 premiumWinToken = (userBet / avarageBet) * premimWin;
                 require(
@@ -288,10 +293,34 @@ abstract contract FinishEvent is PubStruct, Libs, ConfigVariables {
             }
         }
 
-        payToLoosers();
+        payToLoosers(_id, avarageBet, mintedTokens);
     }
 
-    function payToLoosers() public{
-
+    function payToLoosers(
+        int256 _id,
+        uint256 _avarageBet,
+        uint256 _mintedTokens
+    ) private {
+        uint256 correctAnswer = events[_id].correctAnswer;
+        uint256 tokens = events[_id].tokenMinted;
+        uint256 userAmount = events[_id].activePlayers;
+        
+        for (uint8 i = 0; i < events[_id].questAmount; i++) {
+            if (correctAnswer != i) {
+                for (uint8 z = 0; z < events[_id].players[i].length; z++) {
+                    uint256 userBet = events[_id].players[i][z].amount;
+                    uint256 mintLost = (userBet / _avarageBet) * (_mintedTokens / userAmount);
+                    require(
+                        betToken.transfer(
+                            events[_id].players[i][z].player,
+                            mintLost
+                        ),
+                        "Revert BET token to players is error"
+                    );
+                }
+            }
+        }
+        events[_id].eventFinish = true;
+        emit eventFinish(_id, tokens, correctAnswer);
     }
 }

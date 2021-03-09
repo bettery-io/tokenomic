@@ -88,31 +88,44 @@ contract('Public Events', (accounts) => {
     })
 
     it("let's participate", async () => {
-        let id = 1,
-            betAmount = "1",
-            whichAnswer = 0,
-            amount = web3.utils.toWei(betAmount, "ether"),
-            playerWallet = accounts[1],
-            playerId = 123,
-            referrersDeep = 0
+        let beforeBalance = 0;
+        let pool = 0;
+        let afterBalance = 0;
+        for (let i = 0; i < 8; i++) {
+            beforeBalance = beforeBalance + 10;
+            let id = 1,
+                betAmount = i + 1,
+                whichAnswer = i > 6 ? 1 : 0,
+                amount = web3.utils.toWei(String(betAmount), "ether"),
+                playerWallet = accounts[i],
+                playerId = 123,
+                referrersDeep = 0
 
-        await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
+            await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
 
-        await events.setAnswer(
-            id,
-            whichAnswer,
-            amount,
-            playerWallet,
-            playerId,
-            referrersDeep,
-            { from: owner }
-        ).catch((err) => {
-            console.log(err)
-        })
+            await events.setAnswer(
+                id,
+                whichAnswer,
+                amount,
+                playerWallet,
+                playerId,
+                referrersDeep,
+                { from: owner }
+            ).catch((err) => {
+                console.log(err)
+            })
 
-        let bal = await bet.balanceOf(playerWallet, { from: playerWallet }).catch(err => { console.log(err) })
-        bal = web3.utils.fromWei(bal, "ether");
-        assert(bal == 10 - Number(betAmount), "contract return error")
+            let bal = await bet.balanceOf(playerWallet, { from: playerWallet }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            afterBalance = afterBalance + Number(bal)
+            pool = pool + betAmount;
+        }
+        console.log(beforeBalance);
+        console.log(pool);
+        console.log(afterBalance);
+
+        assert(beforeBalance == pool + afterBalance, "Balances are not equal")
+
     })
 
     it("let's validate from not company account, must contain error", async () => {
@@ -137,30 +150,32 @@ contract('Public Events', (accounts) => {
     })
 
     it("let's validate", async () => {
+        let error = false
+
         function timeout(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         await timeout(3000);
-        
-        let id = 1,
-            whichAnswer = 0,
-            expertWallet = accounts[2],
-            reputation = 1,
-            error = false
+        for (let i = 8; i < 11; i++) {
+            let id = 1,
+                whichAnswer = 0,
+                expertWallet = accounts[i],
+                reputation = 1
 
-        await events.setValidator(
-            id,
-            whichAnswer,
-            expertWallet,
-            reputation,
-            {
-                from: owner
-            }
-        ).catch((err) => {
-            error = true
-            console.log(err);
-        })
+            await events.setValidator(
+                id,
+                whichAnswer,
+                expertWallet,
+                reputation,
+                {
+                    from: owner
+                }
+            ).catch((err) => {
+                error = true
+                console.log(err);
+            })
+        }
         assert(!error, "contract must get parameters without errors")
     })
 
