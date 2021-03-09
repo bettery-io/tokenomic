@@ -34,6 +34,7 @@ contract PubStruct {
         address payable advisor;
         uint256 correctAnswer;
         uint256 pool;
+        uint256 loserPool;
         uint256 tokenMinted;
         bool reverted; 
         bool premium; // if true amountProEvent can't be 0
