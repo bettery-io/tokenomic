@@ -13,6 +13,7 @@ contract PublicEvents is
     FinishEvent
 {
     event calculateExpert(int256 id, uint256 activePlayers);
+    event findCorrectAnswer(int256 id);
     constructor(BET _betAddress, BTY _btyAddress) FinishEvent(_betAddress, _btyAddress){}
     uint256 minBet = 10000000000000000;
 
@@ -126,7 +127,7 @@ contract PublicEvents is
                 events[_id].activeExperts = active;
 
                 if (active == events[_id].amountExperts && events[_id].amountExperts > 0) {
-                    letsFindCorrectAnswer(_id);
+                    emit findCorrectAnswer(_id);
                 }
             }
         }

@@ -38,6 +38,28 @@ contract('Public Events', (accounts) => {
         assert(!error, "contract return error")
     })
 
+    it("Set addresses to market fund and exetra", async () => {
+        await events.setComMarketFundWallet(
+            accounts[1],
+            {
+                from: owner
+            }).catch((err) => {
+                console.log(err)
+            })
+
+        await events.setModeratorsFundWallet(
+            accounts[2],
+            {
+                from: owner
+            }).catch((err) => {
+                console.log(err)
+            })
+
+        let comMarketFundWallet = await events.comMarketFundWallet({from: owner}); 
+        let moderatorsFundWallet = await events.moderatorsFundWallet({from: owner}); 
+        assert(comMarketFundWallet && moderatorsFundWallet, "do not have wallets")
+    })
+
     it("Check name of tokens", async () => {
         let name = await bet.symbol({ from: owner });
         assert(name == "BET", "contract return error")
@@ -52,7 +74,7 @@ contract('Public Events', (accounts) => {
             balance = balance + Number(bal);
         }
 
-        assert(balance == accounts.length * 10, "balance is not 100 tokens")
+        assert(balance == accounts.length * 10, "balance is not " + accounts.length * 10 + " tokens")
     })
 
     it("Create event", async () => {
@@ -91,14 +113,14 @@ contract('Public Events', (accounts) => {
         let beforeBalance = 0;
         let pool = 0;
         let afterBalance = 0;
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 80; i++) {
             beforeBalance = beforeBalance + 10;
             let id = 1,
                 betAmount = i + 1,
-                whichAnswer = i > 6 ? 1 : 0,
+                whichAnswer = i > 40 ? 1 : 0,
                 amount = web3.utils.toWei(String(betAmount), "ether"),
                 playerWallet = accounts[i],
-                playerId = 123,
+                playerId = 123 + i,
                 referrersDeep = 0
 
             await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
@@ -120,12 +142,7 @@ contract('Public Events', (accounts) => {
             afterBalance = afterBalance + Number(bal)
             pool = pool + betAmount;
         }
-        console.log(beforeBalance);
-        console.log(pool);
-        console.log(afterBalance);
-
         assert(beforeBalance == pool + afterBalance, "Balances are not equal")
-
     })
 
     it("let's validate from not company account, must contain error", async () => {
@@ -157,12 +174,11 @@ contract('Public Events', (accounts) => {
         }
 
         await timeout(3000);
-        for (let i = 8; i < 11; i++) {
+        for (let i = 90; i < 94; i++) {
             let id = 1,
                 whichAnswer = 0,
                 expertWallet = accounts[i],
-                reputation = 1
-
+                reputation = i
             await events.setValidator(
                 id,
                 whichAnswer,
@@ -178,5 +194,14 @@ contract('Public Events', (accounts) => {
         }
         assert(!error, "contract must get parameters without errors")
     })
+
+    // it("check balances", async () => {
+    //     for (i = 0; i < 10; i++) {
+    //         let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+    //         bal = web3.utils.fromWei(bal, "ether");
+    //         console.log(bal);
+    //     }
+    //     assert(false, "error")
+    // })
 
 })

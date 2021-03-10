@@ -80,6 +80,14 @@ contract ConfigVariables {
         GFindex = _GFindex;
     }
 
+    function setComMarketFundWallet(address payable _wallet) public ownerOnly() {
+        comMarketFundWallet = _wallet;
+    }
+
+    function setModeratorsFundWallet(address payable _wallet) public ownerOnly() {
+        moderatorsFundWallet = _wallet;
+    }
+
     function getFirstWithdraw() public view returns (uint256) {
         return welcomeBTYTokens * firstWithdrawIndex;
     }
