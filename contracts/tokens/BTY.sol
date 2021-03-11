@@ -27,7 +27,7 @@ contract BTY is ERC20, MetaTransactLib, ConfigVariables {
     function swipe(uint256 _amount) public {
         require(
             betToken.balanceOf(msgSender()) >= _amount,
-            "do not enough tokens"
+            "not enough tokens"
         );
         betToken.burn(msgSender(), _amount);
         _mint(msgSender(), _amount);

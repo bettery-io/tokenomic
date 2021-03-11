@@ -6,8 +6,6 @@ import {TimeValidation} from "../helpers/TimeValidation.sol";
 import {ConfigVariables} from "../config/ConfigVariables.sol";
 
 contract PrivateEvents is TimeValidation, ConfigVariables {
-    constructor() {}
-
     event eventIsFinish(int256 question_id, uint8 correctAnswer);
     mapping(int256 => PrivStruct.EventData) events;
 

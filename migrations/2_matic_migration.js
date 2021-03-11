@@ -2,6 +2,7 @@ const BETTokenContract = artifacts.require("BET.sol")
 const BTYTokenContract = artifacts.require("BTY.sol");
 const PrivateEventContract = artifacts.require("PrivateEvents.sol");
 const PublicEventContract = artifacts.require("PublicEvents.sol");
+const FinishEventContract = artifacts.require("FinishEvent.sol");
 const GrowthFactorEvents = artifacts.require("GrowthFactorEvents.sol");
 const ProEventsContract = artifacts.require("ProEvents.sol")
 const maticNetwork = require("../config/matic.json");
@@ -23,6 +24,8 @@ module.exports = async function (deployer, network) {
     await deployer.deploy(PrivateEventContract);
 
     await deployer.deploy(PublicEventContract, BETTokenContract.address, BTYTokenContract.address);
+
+    await deployer.deploy(FinishEventContract, BETTokenContract.address, BTYTokenContract.address);
 
     await deployer.deploy(ProEventsContract, BETTokenContract.address, BTYTokenContract.address);
 

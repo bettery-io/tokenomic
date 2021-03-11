@@ -1,53 +1,52 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import {PubStruct} from "../../struct/PubStruct.sol";
 import {TimeValidation} from "../../helpers/TimeValidation.sol";
+import {FinishEvent} from "./FinishEvent.sol";
 import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
-import {FinishEvent} from "./FinishEvent.sol";
 
 contract PublicEvents is
     TimeValidation,
-    PubStruct,
     FinishEvent
 {
     event calculateExpert(int256 id, uint256 activePlayers);
     event findCorrectAnswer(int256 id);
-    constructor(BET _betAddress, BTY _btyAddress) FinishEvent(_betAddress, _btyAddress){}
+    
+    constructor(BET _betAdres, BTY _btyAdres) FinishEvent(_betAdres, _btyAdres){}
     uint256 minBet = 10000000000000000;
 
     function newEvent(
         int256 _id,
-        uint256 _startTime,
-        uint256 _endTime,
+        uint256 _sT,
+        uint256 _eT,
         uint8 _questAmount,
-        uint256 _amountExperts,
-        bool _calculateExperts,
+        uint256 _amountExp,
+        bool _calcExp,
         address payable _host,
         bool _premium,
-        uint256 _amountPremiumEvent
+        uint256 _amountPrem
     ) public payable ownerOnly() {
         events[_id].id = _id;
-        events[_id].startTime = _startTime;
-        events[_id].endTime = _endTime;
+        events[_id].startTime = _sT;
+        events[_id].endTime = _eT;
         events[_id].questAmount = _questAmount;
-        events[_id].amountExperts = _amountExperts;
+        events[_id].amountExperts = _amountExp;
         events[_id].host = _host;
-        events[_id].calculateExperts = _calculateExperts;
+        events[_id].calculateExperts = _calcExp;
         events[_id].premium = _premium;
         if (_premium) {
             require(
-                btyToken.allowance(_host, address(this)) >= _amountPremiumEvent,
-                "Allowance error"
+                btyToken.allowance(_host, address(this)) >= _amountPrem,
+                "AE" // Allowance error
             );
             require(
                 btyToken.transferFrom(
                     _host,
                     address(this),
-                    _amountPremiumEvent
+                    _amountPrem
                 ),
-                "Transfer BTY tokens for PRO event error"
+                "BTY PRO event"
             );
         }
     }
@@ -58,38 +57,39 @@ contract PublicEvents is
 
     function setAnswer(
         int256 _id,
-        uint8 _whichAnswer,
+        uint8 _answer,
         uint256 _amount,
-        address payable _playerWallet,
+        address payable _pWallet,
         int256 _playerId,
-        uint8 _referrersDeep
+        uint8 _refDeep
     ) public payable ownerOnly() {
         require(
             timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
-            "Time is not valid"
+            "NVT" // not valid time
         );
-        require(events[_id].reverted != true, "event is reverted");
-        require(events[_id].eventFinish != true, "event is finish");
+        require(!events[_id].reverted, "reverted");
+        require(!events[_id].eventFinish, "finished");
         require(
-            events[_id].allPlayers[_playerWallet] != true,
-            "user already participate in event"
+            !events[_id].allPlayers[_pWallet],
+            "user exist"
         );
-        require(_amount >= minBet, "bet amount must be bigger or equal to 0.01 tokens" );
-
-        PubStruct.Player memory player;
-        player = PubStruct.Player(_playerId, _playerWallet, _amount, _referrersDeep);
-        events[_id].players[_whichAnswer].push(player);
-        events[_id].allPlayers[_playerWallet] = true;
+        require(_amount >= minBet, "amount" );
+        uint256 ap = events[_id].activePlayers;
+        events[_id].players[_answer][ap].playerId = _playerId;
+        events[_id].players[_answer][ap].player = _pWallet;
+        events[_id].players[_answer][ap].amount = _amount;
+        events[_id].players[_answer][ap].referrersDeep = _refDeep;
+        events[_id].allPlayers[_pWallet] = true;
         events[_id].activePlayers += 1;
         events[_id].pool += _amount;
 
         require(
-            betToken.allowance(_playerWallet, address(this)) >= _amount,
-            "Allowance error"
+            betToken.allowance(_pWallet, address(this)) >= _amount,
+            "AE"
         );
         require(
-            betToken.transferFrom(_playerWallet, address(this), _amount),
-            "Transfer BTY from players error"
+            betToken.transferFrom(_pWallet, address(this), _amount),
+            "BTY players"
         );
     }
 
@@ -99,34 +99,33 @@ contract PublicEvents is
 
     function setValidator(
         int256 _id,
-        uint8 _whichAnswer,
-        address payable _expertWallet,
-        int256 _reputation
+        uint8 _answer,
+        address payable _eWallet,
+        int256 _reput
     ) public payable ownerOnly() {
-        require(timeValidate(events[_id].endTime) == 0, "Time is not valid");
+        require(timeValidate(events[_id].endTime) == 0, "NVT"); // Not valid time
         require(
-            events[_id].allPlayers[_expertWallet] != true,
-            "user already participate in event"
+            !events[_id].allPlayers[_eWallet],
+            "user participate"
         );
-        require(events[_id].reverted != true, "event is reverted");
-        require(events[_id].eventFinish != true, "event is finish");
+        require(!events[_id].reverted, "reverted");
+        require(!events[_id].eventFinish, "finished");
 
         if (events[_id].activePlayers == 0) {
             events[_id].reverted = true;
-            emit revertedEvent(_id, "do not have players on event");
+            emit revertedEvent(_id, "do not have players");
         } else {
             if (
                 events[_id].calculateExperts && events[_id].amountExperts == 0
             ) {
                 emit calculateExpert(_id, events[_id].activePlayers);
             } else {
-                PubStruct.Expert memory expert;
-                expert = PubStruct.Expert(_expertWallet, _reputation);
-                events[_id].expert[_whichAnswer].push(expert);
-                uint256 active = events[_id].activeExperts + 1;
-                events[_id].activeExperts = active;
+                uint256 ae = events[_id].activeExperts;
+                events[_id].expert[_answer][ae].expert = _eWallet;
+                events[_id].expert[_answer][ae].reputation = _reput;
+                events[_id].activeExperts = ae + 1;
 
-                if (active == events[_id].amountExperts && events[_id].amountExperts > 0) {
+                if (events[_id].activeExperts == events[_id].amountExperts && events[_id].amountExperts > 0) {
                     emit findCorrectAnswer(_id);
                 }
             }

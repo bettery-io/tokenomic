@@ -38,7 +38,7 @@ contract GrowthFactorEvents is TimeValidation, ConfigVariables {
         events[_id].player[_whichAnswer].push(play);
     }
 
-    function finishEvent(int256 _id) public ownerOnly(){
+    function finishGFEvent(int256 _id) public ownerOnly(){
         uint256 biggestValue = 0;
         uint8 correctAnswer;
 

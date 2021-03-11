@@ -30,14 +30,14 @@ contract BET is MetaTransactLib, ERC20, ConfigVariables {
     function mintFromPublicContract(address wallet, uint256 amount) public returns(bool) {
         require(
             msg.sender == publicContract,
-            "This function could only be executed by the public contract"
+            "only public contract"
         );
         _mint(wallet, amount);
         return true;
     }
 
     function burn(address wallet, uint256 amount) public {
-        require(msg.sender == btyContract, "Only BTY tokens can burn BET tokens");
+        require(msg.sender == btyContract, "BTY can burn BET");
         _burn(wallet, amount);
     }
 }

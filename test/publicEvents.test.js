@@ -1,3 +1,5 @@
+const truffleAssert = require('truffle-assertions');
+
 const PublicContract = artifacts.require("../contracts/events/PublicEvents/PublicEvents.sol");
 const BtyContract = artifacts.require("../contracts/tokens/BTY.sol");
 const BetContract = artifacts.require("../contracts/tokens/BET.sol");
@@ -80,7 +82,7 @@ contract('Public Events', (accounts) => {
     it("Create event", async () => {
         let id = 1,
             startTime = Number(Math.floor(Date.now() / 1000).toFixed(0)),
-            date = new Date().setSeconds(new Date().getSeconds() + 3),
+            date = new Date().setSeconds(new Date().getSeconds() + 60),
             endTime = Number(Math.floor(date / 1000).toFixed(0)),
             questAmount = 3,
             amountExperts = 3,
@@ -116,7 +118,7 @@ contract('Public Events', (accounts) => {
         for (let i = 0; i < 80; i++) {
             beforeBalance = beforeBalance + 10;
             let id = 1,
-                betAmount = i + 1,
+                betAmount = i % 2 == 0 ? 4 : 8,
                 whichAnswer = i > 40 ? 1 : 0,
                 amount = web3.utils.toWei(String(betAmount), "ether"),
                 playerWallet = accounts[i],
@@ -173,13 +175,14 @@ contract('Public Events', (accounts) => {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        await timeout(3000);
+        await timeout(60000);
+        let tx;
         for (let i = 90; i < 94; i++) {
             let id = 1,
                 whichAnswer = 0,
                 expertWallet = accounts[i],
                 reputation = i
-            await events.setValidator(
+        tx = await events.setValidator(
                 id,
                 whichAnswer,
                 expertWallet,
@@ -192,7 +195,9 @@ contract('Public Events', (accounts) => {
                 console.log(err);
             })
         }
-        assert(!error, "contract must get parameters without errors")
+        truffleAssert.eventEmitted(tx, 'findCorrectAnswer', (ev) => {
+            return ev.id === id;
+          }, 'Contract should return the correct id.');
     })
 
     // it("check balances", async () => {
