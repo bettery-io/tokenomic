@@ -1,6 +1,7 @@
 const truffleAssert = require('truffle-assertions');
 
 const PublicContract = artifacts.require("../contracts/events/PublicEvents/PublicEvents.sol");
+const FinishEvent = artifacts.require("../contracts/events/PublicEvents/FinishEvent.sol")
 const BtyContract = artifacts.require("../contracts/tokens/BTY.sol");
 const BetContract = artifacts.require("../contracts/tokens/BET.sol");
 const Web3 = require('web3');
@@ -17,6 +18,7 @@ contract('Public Events', (accounts) => {
         bty = await BtyContract.deployed();
         bet = await BetContract.deployed();
         events = await PublicContract.deployed(bet.address, bty.address);
+        finishEvent = await FinishEvent.deployed(bet.address, bty.address);
     })
 
     it('Should have an address for Public Events', () => {
@@ -26,9 +28,9 @@ contract('Public Events', (accounts) => {
     it("Set addresses to the BET contract", async () => {
         let error = false;
         let btyTokenAdd = bty.address;
-        let publicAdd = events.address;
+        let address = finishEvent.address;
         await bet.setConfigContract(
-            publicAdd,
+            address,
             btyTokenAdd,
             {
                 from: owner
@@ -37,6 +39,16 @@ contract('Public Events', (accounts) => {
             error = true;
             console.log(err)
         })
+
+        await events.setEFStructAdd(address,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            error = true;
+            console.log(err)
+        })
+
         assert(!error, "contract return error")
     })
 
@@ -57,8 +69,8 @@ contract('Public Events', (accounts) => {
                 console.log(err)
             })
 
-        let comMarketFundWallet = await events.comMarketFundWallet({from: owner}); 
-        let moderatorsFundWallet = await events.moderatorsFundWallet({from: owner}); 
+        let comMarketFundWallet = await events.comMarketFundWallet({ from: owner });
+        let moderatorsFundWallet = await events.moderatorsFundWallet({ from: owner });
         assert(comMarketFundWallet && moderatorsFundWallet, "do not have wallets")
     })
 
@@ -82,13 +94,12 @@ contract('Public Events', (accounts) => {
     it("Create event", async () => {
         let id = 1,
             startTime = Number(Math.floor(Date.now() / 1000).toFixed(0)),
-            date = new Date().setSeconds(new Date().getSeconds() + 60),
+            date = new Date().setSeconds(new Date().getSeconds() + 5),
             endTime = Number(Math.floor(date / 1000).toFixed(0)),
             questAmount = 3,
             amountExperts = 3,
             calculateExperts = false,
             host = accounts[1],
-            premium = false,
             amountPremiumEvent = 0,
             error = false
         await events.newEvent(
@@ -99,7 +110,6 @@ contract('Public Events', (accounts) => {
             amountExperts,
             calculateExperts,
             host,
-            premium,
             amountPremiumEvent,
             {
                 from: owner
@@ -115,11 +125,11 @@ contract('Public Events', (accounts) => {
         let beforeBalance = 0;
         let pool = 0;
         let afterBalance = 0;
-        for (let i = 0; i < 80; i++) {
+        for (let i = 0; i < 7; i++) {
             beforeBalance = beforeBalance + 10;
             let id = 1,
                 betAmount = i % 2 == 0 ? 4 : 8,
-                whichAnswer = i > 40 ? 1 : 0,
+                whichAnswer = i > 4 ? 1 : 0,
                 amount = web3.utils.toWei(String(betAmount), "ether"),
                 playerWallet = accounts[i],
                 playerId = 123 + i,
@@ -147,27 +157,6 @@ contract('Public Events', (accounts) => {
         assert(beforeBalance == pool + afterBalance, "Balances are not equal")
     })
 
-    it("let's validate from not company account, must contain error", async () => {
-        let id = 1,
-            whichAnswer = 0,
-            expertWallet = accounts[2],
-            reputation = 1,
-            error = false
-
-        await events.setValidator(
-            id,
-            whichAnswer,
-            expertWallet,
-            reputation,
-            {
-                from: expertWallet
-            }
-        ).catch((err) => {
-            error = true
-        })
-        assert(error, "contract must contrain error")
-    })
-
     it("let's validate", async () => {
         let error = false
 
@@ -175,14 +164,14 @@ contract('Public Events', (accounts) => {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        await timeout(60000);
+        await timeout(5000);
         let tx;
-        for (let i = 90; i < 94; i++) {
+        for (let i = 7; i < accounts.length; i++) {
             let id = 1,
                 whichAnswer = 0,
                 expertWallet = accounts[i],
                 reputation = i
-        tx = await events.setValidator(
+            tx = await events.setValidator(
                 id,
                 whichAnswer,
                 expertWallet,
@@ -197,7 +186,7 @@ contract('Public Events', (accounts) => {
         }
         truffleAssert.eventEmitted(tx, 'findCorrectAnswer', (ev) => {
             return ev.id === id;
-          }, 'Contract should return the correct id.');
+        }, 'Contract should return the correct id.');
     })
 
     // it("check balances", async () => {
@@ -208,5 +197,21 @@ contract('Public Events', (accounts) => {
     //     }
     //     assert(false, "error")
     // })
+
+    it("check finish event", async () => {
+        let id = 1;
+        let tx = await finishEvent.letsFindCorrectAnswer(
+            id,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            console.log(err)
+        })
+
+        truffleAssert.eventEmitted(tx, 'payToCompanies', (ev) => {
+            console.log(ev);
+        }, 'Contract should return the correct id.');
+    })
 
 })

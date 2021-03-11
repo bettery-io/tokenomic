@@ -2,31 +2,47 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 import {TimeValidation} from "../../helpers/TimeValidation.sol";
-import {FinishEvent} from "./FinishEvent.sol";
 import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
+import {PubStruct} from "../../struct/PubStruct.sol";
+import {EFStruct} from "../../struct/EFStruct.sol";
+import {ConfigVariables} from "../../config/ConfigVariables.sol";
 
 contract PublicEvents is
     TimeValidation,
-    FinishEvent
+    PubStruct,
+    ConfigVariables
 {
     event calculateExpert(int256 id, uint256 activePlayers);
     event findCorrectAnswer(int256 id);
+    event revertedEvent(int256 id, string purpose);
+
+    uint minBet = 10000000000000000;
+    BET public betToken;
+    BTY public btyToken;
+    EFStruct efData;
     
-    constructor(BET _betAdres, BTY _btyAdres) FinishEvent(_betAdres, _btyAdres){}
-    uint256 minBet = 10000000000000000;
+    constructor(BET _betAddress, BTY _btyAddress){
+        betToken = _betAddress;
+        btyToken = _btyAddress;
+    }
+
+    function setEFStructAdd(address _addr) public {
+        require( msg.sender == owner, "owner only");
+        efData = EFStruct(_addr);
+    }
 
     function newEvent(
-        int256 _id,
-        uint256 _sT,
-        uint256 _eT,
-        uint8 _questAmount,
-        uint256 _amountExp,
+        int _id,
+        uint _sT,
+        uint _eT,
+        uint _questAmount,
+        uint _amountExp,
         bool _calcExp,
         address payable _host,
-        bool _premium,
-        uint256 _amountPrem
-    ) public payable ownerOnly() {
+        uint _amountPrem
+    ) public payable {
+        require( msg.sender == owner, "owner only");
         events[_id].id = _id;
         events[_id].startTime = _sT;
         events[_id].endTime = _eT;
@@ -34,85 +50,78 @@ contract PublicEvents is
         events[_id].amountExperts = _amountExp;
         events[_id].host = _host;
         events[_id].calculateExperts = _calcExp;
-        events[_id].premium = _premium;
-        if (_premium) {
-            require(
-                btyToken.allowance(_host, address(this)) >= _amountPrem,
-                "AE" // Allowance error
-            );
-            require(
-                btyToken.transferFrom(
-                    _host,
-                    address(this),
-                    _amountPrem
-                ),
-                "BTY PRO event"
-            );
+        if (_amountPrem > 0) {
+            events[_id].amountPremiumEvent = _amountPrem;
+            require( btyToken.allowance(_host, address(this)) >= _amountPrem, "Allowance" );
+            require( btyToken.transferFrom(_host, address(this), _amountPrem), "BTY PRO event" );
         }
     }
 
-    function addAdvisor(address payable _advisor, int256 _id) public ownerOnly(){
-          events[_id].advisor = _advisor;
+    function addAdvisor(address payable _advisor, int256 _id) public{
+        require( msg.sender == owner, "owner only");
+        events[_id].advisor = _advisor;
     }
 
     function setAnswer(
-        int256 _id,
-        uint8 _answer,
-        uint256 _amount,
+        int _id,
+        uint _answer,
+        uint _amount,
         address payable _pWallet,
-        int256 _playerId,
-        uint8 _refDeep
-    ) public payable ownerOnly() {
-        require(
-            timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
-            "NVT" // not valid time
-        );
-        require(!events[_id].reverted, "reverted");
-        require(!events[_id].eventFinish, "finished");
-        require(
-            !events[_id].allPlayers[_pWallet],
-            "user exist"
-        );
-        require(_amount >= minBet, "amount" );
-        uint256 ap = events[_id].activePlayers;
-        events[_id].players[_answer][ap].playerId = _playerId;
-        events[_id].players[_answer][ap].player = _pWallet;
-        events[_id].players[_answer][ap].amount = _amount;
-        events[_id].players[_answer][ap].referrersDeep = _refDeep;
+        int _playerId,
+        uint _refDeep
+    ) public payable {
+        require( msg.sender == owner, "owner only");
+         require(
+             timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
+             "Time is not valid"
+         );
+         require(efData.checkReverted(_id) != true, "event is reverted");
+         require(efData.checkEventFinish(_id) != true, "event is finish");
+         require(
+             events[_id].allPlayers[_pWallet] != true,
+             "user already participate in event"
+         );
+         require(_amount >= minBet, "bet amount must be bigger or equal to 0.01 tokens" );
+
+        PubStruct.Player memory player;
+        player = PubStruct.Player(_playerId, _pWallet, _amount, _refDeep);
+        events[_id].players[_answer].push(player);
         events[_id].allPlayers[_pWallet] = true;
         events[_id].activePlayers += 1;
         events[_id].pool += _amount;
 
-        require(
-            betToken.allowance(_pWallet, address(this)) >= _amount,
-            "AE"
-        );
-        require(
-            betToken.transferFrom(_pWallet, address(this), _amount),
-            "BTY players"
-        );
+         require(
+             betToken.allowance(_pWallet, address(this)) >= _amount,
+             "Allowance error"
+         );
+         require(
+             betToken.transferFrom(_pWallet, address(this), _amount),
+             "Transfer BTY from players error"
+         );
     }
 
-    function setReferrers(string memory _key, address payable[] calldata _referrers) public ownerOnly(){
+    function setReferrers(string memory _key, address payable[] calldata _referrers) public {
+        require( msg.sender == owner, "owner only");
         referrers[_key].referrer = _referrers;
     }
 
     function setValidator(
-        int256 _id,
-        uint8 _answer,
+        int _id,
+        uint _answer,
         address payable _eWallet,
-        int256 _reput
-    ) public payable ownerOnly() {
-        require(timeValidate(events[_id].endTime) == 0, "NVT"); // Not valid time
+        int _reput
+    ) public payable {
+        require( msg.sender == owner, "owner only");
+        require(timeValidate(events[_id].endTime) == 0, "not valid time"); 
         require(
             !events[_id].allPlayers[_eWallet],
             "user participate"
         );
-        require(!events[_id].reverted, "reverted");
-        require(!events[_id].eventFinish, "finished");
+        require(efData.checkReverted(_id) != true, "event is reverted");
+        require(efData.checkEventFinish(_id) != true, "event is finish");
 
         if (events[_id].activePlayers == 0) {
-            events[_id].reverted = true;
+            efData.setReverted(_id);
             emit revertedEvent(_id, "do not have players");
         } else {
             if (
@@ -120,10 +129,10 @@ contract PublicEvents is
             ) {
                 emit calculateExpert(_id, events[_id].activePlayers);
             } else {
-                uint256 ae = events[_id].activeExperts;
-                events[_id].expert[_answer][ae].expert = _eWallet;
-                events[_id].expert[_answer][ae].reputation = _reput;
-                events[_id].activeExperts = ae + 1;
+                PubStruct.Expert memory expert;
+                expert = PubStruct.Expert(_eWallet, _reput);
+                events[_id].expert[_answer].push(expert);
+                events[_id].activeExperts += 1;
 
                 if (events[_id].activeExperts == events[_id].amountExperts && events[_id].amountExperts > 0) {
                     emit findCorrectAnswer(_id);
@@ -132,7 +141,8 @@ contract PublicEvents is
         }
     }
 
-    function setActiveExpertsFromOracl(uint256 _amount, int256 _id) public ownerOnly {
+    function setActiveExpertsFromOracl(uint _amount, int _id) public {
+        require( msg.sender == owner, "owner only");
         events[_id].amountExperts = _amount;
     }
 

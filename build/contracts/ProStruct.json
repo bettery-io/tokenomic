@@ -5,6 +5,8 @@
   "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212200dd8bb74784116921d987d186f264cd2e90af76356d8716d77c029a6fd0bf4ac64736f6c63430007060033",
   "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212200dd8bb74784116921d987d186f264cd2e90af76356d8716d77c029a6fd0bf4ac64736f6c63430007060033",
   "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
   "sourceMap": "73:835:14:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "73:835:14:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\n//TODO\nlibrary ProStruct {\n    struct Player {\n        address payable players;\n        uint8 reputation; \n    }\n\n    struct EventData {\n        int256 id;\n        address payable host;\n        uint256 startTime;\n        uint256 endTime;\n        uint8 questAmount; // question amount\n        uint256 prizeAmount; \n        mapping(uint256 => Player[]) player;\n        mapping(address => bool) allPlayers; // added for validation if players whant participate more\n        uint256 activePlayers; // amount of all players\n        uint8 correctAnswer;\n        uint256 playersNeeded; // amount of players that need for finish event, can't be 0 if eventFinishWay = false\n        uint256 reputPool; // reputation pool for calcalation \n        bool eventFinish;\n        bool eventFinishWay; // true finish by time, false finish by active usert\n    }\n}",
@@ -13,15 +15,15 @@
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/ProStruct.sol",
     "exportedSymbols": {
       "ProStruct": [
-        3269
+        3300
       ]
     },
-    "id": 3270,
+    "id": 3301,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3229,
+        "id": 3260,
         "literals": [
           "solidity",
           ">=",
@@ -40,24 +42,24 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 3269,
+        "id": 3300,
         "linearizedBaseContracts": [
-          3269
+          3300
         ],
         "name": "ProStruct",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "ProStruct.Player",
-            "id": 3234,
+            "id": 3265,
             "members": [
               {
                 "constant": false,
-                "id": 3231,
+                "id": 3262,
                 "mutability": "mutable",
                 "name": "players",
                 "nodeType": "VariableDeclaration",
-                "scope": 3234,
+                "scope": 3265,
                 "src": "121:23:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -66,7 +68,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 3230,
+                  "id": 3261,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "121:15:14",
@@ -80,11 +82,11 @@
               },
               {
                 "constant": false,
-                "id": 3233,
+                "id": 3264,
                 "mutability": "mutable",
                 "name": "reputation",
                 "nodeType": "VariableDeclaration",
-                "scope": 3234,
+                "scope": 3265,
                 "src": "154:16:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -93,7 +95,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 3232,
+                  "id": 3263,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "154:5:14",
@@ -107,21 +109,21 @@
             ],
             "name": "Player",
             "nodeType": "StructDefinition",
-            "scope": 3269,
+            "scope": 3300,
             "src": "97:81:14",
             "visibility": "public"
           },
           {
             "canonicalName": "ProStruct.EventData",
-            "id": 3268,
+            "id": 3299,
             "members": [
               {
                 "constant": false,
-                "id": 3236,
+                "id": 3267,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "211:9:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -130,7 +132,7 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 3235,
+                  "id": 3266,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
                   "src": "211:6:14",
@@ -143,11 +145,11 @@
               },
               {
                 "constant": false,
-                "id": 3238,
+                "id": 3269,
                 "mutability": "mutable",
                 "name": "host",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "230:20:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -156,7 +158,7 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 3237,
+                  "id": 3268,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "230:15:14",
@@ -170,11 +172,11 @@
               },
               {
                 "constant": false,
-                "id": 3240,
+                "id": 3271,
                 "mutability": "mutable",
                 "name": "startTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "260:17:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -183,7 +185,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3239,
+                  "id": 3270,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "260:7:14",
@@ -196,11 +198,11 @@
               },
               {
                 "constant": false,
-                "id": 3242,
+                "id": 3273,
                 "mutability": "mutable",
                 "name": "endTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "287:15:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -209,7 +211,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3241,
+                  "id": 3272,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "287:7:14",
@@ -222,11 +224,11 @@
               },
               {
                 "constant": false,
-                "id": 3244,
+                "id": 3275,
                 "mutability": "mutable",
                 "name": "questAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "312:17:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -235,7 +237,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 3243,
+                  "id": 3274,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "312:5:14",
@@ -248,11 +250,11 @@
               },
               {
                 "constant": false,
-                "id": 3246,
+                "id": 3277,
                 "mutability": "mutable",
                 "name": "prizeAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "358:19:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -261,7 +263,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3245,
+                  "id": 3276,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "358:7:14",
@@ -274,22 +276,22 @@
               },
               {
                 "constant": false,
-                "id": 3251,
+                "id": 3282,
                 "mutability": "mutable",
                 "name": "player",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "388:35:14",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3234_storage_$dyn_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3265_storage_$dyn_storage_$",
                   "typeString": "mapping(uint256 => struct ProStruct.Player[])"
                 },
                 "typeName": {
-                  "id": 3250,
+                  "id": 3281,
                   "keyType": {
-                    "id": 3247,
+                    "id": 3278,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "396:7:14",
@@ -301,26 +303,26 @@
                   "nodeType": "Mapping",
                   "src": "388:28:14",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3234_storage_$dyn_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3265_storage_$dyn_storage_$",
                     "typeString": "mapping(uint256 => struct ProStruct.Player[])"
                   },
                   "valueType": {
                     "baseType": {
-                      "id": 3248,
+                      "id": 3279,
                       "name": "Player",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 3234,
+                      "referencedDeclaration": 3265,
                       "src": "407:6:14",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$3234_storage_ptr",
+                        "typeIdentifier": "t_struct$_Player_$3265_storage_ptr",
                         "typeString": "struct ProStruct.Player"
                       }
                     },
-                    "id": 3249,
+                    "id": 3280,
                     "nodeType": "ArrayTypeName",
                     "src": "407:8:14",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Player_$3234_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Player_$3265_storage_$dyn_storage_ptr",
                       "typeString": "struct ProStruct.Player[]"
                     }
                   }
@@ -329,11 +331,11 @@
               },
               {
                 "constant": false,
-                "id": 3255,
+                "id": 3286,
                 "mutability": "mutable",
                 "name": "allPlayers",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "433:35:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -342,9 +344,9 @@
                   "typeString": "mapping(address => bool)"
                 },
                 "typeName": {
-                  "id": 3254,
+                  "id": 3285,
                   "keyType": {
-                    "id": 3252,
+                    "id": 3283,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "441:7:14",
@@ -360,7 +362,7 @@
                     "typeString": "mapping(address => bool)"
                   },
                   "valueType": {
-                    "id": 3253,
+                    "id": 3284,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
                     "src": "452:4:14",
@@ -374,11 +376,11 @@
               },
               {
                 "constant": false,
-                "id": 3257,
+                "id": 3288,
                 "mutability": "mutable",
                 "name": "activePlayers",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "536:21:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -387,7 +389,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3256,
+                  "id": 3287,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "536:7:14",
@@ -400,11 +402,11 @@
               },
               {
                 "constant": false,
-                "id": 3259,
+                "id": 3290,
                 "mutability": "mutable",
                 "name": "correctAnswer",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "592:19:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -413,7 +415,7 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 3258,
+                  "id": 3289,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
                   "src": "592:5:14",
@@ -426,11 +428,11 @@
               },
               {
                 "constant": false,
-                "id": 3261,
+                "id": 3292,
                 "mutability": "mutable",
                 "name": "playersNeeded",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "621:21:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -439,7 +441,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3260,
+                  "id": 3291,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "621:7:14",
@@ -452,11 +454,11 @@
               },
               {
                 "constant": false,
-                "id": 3263,
+                "id": 3294,
                 "mutability": "mutable",
                 "name": "reputPool",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "738:17:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -465,7 +467,7 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3262,
+                  "id": 3293,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
                   "src": "738:7:14",
@@ -478,11 +480,11 @@
               },
               {
                 "constant": false,
-                "id": 3265,
+                "id": 3296,
                 "mutability": "mutable",
                 "name": "eventFinish",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "801:16:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -491,7 +493,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3264,
+                  "id": 3295,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "801:4:14",
@@ -504,11 +506,11 @@
               },
               {
                 "constant": false,
-                "id": 3267,
+                "id": 3298,
                 "mutability": "mutable",
                 "name": "eventFinishWay",
                 "nodeType": "VariableDeclaration",
-                "scope": 3268,
+                "scope": 3299,
                 "src": "827:19:14",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -517,7 +519,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3266,
+                  "id": 3297,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "827:4:14",
@@ -531,548 +533,563 @@
             ],
             "name": "EventData",
             "nodeType": "StructDefinition",
-            "scope": 3269,
+            "scope": 3300,
             "src": "184:722:14",
             "visibility": "public"
           }
         ],
-        "scope": 3270,
+        "scope": 3301,
         "src": "73:835:14"
       }
     ],
     "src": "32:876:14"
   },
   "legacyAST": {
-    "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/ProStruct.sol",
-    "exportedSymbols": {
-      "ProStruct": [
-        3269
-      ]
+    "attributes": {
+      "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/ProStruct.sol",
+      "exportedSymbols": {
+        "ProStruct": [
+          3300
+        ]
+      },
+      "license": "MIT"
     },
-    "id": 3270,
-    "license": "MIT",
-    "nodeType": "SourceUnit",
-    "nodes": [
+    "children": [
       {
-        "id": 3229,
-        "literals": [
-          "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
-          ".0"
-        ],
-        "nodeType": "PragmaDirective",
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 3260,
+        "name": "PragmaDirective",
         "src": "32:32:14"
       },
       {
-        "abstract": false,
-        "baseContracts": [],
-        "contractDependencies": [],
-        "contractKind": "library",
-        "fullyImplemented": true,
-        "id": 3269,
-        "linearizedBaseContracts": [
-          3269
-        ],
-        "name": "ProStruct",
-        "nodeType": "ContractDefinition",
-        "nodes": [
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            3300
+          ],
+          "name": "ProStruct",
+          "scope": 3301
+        },
+        "children": [
           {
-            "canonicalName": "ProStruct.Player",
-            "id": 3234,
-            "members": [
+            "attributes": {
+              "canonicalName": "ProStruct.Player",
+              "name": "Player",
+              "scope": 3300,
+              "visibility": "public"
+            },
+            "children": [
               {
-                "constant": false,
-                "id": 3231,
-                "mutability": "mutable",
-                "name": "players",
-                "nodeType": "VariableDeclaration",
-                "scope": 3234,
-                "src": "121:23:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address_payable",
-                  "typeString": "address payable"
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "players",
+                  "scope": 3265,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address payable",
+                  "visibility": "internal"
                 },
-                "typeName": {
-                  "id": 3230,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "121:15:14",
-                  "stateMutability": "payable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address_payable",
-                    "typeString": "address payable"
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "payable",
+                      "type": "address payable"
+                    },
+                    "id": 3261,
+                    "name": "ElementaryTypeName",
+                    "src": "121:15:14"
                   }
-                },
-                "visibility": "internal"
+                ],
+                "id": 3262,
+                "name": "VariableDeclaration",
+                "src": "121:23:14"
               },
               {
-                "constant": false,
-                "id": 3233,
-                "mutability": "mutable",
-                "name": "reputation",
-                "nodeType": "VariableDeclaration",
-                "scope": 3234,
-                "src": "154:16:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "reputation",
+                  "scope": 3265,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint8",
+                  "visibility": "internal"
                 },
-                "typeName": {
-                  "id": 3232,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "154:5:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint8",
+                      "type": "uint8"
+                    },
+                    "id": 3263,
+                    "name": "ElementaryTypeName",
+                    "src": "154:5:14"
                   }
-                },
-                "visibility": "internal"
+                ],
+                "id": 3264,
+                "name": "VariableDeclaration",
+                "src": "154:16:14"
               }
             ],
-            "name": "Player",
-            "nodeType": "StructDefinition",
-            "scope": 3269,
-            "src": "97:81:14",
-            "visibility": "public"
+            "id": 3265,
+            "name": "StructDefinition",
+            "src": "97:81:14"
           },
           {
-            "canonicalName": "ProStruct.EventData",
-            "id": 3268,
-            "members": [
+            "attributes": {
+              "canonicalName": "ProStruct.EventData",
+              "name": "EventData",
+              "scope": 3300,
+              "visibility": "public"
+            },
+            "children": [
               {
-                "constant": false,
-                "id": 3236,
-                "mutability": "mutable",
-                "name": "id",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "211:9:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_int256",
-                  "typeString": "int256"
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "int256",
+                  "visibility": "internal"
                 },
-                "typeName": {
-                  "id": 3235,
-                  "name": "int256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "211:6:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_int256",
-                    "typeString": "int256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3238,
-                "mutability": "mutable",
-                "name": "host",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "230:20:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_address_payable",
-                  "typeString": "address payable"
-                },
-                "typeName": {
-                  "id": 3237,
-                  "name": "address",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "230:15:14",
-                  "stateMutability": "payable",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_address_payable",
-                    "typeString": "address payable"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3240,
-                "mutability": "mutable",
-                "name": "startTime",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "260:17:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 3239,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "260:7:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3242,
-                "mutability": "mutable",
-                "name": "endTime",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "287:15:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 3241,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "287:7:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3244,
-                "mutability": "mutable",
-                "name": "questAmount",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "312:17:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 3243,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "312:5:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3246,
-                "mutability": "mutable",
-                "name": "prizeAmount",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "358:19:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 3245,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "358:7:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3251,
-                "mutability": "mutable",
-                "name": "player",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "388:35:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3234_storage_$dyn_storage_$",
-                  "typeString": "mapping(uint256 => struct ProStruct.Player[])"
-                },
-                "typeName": {
-                  "id": 3250,
-                  "keyType": {
-                    "id": 3247,
-                    "name": "uint256",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "396:7:14",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "nodeType": "Mapping",
-                  "src": "388:28:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3234_storage_$dyn_storage_$",
-                    "typeString": "mapping(uint256 => struct ProStruct.Player[])"
-                  },
-                  "valueType": {
-                    "baseType": {
-                      "id": 3248,
-                      "name": "Player",
-                      "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 3234,
-                      "src": "407:6:14",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$3234_storage_ptr",
-                        "typeString": "struct ProStruct.Player"
-                      }
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "int256",
+                      "type": "int256"
                     },
-                    "id": 3249,
-                    "nodeType": "ArrayTypeName",
-                    "src": "407:8:14",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Player_$3234_storage_$dyn_storage_ptr",
-                      "typeString": "struct ProStruct.Player[]"
-                    }
+                    "id": 3266,
+                    "name": "ElementaryTypeName",
+                    "src": "211:6:14"
                   }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3255,
-                "mutability": "mutable",
-                "name": "allPlayers",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "433:35:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
-                  "typeString": "mapping(address => bool)"
-                },
-                "typeName": {
-                  "id": 3254,
-                  "keyType": {
-                    "id": 3252,
-                    "name": "address",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "441:7:14",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_address",
-                      "typeString": "address"
-                    }
-                  },
-                  "nodeType": "Mapping",
-                  "src": "433:24:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
-                    "typeString": "mapping(address => bool)"
-                  },
-                  "valueType": {
-                    "id": 3253,
-                    "name": "bool",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "452:4:14",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3257,
-                "mutability": "mutable",
-                "name": "activePlayers",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "536:21:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 3256,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "536:7:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3259,
-                "mutability": "mutable",
-                "name": "correctAnswer",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "592:19:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint8",
-                  "typeString": "uint8"
-                },
-                "typeName": {
-                  "id": 3258,
-                  "name": "uint8",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "592:5:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint8",
-                    "typeString": "uint8"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3261,
-                "mutability": "mutable",
-                "name": "playersNeeded",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "621:21:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 3260,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "621:7:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3263,
-                "mutability": "mutable",
-                "name": "reputPool",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "738:17:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 3262,
-                  "name": "uint256",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "738:7:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 3265,
-                "mutability": "mutable",
-                "name": "eventFinish",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "801:16:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bool",
-                  "typeString": "bool"
-                },
-                "typeName": {
-                  "id": 3264,
-                  "name": "bool",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "801:4:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
-                  }
-                },
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
+                ],
                 "id": 3267,
-                "mutability": "mutable",
-                "name": "eventFinishWay",
-                "nodeType": "VariableDeclaration",
-                "scope": 3268,
-                "src": "827:19:14",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_bool",
-                  "typeString": "bool"
+                "name": "VariableDeclaration",
+                "src": "211:9:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "host",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address payable",
+                  "visibility": "internal"
                 },
-                "typeName": {
-                  "id": 3266,
-                  "name": "bool",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "827:4:14",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_bool",
-                    "typeString": "bool"
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "payable",
+                      "type": "address payable"
+                    },
+                    "id": 3268,
+                    "name": "ElementaryTypeName",
+                    "src": "230:15:14"
                   }
+                ],
+                "id": 3269,
+                "name": "VariableDeclaration",
+                "src": "230:20:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "startTime",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
                 },
-                "visibility": "internal"
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 3270,
+                    "name": "ElementaryTypeName",
+                    "src": "260:7:14"
+                  }
+                ],
+                "id": 3271,
+                "name": "VariableDeclaration",
+                "src": "260:17:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "endTime",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 3272,
+                    "name": "ElementaryTypeName",
+                    "src": "287:7:14"
+                  }
+                ],
+                "id": 3273,
+                "name": "VariableDeclaration",
+                "src": "287:15:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "questAmount",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint8",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint8",
+                      "type": "uint8"
+                    },
+                    "id": 3274,
+                    "name": "ElementaryTypeName",
+                    "src": "312:5:14"
+                  }
+                ],
+                "id": 3275,
+                "name": "VariableDeclaration",
+                "src": "312:17:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "prizeAmount",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 3276,
+                    "name": "ElementaryTypeName",
+                    "src": "358:7:14"
+                  }
+                ],
+                "id": 3277,
+                "name": "VariableDeclaration",
+                "src": "358:19:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "player",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "mapping(uint256 => struct ProStruct.Player[])",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "type": "mapping(uint256 => struct ProStruct.Player[])"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 3278,
+                        "name": "ElementaryTypeName",
+                        "src": "396:7:14"
+                      },
+                      {
+                        "attributes": {
+                          "type": "struct ProStruct.Player[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "Player",
+                              "referencedDeclaration": 3265,
+                              "type": "struct ProStruct.Player"
+                            },
+                            "id": 3279,
+                            "name": "UserDefinedTypeName",
+                            "src": "407:6:14"
+                          }
+                        ],
+                        "id": 3280,
+                        "name": "ArrayTypeName",
+                        "src": "407:8:14"
+                      }
+                    ],
+                    "id": 3281,
+                    "name": "Mapping",
+                    "src": "388:28:14"
+                  }
+                ],
+                "id": 3282,
+                "name": "VariableDeclaration",
+                "src": "388:35:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "allPlayers",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "mapping(address => bool)",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "type": "mapping(address => bool)"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 3283,
+                        "name": "ElementaryTypeName",
+                        "src": "441:7:14"
+                      },
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 3284,
+                        "name": "ElementaryTypeName",
+                        "src": "452:4:14"
+                      }
+                    ],
+                    "id": 3285,
+                    "name": "Mapping",
+                    "src": "433:24:14"
+                  }
+                ],
+                "id": 3286,
+                "name": "VariableDeclaration",
+                "src": "433:35:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "activePlayers",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 3287,
+                    "name": "ElementaryTypeName",
+                    "src": "536:7:14"
+                  }
+                ],
+                "id": 3288,
+                "name": "VariableDeclaration",
+                "src": "536:21:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "correctAnswer",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint8",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint8",
+                      "type": "uint8"
+                    },
+                    "id": 3289,
+                    "name": "ElementaryTypeName",
+                    "src": "592:5:14"
+                  }
+                ],
+                "id": 3290,
+                "name": "VariableDeclaration",
+                "src": "592:19:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "playersNeeded",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 3291,
+                    "name": "ElementaryTypeName",
+                    "src": "621:7:14"
+                  }
+                ],
+                "id": 3292,
+                "name": "VariableDeclaration",
+                "src": "621:21:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "reputPool",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 3293,
+                    "name": "ElementaryTypeName",
+                    "src": "738:7:14"
+                  }
+                ],
+                "id": 3294,
+                "name": "VariableDeclaration",
+                "src": "738:17:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "eventFinish",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 3295,
+                    "name": "ElementaryTypeName",
+                    "src": "801:4:14"
+                  }
+                ],
+                "id": 3296,
+                "name": "VariableDeclaration",
+                "src": "801:16:14"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "eventFinishWay",
+                  "scope": 3299,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 3297,
+                    "name": "ElementaryTypeName",
+                    "src": "827:4:14"
+                  }
+                ],
+                "id": 3298,
+                "name": "VariableDeclaration",
+                "src": "827:19:14"
               }
             ],
-            "name": "EventData",
-            "nodeType": "StructDefinition",
-            "scope": 3269,
-            "src": "184:722:14",
-            "visibility": "public"
+            "id": 3299,
+            "name": "StructDefinition",
+            "src": "184:722:14"
           }
         ],
-        "scope": 3270,
+        "id": 3300,
+        "name": "ContractDefinition",
         "src": "73:835:14"
       }
     ],
+    "id": 3301,
+    "name": "SourceUnit",
     "src": "32:876:14"
   },
   "compiler": {
@@ -1080,8 +1097,8 @@
     "version": "0.7.6+commit.7338295f.Linux.g++"
   },
   "networks": {},
-  "schemaVersion": "3.2.2",
-  "updatedAt": "2021-03-10T21:57:42.864Z",
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-03-11T12:59:30.679Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
