@@ -47,7 +47,7 @@ contract('Public Events', (accounts) => {
     })
 
     it('Deploy player pay', async () => {
-        playerPayEvent = await PlayerPay.deployed(events.address);
+        playerPayEvent = await PlayerPay.deployed(events.address, middleEvent.address);
         assert(playerPayEvent.address, "not deployed")
     })
 

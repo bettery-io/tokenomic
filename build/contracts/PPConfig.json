@@ -51,6 +51,16 @@
           "internalType": "uint256",
           "name": "_playersPersMint",
           "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_playersPers",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_playersPersPremiun",
+          "type": "uint256"
         }
       ],
       "name": "setPlayerPersMint",
@@ -59,24 +69,24 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"playersPers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"playersPersMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"playersPersPremiun\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_playersPersMint\",\"type\":\"uint256\"}],\"name\":\"setPlayerPersMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol\":\"PPConfig\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol\":{\"keccak256\":\"0x03034c03315fff93b75838e860ceaaa885035c1eb0ece4128afe10a32415ebe8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://53b12321846bca74ffa684109f43ec935d41383cd911d307b73df68d134f0c4a\",\"dweb:/ipfs/QmVT2K5TFVpjh3DkpmRrVPYAejDdK5aELndHLHBnNAToyG\"]}},\"version\":1}",
-  "bytecode": "0x60806040526032600155605a600255604b60035534801561001f57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101ec8061006f6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063134c3b071461005157806327e537171461006f57806373e258ac1461008d5780639336e8fd146100ab575b600080fd5b6100596100d9565b6040518082815260200191505060405180910390f35b6100776100df565b6040518082815260200191505060405180910390f35b6100956100e5565b6040518082815260200191505060405180910390f35b6100d7600480360360208110156100c157600080fd5b81019080803590602001909291905050506100eb565b005b60035481565b60025481565b60015481565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ac576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600a8152602001807f6f776e6572206f6e6c790000000000000000000000000000000000000000000081525060200191505060405180910390fd5b806001819055505056fea26469706673582212207b3b893d7819d19d992cefe3ff7f34258874ff016f893ab303a71436ee34034264736f6c63430007060033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c8063134c3b071461005157806327e537171461006f57806373e258ac1461008d5780639336e8fd146100ab575b600080fd5b6100596100d9565b6040518082815260200191505060405180910390f35b6100776100df565b6040518082815260200191505060405180910390f35b6100956100e5565b6040518082815260200191505060405180910390f35b6100d7600480360360208110156100c157600080fd5b81019080803590602001909291905050506100eb565b005b60035481565b60025481565b60015481565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ac576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600a8152602001807f6f776e6572206f6e6c790000000000000000000000000000000000000000000081525060200191505060405180910390fd5b806001819055505056fea26469706673582212207b3b893d7819d19d992cefe3ff7f34258874ff016f893ab303a71436ee34034264736f6c63430007060033",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"playersPers\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"playersPersMint\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"playersPersPremiun\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_playersPersMint\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_playersPers\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_playersPersPremiun\",\"type\":\"uint256\"}],\"name\":\"setPlayerPersMint\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol\":\"PPConfig\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol\":{\"keccak256\":\"0x48d6631cf4d51eba15caba4fe22618d690a84b62c9a32a119fc2a00fd60b418b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://43c51cd4ac8100e41a57e6ad2ce1f3ad3be632a6438a554cb572d9221ec3733a\",\"dweb:/ipfs/QmZnK8KuBu62s4XN5GqpWxpt58MRFRmNfCrqGUkxg5N3A1\"]}},\"version\":1}",
+  "bytecode": "0x60806040526032600155605a600255604b60035534801561001f57600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506102108061006f6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063134c3b071461005157806327e537171461006f578063664fc5f21461008d57806373e258ac146100cf575b600080fd5b6100596100ed565b6040518082815260200191505060405180910390f35b6100776100f3565b6040518082815260200191505060405180910390f35b6100cd600480360360608110156100a357600080fd5b810190808035906020019092919080359060200190929190803590602001909291905050506100f9565b005b6100d76101d4565b6040518082815260200191505060405180910390f35b60035481565b60025481565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ba576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600a8152602001807f6f776e6572206f6e6c790000000000000000000000000000000000000000000081525060200191505060405180910390fd5b826001819055508160028190555080600381905550505050565b6001548156fea2646970667358221220ef9d4bd996a474c7df3938c31945f19b056766bf95cc7bc6acf7c9a046fe72b364736f6c63430007060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c8063134c3b071461005157806327e537171461006f578063664fc5f21461008d57806373e258ac146100cf575b600080fd5b6100596100ed565b6040518082815260200191505060405180910390f35b6100776100f3565b6040518082815260200191505060405180910390f35b6100cd600480360360608110156100a357600080fd5b810190808035906020019092919080359060200190929190803590602001909291905050506100f9565b005b6100d76101d4565b6040518082815260200191505060405180910390f35b60035481565b60025481565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146101ba576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252600a8152602001807f6f776e6572206f6e6c790000000000000000000000000000000000000000000081525060200191505060405180910390fd5b826001819055508160028190555080600381905550505050565b6001548156fea2646970667358221220ef9d4bd996a474c7df3938c31945f19b056766bf95cc7bc6acf7c9a046fe72b364736f6c63430007060033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "66:509:2:-:0;;;209:2;179:32;;277:2;251:28;;351:2;318:35;;109:49;;;;;;;;;;141:10;133:5;;:18;;;;;;;;;;;;;;;;;;66:509;;;;;;",
-  "deployedSourceMap": "66:509:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;318:35;;;:::i;:::-;;;;;;;;;;;;;;;;;;;251:28;;;:::i;:::-;;;;;;;;;;;;;;;;;;;179:32;;;:::i;:::-;;;;;;;;;;;;;;;;;;;411:160;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;318:35;;;;:::o;251:28::-;;;;:::o;179:32::-;;;;:::o;411:160::-;500:5;;;;;;;;;;486:19;;:10;:19;;;478:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;548:16;530:15;:34;;;;411:160;:::o",
-  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract PPConfig {\n    address owner;\n    constructor() {\n        owner = msg.sender;\n    }\n\n    // PLAYERS\n    uint public playersPersMint = 50; // mint token percent for players\n    uint public playersPers = 90; // pay token percent for players\n    uint public playersPersPremiun = 75; // pay token percent for players in Premium events\n\n    function setPlayerPersMint(uint _playersPersMint) public {\n        require(msg.sender == owner, \"owner only\");\n        playersPersMint = _playersPersMint;\n    }\n\n\n}",
+  "sourceMap": "66:640:2:-:0;;;209:2;179:32;;277:2;251:28;;351:2;318:35;;109:49;;;;;;;;;;141:10;133:5;;:18;;;;;;;;;;;;;;;;;;66:640;;;;;;",
+  "deployedSourceMap": "66:640:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;318:35;;;:::i;:::-;;;;;;;;;;;;;;;;;;;251:28;;;:::i;:::-;;;;;;;;;;;;;;;;;;;411:291;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;179:32;;;:::i;:::-;;;;;;;;;;;;;;;;;;;318:35;;;;:::o;251:28::-;;;;:::o;411:291::-;545:5;;;;;;;;;;531:19;;:10;:19;;;523:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;593:16;575:15;:34;;;;633:12;619:11;:26;;;;676:19;655:18;:40;;;;411:291;;;:::o;179:32::-;;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract PPConfig {\n    address owner;\n    constructor() {\n        owner = msg.sender;\n    }\n\n    // PLAYERS\n    uint public playersPersMint = 50; // mint token percent for players\n    uint public playersPers = 90; // pay token percent for players\n    uint public playersPersPremiun = 75; // pay token percent for players in Premium events\n\n    function setPlayerPersMint(uint _playersPersMint, uint _playersPers, uint _playersPersPremiun) public {\n        require(msg.sender == owner, \"owner only\");\n        playersPersMint = _playersPersMint;\n        playersPers = _playersPers;\n        playersPersPremiun = _playersPersPremiun;\n    }\n\n\n}",
   "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol",
   "ast": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol",
     "exportedSymbols": {
       "PPConfig": [
-        306
+        318
       ]
     },
-    "id": 307,
+    "id": 319,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
@@ -100,9 +110,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 306,
+        "id": 318,
         "linearizedBaseContracts": [
-          306
+          318
         ],
         "name": "PPConfig",
         "nodeType": "ContractDefinition",
@@ -113,7 +123,7 @@
             "mutability": "mutable",
             "name": "owner",
             "nodeType": "VariableDeclaration",
-            "scope": 306,
+            "scope": 318,
             "src": "90:13:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -217,7 +227,7 @@
               "parameters": [],
               "src": "123:0:2"
             },
-            "scope": 306,
+            "scope": 318,
             "src": "109:49:2",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -230,7 +240,7 @@
             "mutability": "mutable",
             "name": "playersPersMint",
             "nodeType": "VariableDeclaration",
-            "scope": 306,
+            "scope": 318,
             "src": "179:32:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -273,7 +283,7 @@
             "mutability": "mutable",
             "name": "playersPers",
             "nodeType": "VariableDeclaration",
-            "scope": 306,
+            "scope": 318,
             "src": "251:28:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -316,7 +326,7 @@
             "mutability": "mutable",
             "name": "playersPersPremiun",
             "nodeType": "VariableDeclaration",
-            "scope": 306,
+            "scope": 318,
             "src": "318:35:2",
             "stateVariable": true,
             "storageLocation": "default",
@@ -354,9 +364,9 @@
           },
           {
             "body": {
-              "id": 304,
+              "id": 316,
               "nodeType": "Block",
-              "src": "468:103:2",
+              "src": "513:189:2",
               "statements": [
                 {
                   "expression": {
@@ -366,32 +376,32 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 296,
+                        "id": 300,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "expression": {
-                            "id": 293,
+                            "id": 297,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -15,
-                            "src": "486:3:2",
+                            "src": "531:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 294,
+                          "id": 298,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "486:10:2",
+                          "src": "531:10:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
@@ -400,18 +410,18 @@
                         "nodeType": "BinaryOperation",
                         "operator": "==",
                         "rightExpression": {
-                          "id": 295,
+                          "id": 299,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 269,
-                          "src": "500:5:2",
+                          "src": "545:5:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "486:19:2",
+                        "src": "531:19:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -419,14 +429,14 @@
                       },
                       {
                         "hexValue": "6f776e6572206f6e6c79",
-                        "id": 297,
+                        "id": 301,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "507:12:2",
+                        "src": "552:12:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_ef6c9ce5a61fb621d4c6c0c31e0e8f5756ade45f3e75b0a021f4da108f614526",
                           "typeString": "literal_string \"owner only\""
@@ -445,7 +455,7 @@
                           "typeString": "literal_string \"owner only\""
                         }
                       ],
-                      "id": 292,
+                      "id": 296,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -453,13 +463,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "478:7:2",
+                      "src": "523:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 298,
+                    "id": 302,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -467,31 +477,31 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "478:42:2",
+                    "src": "523:42:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 299,
+                  "id": 303,
                   "nodeType": "ExpressionStatement",
-                  "src": "478:42:2"
+                  "src": "523:42:2"
                 },
                 {
                   "expression": {
-                    "id": 302,
+                    "id": 306,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 300,
+                      "id": 304,
                       "name": "playersPersMint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 281,
-                      "src": "530:15:2",
+                      "src": "575:15:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -500,38 +510,124 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 301,
+                      "id": 305,
                       "name": "_playersPersMint",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 289,
-                      "src": "548:16:2",
+                      "src": "593:16:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "530:34:2",
+                    "src": "575:34:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 303,
+                  "id": 307,
                   "nodeType": "ExpressionStatement",
-                  "src": "530:34:2"
+                  "src": "575:34:2"
+                },
+                {
+                  "expression": {
+                    "id": 310,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 308,
+                      "name": "playersPers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 284,
+                      "src": "619:11:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 309,
+                      "name": "_playersPers",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 291,
+                      "src": "633:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "619:26:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 311,
+                  "nodeType": "ExpressionStatement",
+                  "src": "619:26:2"
+                },
+                {
+                  "expression": {
+                    "id": 314,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 312,
+                      "name": "playersPersPremiun",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 287,
+                      "src": "655:18:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 313,
+                      "name": "_playersPersPremiun",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 293,
+                      "src": "676:19:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "655:40:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 315,
+                  "nodeType": "ExpressionStatement",
+                  "src": "655:40:2"
                 }
               ]
             },
-            "functionSelector": "9336e8fd",
-            "id": 305,
+            "functionSelector": "664fc5f2",
+            "id": 317,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setPlayerPersMint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 290,
+              "id": 294,
               "nodeType": "ParameterList",
               "parameters": [
                 {
@@ -540,7 +636,7 @@
                   "mutability": "mutable",
                   "name": "_playersPersMint",
                   "nodeType": "VariableDeclaration",
-                  "scope": 305,
+                  "scope": 317,
                   "src": "438:21:2",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -559,35 +655,87 @@
                     }
                   },
                   "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 291,
+                  "mutability": "mutable",
+                  "name": "_playersPers",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 317,
+                  "src": "461:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 290,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "461:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 293,
+                  "mutability": "mutable",
+                  "name": "_playersPersPremiun",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 317,
+                  "src": "480:24:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 292,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "480:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
                 }
               ],
-              "src": "437:23:2"
+              "src": "437:68:2"
             },
             "returnParameters": {
-              "id": 291,
+              "id": 295,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "468:0:2"
+              "src": "513:0:2"
             },
-            "scope": 306,
-            "src": "411:160:2",
+            "scope": 318,
+            "src": "411:291:2",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 307,
-        "src": "66:509:2"
+        "scope": 319,
+        "src": "66:640:2"
       }
     ],
-    "src": "32:543:2"
+    "src": "32:674:2"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/config/PPConfig.sol",
       "exportedSymbols": {
         "PPConfig": [
-          306
+          318
         ]
       },
       "license": "MIT"
@@ -621,10 +769,10 @@
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            306
+            318
           ],
           "name": "PPConfig",
-          "scope": 307
+          "scope": 319
         },
         "children": [
           {
@@ -632,7 +780,7 @@
               "constant": false,
               "mutability": "mutable",
               "name": "owner",
-              "scope": 306,
+              "scope": 318,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
@@ -663,7 +811,7 @@
                 null
               ],
               "name": "",
-              "scope": 306,
+              "scope": 318,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -772,7 +920,7 @@
               "functionSelector": "73e258ac",
               "mutability": "mutable",
               "name": "playersPersMint",
-              "scope": 306,
+              "scope": 318,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -814,7 +962,7 @@
               "functionSelector": "27e53717",
               "mutability": "mutable",
               "name": "playersPers",
-              "scope": 306,
+              "scope": 318,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -856,7 +1004,7 @@
               "functionSelector": "134c3b07",
               "mutability": "mutable",
               "name": "playersPersPremiun",
-              "scope": 306,
+              "scope": 318,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -894,7 +1042,7 @@
           },
           {
             "attributes": {
-              "functionSelector": "9336e8fd",
+              "functionSelector": "664fc5f2",
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
@@ -902,7 +1050,7 @@
                 null
               ],
               "name": "setPlayerPersMint",
-              "scope": 306,
+              "scope": 318,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -915,7 +1063,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_playersPersMint",
-                      "scope": 305,
+                      "scope": 317,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -935,11 +1083,63 @@
                     "id": 289,
                     "name": "VariableDeclaration",
                     "src": "438:21:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_playersPers",
+                      "scope": 317,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 290,
+                        "name": "ElementaryTypeName",
+                        "src": "461:4:2"
+                      }
+                    ],
+                    "id": 291,
+                    "name": "VariableDeclaration",
+                    "src": "461:17:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_playersPersPremiun",
+                      "scope": 317,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 292,
+                        "name": "ElementaryTypeName",
+                        "src": "480:4:2"
+                      }
+                    ],
+                    "id": 293,
+                    "name": "VariableDeclaration",
+                    "src": "480:24:2"
                   }
                 ],
-                "id": 290,
+                "id": 294,
                 "name": "ParameterList",
-                "src": "437:23:2"
+                "src": "437:68:2"
               },
               {
                 "attributes": {
@@ -948,9 +1148,9 @@
                   ]
                 },
                 "children": [],
-                "id": 291,
+                "id": 295,
                 "name": "ParameterList",
-                "src": "468:0:2"
+                "src": "513:0:2"
               },
               {
                 "children": [
@@ -991,9 +1191,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 292,
+                            "id": 296,
                             "name": "Identifier",
-                            "src": "478:7:2"
+                            "src": "523:7:2"
                           },
                           {
                             "attributes": {
@@ -1028,14 +1228,14 @@
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 293,
+                                    "id": 297,
                                     "name": "Identifier",
-                                    "src": "486:3:2"
+                                    "src": "531:3:2"
                                   }
                                 ],
-                                "id": 294,
+                                "id": 298,
                                 "name": "MemberAccess",
-                                "src": "486:10:2"
+                                "src": "531:10:2"
                               },
                               {
                                 "attributes": {
@@ -1046,14 +1246,14 @@
                                   "type": "address",
                                   "value": "owner"
                                 },
-                                "id": 295,
+                                "id": 299,
                                 "name": "Identifier",
-                                "src": "500:5:2"
+                                "src": "545:5:2"
                               }
                             ],
-                            "id": 296,
+                            "id": 300,
                             "name": "BinaryOperation",
-                            "src": "486:19:2"
+                            "src": "531:19:2"
                           },
                           {
                             "attributes": {
@@ -1066,19 +1266,19 @@
                               "type": "literal_string \"owner only\"",
                               "value": "owner only"
                             },
-                            "id": 297,
+                            "id": 301,
                             "name": "Literal",
-                            "src": "507:12:2"
+                            "src": "552:12:2"
                           }
                         ],
-                        "id": 298,
+                        "id": 302,
                         "name": "FunctionCall",
-                        "src": "478:42:2"
+                        "src": "523:42:2"
                       }
                     ],
-                    "id": 299,
+                    "id": 303,
                     "name": "ExpressionStatement",
-                    "src": "478:42:2"
+                    "src": "523:42:2"
                   },
                   {
                     "children": [
@@ -1101,9 +1301,9 @@
                               "type": "uint256",
                               "value": "playersPersMint"
                             },
-                            "id": 300,
+                            "id": 304,
                             "name": "Identifier",
-                            "src": "530:15:2"
+                            "src": "575:15:2"
                           },
                           {
                             "attributes": {
@@ -1114,39 +1314,135 @@
                               "type": "uint256",
                               "value": "_playersPersMint"
                             },
-                            "id": 301,
+                            "id": 305,
                             "name": "Identifier",
-                            "src": "548:16:2"
+                            "src": "593:16:2"
                           }
                         ],
-                        "id": 302,
+                        "id": 306,
                         "name": "Assignment",
-                        "src": "530:34:2"
+                        "src": "575:34:2"
                       }
                     ],
-                    "id": 303,
+                    "id": 307,
                     "name": "ExpressionStatement",
-                    "src": "530:34:2"
+                    "src": "575:34:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 284,
+                              "type": "uint256",
+                              "value": "playersPers"
+                            },
+                            "id": 308,
+                            "name": "Identifier",
+                            "src": "619:11:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 291,
+                              "type": "uint256",
+                              "value": "_playersPers"
+                            },
+                            "id": 309,
+                            "name": "Identifier",
+                            "src": "633:12:2"
+                          }
+                        ],
+                        "id": 310,
+                        "name": "Assignment",
+                        "src": "619:26:2"
+                      }
+                    ],
+                    "id": 311,
+                    "name": "ExpressionStatement",
+                    "src": "619:26:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 287,
+                              "type": "uint256",
+                              "value": "playersPersPremiun"
+                            },
+                            "id": 312,
+                            "name": "Identifier",
+                            "src": "655:18:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 293,
+                              "type": "uint256",
+                              "value": "_playersPersPremiun"
+                            },
+                            "id": 313,
+                            "name": "Identifier",
+                            "src": "676:19:2"
+                          }
+                        ],
+                        "id": 314,
+                        "name": "Assignment",
+                        "src": "655:40:2"
+                      }
+                    ],
+                    "id": 315,
+                    "name": "ExpressionStatement",
+                    "src": "655:40:2"
                   }
                 ],
-                "id": 304,
+                "id": 316,
                 "name": "Block",
-                "src": "468:103:2"
+                "src": "513:189:2"
               }
             ],
-            "id": 305,
+            "id": 317,
             "name": "FunctionDefinition",
-            "src": "411:160:2"
+            "src": "411:291:2"
           }
         ],
-        "id": 306,
+        "id": 318,
         "name": "ContractDefinition",
-        "src": "66:509:2"
+        "src": "66:640:2"
       }
     ],
-    "id": 307,
+    "id": 319,
     "name": "SourceUnit",
-    "src": "32:543:2"
+    "src": "32:674:2"
   },
   "compiler": {
     "name": "solc",
@@ -1154,7 +1450,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-12T11:04:19.706Z",
+  "updatedAt": "2021-03-12T17:33:53.567Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -12,9 +12,11 @@ contract PPConfig {
     uint public playersPers = 90; // pay token percent for players
     uint public playersPersPremiun = 75; // pay token percent for players in Premium events
 
-    function setPlayerPersMint(uint _playersPersMint) public {
+    function setPlayerPersMint(uint _playersPersMint, uint _playersPers, uint _playersPersPremiun) public {
         require(msg.sender == owner, "owner only");
         playersPersMint = _playersPersMint;
+        playersPers = _playersPers;
+        playersPersPremiun = _playersPersPremiun;
     }
 
 

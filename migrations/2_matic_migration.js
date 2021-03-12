@@ -28,7 +28,7 @@ module.exports = async function (deployer, network) {
 
     await deployer.deploy(MiddlePaymentContract, PublicEventContract.address);
 
-    await deployer.deploy(PlayerPaymentContract, PublicEventContract.address);
+    await deployer.deploy(PlayerPaymentContract, PublicEventContract.address, MiddlePaymentContract.address);
 
     await deployer.deploy(ProEventsContract, BETTokenContract.address, BTYTokenContract.address);
 

@@ -150,20 +150,20 @@ contract PublicEvents is
         events[_id].amountExperts = _amount;
     }
 
-    function mintForMP(address _addr, uint _amount) public returns(bool) {
-        require( msg.sender == MPContract, "owner only");
+    function mint(address _addr, uint _amount) public returns(bool) {
+        require( msg.sender == MPContract || msg.sender == PPContract, "owner only");
         require(betToken.mintFromPublicContract(_addr, _amount),"pay err");
         return true;
     }
 
-    function payForMP(address _addr, uint _amount) public returns(bool) {
-        require( msg.sender == MPContract, "owner only");
+    function pay(address _addr, uint _amount) public returns(bool) {
+        require( msg.sender == MPContract || msg.sender == PPContract, "owner only");
         require(betToken.transfer(_addr, _amount),"mint err");
         return true;
     }
 
-    function payBTYFroMP(address _addr, uint _amount) public returns(bool) {
-        require( msg.sender == MPContract, "owner only");
+    function payBTY(address _addr, uint _amount) public returns(bool) {
+        require( msg.sender == MPContract || msg.sender == PPContract, "owner only");
         require(btyToken.transfer(_addr, _amount),"mint err");
         return true;
     }
