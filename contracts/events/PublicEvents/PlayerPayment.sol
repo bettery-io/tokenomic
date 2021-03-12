@@ -4,12 +4,18 @@ import {PubStruct} from "../../struct/PubStruct.sol";
 import {MPStruct} from "../../struct/MPStruct.sol";
 import {Libs} from "./Libs.sol";
 import {ConfigVariables} from "../../config/ConfigVariables.sol";
-import {BET} from "../../tokens/BET.sol";
-import {BTY} from "../../tokens/BTY.sol";
+import {PublicEvents} from "./PublicEvents.sol";
  
 contract PlayerPayment {
     event payToLosers(int id, uint avarageBet, uint mintedTokens);
     event eventFinish(int id, uint tokens, uint correctAnswer);
+    PubStruct eventsData;
+    PublicEvents PublicAddr;
+
+    constructor(PublicEvents _addr) {
+        PublicAddr = _addr;
+        eventsData = PubStruct(_addr);
+    }
 
    // function letsPayToPlayers(int _id) public ownerOnly() {
     //     uint activePlay = eventsData.getActivePlayers(_id);

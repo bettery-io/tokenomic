@@ -1,17 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 import {PubStruct} from "../../struct/PubStruct.sol";
+import {PublicEvents} from "./PublicEvents.sol";
 import {MPStruct} from "../../struct/MPStruct.sol";
 import {Libs} from "./Libs.sol";
 import {MPConfig} from "../../config/MPConfig.sol";
-import {BET} from "../../tokens/BET.sol";
-import {BTY} from "../../tokens/BTY.sol";
 
 contract MiddlePayment is Libs, MPConfig, MPStruct {
-    BET public betToken;
-    BTY public btyToken;
     PubStruct eventsData;
-    address public PublicAddr;
+    PublicEvents PublicAddr;
 
     event payToCompanies(int id, uint tokens, uint correctAnswer);
     event payToHost(int id, uint premDF, uint mintDF, uint mintCMF, uint mintMF);
@@ -19,9 +16,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
     event payToPlayers(int id);
     event revertedEvent(int id, string purpose);
 
-    constructor(BET _betAddress, BTY _btyAddress, address _addr) {
-        betToken = _betAddress;
-        btyToken = _btyAddress;
+    constructor(PublicEvents _addr) {
         PublicAddr = _addr;
         eventsData = PubStruct(_addr);
     }
@@ -85,10 +80,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
         for (uint i = 0; i < eventsData.getQuestAmount(_id); i++) {
             for (uint z = 0; z < eventsData.getPlayerAmount(_id, i); z++) {
                 require(
-                    betToken.transfer(
-                        eventsData.getPlayerWallet(_id, i, z),
-                        eventsData.getPlayerTokens(_id, i, z)
-                    ),
+                    PublicAddr.payForMP(eventsData.getPlayerWallet(_id, i, z), eventsData.getPlayerTokens(_id, i, z)),
                     "revert bet"
                 );
             }
@@ -102,20 +94,11 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
         // pay to Development Fund
         uint premDF = 0;
         uint mintDF = getPercent(MPData[_id].tokenMinted, developFundPerc);
-        require(
-            betToken.mintFromPublicContract(
-                owner,
-                mintDF
-            ),
-            "mint development fund"
-        );
+        require( PublicAddr.mintForMP(owner, mintDF), "mint development fund" );
         if (eventsData.getPremiumAmount(_id) > 0) {
             premDF = getPercent(eventsData.getPremiumAmount(_id), developFundPercPremim );
-            require(
-                btyToken.transfer(
-                    owner,
-                    premDF
-                ),
+            require(                
+                PublicAddr.payBTYFroMP(owner, premDF),
                 "premium pay development fund"
             );
         }
@@ -125,20 +108,14 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
                 : comMarketFundPerc + extraHostPercMint + advisorPercMint;
         uint mintCMF = getPercent(MPData[_id].tokenMinted, percentCMF);         
         require(
-            betToken.mintFromPublicContract(
-                comMarketFundWallet,
-                mintCMF
-            ),
+            PublicAddr.mintForMP(comMarketFundWallet, mintCMF),
             "mint community marketing fund"
         );
 
         uint mintMF = getPercent(MPData[_id].tokenMinted, moderatorsFundPerc);
         // pay to Moderators Fund
         require(
-            betToken.mintFromPublicContract(
-                moderatorsFundWallet,
-                mintMF
-            ),
+            PublicAddr.mintForMP(moderatorsFundWallet, mintMF),
             "mint moderators fund"
         );
         emit payToHost(_id, premDF, mintDF, mintCMF, mintMF);
@@ -154,54 +131,36 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
             // pay minted tokens
             mintHost = getPercent( MPData[_id].tokenMinted, hostPercMint + extraHostPercMint);
             require(
-                betToken.mintFromPublicContract(
-                    eventsData.getHostAddr(_id),
-                    mintHost
-                ),
+                PublicAddr.mintForMP(eventsData.getHostAddr(_id), mintHost),
                 "mint host with advisor"
             );
             mintAdv = getPercent(MPData[_id].tokenMinted, advisorPercMint);
             require(
-                betToken.mintFromPublicContract(
-                    eventsData.getAdvisorAddr(_id),
-                    mintAdv
-                ),
+                PublicAddr.mintForMP(eventsData.getAdvisorAddr(_id), mintAdv),
                 "mint to advisor"
             );
             // pay not minted tokens
             payHost = getPercent(eventsData.getPool(_id), hostPerc + extraHostPerc);
             require(
-                betToken.transfer(
-                    eventsData.getHostAddr(_id),
-                    payHost
-                ),
+                PublicAddr.payForMP(eventsData.getHostAddr(_id), payHost),
                 "pay to host with advisor"
             );
             payAdv = getPercent(eventsData.getPool(_id), advisorPepc);
             require(
-                betToken.transfer(
-                    eventsData.getAdvisorAddr(_id),
-                    payAdv
-                ),
+                PublicAddr.payForMP(eventsData.getAdvisorAddr(_id), payAdv),
                 "pay to advisor"
             );
         } else {
             // mint to host
             mintHost = getPercent(MPData[_id].tokenMinted, hostPercMint);
             require(
-                betToken.mintFromPublicContract(
-                    eventsData.getHostAddr(_id),
-                    mintHost
-                ),
+                PublicAddr.mintForMP(eventsData.getHostAddr(_id), mintHost),
                 "mint to host"
             );
             payHost = getPercent(eventsData.getPool(_id), hostPerc);
             // pay to host
             require(
-                betToken.transfer(
-                    eventsData.getHostAddr(_id),
-                    payHost
-                ),
+                PublicAddr.payForMP(eventsData.getHostAddr(_id), payHost),
                 "pay to host"
             );
         }
@@ -223,16 +182,16 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
 
                 // mint tokens
                 uint amountMint = (getPercent(MPData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
-                require(betToken.mintFromPublicContract(expertWallet, amountMint),"mint exp");
+                require(PublicAddr.mintForMP(expertWallet, amountMint), "mint exp");
 
                 // pay tokens
                 uint amount = (getPercent(eventsData.getPool(_id), percent) * uint(reputation)) / uint(allReputation);
-                require(betToken.transferFrom(PublicAddr, expertWallet, amount),"pay exp");
+                require(PublicAddr.payForMP(expertWallet, amount), "pay exp");
 
                 // pay in premium events
                 if (eventsData.getPremiumAmount(_id) > 0) {
                     uint premiumAmount = (getPercent(eventsData.getPremiumAmount(_id), expertPremiumPerc ) * uint(reputation)) / uint(allReputation);
-                    require(btyToken.transferFrom(PublicAddr, expertWallet, premiumAmount),"prem pay exp");
+                    require(PublicAddr.payBTYFroMP(expertWallet, premiumAmount),"prem pay exp");
                 }
        
             }

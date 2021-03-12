@@ -20,6 +20,8 @@ contract PublicEvents is
     BTY public btyToken;
     MPStruct mpData;
     address owner;
+    address MPContract;
+    address PPContract;
     
     constructor(BET _betAddress, BTY _btyAddress){
         betToken = _betAddress;
@@ -27,9 +29,11 @@ contract PublicEvents is
         owner = msg.sender;
     }
 
-    function setMPStructAdd(address _addr) public {
+    function setAddresses(address _mpaddr, address _ppaddr) public {
         require( msg.sender == owner, "owner only");
-        mpData = MPStruct(_addr);
+        mpData = MPStruct(_mpaddr);
+        MPContract = _mpaddr;
+        PPContract = _ppaddr;
     }
 
     function newEvent(
@@ -144,6 +148,24 @@ contract PublicEvents is
     function setActiveExpertsFromOracl(uint _amount, int _id) public {
         require( msg.sender == owner, "owner only");
         events[_id].amountExperts = _amount;
+    }
+
+    function mintForMP(address _addr, uint _amount) public returns(bool) {
+        require( msg.sender == MPContract, "owner only");
+        require(betToken.mintFromPublicContract(_addr, _amount),"pay err");
+        return true;
+    }
+
+    function payForMP(address _addr, uint _amount) public returns(bool) {
+        require( msg.sender == MPContract, "owner only");
+        require(betToken.transfer(_addr, _amount),"mint err");
+        return true;
+    }
+
+    function payBTYFroMP(address _addr, uint _amount) public returns(bool) {
+        require( msg.sender == MPContract, "owner only");
+        require(btyToken.transfer(_addr, _amount),"mint err");
+        return true;
     }
 
 }

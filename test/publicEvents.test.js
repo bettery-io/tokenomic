@@ -2,6 +2,7 @@ const truffleAssert = require('truffle-assertions');
 
 const PublicContract = artifacts.require("../contracts/events/PublicEvents/PublicEvents.sol");
 const MiddlePayment = artifacts.require("../contracts/events/PublicEvents/MiddlePayment.sol")
+const PlayerPay = artifacts.require("../contracts/events/PublicEvents/PlayerPayment.sol")
 const BtyContract = artifacts.require("../contracts/tokens/BTY.sol");
 const BetContract = artifacts.require("../contracts/tokens/BET.sol");
 const Web3 = require('web3');
@@ -16,7 +17,8 @@ contract('Public Events', (accounts) => {
         pool = 0,
         correctAnswer = 1,
         mintTokens,
-        allReputation = 0
+        allReputation = 0,
+        maxValidIndex = 10
 
 
     function getPercent(percent, from) {
@@ -34,22 +36,29 @@ contract('Public Events', (accounts) => {
         assert(bet.address, "not deployed")
     })
 
-    it('Deploy public contract token', async () => {
+    it('Deploy public contract', async () => {
         events = await PublicContract.deployed(bet.address, bty.address);
         assert(events.address, "not deployed")
     })
 
-    it('Deploy finish event token', async () => {
-        middleEvent = await MiddlePayment.deployed(bet.address, bty.address);
+    it('Deploy middle event', async () => {
+        middleEvent = await MiddlePayment.deployed(events.address);
         assert(middleEvent.address, "not deployed")
+    })
+
+    it('Deploy player pay', async () => {
+        playerPayEvent = await PlayerPay.deployed(events.address);
+        assert(playerPayEvent.address, "not deployed")
     })
 
     it("Set addresses to the BET contract", async () => {
         let error = false;
         let btyTokenAdd = bty.address;
-        let address = middleEvent.address;
+        let eventAddr = events.address;
+        let MPAddr = middleEvent.address;
+        let PPAddr = playerPayEvent.address;
         await bet.setConfigContract(
-            address,
+            eventAddr,
             btyTokenAdd,
             {
                 from: owner
@@ -59,7 +68,9 @@ contract('Public Events', (accounts) => {
             console.log(err)
         })
 
-        await events.setMPStructAdd(address,
+        await events.setAddresses(
+            MPAddr,
+            PPAddr,
             {
                 from: owner
             }
@@ -73,7 +84,7 @@ contract('Public Events', (accounts) => {
 
     it("Set addresses to market fund and exetra", async () => {
         await middleEvent.setComMarketFundWallet(
-            accounts[1],
+            accounts[10],
             {
                 from: owner
             }).catch((err) => {
@@ -81,7 +92,7 @@ contract('Public Events', (accounts) => {
             })
 
         await middleEvent.setModeratorsFundWallet(
-            accounts[2],
+            accounts[11],
             {
                 from: owner
             }).catch((err) => {
@@ -184,7 +195,7 @@ contract('Public Events', (accounts) => {
         }
 
         await timeout(5000);
-        for (let i = players; i < accounts.length; i++) {
+        for (let i = players; i < maxValidIndex; i++) {
             let whichAnswer = correctAnswer,
                 expertWallet = accounts[i],
                 reputation = i
@@ -234,7 +245,8 @@ contract('Public Events', (accounts) => {
             mintDF = getPercent(mintedTokens, 10),
             mintCMF = getPercent(mintedTokens, 8),
             mintMF = getPercent(mintedTokens, 2),
-            id = 1
+            id = 1,
+            usersBalances = 0
 
         let tx = await middleEvent.letsPayToCompanies(
             id,
@@ -255,13 +267,21 @@ contract('Public Events', (accounts) => {
                 mintMF.toFixed(2) == Number(mintMFc).toFixed(2)
 
         }, 'Contract do not pay correct tokens to the companies.');
+
+        for (let i = 10; i < 12; i++) {
+            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            usersBalances += Number(Number(bal).toFixed(2));
+        };
+
+        assert(usersBalances == Number(mintCMF.toFixed(2)) + Number(mintMF.toFixed(2)) + 20, "balance for pay companies is incorrect");
     })
 
     it("Check payment to validators", async () => {
         let id = 1,
-            percentPay = 7,
+            percentPay = 6,
             expertPercMint = 10,
-            beforeBalance = 0
+            beforeBalance = 0,
             afterBalance = 0,
             mintedTokens = Number(Number(mintTokens).toFixed(2))
         let tx = await middleEvent.letsPayToExperts(
@@ -273,27 +293,22 @@ contract('Public Events', (accounts) => {
             console.log(err)
         })
 
-        for(let i = players; i < accounts.length; i++) { 
+        for (let i = players; i < maxValidIndex; i++) {
             let mintToken = (getPercent(mintedTokens, expertPercMint) * i) / allReputation;
             let payToken = (getPercent(pool, percentPay) * i) / allReputation;
-            beforeBalance = mintToken + payToken + beforeBalance + 10 
+            beforeBalance = mintToken + payToken + beforeBalance + 10
         }
-        console.log(beforeBalance);
-
-        for (let i = players; i < accounts.length; i++) {
+        for (let i = players; i < maxValidIndex; i++) {
             let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
             bal = web3.utils.fromWei(bal, "ether");
             afterBalance = afterBalance + Number(Number(bal).toFixed(2))
         }
 
-        console.log(afterBalance);
-
-        truffleAssert.eventEmitted(tx, 'payToHost', (ev) => {
+        truffleAssert.eventEmitted(tx, 'payToPlayers', (ev) => {
             return ev.id.toString() == String(id);
         }, 'Contract do not return correct id.');
 
         assert(beforeBalance == afterBalance, "Balances are not correct")
-
     })
 
 })
