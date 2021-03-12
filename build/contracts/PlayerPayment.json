@@ -1,0 +1,461 @@
+{
+  "contractName": "PlayerPayment",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/PlayerPayment.sol\":\"PlayerPayment\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/config/ConfigVariables.sol\":{\"keccak256\":\"0x023ee33897696a67ed8a38e2204374b45fac8e5758670d0832e5723bb94c1a05\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://976d0ea40dfe0e2bcecdb1a6feccc7d6cba0b3b9f362d054e2c4dcde32905c0a\",\"dweb:/ipfs/QmTCSX6uLjA7Wzj5RG8Z7HhQ74R3iX9BtFg14LdQpgCEsa\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/Libs.sol\":{\"keccak256\":\"0x6963a1729f16e95328c0817079104b8bb1812a09ad5ddd0e893a8c96aabc79ad\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://599abd8ab9f067a14d8f7e3ebb465a4387276aef50ace724432e9511fa2010a8\",\"dweb:/ipfs/QmWxR1prjLdnxJW4siNmP4q1LdzKWie9u5xrGPZGnZReG8\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/PlayerPayment.sol\":{\"keccak256\":\"0x27cc6509be610b87e2dd5e29d482e468d6b79bc575ba2e4859b38c419595774a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://402f40823a67319bbff893ebb4d6c6eb32d5e5258187c6af63036efe349bfa5c\",\"dweb:/ipfs/QmPXreiVsy2BQuxREQX73PLmJNYJ5oRhasn4f26bBStgRD\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/MetaTransactLib.sol\":{\"keccak256\":\"0x212f38f7650263af4e548d3131cd5a8779351414fbb6b41e259ab0669a70761e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://766aec88242dac17a4c9ec2695e10309545926c9ad130e9a2ee1ec6439d78eb1\",\"dweb:/ipfs/QmfKvLYc7Ky6DTgH8rUFkd3KKVejZkoXYLSVhrEKAsJJJ3\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/common/EIP712Base.sol\":{\"keccak256\":\"0xabf82690509d325f9b76b3c5167f426dd1eadbe4f69438c594aa4431b13958c7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7290b6cf2808cadce199c1ad5c1ed027253fdf6f374e2a9d86a6918c74354b26\",\"dweb:/ipfs/QmTibYrjHPjBz26TduKHPyKxhSyTkg9z9oKeCaWNKhiAfe\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/helpers/common/NetworkAgnostic.sol\":{\"keccak256\":\"0x4525fd0f773978cdacabc6d6b6acdcb35c06941cf87230c530c3775e0f17d373\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://54e95be23f317452361dd7b6a577e93acb9746801dad4a78d416567703a1d5c6\",\"dweb:/ipfs/QmUQ9efSBZqHXdzv96kVWc4rafrBYGmmoQAqzvfu8vhbBY\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol\":{\"keccak256\":\"0x4bdd539a6062f2b15c231c7dcaba7dafd332c777fdb57cdf194810f7823259ec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://433bbc8a5b6857656d318c781dde89397e673aa9df5c6b20c40e5773e1c09b38\",\"dweb:/ipfs/Qmdhm6fbV2ckdLBcjVPqLMtjPrNfDJanTNjMQHwuhkRt1F\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol\":{\"keccak256\":\"0x873e0b60be43d4da8aed8c04cbb0b35cccecf610a420182e63b6680e3a2b75df\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://260eb4c131e91f096ddae1ceef10f528d93851f2da6eb19d08f7565dda4bd2ce\",\"dweb:/ipfs/Qmasc5amLK8YRWKVUUau5suoiF8PJ5bv4eBxWK5wkMDAoW\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BET.sol\":{\"keccak256\":\"0x88453b986418dd7a207f9a10caa298dadffae63510ffccd92a71e50b211cf84e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f0e01ebca6f75bc1485cc168f534132d9c70c6f0a867a2f32f359cc8687da27e\",\"dweb:/ipfs/QmZJ5YGJx6M6Ssot4fDbu66DP8NjTiL128E5mS5TgdBXVN\"]},\"/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BTY.sol\":{\"keccak256\":\"0x579efbb0fb21b8914d125c8aa680810b30b17c588a5985b1376aec16d43ea4d0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://308d00973ed2ac84ada7f7d1aafdbf363a9066c93cdd0c3ee372c5bab108ddee\",\"dweb:/ipfs/QmeYsxvu41DZBHtU4m7MLsbm57kCBLce1dZgBzGuTyvc7w\"]},\"@openzeppelin/contracts/access/AccessControl.sol\":{\"keccak256\":\"0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa\",\"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS\"]},\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"@openzeppelin/contracts/token/ERC20/ERC20.sol\":{\"keccak256\":\"0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://991b44ff44e0496e8554a90f4c0512c28faed45104d40430019f3c67ea67740e\",\"dweb:/ipfs/Qmc3nRapVbcctELoZS5qe17zLkFB3bETBfwzCTMF1CSuGE\"]},\"@openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08\",\"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC\"]},\"@openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c\",\"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN\"]},\"@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f\",\"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96\"]},\"@openzeppelin/contracts/utils/EnumerableSet.sol\":{\"keccak256\":\"0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec\",\"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220bb49f664fc2723a7e90554541a5ea131f452d262fae9c5ef13143101f4aefcf964736f6c63430007060033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220bb49f664fc2723a7e90554541a5ea131f452d262fae9c5ef13143101f4aefcf964736f6c63430007060033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "356:2980:6:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "356:2980:6:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\nimport {PubStruct} from \"../../struct/PubStruct.sol\";\nimport {MPStruct} from \"../../struct/MPStruct.sol\";\nimport {Libs} from \"./Libs.sol\";\nimport {ConfigVariables} from \"../../config/ConfigVariables.sol\";\nimport {BET} from \"../../tokens/BET.sol\";\nimport {BTY} from \"../../tokens/BTY.sol\";\n \ncontract PlayerPayment {\n\n   // function letsPayToPlayers(int _id) public ownerOnly() {\n    //     uint activePlay = eventsData.getActivePlayers(_id);\n    //     uint winPool = getPercent(playersPers, MPData[_id].loserPool) / activePlay;\n    //     uint rightPlay = eventsData.getPlayerAmount(_id, MPData[_id].correctAnswer);\n\n    //     uint premimWin;\n    //     if (eventsData.getPremiumAmount(_id) > 0) {\n    //         uint premiumToken = getPercent(playersPersPremiun, eventsData.getPremiumAmount(_id));\n    //         premimWin = premiumToken / activePlay;\n    //     }\n    //     uint betAmount = 0;\n\n    //     for ( uint i = 0; i < rightPlay; i++ ) {\n    //         betAmount = betAmount + eventsData.getPlayerTokens(_id, MPData[_id].correctAnswer, i);\n    //     }\n\n    //     uint avarageBet = betAmount / activePlay;\n\n    //     for ( uint i = 0; i < rightPlay; i++ ) {\n    //         // mint token to users\n    //         uint userBet = eventsData.getPlayerTokens(_id, MPData[_id].correctAnswer, i);\n    //         address payable userWallet = eventsData.getPlayerWallet(_id, MPData[_id].correctAnswer, i);\n    //         uint mintWin = (userBet / avarageBet) * (getPercent(playersPersMint, MPData[_id].tokenMinted) / activePlay);\n    //         // TODO pay to referers\n    //         require(\n    //             betToken.mintFromPublicContract(userWallet, mintWin),\n    //             \"mint to play\"\n    //         );\n\n    //         // pay tokens to users\n    //         require(\n    //             betToken.transfer(userWallet, (userBet / avarageBet) * winPool),\n    //             \"pay to play\"\n    //         );\n    //         if (eventsData.getPremiumAmount(_id) > 0) {\n    //             // pay premium tokens to user\n    //             require(\n    //                 btyToken.transfer(userWallet, (userBet / avarageBet) * premimWin),\n    //                 \"prem pay yo play\"\n    //             );\n    //         }\n    //     }\n    //     emit payToLosers(_id, avarageBet, getPercent(playersPersMint, MPData[_id].tokenMinted));\n    // }\n\n    // function letsPayToLoosers(\n    //     int _id,\n    //     uint _avarageBet,\n    //     uint _mintedTokens\n    // ) public ownerOnly() {\n    //     for (uint i = 0; i < eventsData.getQuestAmount(_id); i++) {\n    //         if (MPData[_id].correctAnswer != i && eventsData.getPlayerAmount(_id, i) != 0) {\n    //             for (uint z = 0; z < eventsData.getPlayerAmount(_id, i); z++) {\n    //                 uint mintLost = (eventsData.getPlayerTokens(_id, i, z) / _avarageBet) * (_mintedTokens / eventsData.getActivePlayers(_id));\n    //                 require(betToken.mintFromPublicContract(eventsData.getPlayerWallet(_id, i, z), mintLost), \"pay to losers\");\n    //             }\n    //         }\n    //     }\n    //     MPData[_id].eventFinish = true;\n    //     emit eventFinish(\n    //         _id,\n    //         MPData[_id].tokenMinted,\n    //         MPData[_id].correctAnswer\n    //     );\n    // }\n}    ",
+  "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/PlayerPayment.sol",
+  "ast": {
+    "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/PlayerPayment.sol",
+    "exportedSymbols": {
+      "BET": [
+        3061
+      ],
+      "BTY": [
+        3245
+      ],
+      "ConfigVariables": [
+        80
+      ],
+      "Libs": [
+        612
+      ],
+      "MPStruct": [
+        2621
+      ],
+      "PlayerPayment": [
+        1565
+      ],
+      "PubStruct": [
+        2933
+      ]
+    },
+    "id": 1566,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1552,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:6"
+      },
+      {
+        "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol",
+        "file": "../../struct/PubStruct.sol",
+        "id": 1554,
+        "nodeType": "ImportDirective",
+        "scope": 1566,
+        "sourceUnit": 2934,
+        "src": "65:53:6",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1553,
+              "name": "PubStruct",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "73:9:6",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol",
+        "file": "../../struct/MPStruct.sol",
+        "id": 1556,
+        "nodeType": "ImportDirective",
+        "scope": 1566,
+        "sourceUnit": 2622,
+        "src": "119:51:6",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1555,
+              "name": "MPStruct",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "127:8:6",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/Libs.sol",
+        "file": "./Libs.sol",
+        "id": 1558,
+        "nodeType": "ImportDirective",
+        "scope": 1566,
+        "sourceUnit": 613,
+        "src": "171:32:6",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1557,
+              "name": "Libs",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "179:4:6",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/config/ConfigVariables.sol",
+        "file": "../../config/ConfigVariables.sol",
+        "id": 1560,
+        "nodeType": "ImportDirective",
+        "scope": 1566,
+        "sourceUnit": 81,
+        "src": "204:65:6",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1559,
+              "name": "ConfigVariables",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "212:15:6",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BET.sol",
+        "file": "../../tokens/BET.sol",
+        "id": 1562,
+        "nodeType": "ImportDirective",
+        "scope": 1566,
+        "sourceUnit": 3062,
+        "src": "270:41:6",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1561,
+              "name": "BET",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "278:3:6",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BTY.sol",
+        "file": "../../tokens/BTY.sol",
+        "id": 1564,
+        "nodeType": "ImportDirective",
+        "scope": 1566,
+        "sourceUnit": 3246,
+        "src": "312:41:6",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1563,
+              "name": "BTY",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "320:3:6",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1565,
+        "linearizedBaseContracts": [
+          1565
+        ],
+        "name": "PlayerPayment",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 1566,
+        "src": "356:2980:6"
+      }
+    ],
+    "src": "32:3308:6"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/PlayerPayment.sol",
+      "exportedSymbols": {
+        "BET": [
+          3061
+        ],
+        "BTY": [
+          3245
+        ],
+        "ConfigVariables": [
+          80
+        ],
+        "Libs": [
+          612
+        ],
+        "MPStruct": [
+          2621
+        ],
+        "PlayerPayment": [
+          1565
+        ],
+        "PubStruct": [
+          2933
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 1552,
+        "name": "PragmaDirective",
+        "src": "32:32:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2934,
+          "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/PubStruct.sol",
+          "file": "../../struct/PubStruct.sol",
+          "scope": 1566,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "PubStruct"
+                },
+                "id": 1553,
+                "name": "Identifier",
+                "src": "73:9:6"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1554,
+        "name": "ImportDirective",
+        "src": "65:53:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2622,
+          "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol",
+          "file": "../../struct/MPStruct.sol",
+          "scope": 1566,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "MPStruct"
+                },
+                "id": 1555,
+                "name": "Identifier",
+                "src": "127:8:6"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1556,
+        "name": "ImportDirective",
+        "src": "119:51:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 613,
+          "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/events/PublicEvents/Libs.sol",
+          "file": "./Libs.sol",
+          "scope": 1566,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "Libs"
+                },
+                "id": 1557,
+                "name": "Identifier",
+                "src": "179:4:6"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1558,
+        "name": "ImportDirective",
+        "src": "171:32:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 81,
+          "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/config/ConfigVariables.sol",
+          "file": "../../config/ConfigVariables.sol",
+          "scope": 1566,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "ConfigVariables"
+                },
+                "id": 1559,
+                "name": "Identifier",
+                "src": "212:15:6"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1560,
+        "name": "ImportDirective",
+        "src": "204:65:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 3062,
+          "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BET.sol",
+          "file": "../../tokens/BET.sol",
+          "scope": 1566,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "BET"
+                },
+                "id": 1561,
+                "name": "Identifier",
+                "src": "278:3:6"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1562,
+        "name": "ImportDirective",
+        "src": "270:41:6"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 3246,
+          "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/tokens/BTY.sol",
+          "file": "../../tokens/BTY.sol",
+          "scope": 1566,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "BTY"
+                },
+                "id": 1563,
+                "name": "Identifier",
+                "src": "320:3:6"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 1564,
+        "name": "ImportDirective",
+        "src": "312:41:6"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            1565
+          ],
+          "name": "PlayerPayment",
+          "nodes": [
+            null
+          ],
+          "scope": 1566
+        },
+        "id": 1565,
+        "name": "ContractDefinition",
+        "src": "356:2980:6"
+      }
+    ],
+    "id": 1566,
+    "name": "SourceUnit",
+    "src": "32:3308:6"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Linux.g++"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-03-12T11:04:19.744Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
