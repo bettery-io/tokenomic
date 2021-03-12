@@ -103,23 +103,23 @@
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "66:626:8:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "66:626:8:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;349:115;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;597:93;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;283:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;470:121;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;349:115;405:4;428:15;:20;444:3;428:20;;;;;;;;;;;:29;;;;;;;;;;;;421:36;;349:115;;;:::o;597:93::-;679:4;647:15;:20;663:3;647:20;;;;;;;;;;;:29;;;:36;;;;;;;;;;;;;;;;;;597:93;:::o;283:59::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;470:121::-;529:4;552:15;:20;568:3;552:20;;;;;;;;;;;:32;;;;;;;;;;;;545:39;;470:121;;;:::o",
+  "sourceMap": "66:626:12:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:626:12:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;349:115;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;597:93;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;283:59;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;470:121;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;349:115;405:4;428:15;:20;444:3;428:20;;;;;;;;;;;:29;;;;;;;;;;;;421:36;;349:115;;;:::o;597:93::-;679:4;647:15;:20;663:3;647:20;;;;;;;;;;;:29;;;:36;;;;;;;;;;;;;;;;;;597:93;:::o;283:59::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;470:121::-;529:4;552:15;:20;568:3;552:20;;;;;;;;;;;:32;;;;;;;;;;;;545:39;;470:121;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract EFStruct {\n    struct EventFinishStruct {\n        int256 id;\n        uint256 correctAnswer;\n        uint256 loserPool;\n        uint256 tokenMinted;\n        bool reverted;\n        bool eventFinish;\n    }\n\n    mapping(int256 => EventFinishStruct) public eventFinishData;\n\n    function checkReverted(int256 _id) public view returns (bool) {\n        return eventFinishData[_id].reverted;\n    }\n\n    function checkEventFinish(int256 _id) public view returns (bool) {\n        return eventFinishData[_id].eventFinish;\n    }\n\n    function setReverted(int256 _id) public {\n        eventFinishData[_id].reverted = true;\n    }\n}\n",
   "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/EFStruct.sol",
   "ast": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/EFStruct.sol",
     "exportedSymbols": {
       "EFStruct": [
-        1714
+        2508
       ]
     },
-    "id": 1715,
+    "id": 2509,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1657,
+        "id": 2451,
         "literals": [
           "solidity",
           ">=",
@@ -130,7 +130,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:8"
+        "src": "32:32:12"
       },
       {
         "abstract": false,
@@ -138,25 +138,25 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1714,
+        "id": 2508,
         "linearizedBaseContracts": [
-          1714
+          2508
         ],
         "name": "EFStruct",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "EFStruct.EventFinishStruct",
-            "id": 1670,
+            "id": 2464,
             "members": [
               {
                 "constant": false,
-                "id": 1659,
+                "id": 2453,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 1670,
-                "src": "125:9:8",
+                "scope": 2464,
+                "src": "125:9:12",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -164,10 +164,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 1658,
+                  "id": 2452,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "125:6:8",
+                  "src": "125:6:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -177,12 +177,12 @@
               },
               {
                 "constant": false,
-                "id": 1661,
+                "id": 2455,
                 "mutability": "mutable",
                 "name": "correctAnswer",
                 "nodeType": "VariableDeclaration",
-                "scope": 1670,
-                "src": "144:21:8",
+                "scope": 2464,
+                "src": "144:21:12",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -190,10 +190,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1660,
+                  "id": 2454,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "144:7:8",
+                  "src": "144:7:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -203,12 +203,12 @@
               },
               {
                 "constant": false,
-                "id": 1663,
+                "id": 2457,
                 "mutability": "mutable",
                 "name": "loserPool",
                 "nodeType": "VariableDeclaration",
-                "scope": 1670,
-                "src": "175:17:8",
+                "scope": 2464,
+                "src": "175:17:12",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -216,10 +216,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1662,
+                  "id": 2456,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "175:7:8",
+                  "src": "175:7:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -229,12 +229,12 @@
               },
               {
                 "constant": false,
-                "id": 1665,
+                "id": 2459,
                 "mutability": "mutable",
                 "name": "tokenMinted",
                 "nodeType": "VariableDeclaration",
-                "scope": 1670,
-                "src": "202:19:8",
+                "scope": 2464,
+                "src": "202:19:12",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -242,10 +242,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 1664,
+                  "id": 2458,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "202:7:8",
+                  "src": "202:7:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -255,12 +255,12 @@
               },
               {
                 "constant": false,
-                "id": 1667,
+                "id": 2461,
                 "mutability": "mutable",
                 "name": "reverted",
                 "nodeType": "VariableDeclaration",
-                "scope": 1670,
-                "src": "231:13:8",
+                "scope": 2464,
+                "src": "231:13:12",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -268,10 +268,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1666,
+                  "id": 2460,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "231:4:8",
+                  "src": "231:4:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -281,12 +281,12 @@
               },
               {
                 "constant": false,
-                "id": 1669,
+                "id": 2463,
                 "mutability": "mutable",
                 "name": "eventFinish",
                 "nodeType": "VariableDeclaration",
-                "scope": 1670,
-                "src": "254:16:8",
+                "scope": 2464,
+                "src": "254:16:12",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -294,10 +294,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 1668,
+                  "id": 2462,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "254:4:8",
+                  "src": "254:4:12",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -308,51 +308,51 @@
             ],
             "name": "EventFinishStruct",
             "nodeType": "StructDefinition",
-            "scope": 1714,
-            "src": "90:187:8",
+            "scope": 2508,
+            "src": "90:187:12",
             "visibility": "public"
           },
           {
             "constant": false,
             "functionSelector": "a6b883ef",
-            "id": 1674,
+            "id": 2468,
             "mutability": "mutable",
             "name": "eventFinishData",
             "nodeType": "VariableDeclaration",
-            "scope": 1714,
-            "src": "283:59:8",
+            "scope": 2508,
+            "src": "283:59:12",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$1670_storage_$",
+              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$2464_storage_$",
               "typeString": "mapping(int256 => struct EFStruct.EventFinishStruct)"
             },
             "typeName": {
-              "id": 1673,
+              "id": 2467,
               "keyType": {
-                "id": 1671,
+                "id": 2465,
                 "name": "int256",
                 "nodeType": "ElementaryTypeName",
-                "src": "291:6:8",
+                "src": "291:6:12",
                 "typeDescriptions": {
                   "typeIdentifier": "t_int256",
                   "typeString": "int256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "283:36:8",
+              "src": "283:36:12",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$1670_storage_$",
+                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$2464_storage_$",
                 "typeString": "mapping(int256 => struct EFStruct.EventFinishStruct)"
               },
               "valueType": {
-                "id": 1672,
+                "id": 2466,
                 "name": "EventFinishStruct",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 1670,
-                "src": "301:17:8",
+                "referencedDeclaration": 2464,
+                "src": "301:17:12",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_EventFinishStruct_$1670_storage_ptr",
+                  "typeIdentifier": "t_struct$_EventFinishStruct_$2464_storage_ptr",
                   "typeString": "struct EFStruct.EventFinishStruct"
                 }
               }
@@ -361,33 +361,33 @@
           },
           {
             "body": {
-              "id": 1686,
+              "id": 2480,
               "nodeType": "Block",
-              "src": "411:53:8",
+              "src": "411:53:12",
               "statements": [
                 {
                   "expression": {
                     "expression": {
                       "baseExpression": {
-                        "id": 1681,
+                        "id": 2475,
                         "name": "eventFinishData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1674,
-                        "src": "428:15:8",
+                        "referencedDeclaration": 2468,
+                        "src": "428:15:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$1670_storage_$",
+                          "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$2464_storage_$",
                           "typeString": "mapping(int256 => struct EFStruct.EventFinishStruct storage ref)"
                         }
                       },
-                      "id": 1683,
+                      "id": 2477,
                       "indexExpression": {
-                        "id": 1682,
+                        "id": 2476,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1676,
-                        "src": "444:3:8",
+                        "referencedDeclaration": 2470,
+                        "src": "444:3:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_int256",
                           "typeString": "int256"
@@ -398,52 +398,52 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "428:20:8",
+                      "src": "428:20:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_EventFinishStruct_$1670_storage",
+                        "typeIdentifier": "t_struct$_EventFinishStruct_$2464_storage",
                         "typeString": "struct EFStruct.EventFinishStruct storage ref"
                       }
                     },
-                    "id": 1684,
+                    "id": 2478,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "reverted",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 1667,
-                    "src": "428:29:8",
+                    "referencedDeclaration": 2461,
+                    "src": "428:29:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1680,
-                  "id": 1685,
+                  "functionReturnParameters": 2474,
+                  "id": 2479,
                   "nodeType": "Return",
-                  "src": "421:36:8"
+                  "src": "421:36:12"
                 }
               ]
             },
             "functionSelector": "362e41b6",
-            "id": 1687,
+            "id": 2481,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "checkReverted",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1677,
+              "id": 2471,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1676,
+                  "id": 2470,
                   "mutability": "mutable",
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1687,
-                  "src": "372:10:8",
+                  "scope": 2481,
+                  "src": "372:10:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -451,10 +451,10 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 1675,
+                    "id": 2469,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "372:6:8",
+                    "src": "372:6:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -463,20 +463,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "371:12:8"
+              "src": "371:12:12"
             },
             "returnParameters": {
-              "id": 1680,
+              "id": 2474,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1679,
+                  "id": 2473,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1687,
-                  "src": "405:4:8",
+                  "scope": 2481,
+                  "src": "405:4:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -484,10 +484,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1678,
+                    "id": 2472,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "405:4:8",
+                    "src": "405:4:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -496,43 +496,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "404:6:8"
+              "src": "404:6:12"
             },
-            "scope": 1714,
-            "src": "349:115:8",
+            "scope": 2508,
+            "src": "349:115:12",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1699,
+              "id": 2493,
               "nodeType": "Block",
-              "src": "535:56:8",
+              "src": "535:56:12",
               "statements": [
                 {
                   "expression": {
                     "expression": {
                       "baseExpression": {
-                        "id": 1694,
+                        "id": 2488,
                         "name": "eventFinishData",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1674,
-                        "src": "552:15:8",
+                        "referencedDeclaration": 2468,
+                        "src": "552:15:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$1670_storage_$",
+                          "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$2464_storage_$",
                           "typeString": "mapping(int256 => struct EFStruct.EventFinishStruct storage ref)"
                         }
                       },
-                      "id": 1696,
+                      "id": 2490,
                       "indexExpression": {
-                        "id": 1695,
+                        "id": 2489,
                         "name": "_id",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1689,
-                        "src": "568:3:8",
+                        "referencedDeclaration": 2483,
+                        "src": "568:3:12",
                         "typeDescriptions": {
                           "typeIdentifier": "t_int256",
                           "typeString": "int256"
@@ -543,52 +543,52 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "552:20:8",
+                      "src": "552:20:12",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_EventFinishStruct_$1670_storage",
+                        "typeIdentifier": "t_struct$_EventFinishStruct_$2464_storage",
                         "typeString": "struct EFStruct.EventFinishStruct storage ref"
                       }
                     },
-                    "id": 1697,
+                    "id": 2491,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
                     "memberName": "eventFinish",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 1669,
-                    "src": "552:32:8",
+                    "referencedDeclaration": 2463,
+                    "src": "552:32:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 1693,
-                  "id": 1698,
+                  "functionReturnParameters": 2487,
+                  "id": 2492,
                   "nodeType": "Return",
-                  "src": "545:39:8"
+                  "src": "545:39:12"
                 }
               ]
             },
             "functionSelector": "d343c1dc",
-            "id": 1700,
+            "id": 2494,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "checkEventFinish",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1690,
+              "id": 2484,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1689,
+                  "id": 2483,
                   "mutability": "mutable",
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1700,
-                  "src": "496:10:8",
+                  "scope": 2494,
+                  "src": "496:10:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -596,10 +596,10 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 1688,
+                    "id": 2482,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "496:6:8",
+                    "src": "496:6:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -608,20 +608,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "495:12:8"
+              "src": "495:12:12"
             },
             "returnParameters": {
-              "id": 1693,
+              "id": 2487,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1692,
+                  "id": 2486,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1700,
-                  "src": "529:4:8",
+                  "scope": 2494,
+                  "src": "529:4:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -629,10 +629,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 1691,
+                    "id": 2485,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "529:4:8",
+                    "src": "529:4:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -641,23 +641,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "528:6:8"
+              "src": "528:6:12"
             },
-            "scope": 1714,
-            "src": "470:121:8",
+            "scope": 2508,
+            "src": "470:121:12",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 1712,
+              "id": 2506,
               "nodeType": "Block",
-              "src": "637:53:8",
+              "src": "637:53:12",
               "statements": [
                 {
                   "expression": {
-                    "id": 1710,
+                    "id": 2504,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -665,25 +665,25 @@
                     "leftHandSide": {
                       "expression": {
                         "baseExpression": {
-                          "id": 1705,
+                          "id": 2499,
                           "name": "eventFinishData",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1674,
-                          "src": "647:15:8",
+                          "referencedDeclaration": 2468,
+                          "src": "647:15:12",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$1670_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventFinishStruct_$2464_storage_$",
                             "typeString": "mapping(int256 => struct EFStruct.EventFinishStruct storage ref)"
                           }
                         },
-                        "id": 1707,
+                        "id": 2501,
                         "indexExpression": {
-                          "id": 1706,
+                          "id": 2500,
                           "name": "_id",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1702,
-                          "src": "663:3:8",
+                          "referencedDeclaration": 2496,
+                          "src": "663:3:12",
                           "typeDescriptions": {
                             "typeIdentifier": "t_int256",
                             "typeString": "int256"
@@ -694,21 +694,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "647:20:8",
+                        "src": "647:20:12",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventFinishStruct_$1670_storage",
+                          "typeIdentifier": "t_struct$_EventFinishStruct_$2464_storage",
                           "typeString": "struct EFStruct.EventFinishStruct storage ref"
                         }
                       },
-                      "id": 1708,
+                      "id": 2502,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "reverted",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 1667,
-                      "src": "647:29:8",
+                      "referencedDeclaration": 2461,
+                      "src": "647:29:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -718,51 +718,51 @@
                     "operator": "=",
                     "rightHandSide": {
                       "hexValue": "74727565",
-                      "id": 1709,
+                      "id": 2503,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "bool",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "679:4:8",
+                      "src": "679:4:12",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
                       "value": "true"
                     },
-                    "src": "647:36:8",
+                    "src": "647:36:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 1711,
+                  "id": 2505,
                   "nodeType": "ExpressionStatement",
-                  "src": "647:36:8"
+                  "src": "647:36:12"
                 }
               ]
             },
             "functionSelector": "9ec2345a",
-            "id": 1713,
+            "id": 2507,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setReverted",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1703,
+              "id": 2497,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1702,
+                  "id": 2496,
                   "mutability": "mutable",
                   "name": "_id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1713,
-                  "src": "618:10:8",
+                  "scope": 2507,
+                  "src": "618:10:12",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -770,10 +770,10 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 1701,
+                    "id": 2495,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "618:6:8",
+                    "src": "618:6:12",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -782,33 +782,33 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "617:12:8"
+              "src": "617:12:12"
             },
             "returnParameters": {
-              "id": 1704,
+              "id": 2498,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "637:0:8"
+              "src": "637:0:12"
             },
-            "scope": 1714,
-            "src": "597:93:8",
+            "scope": 2508,
+            "src": "597:93:12",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1715,
-        "src": "66:626:8"
+        "scope": 2509,
+        "src": "66:626:12"
       }
     ],
-    "src": "32:661:8"
+    "src": "32:661:12"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/EFStruct.sol",
       "exportedSymbols": {
         "EFStruct": [
-          1714
+          2508
         ]
       },
       "license": "MIT"
@@ -826,9 +826,9 @@
             ".0"
           ]
         },
-        "id": 1657,
+        "id": 2451,
         "name": "PragmaDirective",
-        "src": "32:32:8"
+        "src": "32:32:12"
       },
       {
         "attributes": {
@@ -842,17 +842,17 @@
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1714
+            2508
           ],
           "name": "EFStruct",
-          "scope": 1715
+          "scope": 2509
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "EFStruct.EventFinishStruct",
               "name": "EventFinishStruct",
-              "scope": 1714,
+              "scope": 2508,
               "visibility": "public"
             },
             "children": [
@@ -861,7 +861,7 @@
                   "constant": false,
                   "mutability": "mutable",
                   "name": "id",
-                  "scope": 1670,
+                  "scope": 2464,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "int256",
@@ -873,21 +873,21 @@
                       "name": "int256",
                       "type": "int256"
                     },
-                    "id": 1658,
+                    "id": 2452,
                     "name": "ElementaryTypeName",
-                    "src": "125:6:8"
+                    "src": "125:6:12"
                   }
                 ],
-                "id": 1659,
+                "id": 2453,
                 "name": "VariableDeclaration",
-                "src": "125:9:8"
+                "src": "125:9:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "correctAnswer",
-                  "scope": 1670,
+                  "scope": 2464,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -899,21 +899,21 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 1660,
+                    "id": 2454,
                     "name": "ElementaryTypeName",
-                    "src": "144:7:8"
+                    "src": "144:7:12"
                   }
                 ],
-                "id": 1661,
+                "id": 2455,
                 "name": "VariableDeclaration",
-                "src": "144:21:8"
+                "src": "144:21:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "loserPool",
-                  "scope": 1670,
+                  "scope": 2464,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -925,21 +925,21 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 1662,
+                    "id": 2456,
                     "name": "ElementaryTypeName",
-                    "src": "175:7:8"
+                    "src": "175:7:12"
                   }
                 ],
-                "id": 1663,
+                "id": 2457,
                 "name": "VariableDeclaration",
-                "src": "175:17:8"
+                "src": "175:17:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "tokenMinted",
-                  "scope": 1670,
+                  "scope": 2464,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -951,21 +951,21 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 1664,
+                    "id": 2458,
                     "name": "ElementaryTypeName",
-                    "src": "202:7:8"
+                    "src": "202:7:12"
                   }
                 ],
-                "id": 1665,
+                "id": 2459,
                 "name": "VariableDeclaration",
-                "src": "202:19:8"
+                "src": "202:19:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "reverted",
-                  "scope": 1670,
+                  "scope": 2464,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -977,21 +977,21 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 1666,
+                    "id": 2460,
                     "name": "ElementaryTypeName",
-                    "src": "231:4:8"
+                    "src": "231:4:12"
                   }
                 ],
-                "id": 1667,
+                "id": 2461,
                 "name": "VariableDeclaration",
-                "src": "231:13:8"
+                "src": "231:13:12"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "eventFinish",
-                  "scope": 1670,
+                  "scope": 2464,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -1003,19 +1003,19 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 1668,
+                    "id": 2462,
                     "name": "ElementaryTypeName",
-                    "src": "254:4:8"
+                    "src": "254:4:12"
                   }
                 ],
-                "id": 1669,
+                "id": 2463,
                 "name": "VariableDeclaration",
-                "src": "254:16:8"
+                "src": "254:16:12"
               }
             ],
-            "id": 1670,
+            "id": 2464,
             "name": "StructDefinition",
-            "src": "90:187:8"
+            "src": "90:187:12"
           },
           {
             "attributes": {
@@ -1023,7 +1023,7 @@
               "functionSelector": "a6b883ef",
               "mutability": "mutable",
               "name": "eventFinishData",
-              "scope": 1714,
+              "scope": 2508,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(int256 => struct EFStruct.EventFinishStruct)",
@@ -1040,29 +1040,29 @@
                       "name": "int256",
                       "type": "int256"
                     },
-                    "id": 1671,
+                    "id": 2465,
                     "name": "ElementaryTypeName",
-                    "src": "291:6:8"
+                    "src": "291:6:12"
                   },
                   {
                     "attributes": {
                       "name": "EventFinishStruct",
-                      "referencedDeclaration": 1670,
+                      "referencedDeclaration": 2464,
                       "type": "struct EFStruct.EventFinishStruct"
                     },
-                    "id": 1672,
+                    "id": 2466,
                     "name": "UserDefinedTypeName",
-                    "src": "301:17:8"
+                    "src": "301:17:12"
                   }
                 ],
-                "id": 1673,
+                "id": 2467,
                 "name": "Mapping",
-                "src": "283:36:8"
+                "src": "283:36:12"
               }
             ],
-            "id": 1674,
+            "id": 2468,
             "name": "VariableDeclaration",
-            "src": "283:59:8"
+            "src": "283:59:12"
           },
           {
             "attributes": {
@@ -1074,7 +1074,7 @@
                 null
               ],
               "name": "checkReverted",
-              "scope": 1714,
+              "scope": 2508,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "public"
@@ -1087,7 +1087,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_id",
-                      "scope": 1687,
+                      "scope": 2481,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "int256",
@@ -1099,19 +1099,19 @@
                           "name": "int256",
                           "type": "int256"
                         },
-                        "id": 1675,
+                        "id": 2469,
                         "name": "ElementaryTypeName",
-                        "src": "372:6:8"
+                        "src": "372:6:12"
                       }
                     ],
-                    "id": 1676,
+                    "id": 2470,
                     "name": "VariableDeclaration",
-                    "src": "372:10:8"
+                    "src": "372:10:12"
                   }
                 ],
-                "id": 1677,
+                "id": 2471,
                 "name": "ParameterList",
-                "src": "371:12:8"
+                "src": "371:12:12"
               },
               {
                 "children": [
@@ -1120,7 +1120,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 1687,
+                      "scope": 2481,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1132,25 +1132,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1678,
+                        "id": 2472,
                         "name": "ElementaryTypeName",
-                        "src": "405:4:8"
+                        "src": "405:4:12"
                       }
                     ],
-                    "id": 1679,
+                    "id": 2473,
                     "name": "VariableDeclaration",
-                    "src": "405:4:8"
+                    "src": "405:4:12"
                   }
                 ],
-                "id": 1680,
+                "id": 2474,
                 "name": "ParameterList",
-                "src": "404:6:8"
+                "src": "404:6:12"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1680
+                      "functionReturnParameters": 2474
                     },
                     "children": [
                       {
@@ -1160,7 +1160,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "member_name": "reverted",
-                          "referencedDeclaration": 1667,
+                          "referencedDeclaration": 2461,
                           "type": "bool"
                         },
                         "children": [
@@ -1178,51 +1178,51 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1674,
+                                  "referencedDeclaration": 2468,
                                   "type": "mapping(int256 => struct EFStruct.EventFinishStruct storage ref)",
                                   "value": "eventFinishData"
                                 },
-                                "id": 1681,
+                                "id": 2475,
                                 "name": "Identifier",
-                                "src": "428:15:8"
+                                "src": "428:15:12"
                               },
                               {
                                 "attributes": {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1676,
+                                  "referencedDeclaration": 2470,
                                   "type": "int256",
                                   "value": "_id"
                                 },
-                                "id": 1682,
+                                "id": 2476,
                                 "name": "Identifier",
-                                "src": "444:3:8"
+                                "src": "444:3:12"
                               }
                             ],
-                            "id": 1683,
+                            "id": 2477,
                             "name": "IndexAccess",
-                            "src": "428:20:8"
+                            "src": "428:20:12"
                           }
                         ],
-                        "id": 1684,
+                        "id": 2478,
                         "name": "MemberAccess",
-                        "src": "428:29:8"
+                        "src": "428:29:12"
                       }
                     ],
-                    "id": 1685,
+                    "id": 2479,
                     "name": "Return",
-                    "src": "421:36:8"
+                    "src": "421:36:12"
                   }
                 ],
-                "id": 1686,
+                "id": 2480,
                 "name": "Block",
-                "src": "411:53:8"
+                "src": "411:53:12"
               }
             ],
-            "id": 1687,
+            "id": 2481,
             "name": "FunctionDefinition",
-            "src": "349:115:8"
+            "src": "349:115:12"
           },
           {
             "attributes": {
@@ -1234,7 +1234,7 @@
                 null
               ],
               "name": "checkEventFinish",
-              "scope": 1714,
+              "scope": 2508,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "public"
@@ -1247,7 +1247,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_id",
-                      "scope": 1700,
+                      "scope": 2494,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "int256",
@@ -1259,19 +1259,19 @@
                           "name": "int256",
                           "type": "int256"
                         },
-                        "id": 1688,
+                        "id": 2482,
                         "name": "ElementaryTypeName",
-                        "src": "496:6:8"
+                        "src": "496:6:12"
                       }
                     ],
-                    "id": 1689,
+                    "id": 2483,
                     "name": "VariableDeclaration",
-                    "src": "496:10:8"
+                    "src": "496:10:12"
                   }
                 ],
-                "id": 1690,
+                "id": 2484,
                 "name": "ParameterList",
-                "src": "495:12:8"
+                "src": "495:12:12"
               },
               {
                 "children": [
@@ -1280,7 +1280,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "",
-                      "scope": 1700,
+                      "scope": 2494,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1292,25 +1292,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1691,
+                        "id": 2485,
                         "name": "ElementaryTypeName",
-                        "src": "529:4:8"
+                        "src": "529:4:12"
                       }
                     ],
-                    "id": 1692,
+                    "id": 2486,
                     "name": "VariableDeclaration",
-                    "src": "529:4:8"
+                    "src": "529:4:12"
                   }
                 ],
-                "id": 1693,
+                "id": 2487,
                 "name": "ParameterList",
-                "src": "528:6:8"
+                "src": "528:6:12"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1693
+                      "functionReturnParameters": 2487
                     },
                     "children": [
                       {
@@ -1320,7 +1320,7 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "member_name": "eventFinish",
-                          "referencedDeclaration": 1669,
+                          "referencedDeclaration": 2463,
                           "type": "bool"
                         },
                         "children": [
@@ -1338,51 +1338,51 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1674,
+                                  "referencedDeclaration": 2468,
                                   "type": "mapping(int256 => struct EFStruct.EventFinishStruct storage ref)",
                                   "value": "eventFinishData"
                                 },
-                                "id": 1694,
+                                "id": 2488,
                                 "name": "Identifier",
-                                "src": "552:15:8"
+                                "src": "552:15:12"
                               },
                               {
                                 "attributes": {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1689,
+                                  "referencedDeclaration": 2483,
                                   "type": "int256",
                                   "value": "_id"
                                 },
-                                "id": 1695,
+                                "id": 2489,
                                 "name": "Identifier",
-                                "src": "568:3:8"
+                                "src": "568:3:12"
                               }
                             ],
-                            "id": 1696,
+                            "id": 2490,
                             "name": "IndexAccess",
-                            "src": "552:20:8"
+                            "src": "552:20:12"
                           }
                         ],
-                        "id": 1697,
+                        "id": 2491,
                         "name": "MemberAccess",
-                        "src": "552:32:8"
+                        "src": "552:32:12"
                       }
                     ],
-                    "id": 1698,
+                    "id": 2492,
                     "name": "Return",
-                    "src": "545:39:8"
+                    "src": "545:39:12"
                   }
                 ],
-                "id": 1699,
+                "id": 2493,
                 "name": "Block",
-                "src": "535:56:8"
+                "src": "535:56:12"
               }
             ],
-            "id": 1700,
+            "id": 2494,
             "name": "FunctionDefinition",
-            "src": "470:121:8"
+            "src": "470:121:12"
           },
           {
             "attributes": {
@@ -1394,7 +1394,7 @@
                 null
               ],
               "name": "setReverted",
-              "scope": 1714,
+              "scope": 2508,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -1407,7 +1407,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "_id",
-                      "scope": 1713,
+                      "scope": 2507,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "int256",
@@ -1419,19 +1419,19 @@
                           "name": "int256",
                           "type": "int256"
                         },
-                        "id": 1701,
+                        "id": 2495,
                         "name": "ElementaryTypeName",
-                        "src": "618:6:8"
+                        "src": "618:6:12"
                       }
                     ],
-                    "id": 1702,
+                    "id": 2496,
                     "name": "VariableDeclaration",
-                    "src": "618:10:8"
+                    "src": "618:10:12"
                   }
                 ],
-                "id": 1703,
+                "id": 2497,
                 "name": "ParameterList",
-                "src": "617:12:8"
+                "src": "617:12:12"
               },
               {
                 "attributes": {
@@ -1440,9 +1440,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1704,
+                "id": 2498,
                 "name": "ParameterList",
-                "src": "637:0:8"
+                "src": "637:0:12"
               },
               {
                 "children": [
@@ -1465,7 +1465,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "reverted",
-                              "referencedDeclaration": 1667,
+                              "referencedDeclaration": 2461,
                               "type": "bool"
                             },
                             "children": [
@@ -1483,36 +1483,36 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1674,
+                                      "referencedDeclaration": 2468,
                                       "type": "mapping(int256 => struct EFStruct.EventFinishStruct storage ref)",
                                       "value": "eventFinishData"
                                     },
-                                    "id": 1705,
+                                    "id": 2499,
                                     "name": "Identifier",
-                                    "src": "647:15:8"
+                                    "src": "647:15:12"
                                   },
                                   {
                                     "attributes": {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1702,
+                                      "referencedDeclaration": 2496,
                                       "type": "int256",
                                       "value": "_id"
                                     },
-                                    "id": 1706,
+                                    "id": 2500,
                                     "name": "Identifier",
-                                    "src": "663:3:8"
+                                    "src": "663:3:12"
                                   }
                                 ],
-                                "id": 1707,
+                                "id": 2501,
                                 "name": "IndexAccess",
-                                "src": "647:20:8"
+                                "src": "647:20:12"
                               }
                             ],
-                            "id": 1708,
+                            "id": 2502,
                             "name": "MemberAccess",
-                            "src": "647:29:8"
+                            "src": "647:29:12"
                           },
                           {
                             "attributes": {
@@ -1525,39 +1525,39 @@
                               "type": "bool",
                               "value": "true"
                             },
-                            "id": 1709,
+                            "id": 2503,
                             "name": "Literal",
-                            "src": "679:4:8"
+                            "src": "679:4:12"
                           }
                         ],
-                        "id": 1710,
+                        "id": 2504,
                         "name": "Assignment",
-                        "src": "647:36:8"
+                        "src": "647:36:12"
                       }
                     ],
-                    "id": 1711,
+                    "id": 2505,
                     "name": "ExpressionStatement",
-                    "src": "647:36:8"
+                    "src": "647:36:12"
                   }
                 ],
-                "id": 1712,
+                "id": 2506,
                 "name": "Block",
-                "src": "637:53:8"
+                "src": "637:53:12"
               }
             ],
-            "id": 1713,
+            "id": 2507,
             "name": "FunctionDefinition",
-            "src": "597:93:8"
+            "src": "597:93:12"
           }
         ],
-        "id": 1714,
+        "id": 2508,
         "name": "ContractDefinition",
-        "src": "66:626:8"
+        "src": "66:626:12"
       }
     ],
-    "id": 1715,
+    "id": 2509,
     "name": "SourceUnit",
-    "src": "32:661:8"
+    "src": "32:661:12"
   },
   "compiler": {
     "name": "solc",
@@ -1565,7 +1565,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-11T15:04:35.087Z",
+  "updatedAt": "2021-03-11T21:40:32.267Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

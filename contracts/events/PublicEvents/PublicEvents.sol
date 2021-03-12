@@ -51,7 +51,7 @@ contract PublicEvents is
         events[_id].host = _host;
         events[_id].calculateExperts = _calcExp;
         if (_amountPrem > 0) {
-            events[_id].amountPremiumEvent = _amountPrem;
+            events[_id].premiumAmount = _amountPrem;
             require( btyToken.allowance(_host, address(this)) >= _amountPrem, "Allowance" );
             require( btyToken.transferFrom(_host, address(this), _amountPrem), "BTY PRO event" );
         }

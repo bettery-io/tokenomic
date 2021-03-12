@@ -22,7 +22,7 @@ contract ConfigVariables {
 
     uint256 public firstWithdrawIndex = 10; 
     uint256 public GFrewards = 100000000000000000000;
-    uint256 public GFindex = 1;
+    uint256 public GFindex = 100;
     uint256 public welcomeBTYTokens = 10000000000000000000;
     // Bettery Development Fund
     address payable public owner; // Bettery Development Fund wallet

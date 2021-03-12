@@ -13,6 +13,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
     PubStruct eventsData;
 
     event payToCompanies(int id, uint tokens);
+    event payToHost(int id);
     event payToExperts(int id);
     event payToPlayers(int id);
     event payToLosers(int id, uint avarageBet, uint mintedTokens);
@@ -87,7 +88,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
                         eventsData.getPlayerWallet(_id, i, z),
                         eventsData.getPlayerTokens(_id, i, z)
                     ),
-                    "Revert BET"
+                    "revert bet"
                 );
             }
         }
@@ -95,142 +96,142 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
         emit revertedEvent(_id, purpose);
     }
 
-    // function letsPayToCompanies(int _id) public ownerOnly() {
-    //     // pay to Development Fund
-    //     require(
-    //         betToken.mintFromPublicContract(
-    //             owner,
-    //             getPercent(additionalData[_id].tokenMinted, developFundPerc)
-    //         ),
-    //         "M DF"
-    //     );
-    //     if (additionalData[_id].premium) {
-    //         require(
-    //             btyToken.transfer(
-    //                 owner,
-    //                 getPercent(
-    //                     additionalData[_id].amountPremiumEvent,
-    //                     developFundPercPremim
-    //                 )
-    //             ),
-    //             "Pre p DF"
-    //         );
-    //     }
-    //     // pay to Community Marketing Fund
-    //     uint percentCMF =
-    //         events[_id].advisor != address(0)
-    //             ? comMarketFundPerc
-    //             : comMarketFundPerc + extraHostPercMint + advisorPercMint;
-    //     require(
-    //         betToken.mintFromPublicContract(
-    //             comMarketFundWallet,
-    //             getPercent(additionalData[_id].tokenMinted, percentCMF)
-    //         ),
-    //         "M CMF"
-    //     );
+    function letsPayToCompanies(int _id) public ownerOnly() {
+        // pay to Development Fund
+        require(
+            betToken.mintFromPublicContract(
+                owner,
+                getPercent(eventFinishData[_id].tokenMinted, developFundPerc)
+            ),
+            "mint development fund"
+        );
+        if (eventsData.getPremiumAmount(_id) > 0) {
+            require(
+                btyToken.transfer(
+                    owner,
+                    getPercent(
+                        eventsData.getPremiumAmount(_id),
+                        developFundPercPremim
+                    )
+                ),
+                "premium pay development fund"
+            );
+        }
+        // pay to Community Marketing Fund
+        uint percentCMF =
+            eventsData.getAdvisorAddr(_id) != address(0)
+                ? comMarketFundPerc
+                : comMarketFundPerc + extraHostPercMint + advisorPercMint;
+        require(
+            betToken.mintFromPublicContract(
+                comMarketFundWallet,
+                getPercent(eventFinishData[_id].tokenMinted, percentCMF)
+            ),
+            "mint community marketing fund"
+        );
 
-    //     // pay to Moderators Fund
-    //     require(
-    //         betToken.mintFromPublicContract(
-    //             moderatorsFundWallet,
-    //             getPercent(additionalData[_id].tokenMinted, moderatorsFundPerc)
-    //         ),
-    //         "M MF"
-    //     );
-    //     letsPaytoHost(_id);
-    // }
+        // pay to Moderators Fund
+        require(
+            betToken.mintFromPublicContract(
+                moderatorsFundWallet,
+                getPercent(eventFinishData[_id].tokenMinted, moderatorsFundPerc)
+            ),
+            "mint moderators fund"
+        );
+        emit payToHost(_id);
+    }
 
-    // function letsPaytoHost(int _id) private {
-    //     if (events[_id].advisor != address(0)) {
-    //         // pay minted tokens
-    //         require(
-    //             betToken.mintFromPublicContract(
-    //                 events[_id].host,
-    //                 getPercent(
-    //                     additionalData[_id].tokenMinted,
-    //                     hostPercMint + extraHostPercMint
-    //                 )
-    //             ),
-    //             "M Host with adv"
-    //         );
-    //         require(
-    //             betToken.mintFromPublicContract(
-    //                 events[_id].advisor,
-    //                 getPercent(additionalData[_id].tokenMinted, advisorPercMint)
-    //             ),
-    //             "M to Adv"
-    //         );
-    //         // pay not minted tokens
-    //         require(
-    //             betToken.transfer(
-    //                 events[_id].host,
-    //                 getPercent(additionalData[_id].pool, hostPerc + extraHostPerc)
-    //             ),
-    //             "P Host with adv"
-    //         );
-    //         require(
-    //             betToken.transfer(
-    //                 events[_id].advisor,
-    //                 getPercent(additionalData[_id].pool, advisorPepc)
-    //             ),
-    //             "P Adv"
-    //         );
-    //     } else {
-    //         // pay minted tokens
-    //         require(
-    //             betToken.mintFromPublicContract(
-    //                 events[_id].host,
-    //                 getPercent(additionalData[_id].tokenMinted, hostPercMint)
-    //             ),
-    //             "M Host"
-    //         );
-    //         // pay not minted tokens
-    //         require(
-    //             betToken.transfer(
-    //                 events[_id].host,
-    //                 getPercent(additionalData[_id].pool, hostPerc)
-    //             ),
-    //             "P Host"
-    //         );
-    //     }
-    //     emit payToExperts(_id);
-    // }
+    function letsPaytoHost(int _id) public ownerOnly() {
+        if (eventsData.getAdvisorAddr(_id) != address(0)) {
+            // pay minted tokens
+            require(
+                betToken.mintFromPublicContract(
+                    eventsData.getHostAddr(_id),
+                    getPercent(
+                        eventFinishData[_id].tokenMinted,
+                        hostPercMint + extraHostPercMint
+                    )
+                ),
+                "mint host with advisor"
+            );
+            require(
+                betToken.mintFromPublicContract(
+                    eventsData.getAdvisorAddr(_id),
+                    getPercent(eventFinishData[_id].tokenMinted, advisorPercMint)
+                ),
+                "mint to advisor"
+            );
+            // pay not minted tokens
+            require(
+                betToken.transfer(
+                    eventsData.getHostAddr(_id),
+                    getPercent(eventsData.getPool(_id), hostPerc + extraHostPerc)
+                ),
+                "pay to host with advisor"
+            );
+            require(
+                betToken.transfer(
+                    eventsData.getAdvisorAddr(_id),
+                    getPercent(eventsData.getPool(_id), advisorPepc)
+                ),
+                "pay to advisor"
+            );
+        } else {
+            // pay minted tokens
+            require(
+                betToken.mintFromPublicContract(
+                    eventsData.getHostAddr(_id),
+                    getPercent(eventFinishData[_id].tokenMinted, hostPercMint)
+                ),
+                "mint to host"
+            );
+            // pay not minted tokens
+            require(
+                betToken.transfer(
+                    eventsData.getHostAddr(_id),
+                    getPercent(eventsData.getPool(_id), hostPerc)
+                ),
+                "pay to host"
+            );
+        }
+        emit payToExperts(_id);
+    }
 
     // function letsPayToExperts(int _id) public ownerOnly() {
     //     int allReputation;
     //     uint percent =
-    //         events[_id].advisor != address(0)
+    //         eventsData.getAdvisorAddr(_id) != address(0)
     //             ? expertPerc
     //             : expertPerc + expertExtraPerc;
-
-    //     for ( uint i = 0; i < events[_id].expert[additionalData[_id].correctAnswer].length; i++ ) {
-    //         if ( events[_id].expert[additionalData[_id].correctAnswer][i].reputation >= 0 ) {
-    //             allReputation = allReputation + events[_id].expert[additionalData[_id].correctAnswer][i].reputation;
+    //     uint correctAnswer = eventFinishData[_id].correctAnswer;
+    //     for ( uint i = 0; i < eventsData.getExpertAmount(_id, correctAnswer); i++ ) {
+    //         if ( eventsData.getExpertReput(_id, correctAnswer, i) >= 0 ) {
+    //             allReputation = allReputation + eventsData.getExpertReput(_id, correctAnswer, i);
     //         }
     //     }
 
-    //     for (uint i = 0; i < events[_id].expert[additionalData[_id].correctAnswer].length; i++ ) {
-    //         int reputation = events[_id].expert[additionalData[_id].correctAnswer][i].reputation;
-    //         address payable expertWallet = events[_id].expert[additionalData[_id].correctAnswer][i].expert;
+    //     for (uint i = 0; i < eventsData.getExpertAmount(_id, correctAnswer); i++ ) {
+    //         int reputation = eventsData.getExpertReput(_id, correctAnswer, i);
+    //         address payable expertWallet = eventsData.getExpertWallet(_id, correctAnswer, i);
     //         if (reputation >= 0) {
     //             // mint tokens
-    //             uint amountMint = (getPercent(additionalData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
+    //             uint amountMint = (getPercent(eventFinishData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
     //             require(
     //                 betToken.mintFromPublicContract(expertWallet, amountMint),
-    //                 "M Exp"
+    //                 "mint exp"
     //             );
     //             // pay tokens
-    //             uint amount = (getPercent(additionalData[_id].pool, percent) * uint(reputation)) / uint(allReputation);
+    //             uint amount = (getPercent(eventsData.getPool(_id), percent) * uint(reputation)) / uint(allReputation);
     //             require(
     //                 betToken.transfer(expertWallet, amount),
-    //                 "P Exp"
+    //                 "pay exp"
     //             );
     //             // pay in premium events
-    //             if (additionalData[_id].premium) {
-    //                 uint premiumAmount = (getPercent( additionalData[_id].amountPremiumEvent, expertPremiumPerc ) * uint(reputation)) / uint(allReputation);
+    //             if (eventsData.getPremiumAmount(_id) > 0) {
+    //                 uint premiumAmount = (getPercent(eventsData.getPremiumAmount(_id), expertPremiumPerc ) * uint(reputation)) / uint(allReputation);
     //                 require(
     //                     btyToken.transfer(expertWallet, premiumAmount),
-    //                     "Prem p Exp"
+    //                     "prem pay exp"
     //                 );
     //             }
     //         }
@@ -239,50 +240,48 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
     // }
 
     // function letsPayToPlayers(int _id) public ownerOnly() {
-    //     uint mintedTokens = getPercent(playersPersMint, additionalData[_id].tokenMinted);
-    //     uint loserPoolPerc = getPercent(playersPers, additionalData[_id].loserPool);
-    //     uint winPool = loserPoolPerc / events[_id].activePlayers;
+    //     uint activePlay = eventsData.getActivePlayers(_id);
+    //     uint winPool = getPercent(playersPers, eventFinishData[_id].loserPool) / activePlay;
+    //     uint rightPlay = eventsData.getPlayerAmount(_id, eventFinishData[_id].correctAnswer);
 
     //     uint premimWin;
-    //     if (additionalData[_id].premium) {
-    //         uint premiumToken = getPercent(playersPersPremiun, additionalData[_id].amountPremiumEvent);
-    //         premimWin = premiumToken / events[_id].activePlayers;
+    //     if (eventsData.getPremiumAmount(_id) > 0) {
+    //         uint premiumToken = getPercent(playersPersPremiun, eventsData.getPremiumAmount(_id));
+    //         premimWin = premiumToken / activePlay;
     //     }
     //     uint betAmount = 0;
 
-    //     for ( uint i = 0; i < events[_id].players[additionalData[_id].correctAnswer].length; i++ ) {
-    //         betAmount = betAmount + events[_id].players[additionalData[_id].correctAnswer][i].amount;
+    //     for ( uint i = 0; i < rightPlay; i++ ) {
+    //         betAmount = betAmount + eventsData.getPlayerTokens(_id, eventFinishData[_id].correctAnswer, i);
     //     }
 
-    //     uint avarageBet = betAmount / events[_id].activePlayers;
+    //     uint avarageBet = betAmount / activePlay;
 
-    //     for ( uint i = 0; i < events[_id].players[additionalData[_id].correctAnswer].length; i++ ) {
+    //     for ( uint i = 0; i < rightPlay; i++ ) {
     //         // mint token to users
-    //         uint userBet = events[_id].players[additionalData[_id].correctAnswer][i].amount;
-    //         address payable userWallet = events[_id].players[additionalData[_id].correctAnswer][i].player;
-    //         uint mintWin = (userBet / avarageBet) * (mintedTokens / events[_id].activePlayers);
+    //         uint userBet = eventsData.getPlayerTokens(_id, eventFinishData[_id].correctAnswer, i);
+    //         address payable userWallet = eventsData.getPlayerWallet(_id, eventFinishData[_id].correctAnswer, i);
+    //         uint mintWin = (userBet / avarageBet) * (getPercent(playersPersMint, eventFinishData[_id].tokenMinted) / activePlay);
     //         // TODO pay to referers
     //         require(
     //             betToken.mintFromPublicContract(userWallet, mintWin),
-    //             "M Play"
+    //             "mint to play"
     //         );
 
     //         // pay tokens to users
-    //         uint tokenWin = (userBet / avarageBet) * winPool;
     //         require(
-    //             betToken.transfer(userWallet, tokenWin),
-    //             "P Play"
+    //             betToken.transfer(userWallet, (userBet / avarageBet) * winPool),
+    //             "pay to play"
     //         );
-    //         if (additionalData[_id].premium) {
+    //         if (eventsData.getPremiumAmount(_id) > 0) {
     //             // pay premium tokens to user
-    //             uint premiumWinToken = (userBet / avarageBet) * premimWin;
     //             require(
-    //                 btyToken.transfer(userWallet, premiumWinToken),
-    //                 "Prem p Play"
+    //                 btyToken.transfer(userWallet, (userBet / avarageBet) * premimWin),
+    //                 "prem pay yo play"
     //             );
     //         }
     //     }
-    //     emit payToLosers(_id, avarageBet, mintedTokens);
+    //     emit payToLosers(_id, avarageBet, getPercent(playersPersMint, eventFinishData[_id].tokenMinted));
     // }
 
     // function letsPayToLoosers(
@@ -290,19 +289,19 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
     //     uint _avarageBet,
     //     uint _mintedTokens
     // ) public ownerOnly() {
-    //     for (uint i = 0; i < events[_id].questAmount; i++) {
-    //         if (additionalData[_id].correctAnswer != i && events[_id].players[i].length != 0) {
-    //             for (uint z = 0; z < events[_id].players[i].length; z++) {
-    //                 uint mintLost = (events[_id].players[i][z].amount / _avarageBet) * (_mintedTokens / events[_id].activePlayers);
-    //                 require(betToken.mintFromPublicContract(events[_id].players[i][z].player, mintLost), "P losers");
+    //     for (uint i = 0; i < eventsData.getQuestAmount(_id); i++) {
+    //         if (eventFinishData[_id].correctAnswer != i && eventsData.getPlayerAmount(_id, i) != 0) {
+    //             for (uint z = 0; z < eventsData.getPlayerAmount(_id, i); z++) {
+    //                 uint mintLost = (eventsData.getPlayerTokens(_id, i, z) / _avarageBet) * (_mintedTokens / eventsData.getActivePlayers(_id));
+    //                 require(betToken.mintFromPublicContract(eventsData.getPlayerWallet(_id, i, z), mintLost), "pay to losers");
     //             }
     //         }
     //     }
-    //     additionalData[_id].eventFinish = true;
+    //     eventFinishData[_id].eventFinish = true;
     //     emit eventFinish(
     //         _id,
-    //         additionalData[_id].tokenMinted,
-    //         additionalData[_id].correctAnswer
+    //         eventFinishData[_id].tokenMinted,
+    //         eventFinishData[_id].correctAnswer
     //     );
     // }
 }

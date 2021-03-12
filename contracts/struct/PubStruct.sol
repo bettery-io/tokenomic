@@ -33,7 +33,7 @@ contract PubStruct {
         address payable host;
         address payable advisor;
         uint pool;
-        uint amountPremiumEvent; 
+        uint premiumAmount; 
     }
 
     mapping(int => EventData) public events;
@@ -47,11 +47,19 @@ contract PubStruct {
         return events[_id].expert[i].length;
     }
 
+    function getExpertWallet(int _id, uint i, uint z) view public returns(address payable) {
+        return events[_id].expert[i][z].expert;
+    }
+
+    function getExpertReput(int _id, uint i, uint z) view public returns(int) {
+        return events[_id].expert[i][z].reputation;
+    }
+
     function getPlayerAmount(int _id, uint i) view public returns(uint) {
         return events[_id].players[i].length;
     }
 
-    function getPlayerWallet(int _id, uint i, uint z) view public returns(address) {
+    function getPlayerWallet(int _id, uint i, uint z) view public returns(address payable) {
         return events[_id].players[i][z].player;
     }
 
@@ -65,5 +73,17 @@ contract PubStruct {
 
     function getPool(int _id) view public returns(uint) {
         return events[_id].pool;
+    }
+
+    function getPremiumAmount(int _id) view public returns(uint) {
+        return events[_id].premiumAmount;
+    }
+
+    function getAdvisorAddr(int _id) view public returns(address) {
+        return events[_id].advisor;
+    }
+
+    function getHostAddr(int _id) view public returns(address) {
+        return events[_id].host;
     }
 }

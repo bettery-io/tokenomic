@@ -15,10 +15,8 @@ contract Libs {
         uint256 _pool,
         uint256 _GFindex
     ) public pure returns (uint256) {
-        uint256 controversy = (100 - _activePlayers) / 100;
-        uint256 averageBet = _pool / _activePlayers;
-        return
-            ((averageBet * _activePlayers * controversy * _GFindex) *
-                1000000000000000000) / 100;
+        uint256 controversy = (100 - _activePlayers); 
+        uint256 averageBet = _pool / _activePlayers; 
+        return (averageBet * _activePlayers * controversy * _GFindex) / 10000;
     }
 }

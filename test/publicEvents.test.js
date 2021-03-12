@@ -14,16 +14,32 @@ contract('Public Events', (accounts) => {
         owner = accounts[0]
 
 
-    beforeEach(async () => {
+    // beforeEach(async () => {
+    //     bty = await BtyContract.deployed();
+    //     bet = await BetContract.deployed();
+    //     events = await PublicContract.deployed(bet.address, bty.address);
+    //     finishEvent = await FinishEvent.deployed(bet.address, bty.address);
+    // })
+
+    it('Deploy bty token', async () => {
         bty = await BtyContract.deployed();
-        bet = await BetContract.deployed();
-        events = await PublicContract.deployed(bet.address, bty.address);
-        finishEvent = await FinishEvent.deployed(bet.address, bty.address);
+        assert(bty.address, "not deployed")
     })
 
-    it('Should have an address for Public Events', () => {
-        assert(events.address && bty.address && bet.address);
-    });
+    it('Deploy bet token', async () => {
+        bet = await BetContract.deployed();
+        assert(bet.address, "not deployed")
+    })
+
+    it('Deploy public contract token', async () => {
+        events = await PublicContract.deployed(bet.address, bty.address);
+        assert(events.address, "not deployed")
+    })
+
+    it('Deploy finish event token', async () => {
+        finishEvent = await FinishEvent.deployed(bet.address, bty.address);
+        assert(finishEvent.address, "not deployed")
+    })
 
     it("Set addresses to the BET contract", async () => {
         let error = false;
@@ -158,17 +174,17 @@ contract('Public Events', (accounts) => {
     })
 
     it("let's validate", async () => {
-        let error = false
+        let error = false,
+            id = 1,
+            tx
 
         function timeout(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         await timeout(5000);
-        let tx;
         for (let i = 7; i < accounts.length; i++) {
-            let id = 1,
-                whichAnswer = 0,
+            let whichAnswer = 0,
                 expertWallet = accounts[i],
                 reputation = i
             tx = await events.setValidator(
@@ -185,7 +201,7 @@ contract('Public Events', (accounts) => {
             })
         }
         truffleAssert.eventEmitted(tx, 'findCorrectAnswer', (ev) => {
-            return ev.id === id;
+            return ev.id.toString() == String(id);
         }, 'Contract should return the correct id.');
     })
 
@@ -197,6 +213,18 @@ contract('Public Events', (accounts) => {
     //     }
     //     assert(false, "error")
     // })
+
+    it("test", async () => {
+        let id = 1;
+        let test = await finishEvent.test(id,
+            {
+                from: owner
+            })
+
+        console.log(test.players.toString());
+        console.log(test.pool.toString());
+        console.log(test.gfIndex.toString());
+    })
 
     it("check finish event", async () => {
         let id = 1;
