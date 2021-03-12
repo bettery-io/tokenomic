@@ -8,6 +8,8 @@ import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
  
 contract PlayerPayment {
+    event payToLosers(int id, uint avarageBet, uint mintedTokens);
+    event eventFinish(int id, uint tokens, uint correctAnswer);
 
    // function letsPayToPlayers(int _id) public ownerOnly() {
     //     uint activePlay = eventsData.getActivePlayers(_id);

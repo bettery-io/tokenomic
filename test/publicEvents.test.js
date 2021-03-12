@@ -15,7 +15,8 @@ contract('Public Events', (accounts) => {
         players = 7,
         pool = 0,
         correctAnswer = 1,
-        mintTokens
+        mintTokens,
+        allReputation = 0
 
 
     function getPercent(percent, from) {
@@ -175,8 +176,7 @@ contract('Public Events', (accounts) => {
     })
 
     it("let's validate", async () => {
-        let error = false,
-            id = 1,
+        let id = 1,
             tx
 
         function timeout(ms) {
@@ -184,10 +184,13 @@ contract('Public Events', (accounts) => {
         }
 
         await timeout(5000);
-        for (let i = 7; i < accounts.length; i++) {
+        for (let i = players; i < accounts.length; i++) {
             let whichAnswer = correctAnswer,
                 expertWallet = accounts[i],
                 reputation = i
+
+            allReputation += i;
+
             tx = await events.setValidator(
                 id,
                 whichAnswer,
@@ -197,7 +200,6 @@ contract('Public Events', (accounts) => {
                     from: owner
                 }
             ).catch((err) => {
-                error = true
                 console.log(err);
             })
         }
@@ -253,6 +255,45 @@ contract('Public Events', (accounts) => {
                 mintMF.toFixed(2) == Number(mintMFc).toFixed(2)
 
         }, 'Contract do not pay correct tokens to the companies.');
+    })
+
+    it("Check payment to validators", async () => {
+        let id = 1,
+            percentPay = 7,
+            expertPercMint = 10,
+            beforeBalance = 0
+            afterBalance = 0,
+            mintedTokens = Number(Number(mintTokens).toFixed(2))
+        let tx = await middleEvent.letsPayToExperts(
+            id,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            console.log(err)
+        })
+
+        for(let i = players; i < accounts.length; i++) { 
+            let mintToken = (getPercent(mintedTokens, expertPercMint) * i) / allReputation;
+            let payToken = (getPercent(pool, percentPay) * i) / allReputation;
+            beforeBalance = mintToken + payToken + beforeBalance + 10 
+        }
+        console.log(beforeBalance);
+
+        for (let i = players; i < accounts.length; i++) {
+            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            afterBalance = afterBalance + Number(Number(bal).toFixed(2))
+        }
+
+        console.log(afterBalance);
+
+        truffleAssert.eventEmitted(tx, 'payToHost', (ev) => {
+            return ev.id.toString() == String(id);
+        }, 'Contract do not return correct id.');
+
+        assert(beforeBalance == afterBalance, "Balances are not correct")
+
     })
 
 })

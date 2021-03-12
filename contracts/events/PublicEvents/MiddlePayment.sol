@@ -11,18 +11,18 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
     BET public betToken;
     BTY public btyToken;
     PubStruct eventsData;
+    address public PublicAddr;
 
     event payToCompanies(int id, uint tokens, uint correctAnswer);
     event payToHost(int id, uint premDF, uint mintDF, uint mintCMF, uint mintMF);
     event payToExperts(int id, uint mintHost, uint payHost, uint mintAdv, uint payAdv);
     event payToPlayers(int id);
-    event payToLosers(int id, uint avarageBet, uint mintedTokens);
     event revertedEvent(int id, string purpose);
-    event eventFinish(int id, uint tokens, uint correctAnswer);
 
     constructor(BET _betAddress, BTY _btyAddress, address _addr) {
         betToken = _betAddress;
         btyToken = _btyAddress;
+        PublicAddr = _addr;
         eventsData = PubStruct(_addr);
     }
 
@@ -210,44 +210,43 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
 
     function letsPayToExperts(int _id) public {
         require(msg.sender == owner, "owner only");
-        int allReputation;
-        uint percent =
-            eventsData.getAdvisorAddr(_id) != address(0)
+        uint percent = eventsData.getAdvisorAddr(_id) != address(0)
                 ? expertPerc
                 : expertPerc + expertExtraPerc;
         uint correctAnswer = MPData[_id].correctAnswer;
+        int allReputation = calcReput(_id, correctAnswer);
+
+        for (uint i = 0; i < eventsData.getExpertAmount(_id, correctAnswer); i++ ) {
+            int reputation = eventsData.getExpertReput(_id, correctAnswer, i);
+            if (reputation >= 0) {
+                address payable expertWallet = eventsData.getExpertWallet(_id, correctAnswer, i);
+
+                // mint tokens
+                uint amountMint = (getPercent(MPData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
+                require(betToken.mintFromPublicContract(expertWallet, amountMint),"mint exp");
+
+                // pay tokens
+                uint amount = (getPercent(eventsData.getPool(_id), percent) * uint(reputation)) / uint(allReputation);
+                require(betToken.transferFrom(PublicAddr, expertWallet, amount),"pay exp");
+
+                // pay in premium events
+                if (eventsData.getPremiumAmount(_id) > 0) {
+                    uint premiumAmount = (getPercent(eventsData.getPremiumAmount(_id), expertPremiumPerc ) * uint(reputation)) / uint(allReputation);
+                    require(btyToken.transferFrom(PublicAddr, expertWallet, premiumAmount),"prem pay exp");
+                }
+       
+            }
+        }
+        emit payToPlayers(_id);
+    }
+    
+    function calcReput(int _id, uint correctAnswer) private view returns(int) { 
+        int allReputation = 0;
         for ( uint i = 0; i < eventsData.getExpertAmount(_id, correctAnswer); i++ ) {
             if ( eventsData.getExpertReput(_id, correctAnswer, i) >= 0 ) {
                 allReputation = allReputation + eventsData.getExpertReput(_id, correctAnswer, i);
             }
         }
-
-        for (uint i = 0; i < eventsData.getExpertAmount(_id, correctAnswer); i++ ) {
-            int reputation = eventsData.getExpertReput(_id, correctAnswer, i);
-            address payable expertWallet = eventsData.getExpertWallet(_id, correctAnswer, i);
-            if (reputation >= 0) {
-                // mint tokens
-                uint amountMint = (getPercent(MPData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
-                require(
-                    betToken.mintFromPublicContract(expertWallet, amountMint),
-                    "mint exp"
-                );
-                // pay tokens
-                uint amount = (getPercent(eventsData.getPool(_id), percent) * uint(reputation)) / uint(allReputation);
-                require(
-                    betToken.transfer(expertWallet, amount),
-                    "pay exp"
-                );
-                // pay in premium events
-                if (eventsData.getPremiumAmount(_id) > 0) {
-                    uint premiumAmount = (getPercent(eventsData.getPremiumAmount(_id), expertPremiumPerc ) * uint(reputation)) / uint(allReputation);
-                    require(
-                        btyToken.transfer(expertWallet, premiumAmount),
-                        "prem pay exp"
-                    );
-                }
-            }
-        }
-        emit payToPlayers(_id);
+        return allReputation;
     }
 }
