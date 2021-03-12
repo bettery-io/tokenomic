@@ -1,13 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 import {PubStruct} from "../../struct/PubStruct.sol";
-import {EFStruct} from "../../struct/EFStruct.sol";
+import {MPStruct} from "../../struct/MPStruct.sol";
 import {Libs} from "./Libs.sol";
 import {ConfigVariables} from "../../config/ConfigVariables.sol";
 import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
 
-contract FinishEvent is Libs, ConfigVariables, EFStruct {
+contract MiddlePayment is Libs, ConfigVariables, MPStruct {
     BET public betToken;
     BTY public btyToken;
     PubStruct eventsData;
@@ -54,10 +54,10 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
         }
 
         if (candDub == bigValue) {
-            eventFinishData[_id].reverted = true;
+            MPData[_id].reverted = true;
             revertPayment(_id, "duplicat expert");
         } else {
-            eventFinishData[_id].correctAnswer = correctAnswer;
+            MPData[_id].correctAnswer = correctAnswer;
             findLosersPool(correctAnswer, _id);
         }
     }
@@ -71,7 +71,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
         if (lP == 0) {
             revertedPayment(_id, "play chose one answer");
         } else {
-            eventFinishData[_id].loserPool = lP;
+            MPData[_id].loserPool = lP;
             // calculate minted tokens
             uint tokens =
                 calcMintedTokens(
@@ -79,7 +79,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
                     eventsData.getPool(_id),
                     GFindex
                 );
-            eventFinishData[_id].tokenMinted = tokens;
+            MPData[_id].tokenMinted = tokens;
             emit payToCompanies(_id, tokens, correctAnswer);
         }
     }
@@ -103,14 +103,14 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
                 );
             }
         }
-        eventFinishData[_id].reverted = true;
+        MPData[_id].reverted = true;
         emit revertedEvent(_id, purpose);
     }
 
     function letsPayToCompanies(int _id) public ownerOnly() {
         // pay to Development Fund
         uint premDF = 0;
-        uint mintDF = getPercent(eventFinishData[_id].tokenMinted, developFundPerc);
+        uint mintDF = getPercent(MPData[_id].tokenMinted, developFundPerc);
         require(
             betToken.mintFromPublicContract(
                 owner,
@@ -132,7 +132,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
         uint percentCMF = eventsData.getAdvisorAddr(_id) != address(0)
                 ? comMarketFundPerc
                 : comMarketFundPerc + extraHostPercMint + advisorPercMint;
-        uint mintCMF = getPercent(eventFinishData[_id].tokenMinted, percentCMF);         
+        uint mintCMF = getPercent(MPData[_id].tokenMinted, percentCMF);         
         require(
             betToken.mintFromPublicContract(
                 comMarketFundWallet,
@@ -141,7 +141,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
             "mint community marketing fund"
         );
 
-        uint mintMF = getPercent(eventFinishData[_id].tokenMinted, moderatorsFundPerc);
+        uint mintMF = getPercent(MPData[_id].tokenMinted, moderatorsFundPerc);
         // pay to Moderators Fund
         require(
             betToken.mintFromPublicContract(
@@ -160,7 +160,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
         uint payAdv = 0;
         if (eventsData.getAdvisorAddr(_id) != address(0)) {
             // pay minted tokens
-            mintHost = getPercent( eventFinishData[_id].tokenMinted, hostPercMint + extraHostPercMint);
+            mintHost = getPercent( MPData[_id].tokenMinted, hostPercMint + extraHostPercMint);
             require(
                 betToken.mintFromPublicContract(
                     eventsData.getHostAddr(_id),
@@ -168,7 +168,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
                 ),
                 "mint host with advisor"
             );
-            mintAdv = getPercent(eventFinishData[_id].tokenMinted, advisorPercMint);
+            mintAdv = getPercent(MPData[_id].tokenMinted, advisorPercMint);
             require(
                 betToken.mintFromPublicContract(
                     eventsData.getAdvisorAddr(_id),
@@ -195,7 +195,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
             );
         } else {
             // mint to host
-            mintHost = getPercent(eventFinishData[_id].tokenMinted, hostPercMint);
+            mintHost = getPercent(MPData[_id].tokenMinted, hostPercMint);
             require(
                 betToken.mintFromPublicContract(
                     eventsData.getHostAddr(_id),
@@ -222,7 +222,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
             eventsData.getAdvisorAddr(_id) != address(0)
                 ? expertPerc
                 : expertPerc + expertExtraPerc;
-        uint correctAnswer = eventFinishData[_id].correctAnswer;
+        uint correctAnswer = MPData[_id].correctAnswer;
         for ( uint i = 0; i < eventsData.getExpertAmount(_id, correctAnswer); i++ ) {
             if ( eventsData.getExpertReput(_id, correctAnswer, i) >= 0 ) {
                 allReputation = allReputation + eventsData.getExpertReput(_id, correctAnswer, i);
@@ -234,7 +234,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
             address payable expertWallet = eventsData.getExpertWallet(_id, correctAnswer, i);
             if (reputation >= 0) {
                 // mint tokens
-                uint amountMint = (getPercent(eventFinishData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
+                uint amountMint = (getPercent(MPData[_id].tokenMinted, expertPercMint) * uint(reputation)) / uint(allReputation);
                 require(
                     betToken.mintFromPublicContract(expertWallet, amountMint),
                     "mint exp"
@@ -260,8 +260,8 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
 
     // function letsPayToPlayers(int _id) public ownerOnly() {
     //     uint activePlay = eventsData.getActivePlayers(_id);
-    //     uint winPool = getPercent(playersPers, eventFinishData[_id].loserPool) / activePlay;
-    //     uint rightPlay = eventsData.getPlayerAmount(_id, eventFinishData[_id].correctAnswer);
+    //     uint winPool = getPercent(playersPers, MPData[_id].loserPool) / activePlay;
+    //     uint rightPlay = eventsData.getPlayerAmount(_id, MPData[_id].correctAnswer);
 
     //     uint premimWin;
     //     if (eventsData.getPremiumAmount(_id) > 0) {
@@ -271,16 +271,16 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
     //     uint betAmount = 0;
 
     //     for ( uint i = 0; i < rightPlay; i++ ) {
-    //         betAmount = betAmount + eventsData.getPlayerTokens(_id, eventFinishData[_id].correctAnswer, i);
+    //         betAmount = betAmount + eventsData.getPlayerTokens(_id, MPData[_id].correctAnswer, i);
     //     }
 
     //     uint avarageBet = betAmount / activePlay;
 
     //     for ( uint i = 0; i < rightPlay; i++ ) {
     //         // mint token to users
-    //         uint userBet = eventsData.getPlayerTokens(_id, eventFinishData[_id].correctAnswer, i);
-    //         address payable userWallet = eventsData.getPlayerWallet(_id, eventFinishData[_id].correctAnswer, i);
-    //         uint mintWin = (userBet / avarageBet) * (getPercent(playersPersMint, eventFinishData[_id].tokenMinted) / activePlay);
+    //         uint userBet = eventsData.getPlayerTokens(_id, MPData[_id].correctAnswer, i);
+    //         address payable userWallet = eventsData.getPlayerWallet(_id, MPData[_id].correctAnswer, i);
+    //         uint mintWin = (userBet / avarageBet) * (getPercent(playersPersMint, MPData[_id].tokenMinted) / activePlay);
     //         // TODO pay to referers
     //         require(
     //             betToken.mintFromPublicContract(userWallet, mintWin),
@@ -300,7 +300,7 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
     //             );
     //         }
     //     }
-    //     emit payToLosers(_id, avarageBet, getPercent(playersPersMint, eventFinishData[_id].tokenMinted));
+    //     emit payToLosers(_id, avarageBet, getPercent(playersPersMint, MPData[_id].tokenMinted));
     // }
 
     // function letsPayToLoosers(
@@ -309,18 +309,18 @@ contract FinishEvent is Libs, ConfigVariables, EFStruct {
     //     uint _mintedTokens
     // ) public ownerOnly() {
     //     for (uint i = 0; i < eventsData.getQuestAmount(_id); i++) {
-    //         if (eventFinishData[_id].correctAnswer != i && eventsData.getPlayerAmount(_id, i) != 0) {
+    //         if (MPData[_id].correctAnswer != i && eventsData.getPlayerAmount(_id, i) != 0) {
     //             for (uint z = 0; z < eventsData.getPlayerAmount(_id, i); z++) {
     //                 uint mintLost = (eventsData.getPlayerTokens(_id, i, z) / _avarageBet) * (_mintedTokens / eventsData.getActivePlayers(_id));
     //                 require(betToken.mintFromPublicContract(eventsData.getPlayerWallet(_id, i, z), mintLost), "pay to losers");
     //             }
     //         }
     //     }
-    //     eventFinishData[_id].eventFinish = true;
+    //     MPData[_id].eventFinish = true;
     //     emit eventFinish(
     //         _id,
-    //         eventFinishData[_id].tokenMinted,
-    //         eventFinishData[_id].correctAnswer
+    //         MPData[_id].tokenMinted,
+    //         MPData[_id].correctAnswer
     //     );
     // }
 }

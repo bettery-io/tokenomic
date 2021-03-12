@@ -1,7 +1,7 @@
 const truffleAssert = require('truffle-assertions');
 
 const PublicContract = artifacts.require("../contracts/events/PublicEvents/PublicEvents.sol");
-const FinishEvent = artifacts.require("../contracts/events/PublicEvents/FinishEvent.sol")
+const MiddlePayment = artifacts.require("../contracts/events/PublicEvents/MiddlePayment.sol")
 const BtyContract = artifacts.require("../contracts/tokens/BTY.sol");
 const BetContract = artifacts.require("../contracts/tokens/BET.sol");
 const Web3 = require('web3');
@@ -39,14 +39,14 @@ contract('Public Events', (accounts) => {
     })
 
     it('Deploy finish event token', async () => {
-        finishEvent = await FinishEvent.deployed(bet.address, bty.address);
-        assert(finishEvent.address, "not deployed")
+        middleEvent = await MiddlePayment.deployed(bet.address, bty.address);
+        assert(middleEvent.address, "not deployed")
     })
 
     it("Set addresses to the BET contract", async () => {
         let error = false;
         let btyTokenAdd = bty.address;
-        let address = finishEvent.address;
+        let address = middleEvent.address;
         await bet.setConfigContract(
             address,
             btyTokenAdd,
@@ -58,7 +58,7 @@ contract('Public Events', (accounts) => {
             console.log(err)
         })
 
-        await events.setEFStructAdd(address,
+        await events.setMPStructAdd(address,
             {
                 from: owner
             }
@@ -71,7 +71,7 @@ contract('Public Events', (accounts) => {
     })
 
     it("Set addresses to market fund and exetra", async () => {
-        await finishEvent.setComMarketFundWallet(
+        await middleEvent.setComMarketFundWallet(
             accounts[1],
             {
                 from: owner
@@ -79,7 +79,7 @@ contract('Public Events', (accounts) => {
                 console.log(err)
             })
 
-        await finishEvent.setModeratorsFundWallet(
+        await middleEvent.setModeratorsFundWallet(
             accounts[2],
             {
                 from: owner
@@ -87,8 +87,8 @@ contract('Public Events', (accounts) => {
                 console.log(err)
             })
 
-        let comMarketFundWallet = await finishEvent.comMarketFundWallet({ from: owner });
-        let moderatorsFundWallet = await finishEvent.moderatorsFundWallet({ from: owner });
+        let comMarketFundWallet = await middleEvent.comMarketFundWallet({ from: owner });
+        let moderatorsFundWallet = await middleEvent.moderatorsFundWallet({ from: owner });
         assert(comMarketFundWallet && moderatorsFundWallet, "do not have wallets")
     })
 
@@ -207,12 +207,12 @@ contract('Public Events', (accounts) => {
     })
 
     it("check minted tokens amount", async () => {
-        let GFindex = await events.getGFindex({ from: owner })
+        let GFindex = await middleEvent.getGFindex({ from: owner })
         let controversy = (100 - players);
         let averageBet = pool / players;
         let tokens = (averageBet * players * controversy * Number(GFindex.toString())) / 10000;
         let id = 1;
-        let tx = await finishEvent.letsFindCorrectAnswer(
+        let tx = await middleEvent.letsFindCorrectAnswer(
             id,
             {
                 from: owner
@@ -234,7 +234,7 @@ contract('Public Events', (accounts) => {
             mintMF = getPercent(mintedTokens, 2),
             id = 1
 
-        let tx = await finishEvent.letsPayToCompanies(
+        let tx = await middleEvent.letsPayToCompanies(
             id,
             {
                 from: owner

@@ -1,0 +1,1579 @@
+{
+  "contractName": "MPStruct",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "name": "MPData",
+      "outputs": [
+        {
+          "internalType": "int256",
+          "name": "id",
+          "type": "int256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "correctAnswer",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "loserPool",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenMinted",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "reverted",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "eventFinish",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_id",
+          "type": "int256"
+        }
+      ],
+      "name": "checkReverted",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_id",
+          "type": "int256"
+        }
+      ],
+      "name": "checkEventFinish",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_id",
+          "type": "int256"
+        }
+      ],
+      "name": "setReverted",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"name\":\"MPData\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"id\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"correctAnswer\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"loserPool\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tokenMinted\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"reverted\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"eventFinish\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"}],\"name\":\"checkEventFinish\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"}],\"name\":\"checkReverted\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_id\",\"type\":\"int256\"}],\"name\":\"setReverted\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol\":\"MPStruct\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol\":{\"keccak256\":\"0x4bdd539a6062f2b15c231c7dcaba7dafd332c777fdb57cdf194810f7823259ec\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://433bbc8a5b6857656d318c781dde89397e673aa9df5c6b20c40e5773e1c09b38\",\"dweb:/ipfs/Qmdhm6fbV2ckdLBcjVPqLMtjPrNfDJanTNjMQHwuhkRt1F\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610285806100206000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c8063362e41b6146100515780639ec2345a14610095578063bdc90554146100c3578063d343c1dc1461012c575b600080fd5b61007d6004803603602081101561006757600080fd5b8101908080359060200190929190505050610170565b60405180821515815260200191505060405180910390f35b6100c1600480360360208110156100ab57600080fd5b810190808035906020019092919050505061019c565b005b6100ef600480360360208110156100d957600080fd5b81019080803590602001909291905050506101cd565b6040518087815260200186815260200185815260200184815260200183151581526020018215158152602001965050505050505060405180910390f35b6101586004803603602081101561014257600080fd5b8101908080359060200190929190505050610223565b60405180821515815260200191505060405180910390f35b600080600083815260200190815260200160002060040160009054906101000a900460ff169050919050565b600160008083815260200190815260200160002060040160006101000a81548160ff02191690831515021790555050565b60006020528060005260406000206000915090508060000154908060010154908060020154908060030154908060040160009054906101000a900460ff16908060040160019054906101000a900460ff16905086565b600080600083815260200190815260200160002060040160019054906101000a900460ff16905091905056fea26469706673582212205a1a0e11c48c9df2cb9b80c2836f3c9252083fae826a9a1170b6333d6f8ead9064736f6c63430007060033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c8063362e41b6146100515780639ec2345a14610095578063bdc90554146100c3578063d343c1dc1461012c575b600080fd5b61007d6004803603602081101561006757600080fd5b8101908080359060200190929190505050610170565b60405180821515815260200191505060405180910390f35b6100c1600480360360208110156100ab57600080fd5b810190808035906020019092919050505061019c565b005b6100ef600480360360208110156100d957600080fd5b81019080803590602001909291905050506101cd565b6040518087815260200186815260200185815260200184815260200183151581526020018215158152602001965050505050505060405180910390f35b6101586004803603602081101561014257600080fd5b8101908080359060200190929190505050610223565b60405180821515815260200191505060405180910390f35b600080600083815260200190815260200160002060040160009054906101000a900460ff169050919050565b600160008083815260200190815260200160002060040160006101000a81548160ff02191690831515021790555050565b60006020528060005260406000206000915090508060000154908060010154908060020154908060030154908060040160009054906101000a900460ff16908060040160019054906101000a900460ff16905086565b600080600083815260200190815260200160002060040160019054906101000a900460ff16905091905056fea26469706673582212205a1a0e11c48c9df2cb9b80c2836f3c9252083fae826a9a1170b6333d6f8ead9064736f6c63430007060033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "66:594:12:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "66:594:12:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;344:106;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;574:84;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;285:52;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;456:112;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;344:106;400:4;423:6;:11;430:3;423:11;;;;;;;;;;;:20;;;;;;;;;;;;416:27;;344:106;;;:::o;574:84::-;647:4;624:6;:11;631:3;624:11;;;;;;;;;;;:20;;;:27;;;;;;;;;;;;;;;;;;574:84;:::o;285:52::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;456:112::-;515:4;538:6;:11;545:3;538:11;;;;;;;;;;;:23;;;;;;;;;;;;531:30;;456:112;;;:::o",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract MPStruct {\n    struct MiddlePaymentStruct {\n        int256 id;\n        uint256 correctAnswer;\n        uint256 loserPool;\n        uint256 tokenMinted;\n        bool reverted;\n        bool eventFinish;\n    }\n\n    mapping(int256 => MiddlePaymentStruct) public MPData;\n\n    function checkReverted(int256 _id) public view returns (bool) {\n        return MPData[_id].reverted;\n    }\n\n    function checkEventFinish(int256 _id) public view returns (bool) {\n        return MPData[_id].eventFinish;\n    }\n\n    function setReverted(int256 _id) public {\n        MPData[_id].reverted = true;\n    }\n}\n",
+  "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol",
+  "ast": {
+    "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol",
+    "exportedSymbols": {
+      "MPStruct": [
+        3017
+      ]
+    },
+    "id": 3018,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2960,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:12"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 3017,
+        "linearizedBaseContracts": [
+          3017
+        ],
+        "name": "MPStruct",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "MPStruct.MiddlePaymentStruct",
+            "id": 2973,
+            "members": [
+              {
+                "constant": false,
+                "id": 2962,
+                "mutability": "mutable",
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 2973,
+                "src": "127:9:12",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                },
+                "typeName": {
+                  "id": 2961,
+                  "name": "int256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "127:6:12",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2964,
+                "mutability": "mutable",
+                "name": "correctAnswer",
+                "nodeType": "VariableDeclaration",
+                "scope": 2973,
+                "src": "146:21:12",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2963,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "146:7:12",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2966,
+                "mutability": "mutable",
+                "name": "loserPool",
+                "nodeType": "VariableDeclaration",
+                "scope": 2973,
+                "src": "177:17:12",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2965,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "177:7:12",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2968,
+                "mutability": "mutable",
+                "name": "tokenMinted",
+                "nodeType": "VariableDeclaration",
+                "scope": 2973,
+                "src": "204:19:12",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2967,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "204:7:12",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2970,
+                "mutability": "mutable",
+                "name": "reverted",
+                "nodeType": "VariableDeclaration",
+                "scope": 2973,
+                "src": "233:13:12",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2969,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "233:4:12",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 2972,
+                "mutability": "mutable",
+                "name": "eventFinish",
+                "nodeType": "VariableDeclaration",
+                "scope": 2973,
+                "src": "256:16:12",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 2971,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "256:4:12",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "MiddlePaymentStruct",
+            "nodeType": "StructDefinition",
+            "scope": 3017,
+            "src": "90:189:12",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "bdc90554",
+            "id": 2977,
+            "mutability": "mutable",
+            "name": "MPData",
+            "nodeType": "VariableDeclaration",
+            "scope": 3017,
+            "src": "285:52:12",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_MiddlePaymentStruct_$2973_storage_$",
+              "typeString": "mapping(int256 => struct MPStruct.MiddlePaymentStruct)"
+            },
+            "typeName": {
+              "id": 2976,
+              "keyType": {
+                "id": 2974,
+                "name": "int256",
+                "nodeType": "ElementaryTypeName",
+                "src": "293:6:12",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_int256",
+                  "typeString": "int256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "285:38:12",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_MiddlePaymentStruct_$2973_storage_$",
+                "typeString": "mapping(int256 => struct MPStruct.MiddlePaymentStruct)"
+              },
+              "valueType": {
+                "id": 2975,
+                "name": "MiddlePaymentStruct",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 2973,
+                "src": "303:19:12",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_MiddlePaymentStruct_$2973_storage_ptr",
+                  "typeString": "struct MPStruct.MiddlePaymentStruct"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 2989,
+              "nodeType": "Block",
+              "src": "406:44:12",
+              "statements": [
+                {
+                  "expression": {
+                    "expression": {
+                      "baseExpression": {
+                        "id": 2984,
+                        "name": "MPData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2977,
+                        "src": "423:6:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_MiddlePaymentStruct_$2973_storage_$",
+                          "typeString": "mapping(int256 => struct MPStruct.MiddlePaymentStruct storage ref)"
+                        }
+                      },
+                      "id": 2986,
+                      "indexExpression": {
+                        "id": 2985,
+                        "name": "_id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2979,
+                        "src": "430:3:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_int256",
+                          "typeString": "int256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "423:11:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_MiddlePaymentStruct_$2973_storage",
+                        "typeString": "struct MPStruct.MiddlePaymentStruct storage ref"
+                      }
+                    },
+                    "id": 2987,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "reverted",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 2970,
+                    "src": "423:20:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 2983,
+                  "id": 2988,
+                  "nodeType": "Return",
+                  "src": "416:27:12"
+                }
+              ]
+            },
+            "functionSelector": "362e41b6",
+            "id": 2990,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkReverted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2980,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2979,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2990,
+                  "src": "367:10:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 2978,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "367:6:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "366:12:12"
+            },
+            "returnParameters": {
+              "id": 2983,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2982,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2990,
+                  "src": "400:4:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2981,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "400:4:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "399:6:12"
+            },
+            "scope": 3017,
+            "src": "344:106:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3002,
+              "nodeType": "Block",
+              "src": "521:47:12",
+              "statements": [
+                {
+                  "expression": {
+                    "expression": {
+                      "baseExpression": {
+                        "id": 2997,
+                        "name": "MPData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2977,
+                        "src": "538:6:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_MiddlePaymentStruct_$2973_storage_$",
+                          "typeString": "mapping(int256 => struct MPStruct.MiddlePaymentStruct storage ref)"
+                        }
+                      },
+                      "id": 2999,
+                      "indexExpression": {
+                        "id": 2998,
+                        "name": "_id",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2992,
+                        "src": "545:3:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_int256",
+                          "typeString": "int256"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "IndexAccess",
+                      "src": "538:11:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_MiddlePaymentStruct_$2973_storage",
+                        "typeString": "struct MPStruct.MiddlePaymentStruct storage ref"
+                      }
+                    },
+                    "id": 3000,
+                    "isConstant": false,
+                    "isLValue": true,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "memberName": "eventFinish",
+                    "nodeType": "MemberAccess",
+                    "referencedDeclaration": 2972,
+                    "src": "538:23:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 2996,
+                  "id": 3001,
+                  "nodeType": "Return",
+                  "src": "531:30:12"
+                }
+              ]
+            },
+            "functionSelector": "d343c1dc",
+            "id": 3003,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "checkEventFinish",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2993,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2992,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3003,
+                  "src": "482:10:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 2991,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "482:6:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "481:12:12"
+            },
+            "returnParameters": {
+              "id": 2996,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2995,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3003,
+                  "src": "515:4:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 2994,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "515:4:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "514:6:12"
+            },
+            "scope": 3017,
+            "src": "456:112:12",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 3015,
+              "nodeType": "Block",
+              "src": "614:44:12",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 3013,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "id": 3008,
+                          "name": "MPData",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2977,
+                          "src": "624:6:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_MiddlePaymentStruct_$2973_storage_$",
+                            "typeString": "mapping(int256 => struct MPStruct.MiddlePaymentStruct storage ref)"
+                          }
+                        },
+                        "id": 3010,
+                        "indexExpression": {
+                          "id": 3009,
+                          "name": "_id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 3005,
+                          "src": "631:3:12",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_int256",
+                            "typeString": "int256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "624:11:12",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_MiddlePaymentStruct_$2973_storage",
+                          "typeString": "struct MPStruct.MiddlePaymentStruct storage ref"
+                        }
+                      },
+                      "id": 3011,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "reverted",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 2970,
+                      "src": "624:20:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 3012,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "647:4:12",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "624:27:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 3014,
+                  "nodeType": "ExpressionStatement",
+                  "src": "624:27:12"
+                }
+              ]
+            },
+            "functionSelector": "9ec2345a",
+            "id": 3016,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setReverted",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3006,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3005,
+                  "mutability": "mutable",
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3016,
+                  "src": "595:10:12",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_int256",
+                    "typeString": "int256"
+                  },
+                  "typeName": {
+                    "id": 3004,
+                    "name": "int256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "595:6:12",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_int256",
+                      "typeString": "int256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "594:12:12"
+            },
+            "returnParameters": {
+              "id": 3007,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "614:0:12"
+            },
+            "scope": 3017,
+            "src": "574:84:12",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3018,
+        "src": "66:594:12"
+      }
+    ],
+    "src": "32:629:12"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/struct/MPStruct.sol",
+      "exportedSymbols": {
+        "MPStruct": [
+          3017
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 2960,
+        "name": "PragmaDirective",
+        "src": "32:32:12"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            3017
+          ],
+          "name": "MPStruct",
+          "scope": 3018
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "MPStruct.MiddlePaymentStruct",
+              "name": "MiddlePaymentStruct",
+              "scope": 3017,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "scope": 2973,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "int256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "int256",
+                      "type": "int256"
+                    },
+                    "id": 2961,
+                    "name": "ElementaryTypeName",
+                    "src": "127:6:12"
+                  }
+                ],
+                "id": 2962,
+                "name": "VariableDeclaration",
+                "src": "127:9:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "correctAnswer",
+                  "scope": 2973,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2963,
+                    "name": "ElementaryTypeName",
+                    "src": "146:7:12"
+                  }
+                ],
+                "id": 2964,
+                "name": "VariableDeclaration",
+                "src": "146:21:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "loserPool",
+                  "scope": 2973,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2965,
+                    "name": "ElementaryTypeName",
+                    "src": "177:7:12"
+                  }
+                ],
+                "id": 2966,
+                "name": "VariableDeclaration",
+                "src": "177:17:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "tokenMinted",
+                  "scope": 2973,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 2967,
+                    "name": "ElementaryTypeName",
+                    "src": "204:7:12"
+                  }
+                ],
+                "id": 2968,
+                "name": "VariableDeclaration",
+                "src": "204:19:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "reverted",
+                  "scope": 2973,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 2969,
+                    "name": "ElementaryTypeName",
+                    "src": "233:4:12"
+                  }
+                ],
+                "id": 2970,
+                "name": "VariableDeclaration",
+                "src": "233:13:12"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "mutability": "mutable",
+                  "name": "eventFinish",
+                  "scope": 2973,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 2971,
+                    "name": "ElementaryTypeName",
+                    "src": "256:4:12"
+                  }
+                ],
+                "id": 2972,
+                "name": "VariableDeclaration",
+                "src": "256:16:12"
+              }
+            ],
+            "id": 2973,
+            "name": "StructDefinition",
+            "src": "90:189:12"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "functionSelector": "bdc90554",
+              "mutability": "mutable",
+              "name": "MPData",
+              "scope": 3017,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(int256 => struct MPStruct.MiddlePaymentStruct)",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(int256 => struct MPStruct.MiddlePaymentStruct)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "int256",
+                      "type": "int256"
+                    },
+                    "id": 2974,
+                    "name": "ElementaryTypeName",
+                    "src": "293:6:12"
+                  },
+                  {
+                    "attributes": {
+                      "name": "MiddlePaymentStruct",
+                      "referencedDeclaration": 2973,
+                      "type": "struct MPStruct.MiddlePaymentStruct"
+                    },
+                    "id": 2975,
+                    "name": "UserDefinedTypeName",
+                    "src": "303:19:12"
+                  }
+                ],
+                "id": 2976,
+                "name": "Mapping",
+                "src": "285:38:12"
+              }
+            ],
+            "id": 2977,
+            "name": "VariableDeclaration",
+            "src": "285:52:12"
+          },
+          {
+            "attributes": {
+              "functionSelector": "362e41b6",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "checkReverted",
+              "scope": 3017,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_id",
+                      "scope": 2990,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "int256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "int256",
+                          "type": "int256"
+                        },
+                        "id": 2978,
+                        "name": "ElementaryTypeName",
+                        "src": "367:6:12"
+                      }
+                    ],
+                    "id": 2979,
+                    "name": "VariableDeclaration",
+                    "src": "367:10:12"
+                  }
+                ],
+                "id": 2980,
+                "name": "ParameterList",
+                "src": "366:12:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 2990,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 2981,
+                        "name": "ElementaryTypeName",
+                        "src": "400:4:12"
+                      }
+                    ],
+                    "id": 2982,
+                    "name": "VariableDeclaration",
+                    "src": "400:4:12"
+                  }
+                ],
+                "id": 2983,
+                "name": "ParameterList",
+                "src": "399:6:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2983
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "reverted",
+                          "referencedDeclaration": 2970,
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct MPStruct.MiddlePaymentStruct storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2977,
+                                  "type": "mapping(int256 => struct MPStruct.MiddlePaymentStruct storage ref)",
+                                  "value": "MPData"
+                                },
+                                "id": 2984,
+                                "name": "Identifier",
+                                "src": "423:6:12"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2979,
+                                  "type": "int256",
+                                  "value": "_id"
+                                },
+                                "id": 2985,
+                                "name": "Identifier",
+                                "src": "430:3:12"
+                              }
+                            ],
+                            "id": 2986,
+                            "name": "IndexAccess",
+                            "src": "423:11:12"
+                          }
+                        ],
+                        "id": 2987,
+                        "name": "MemberAccess",
+                        "src": "423:20:12"
+                      }
+                    ],
+                    "id": 2988,
+                    "name": "Return",
+                    "src": "416:27:12"
+                  }
+                ],
+                "id": 2989,
+                "name": "Block",
+                "src": "406:44:12"
+              }
+            ],
+            "id": 2990,
+            "name": "FunctionDefinition",
+            "src": "344:106:12"
+          },
+          {
+            "attributes": {
+              "functionSelector": "d343c1dc",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "checkEventFinish",
+              "scope": 3017,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_id",
+                      "scope": 3003,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "int256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "int256",
+                          "type": "int256"
+                        },
+                        "id": 2991,
+                        "name": "ElementaryTypeName",
+                        "src": "482:6:12"
+                      }
+                    ],
+                    "id": 2992,
+                    "name": "VariableDeclaration",
+                    "src": "482:10:12"
+                  }
+                ],
+                "id": 2993,
+                "name": "ParameterList",
+                "src": "481:12:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 3003,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 2994,
+                        "name": "ElementaryTypeName",
+                        "src": "515:4:12"
+                      }
+                    ],
+                    "id": 2995,
+                    "name": "VariableDeclaration",
+                    "src": "515:4:12"
+                  }
+                ],
+                "id": 2996,
+                "name": "ParameterList",
+                "src": "514:6:12"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 2996
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "member_name": "eventFinish",
+                          "referencedDeclaration": 2972,
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "type": "struct MPStruct.MiddlePaymentStruct storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2977,
+                                  "type": "mapping(int256 => struct MPStruct.MiddlePaymentStruct storage ref)",
+                                  "value": "MPData"
+                                },
+                                "id": 2997,
+                                "name": "Identifier",
+                                "src": "538:6:12"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 2992,
+                                  "type": "int256",
+                                  "value": "_id"
+                                },
+                                "id": 2998,
+                                "name": "Identifier",
+                                "src": "545:3:12"
+                              }
+                            ],
+                            "id": 2999,
+                            "name": "IndexAccess",
+                            "src": "538:11:12"
+                          }
+                        ],
+                        "id": 3000,
+                        "name": "MemberAccess",
+                        "src": "538:23:12"
+                      }
+                    ],
+                    "id": 3001,
+                    "name": "Return",
+                    "src": "531:30:12"
+                  }
+                ],
+                "id": 3002,
+                "name": "Block",
+                "src": "521:47:12"
+              }
+            ],
+            "id": 3003,
+            "name": "FunctionDefinition",
+            "src": "456:112:12"
+          },
+          {
+            "attributes": {
+              "functionSelector": "9ec2345a",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setReverted",
+              "scope": 3017,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_id",
+                      "scope": 3016,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "int256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "int256",
+                          "type": "int256"
+                        },
+                        "id": 3004,
+                        "name": "ElementaryTypeName",
+                        "src": "595:6:12"
+                      }
+                    ],
+                    "id": 3005,
+                    "name": "VariableDeclaration",
+                    "src": "595:10:12"
+                  }
+                ],
+                "id": 3006,
+                "name": "ParameterList",
+                "src": "594:12:12"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 3007,
+                "name": "ParameterList",
+                "src": "614:0:12"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "reverted",
+                              "referencedDeclaration": 2970,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct MPStruct.MiddlePaymentStruct storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 2977,
+                                      "type": "mapping(int256 => struct MPStruct.MiddlePaymentStruct storage ref)",
+                                      "value": "MPData"
+                                    },
+                                    "id": 3008,
+                                    "name": "Identifier",
+                                    "src": "624:6:12"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 3005,
+                                      "type": "int256",
+                                      "value": "_id"
+                                    },
+                                    "id": 3009,
+                                    "name": "Identifier",
+                                    "src": "631:3:12"
+                                  }
+                                ],
+                                "id": 3010,
+                                "name": "IndexAccess",
+                                "src": "624:11:12"
+                              }
+                            ],
+                            "id": 3011,
+                            "name": "MemberAccess",
+                            "src": "624:20:12"
+                          },
+                          {
+                            "attributes": {
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 3012,
+                            "name": "Literal",
+                            "src": "647:4:12"
+                          }
+                        ],
+                        "id": 3013,
+                        "name": "Assignment",
+                        "src": "624:27:12"
+                      }
+                    ],
+                    "id": 3014,
+                    "name": "ExpressionStatement",
+                    "src": "624:27:12"
+                  }
+                ],
+                "id": 3015,
+                "name": "Block",
+                "src": "614:44:12"
+              }
+            ],
+            "id": 3016,
+            "name": "FunctionDefinition",
+            "src": "574:84:12"
+          }
+        ],
+        "id": 3017,
+        "name": "ContractDefinition",
+        "src": "66:594:12"
+      }
+    ],
+    "id": 3018,
+    "name": "SourceUnit",
+    "src": "32:629:12"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Linux.g++"
+  },
+  "networks": {},
+  "schemaVersion": "3.3.4",
+  "updatedAt": "2021-03-12T10:42:33.076Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

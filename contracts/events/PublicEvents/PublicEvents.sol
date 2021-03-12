@@ -5,7 +5,7 @@ import {TimeValidation} from "../../helpers/TimeValidation.sol";
 import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
 import {PubStruct} from "../../struct/PubStruct.sol";
-import {EFStruct} from "../../struct/EFStruct.sol";
+import {MPStruct} from "../../struct/MPStruct.sol";
 
 contract PublicEvents is
     TimeValidation,
@@ -18,7 +18,7 @@ contract PublicEvents is
     uint minBet = 10000000000000000;
     BET public betToken;
     BTY public btyToken;
-    EFStruct efData;
+    MPStruct mpData;
     address owner;
     
     constructor(BET _betAddress, BTY _btyAddress){
@@ -27,9 +27,9 @@ contract PublicEvents is
         owner = msg.sender;
     }
 
-    function setEFStructAdd(address _addr) public {
+    function setMPStructAdd(address _addr) public {
         require( msg.sender == owner, "owner only");
-        efData = EFStruct(_addr);
+        mpData = MPStruct(_addr);
     }
 
     function newEvent(
@@ -75,8 +75,8 @@ contract PublicEvents is
              timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
              "Time is not valid"
          );
-         require(efData.checkReverted(_id) != true, "event is reverted");
-         require(efData.checkEventFinish(_id) != true, "event is finish");
+         require(mpData.checkReverted(_id) != true, "event is reverted");
+         require(mpData.checkEventFinish(_id) != true, "event is finish");
          require(
              events[_id].allPlayers[_pWallet] != true,
              "user already participate in event"
@@ -117,11 +117,11 @@ contract PublicEvents is
             !events[_id].allPlayers[_eWallet],
             "user participate"
         );
-        require(efData.checkReverted(_id) != true, "event is reverted");
-        require(efData.checkEventFinish(_id) != true, "event is finish");
+        require(mpData.checkReverted(_id) != true, "event is reverted");
+        require(mpData.checkEventFinish(_id) != true, "event is finish");
 
         if (events[_id].activePlayers == 0) {
-            efData.setReverted(_id);
+            mpData.setReverted(_id);
             emit revertedEvent(_id, "do not have players");
         } else {
             if (

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract EFStruct {
-    struct EventFinishStruct {
+contract MPStruct {
+    struct MiddlePaymentStruct {
         int256 id;
         uint256 correctAnswer;
         uint256 loserPool;
@@ -11,17 +11,17 @@ contract EFStruct {
         bool eventFinish;
     }
 
-    mapping(int256 => EventFinishStruct) public eventFinishData;
+    mapping(int256 => MiddlePaymentStruct) public MPData;
 
     function checkReverted(int256 _id) public view returns (bool) {
-        return eventFinishData[_id].reverted;
+        return MPData[_id].reverted;
     }
 
     function checkEventFinish(int256 _id) public view returns (bool) {
-        return eventFinishData[_id].eventFinish;
+        return MPData[_id].eventFinish;
     }
 
     function setReverted(int256 _id) public {
-        eventFinishData[_id].reverted = true;
+        MPData[_id].reverted = true;
     }
 }
