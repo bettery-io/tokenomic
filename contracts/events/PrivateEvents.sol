@@ -3,11 +3,15 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import {PrivStruct} from "../struct/PrivStruct.sol";
 import {TimeValidation} from "../helpers/TimeValidation.sol";
-import {ConfigVariables} from "../config/ConfigVariables.sol";
 
-contract PrivateEvents is TimeValidation, ConfigVariables {
+contract PrivateEvents is TimeValidation {
     event eventIsFinish(int256 question_id, uint8 correctAnswer);
     mapping(int256 => PrivStruct.EventData) events;
+    address owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
 
     function createEvent(
         int256 _id,
@@ -15,7 +19,8 @@ contract PrivateEvents is TimeValidation, ConfigVariables {
         uint256 _endTime,
         uint8 _questionQuantity,
         address _host
-    ) public ownerOnly() {
+    ) public {
+        require(msg.sender == owner, "owner only");
         events[_id].id = _id;
         events[_id].startTime = _startTime;
         events[_id].endTime = _endTime;
@@ -25,8 +30,8 @@ contract PrivateEvents is TimeValidation, ConfigVariables {
 
     function setRoleOfAdmin(int256 _id, address _correctAnswerSetter)
         public
-        ownerOnly()
     {
+        require(msg.sender == owner, "owner only");
         events[_id].correctAnswerSetter = _correctAnswerSetter;
     }
 
@@ -34,7 +39,8 @@ contract PrivateEvents is TimeValidation, ConfigVariables {
         int256 _id,
         uint8 _whichAnswer,
         address _playerWallet
-    ) public ownerOnly() {
+    ) public {
+        require(msg.sender == owner, "owner only");
         require(
             timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
             "Time is not valid for players"
@@ -54,7 +60,8 @@ contract PrivateEvents is TimeValidation, ConfigVariables {
         int256 _id,
         uint8 _correctAnswer,
         address _expertWallet
-    ) public ownerOnly() {
+    ) public {
+        require(msg.sender == owner, "owner only");
         if (events[_id].correctAnswerSetter != address(0)) {
             require(
                 _expertWallet == events[_id].correctAnswerSetter,

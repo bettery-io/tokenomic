@@ -11,15 +11,17 @@ contract('Public Events', (accounts) => {
         bty,
         bet,
         web3 = new Web3(),
-        owner = accounts[0]
+        owner = accounts[0],
+        players = 7,
+        pool = 0,
+        correctAnswer = 1,
+        mintTokens
 
 
-    // beforeEach(async () => {
-    //     bty = await BtyContract.deployed();
-    //     bet = await BetContract.deployed();
-    //     events = await PublicContract.deployed(bet.address, bty.address);
-    //     finishEvent = await FinishEvent.deployed(bet.address, bty.address);
-    // })
+    function getPercent(percent, from) {
+        return (from * percent) / 100;
+    }
+
 
     it('Deploy bty token', async () => {
         bty = await BtyContract.deployed();
@@ -69,7 +71,7 @@ contract('Public Events', (accounts) => {
     })
 
     it("Set addresses to market fund and exetra", async () => {
-        await events.setComMarketFundWallet(
+        await finishEvent.setComMarketFundWallet(
             accounts[1],
             {
                 from: owner
@@ -77,7 +79,7 @@ contract('Public Events', (accounts) => {
                 console.log(err)
             })
 
-        await events.setModeratorsFundWallet(
+        await finishEvent.setModeratorsFundWallet(
             accounts[2],
             {
                 from: owner
@@ -85,8 +87,8 @@ contract('Public Events', (accounts) => {
                 console.log(err)
             })
 
-        let comMarketFundWallet = await events.comMarketFundWallet({ from: owner });
-        let moderatorsFundWallet = await events.moderatorsFundWallet({ from: owner });
+        let comMarketFundWallet = await finishEvent.comMarketFundWallet({ from: owner });
+        let moderatorsFundWallet = await finishEvent.moderatorsFundWallet({ from: owner });
         assert(comMarketFundWallet && moderatorsFundWallet, "do not have wallets")
     })
 
@@ -139,9 +141,8 @@ contract('Public Events', (accounts) => {
 
     it("let's participate", async () => {
         let beforeBalance = 0;
-        let pool = 0;
         let afterBalance = 0;
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < players; i++) {
             beforeBalance = beforeBalance + 10;
             let id = 1,
                 betAmount = i % 2 == 0 ? 4 : 8,
@@ -184,7 +185,7 @@ contract('Public Events', (accounts) => {
 
         await timeout(5000);
         for (let i = 7; i < accounts.length; i++) {
-            let whichAnswer = 0,
+            let whichAnswer = correctAnswer,
                 expertWallet = accounts[i],
                 reputation = i
             tx = await events.setValidator(
@@ -205,28 +206,11 @@ contract('Public Events', (accounts) => {
         }, 'Contract should return the correct id.');
     })
 
-    // it("check balances", async () => {
-    //     for (i = 0; i < 10; i++) {
-    //         let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
-    //         bal = web3.utils.fromWei(bal, "ether");
-    //         console.log(bal);
-    //     }
-    //     assert(false, "error")
-    // })
-
-    it("test", async () => {
-        let id = 1;
-        let test = await finishEvent.test(id,
-            {
-                from: owner
-            })
-
-        console.log(test.players.toString());
-        console.log(test.pool.toString());
-        console.log(test.gfIndex.toString());
-    })
-
-    it("check finish event", async () => {
+    it("check minted tokens amount", async () => {
+        let GFindex = await events.getGFindex({ from: owner })
+        let controversy = (100 - players);
+        let averageBet = pool / players;
+        let tokens = (averageBet * players * controversy * Number(GFindex.toString())) / 10000;
         let id = 1;
         let tx = await finishEvent.letsFindCorrectAnswer(
             id,
@@ -238,8 +222,37 @@ contract('Public Events', (accounts) => {
         })
 
         truffleAssert.eventEmitted(tx, 'payToCompanies', (ev) => {
-            console.log(ev);
-        }, 'Contract should return the correct id.');
+            mintTokens = web3.utils.fromWei(ev.tokens.toString(), "ether");
+            return Number(mintTokens).toFixed(2) == tokens.toFixed(2) && ev.correctAnswer.toString() == correctAnswer.toString()
+        }, 'Contract do not have correct tokens on blance.');
+    })
+
+    it("check amount payed to companies", async () => {
+        let mintedTokens = Number(Number(mintTokens).toFixed(2)),
+            mintDF = getPercent(mintedTokens, 10),
+            mintCMF = getPercent(mintedTokens, 8),
+            mintMF = getPercent(mintedTokens, 2),
+            id = 1
+
+        let tx = await finishEvent.letsPayToCompanies(
+            id,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            console.log(err)
+        })
+
+        truffleAssert.eventEmitted(tx, 'payToHost', (ev) => {
+            let mintDFc = web3.utils.fromWei(ev.mintDF.toString(), "ether"),
+                mintCMFc = web3.utils.fromWei(ev.mintCMF.toString(), "ether"),
+                mintMFc = web3.utils.fromWei(ev.mintMF.toString(), "ether")
+
+            return mintDF.toFixed(2) == Number(mintDFc).toFixed(2) &&
+                mintCMF.toFixed(2) == Number(mintCMFc).toFixed(2) &&
+                mintMF.toFixed(2) == Number(mintMFc).toFixed(2)
+
+        }, 'Contract do not pay correct tokens to the companies.');
     })
 
 })

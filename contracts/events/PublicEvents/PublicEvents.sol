@@ -6,12 +6,10 @@ import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
 import {PubStruct} from "../../struct/PubStruct.sol";
 import {EFStruct} from "../../struct/EFStruct.sol";
-import {ConfigVariables} from "../../config/ConfigVariables.sol";
 
 contract PublicEvents is
     TimeValidation,
-    PubStruct,
-    ConfigVariables
+    PubStruct
 {
     event calculateExpert(int256 id, uint256 activePlayers);
     event findCorrectAnswer(int256 id);
@@ -21,10 +19,12 @@ contract PublicEvents is
     BET public betToken;
     BTY public btyToken;
     EFStruct efData;
+    address owner;
     
     constructor(BET _betAddress, BTY _btyAddress){
         betToken = _betAddress;
         btyToken = _btyAddress;
+        owner = msg.sender;
     }
 
     function setEFStructAdd(address _addr) public {

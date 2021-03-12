@@ -3,19 +3,20 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import {ProStruct} from "../struct/ProStruct.sol";
 import {TimeValidation} from "../helpers/TimeValidation.sol";
-import {ConfigVariables} from "../config/ConfigVariables.sol";
 import {BET} from "../tokens/BET.sol";
 import {BTY} from "../tokens/BTY.sol";
 
-contract ProEvents is TimeValidation, ConfigVariables {
+contract ProEvents is TimeValidation {
     BET private betToken;
     BTY private btyToken;
+    address owner;
 
     mapping(int256 => ProStruct.EventData) events;
 
     constructor(BET _betAddress, BTY _btyAddress) {
         betToken = _betAddress;
         btyToken = _btyAddress;
+        owner = msg.sender;
     }
 
     function newEvent(
@@ -27,7 +28,8 @@ contract ProEvents is TimeValidation, ConfigVariables {
         uint256 _prizeAmount,
         bool _eventFinishWay,
         uint256 _playersNeeded
-    ) public payable ownerOnly() {
+    ) public payable {
+        require(msg.sender == owner, "owner only");
         events[_id].id = _id;
         events[_id].startTime = _startTime;
         events[_id].endTime = _endTime;
@@ -52,7 +54,8 @@ contract ProEvents is TimeValidation, ConfigVariables {
         uint8 _whichAnswer,
         address payable _playerWallet,
         uint8 _reputation
-    ) public payable ownerOnly() {
+    ) public payable {
+        require(msg.sender == owner, "owner only");
         require(
             timeAnswer(events[_id].startTime, events[_id].endTime) == 0,
             "Time is not valid"
