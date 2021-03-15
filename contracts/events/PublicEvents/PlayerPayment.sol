@@ -89,7 +89,8 @@ contract PlayerPayment is Libs, PPConfig {
        emit payToRefferers(_id);
     }
 
-    function payToReff(int _id) private {
+    function payToReff(int _id) public {
+        require(msg.sender == owner, "owner only");
         // TODO
         mpData.setFinishEvent(_id);
         emit eventFinish(

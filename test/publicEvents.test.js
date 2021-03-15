@@ -13,13 +13,18 @@ contract('Public Events', (accounts) => {
         bet,
         web3 = new Web3(),
         owner = accounts[0],
-        players = 7,
+        CMDWallet = accounts[1],
+        MFWallet = accounts[2],
+        host = accounts[3],
+        players = 11,
         pool = 0,
         correctAnswer = 1,
-        mintTokens,
+        mintTokens = 0,
         allReputation = 0,
-        maxValidIndex = 10,
-        avarageBet = 0
+        maxValidIndex = 14,
+        avarageBet = 0,
+        calcMintedToken = 0,
+        activePlayers = 0
 
 
     function getPercent(percent, from) {
@@ -95,8 +100,8 @@ contract('Public Events', (accounts) => {
 
     it("Set addresses to market fund and exetra", async () => {
         await middleEvent.setFundWallet(
-            accounts[10],
-            accounts[11],
+            CMDWallet,
+            MFWallet,
             {
                 from: owner
             }).catch((err) => {
@@ -133,7 +138,6 @@ contract('Public Events', (accounts) => {
             questAmount = 3,
             amountExperts = 3,
             calculateExperts = false,
-            host = accounts[1],
             amountPremiumEvent = 0,
             error = false
         await events.newEvent(
@@ -158,15 +162,14 @@ contract('Public Events', (accounts) => {
     it("let's participate", async () => {
         let beforeBalance = 0;
         let afterBalance = 0;
-        for (let i = 0; i < players; i++) {
+        for (let i = 4; i < players; i++) {
             beforeBalance = beforeBalance + 10;
+            ++activePlayers;
             let id = 1,
                 betAmount = i % 2 == 0 ? 4 : 8,
-                whichAnswer = i > 4 ? 1 : 0,
+                whichAnswer = i % 2 == 0 ? 1 : 0,
                 amount = web3.utils.toWei(String(betAmount), "ether"),
-                playerWallet = accounts[i],
-                playerId = 123 + i,
-                referrersDeep = 0
+                playerWallet = accounts[i]
 
             await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
 
@@ -175,8 +178,6 @@ contract('Public Events', (accounts) => {
                 whichAnswer,
                 amount,
                 playerWallet,
-                playerId,
-                referrersDeep,
                 { from: owner }
             ).catch((err) => {
                 console.log(err)
@@ -225,9 +226,9 @@ contract('Public Events', (accounts) => {
 
     it("check minted tokens amount", async () => {
         let GFindex = await middleEvent.getGFindex({ from: owner })
-        let controversy = (100 - players);
-        let averageBet = pool / players;
-        let tokens = (averageBet * players * controversy * Number(GFindex.toString())) / 10000;
+        let controversy = (100 - activePlayers);
+        let averageBet = pool / activePlayers;
+        let tokens = (averageBet * activePlayers * controversy * Number(GFindex.toString())) / 10000;
         let id = 1;
         let tx = await middleEvent.letsFindCorrectAnswer(
             id,
@@ -272,13 +273,41 @@ contract('Public Events', (accounts) => {
 
         }, 'Contract do not pay correct tokens to the companies.');
 
-        for (let i = 10; i < 12; i++) {
+        for (let i = 0; i < 3; i++) {
             let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
             bal = web3.utils.fromWei(bal, "ether");
             usersBalances += Number(Number(bal).toFixed(2));
         };
 
-        assert(usersBalances == Number(mintCMF.toFixed(2)) + Number(mintMF.toFixed(2)) + 20, "balance for pay companies is incorrect");
+        assert(
+            Number(usersBalances.toFixed(2)) ==
+            Number(mintCMF.toFixed(2)) + Number(mintMF.toFixed(2)) +
+            Number(mintDF.toFixed(2)) + 30, "balance for pay companies is incorrect");
+    })
+
+    it("Pay to host", async () => {
+        let id = 1,
+            mintedTokens = Number(Number(mintTokens).toFixed(2)),
+            mintHost = getPercent(mintedTokens, 10),
+            payHost = getPercent(pool, 4);
+
+        let tx = await middleEvent.letsPaytoHost(
+            id,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            console.log(err)
+        })
+
+        truffleAssert.eventEmitted(tx, 'payToExperts', (ev) => {
+            let mintHostC = web3.utils.fromWei(ev.mintHost.toString(), "ether"),
+                payHostC = web3.utils.fromWei(ev.payHost.toString(), "ether");
+
+            return mintHost.toFixed(2) == Number(mintHostC).toFixed(2) &&
+                payHost.toFixed(2) == Number(payHostC).toFixed(2) &&
+                ev.id.toString() == String(id);
+        }, 'Contract do not pay correct amount.');
     })
 
     it("Check payment to validators", async () => {
@@ -312,12 +341,12 @@ contract('Public Events', (accounts) => {
             return ev.id.toString() == String(id);
         }, 'Contract do not return correct id.');
 
-        assert(beforeBalance == afterBalance, "Balances are not correct")
+        assert(Number(beforeBalance.toFixed(2)) == afterBalance, "Balances are not correct")
     })
 
-    it("Check payment to players", async () => {
+    it("Let's pay to players", async () => {
         let id = 1
-        let tx =await playerPayEvent.letsPayToPlayers(
+        let tx = await playerPayEvent.letsPayToPlayers(
             id,
             {
                 from: owner
@@ -325,23 +354,53 @@ contract('Public Events', (accounts) => {
 
         truffleAssert.eventEmitted(tx, 'payToLosers', (ev) => {
             avarageBet = String(ev.avarageBet);
+            calcMintedToken = String(ev.calcMintedToken);
+            return ev.id.toString() == String(id);
         }, 'Contract do not return correct data.');
 
-
-        assert(false, "Balances are not correct")
-
-    })
-
-    it("Check payment to losers", async () => {
-        let id = 1
-        await playerPayEvent.letsPayToLoosers(
+        let tx2 = await playerPayEvent.letsPayToLoosers(
             id,
             avarageBet,
+            calcMintedToken,
             {
                 from: owner
             }).catch(err => { console.log(err) })
 
-        assert(false, "Balances are not correct")
+        truffleAssert.eventEmitted(tx2, 'payToRefferers', (ev) => {
+            return ev.id.toString() == String(id);
+        }, 'Contract do not return correct data.');
+
+        let tx3 = await playerPayEvent.payToReff(
+            id,
+            {
+                from: owner
+            }).catch(err => { console.log(err) })
+
+        truffleAssert.eventEmitted(tx3, 'eventFinish', (ev) => {
+            return ev.id.toString() == String(id);
+        }, 'Contract do not return correct data.');
+
     })
+
+    it("Check public event balance", async () => {
+        let bal = await bet.balanceOf(events.address, { from: owner }).catch(err => { console.log(err) })
+        bal = web3.utils.fromWei(bal, "ether");
+        console.log("Public balance")
+        console.log(bal)
+        assert(Number(Number(bal).toFixed(0)) == 0, "Public event balance is not 0")
+    })
+
+    it("Check public event users balances", async () => {
+        console.log("users balances")
+        for (let i = 0; i < accounts.length; i++) {
+            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            console.log(bal);
+        };
+
+        assert(false, "todo")
+    })
+
+
 
 })
