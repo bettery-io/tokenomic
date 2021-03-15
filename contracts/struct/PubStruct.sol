@@ -3,14 +3,8 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract PubStruct {
     struct Player {
-        int playerId;
         address payable player;
         uint amount;
-        uint referrersDeep;
-    }
-
-    struct Referrers {
-        address payable[] referrer;
     }
 
     struct Expert {
@@ -37,7 +31,6 @@ contract PubStruct {
     }
 
     mapping(int => EventData) public events;
-    mapping(string => Referrers) referrers; // include eventID + userID + referrersDeep
 
     function getQuestAmount(int _id) view public returns(uint) {
         return events[_id].questAmount;
@@ -85,9 +78,5 @@ contract PubStruct {
 
     function getHostAddr(int _id) view public returns(address) {
         return events[_id].host;
-    }
-
-    function getRefDeep(int _id, uint i, uint z) view public returns(uint) {
-        return events[_id].players[i][z].referrersDeep;
     }
 }

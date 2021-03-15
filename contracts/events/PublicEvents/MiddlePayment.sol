@@ -9,6 +9,7 @@ import {MPConfig} from "../../config/MPConfig.sol";
 contract MiddlePayment is Libs, MPConfig, MPStruct {
     PubStruct eventsData;
     PublicEvents PublicAddr;
+    address pubAddr;
 
     event payToCompanies(int id, uint tokens, uint correctAnswer);
     event payToHost(int id, uint premDF, uint mintDF, uint mintCMF, uint mintMF);
@@ -18,6 +19,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
 
     constructor(PublicEvents _addr) {
         PublicAddr = _addr;
+        pubAddr = address(_addr);
         eventsData = PubStruct(_addr);
     }
 
@@ -52,11 +54,11 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
         for (uint i = 0; i < eventsData.getPlayerAmount(_id, correctAnswer); i++) {
             B = B + eventsData.getPlayerTokens(_id, correctAnswer, i);
         }
+        
         uint lP = eventsData.getPool(_id) - B;
-        if (lP == 0) {
-            revertedPayment(_id, "play chose one answer");
-        } else {
-            MPData[_id].loserPool = lP;
+        // TODO TEST
+        if (lP > 0 && B > 0) {
+             MPData[_id].loserPool = lP;
             // calculate minted tokens
             uint tokens =
                 calcMintedTokens(
@@ -66,13 +68,15 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
                 );
             MPData[_id].tokenMinted = tokens;
             emit payToCompanies(_id, tokens, correctAnswer);
+        } else {
+            revertedPayment(_id, "play chose one answer");
         }
     }
 
     function revertedPayment(int _id, string memory purpose)
         public
     {
-        require(msg.sender == owner, "owner only");
+        require(msg.sender == owner || msg.sender == pubAddr, "owner only or pub addr only");
         revertPayment(_id, purpose);
     }
 
@@ -139,7 +143,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
                 PublicAddr.mint(eventsData.getAdvisorAddr(_id), mintAdv),
                 "mint to advisor"
             );
-            // pay not minted tokens
+            // pay tokens
             payHost = getPercent(eventsData.getPool(_id), hostPerc + extraHostPerc);
             require(
                 PublicAddr.pay(eventsData.getHostAddr(_id), payHost),

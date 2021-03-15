@@ -6,6 +6,7 @@ import {BET} from "../../tokens/BET.sol";
 import {BTY} from "../../tokens/BTY.sol";
 import {PubStruct} from "../../struct/PubStruct.sol";
 import {MPStruct} from "../../struct/MPStruct.sol";
+import {MiddlePayment} from "./MiddlePayment.sol";
 
 contract PublicEvents is
     TimeValidation,
@@ -19,6 +20,7 @@ contract PublicEvents is
     BET public betToken;
     BTY public btyToken;
     MPStruct mpData;
+    MiddlePayment mpContract;
     address owner;
     address MPContract;
     address PPContract;
@@ -32,6 +34,7 @@ contract PublicEvents is
     function setAddresses(address _mpaddr, address _ppaddr) public {
         require( msg.sender == owner, "owner only");
         mpData = MPStruct(_mpaddr);
+        mpContract = MiddlePayment(_mpaddr);
         MPContract = _mpaddr;
         PPContract = _ppaddr;
     }
@@ -70,9 +73,7 @@ contract PublicEvents is
         int _id,
         uint _answer,
         uint _amount,
-        address payable _pWallet,
-        int _playerId,
-        uint _refDeep
+        address payable _pWallet
     ) public payable {
         require( msg.sender == owner, "owner only");
          require(
@@ -88,7 +89,7 @@ contract PublicEvents is
          require(_amount >= minBet, "bet amount must be bigger or equal to 0.01 tokens" );
 
         PubStruct.Player memory player;
-        player = PubStruct.Player(_playerId, _pWallet, _amount, _refDeep);
+        player = PubStruct.Player(_pWallet, _amount);
         events[_id].players[_answer].push(player);
         events[_id].allPlayers[_pWallet] = true;
         events[_id].activePlayers += 1;
@@ -100,13 +101,8 @@ contract PublicEvents is
          );
          require(
              betToken.transferFrom(_pWallet, address(this), _amount),
-             "Transfer BTY from players error"
+             "Transfer BET from players error"
          );
-    }
-
-    function setReferrers(string memory _key, address payable[] calldata _referrers) public {
-        require( msg.sender == owner, "owner only");
-        referrers[_key].referrer = _referrers;
     }
 
     function setValidator(
@@ -124,9 +120,13 @@ contract PublicEvents is
         require(mpData.checkReverted(_id) != true, "event is reverted");
         require(mpData.checkEventFinish(_id) != true, "event is finish");
 
-        if (events[_id].activePlayers == 0) {
+        if (events[_id].activePlayers <= 1) {
             mpData.setReverted(_id);
-            emit revertedEvent(_id, "do not have players");
+            if(events[_id].activePlayers == 0){
+                emit revertedEvent(_id, "do not have players");
+            }else{
+                mpContract.revertedPayment(_id, "only one player on event");
+            }
         } else {
             if (
                 events[_id].calculateExperts && events[_id].amountExperts == 0
