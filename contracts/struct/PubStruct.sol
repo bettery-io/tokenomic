@@ -86,4 +86,8 @@ contract PubStruct {
     function getHostAddr(int _id) view public returns(address) {
         return events[_id].host;
     }
+
+    function getRefDeep(int _id, uint i, uint z) view public returns(uint) {
+        return events[_id].players[i][z].referrersDeep;
+    }
 }

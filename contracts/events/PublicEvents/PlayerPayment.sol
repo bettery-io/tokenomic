@@ -42,12 +42,16 @@ contract PlayerPayment is Libs, PPConfig {
             // mint token to users
             uint userBet = eventsData.getPlayerTokens(_id, mpData.getCorrectAnswer(_id), i);
             address payable userWallet = eventsData.getPlayerWallet(_id, mpData.getCorrectAnswer(_id), i);
-            uint mintWin = (userBet / avarageBet) * (getPercent(playersPersMint, mpData.getLoserPool(_id)) / activePlay);
-            // TODO pay to referers
-            require(
-                PublicAddr.mint(userWallet, mintWin),
-                "mint to play"
-            );
+            if(eventsData.getRefDeep(_id, mpData.getCorrectAnswer(_id), i) > 0){
+                payToReff(_id);
+            }else{
+                uint mintWin = (userBet / avarageBet) * (getPercent(playersPersMint, mpData.getLoserPool(_id)) / activePlay);
+                require(
+                    PublicAddr.mint(userWallet, mintWin),
+                    "mint to play"
+                );
+            }
+
             // pay tokens to users
             require(
                 PublicAddr.pay(userWallet, (userBet / avarageBet) * winPool),
@@ -62,6 +66,10 @@ contract PlayerPayment is Libs, PPConfig {
             }
         }
         emit payToLosers(_id, avarageBet);
+    }
+
+    function payToReff(int _id) private {
+        // TODO
     }
 
     function letsPayToLoosers(

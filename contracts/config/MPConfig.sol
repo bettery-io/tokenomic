@@ -29,32 +29,42 @@ contract MPConfig {
 
     uint public GFindex = 100;
 
-    function setComMarketFundWallet(address payable _wallet) public {
+    function setFundWallet(address payable _CMFWallet, address payable _MFWallet) public {
         require(msg.sender == owner, "owner only");
-        comMarketFundWallet = _wallet;
+        comMarketFundWallet = _CMFWallet;
+        moderatorsFundWallet = _MFWallet;
     }
 
-    function setModeratorsFundWallet(address payable _wallet) public {
+    function setFundPerc(uint _dFPerc, uint _dFPPremim, uint _cMFPerc, uint _mFPerc) public {
         require(msg.sender == owner, "owner only");
-        moderatorsFundWallet = _wallet;
+        developFundPerc = _dFPerc;
+        developFundPercPremim = _dFPPremim;
+        comMarketFundPerc = _cMFPerc;
+        moderatorsFundPerc = _mFPerc;
     }
 
-    function setDevelopFundPerc(uint _developFundPerc) public {
-        require(msg.sender == owner, "owner only");
-        developFundPerc = _developFundPerc;
-    }
-
-    function setHostPerc(uint _hostPercMint, uint _hostPerc) public {
+    function setHostPerc(uint _hostPercMint, uint _hostPerc, uint _eHPerc, uint _eHPMint) public {
         require(msg.sender == owner, "owner only");
         hostPercMint = _hostPercMint;
         hostPerc = _hostPerc;
+        extraHostPerc = _eHPerc;
+        extraHostPercMint = _eHPMint;
     }
 
-    function setExpertPerc(uint _expertPerc) public {
+    function setExpertPerc(uint _ePercMint, uint _ePerc, uint _eExtraPerc, uint _ePremPerc) public {
         require(msg.sender == owner, "owner only");
-        expertPerc = _expertPerc;
+        expertPercMint = _ePercMint;
+        expertPerc = _ePerc;
+        expertExtraPerc = _eExtraPerc;
+        expertPremiumPerc = _ePremPerc;
     }
 
+    function setAdvisorPerc(uint _adPercMint, uint _adPerc) public {
+        require(msg.sender == owner, "owner only");
+        advisorPercMint = _adPercMint;
+        advisorPepc = _adPerc;
+    }
+    
     function setGFindex(uint _GFindex) public{
         require(msg.sender == owner, "owner only");
         GFindex = _GFindex;

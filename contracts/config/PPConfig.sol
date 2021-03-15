@@ -11,12 +11,22 @@ contract PPConfig {
     uint public playersPersMint = 50; // mint token percent for players
     uint public playersPers = 90; // pay token percent for players
     uint public playersPersPremiun = 75; // pay token percent for players in Premium events
+    uint public firstRefer = 4; // first level of referrers;
+    uint public secontRefer = 4; // second level of referrers;
+    uint public thirdRefer = 2; // third level of referrers;
 
-    function setPlayerPersMint(uint _playersPersMint, uint _playersPers, uint _playersPersPremiun) public {
+    function setPlayerPercMint(uint _playersPersMint, uint _playersPers, uint _playersPersPremiun) public {
         require(msg.sender == owner, "owner only");
         playersPersMint = _playersPersMint;
         playersPers = _playersPers;
         playersPersPremiun = _playersPersPremiun;
+    }
+
+    function setReferrersPerc(uint _firstRefer, uint _secontRefer, uint _thirdRefer) public {
+        require(msg.sender == owner, "owner only");
+        firstRefer = _firstRefer;
+        secontRefer = _secontRefer;
+        thirdRefer = _thirdRefer;
     }
 
 

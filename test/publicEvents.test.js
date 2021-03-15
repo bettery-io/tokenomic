@@ -18,7 +18,8 @@ contract('Public Events', (accounts) => {
         correctAnswer = 1,
         mintTokens,
         allReputation = 0,
-        maxValidIndex = 10
+        maxValidIndex = 10,
+        avarageBet = 0
 
 
     function getPercent(percent, from) {
@@ -51,7 +52,7 @@ contract('Public Events', (accounts) => {
         assert(playerPayEvent.address, "not deployed")
     })
 
-    it("Set addresses to the BET contract", async () => {
+    it("Set addresses to contract", async () => {
         let error = false;
         let btyTokenAdd = bty.address;
         let eventAddr = events.address;
@@ -79,19 +80,22 @@ contract('Public Events', (accounts) => {
             console.log(err)
         })
 
+        await middleEvent.setAddresses(
+            PPAddr,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            error = true;
+            console.log(err)
+        })
+
         assert(!error, "contract return error")
     })
 
     it("Set addresses to market fund and exetra", async () => {
-        await middleEvent.setComMarketFundWallet(
+        await middleEvent.setFundWallet(
             accounts[10],
-            {
-                from: owner
-            }).catch((err) => {
-                console.log(err)
-            })
-
-        await middleEvent.setModeratorsFundWallet(
             accounts[11],
             {
                 from: owner
@@ -309,6 +313,35 @@ contract('Public Events', (accounts) => {
         }, 'Contract do not return correct id.');
 
         assert(beforeBalance == afterBalance, "Balances are not correct")
+    })
+
+    it("Check payment to players", async () => {
+        let id = 1
+        let tx =await playerPayEvent.letsPayToPlayers(
+            id,
+            {
+                from: owner
+            }).catch(err => { console.log(err) })
+
+        truffleAssert.eventEmitted(tx, 'payToLosers', (ev) => {
+            avarageBet = String(ev.avarageBet);
+        }, 'Contract do not return correct data.');
+
+
+        assert(false, "Balances are not correct")
+
+    })
+
+    it("Check payment to losers", async () => {
+        let id = 1
+        await playerPayEvent.letsPayToLoosers(
+            id,
+            avarageBet,
+            {
+                from: owner
+            }).catch(err => { console.log(err) })
+
+        assert(false, "Balances are not correct")
     })
 
 })
