@@ -15,6 +15,8 @@ contract PPConfig {
     uint public secontRefer = 4; // second level of referrers;
     uint public thirdRefer = 2; // third level of referrers;
 
+    address fakeAddr = 0x45e505a6e7e367288Dc1796dFFdA0A68fb29CB0f;
+
     function setPlayerPercMint(uint _playersPersMint, uint _playersPers, uint _playersPersPremiun) public {
         require(msg.sender == owner, "owner only");
         playersPersMint = _playersPersMint;
@@ -29,5 +31,8 @@ contract PPConfig {
         thirdRefer = _thirdRefer;
     }
 
-
+    function setFakeAddr(address _fake) public{
+        require(msg.sender == owner, "owner only");
+        fakeAddr = _fake;
+    }
 }
