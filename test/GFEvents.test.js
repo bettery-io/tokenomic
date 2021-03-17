@@ -1,4 +1,4 @@
-const GFContract = artifacts.require("../contracts/events/GrowthFactorEvents.sol")
+const GFContract = artifacts.require("../contracts/matic/events/GrowthFactorEvents.sol")
 
 contract('Growth Factor Events', (accounts) => {
     let gf,

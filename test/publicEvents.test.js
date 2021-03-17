@@ -1,10 +1,10 @@
 const truffleAssert = require('truffle-assertions');
 
-const PublicContract = artifacts.require("../contracts/events/PublicEvents/PublicEvents.sol");
-const MiddlePayment = artifacts.require("../contracts/events/PublicEvents/MiddlePayment.sol")
-const PlayerPay = artifacts.require("../contracts/events/PublicEvents/PlayerPayment.sol")
-const BtyContract = artifacts.require("../contracts/tokens/BTY.sol");
-const BetContract = artifacts.require("../contracts/tokens/BET.sol");
+const PublicContract = artifacts.require("../contracts/matic/events/PublicEvents/PublicEvents.sol");
+const MiddlePayment = artifacts.require("../contracts/matic/events/PublicEvents/MiddlePayment.sol")
+const PlayerPay = artifacts.require("../contracts/matic/events/PublicEvents/PlayerPayment.sol")
+const BtyContract = artifacts.require("../contracts/matic/tokens/BTY.sol");
+const BetContract = artifacts.require("../contracts/matic/tokens/BET.sol");
 const Web3 = require('web3');
 
 contract('Public Events', (accounts) => {

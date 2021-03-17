@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {BET} from "./BET.sol";
-import {MetaTransactLib} from "../helpers/MetaTransactLib.sol";
+import {MetaTransactLib} from "../../metaTransaction/MetaTransactLib.sol";
 import {ConfigVariables} from "../config/ConfigVariables.sol";
 
 contract BTY is ERC20, MetaTransactLib, ConfigVariables {

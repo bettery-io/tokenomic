@@ -1,4 +1,4 @@
-const ProEventsContract = artifacts.require("../contracts/events/PrivateEvents.sol")
+const ProEventsContract = artifacts.require("../contracts/matic/events/PrivateEvents.sol")
 
 contract('privateEvents', (accounts) => {
     let event,

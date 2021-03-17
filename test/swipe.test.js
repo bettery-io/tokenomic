@@ -1,6 +1,6 @@
-const BetContract = artifacts.require("../contracts/tokens/BET.sol");
-const BtyContract = artifacts.require("../contracts/tokens/BTY.sol");
-const PublicEventContract = artifacts.require("../contracts/events/PublicEvents.sol")
+const BetContract = artifacts.require("../contracts/matic/tokens/BET.sol");
+const BtyContract = artifacts.require("../contracts/matic/tokens/BTY.sol");
+const PublicEventContract = artifacts.require("../contracts/matic/events/PublicEvents.sol")
 const Web3 = require('web3');
 
 contract('swipe', (accounts) => {
