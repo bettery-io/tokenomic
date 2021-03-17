@@ -12,8 +12,9 @@ contract BET is MetaTransactLib, ERC20, ConfigVariables {
     constructor(
         string memory _name,
         string memory _symbol,
-        uint8 _decimals
-    ) ERC20(_name, _symbol) MetaTransactLib("BET_token", "1", 5) {
+        uint8 _decimals,
+        uint _network_id
+    ) ERC20(_name, _symbol) MetaTransactLib("BET_token", "1", _network_id) {
         _setupDecimals(_decimals);
     }
 

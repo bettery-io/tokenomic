@@ -11,16 +11,17 @@ const config = require("../config/tokensConfig");
 
 module.exports = async function (deployer, network) {
   if (network === 'matic' || network === "development") {
+    // TODO switch to the production network
     let decimals = config.decimals;
     let nameBET = config.betName;
     let symbolBET = config.betSymbol
-    await deployer.deploy(BETTokenContract, nameBET, symbolBET, decimals);
+    let chain_id = 80001 // TODO switch to Matic main netowrk
+    await deployer.deploy(BETTokenContract, nameBET, symbolBET, decimals, chain_id);
 
     let nameBTY = config.btyName;
     let symbolBTY = config.btySymbol;
-    // TODO switch to the production network
     let ChildChainManagerProxy = maticNetwork.child.ChildChainManagerProxy
-    await deployer.deploy(BTYTokenContract, nameBTY, symbolBTY, decimals, BETTokenContract.address, ChildChainManagerProxy);
+    await deployer.deploy(BTYTokenContract, nameBTY, symbolBTY, decimals, BETTokenContract.address, ChildChainManagerProxy, chain_id);
 
     await deployer.deploy(PrivateEventContract);
 

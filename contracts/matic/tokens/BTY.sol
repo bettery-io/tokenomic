@@ -17,8 +17,9 @@ contract BTY is ERC20, MetaTransactLib, ConfigVariables {
         string memory _symbol,
         uint8 _decimals,
         BET _betAddress,
-        address _childChainManagerProxy
-    ) ERC20(_name, _symbol) MetaTransactLib("BTY_token", "1", 5) {
+        address _childChainManagerProxy,
+        uint _network_id
+    ) ERC20(_name, _symbol) MetaTransactLib("BTY_token", "1", _network_id) {
         betToken = _betAddress;
         childChainManagerProxy = _childChainManagerProxy;
         _setupDecimals(_decimals);
