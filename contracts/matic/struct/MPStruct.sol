@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract MPStruct {
     address ownerAddr;
-    address MPContract;
+    address PEContract;
     address PPContract;
 
     constructor() {
@@ -21,8 +21,9 @@ contract MPStruct {
 
     mapping(int256 => MiddlePaymentStruct) public MPData;
 
-    function setAddresses(address _ppaddr) public {
+    function setAddresses(address _peaddr, address _ppaddr) public {
         require(msg.sender == ownerAddr, "owner only");
+        PEContract = _peaddr;
         PPContract = _ppaddr;
     }
 
@@ -35,7 +36,7 @@ contract MPStruct {
     }
 
     function setReverted(int256 _id) public {
-        require(msg.sender == PPContract, "ppContract only");
+        require(msg.sender == PEContract, "peContract only");
         MPData[_id].reverted = true;
     }
 

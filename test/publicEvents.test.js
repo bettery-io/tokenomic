@@ -86,6 +86,7 @@ contract('Public Events', (accounts) => {
         })
 
         await middleEvent.setAddresses(
+            eventAddr,
             PPAddr,
             {
                 from: owner

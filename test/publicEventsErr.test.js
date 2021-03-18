@@ -27,11 +27,6 @@ contract('Public Events', (accounts) => {
         activePlayers = 0
 
 
-    function getPercent(percent, from) {
-        return (from * percent) / 100;
-    }
-
-
     it('Deploy bty token', async () => {
         bty = await BtyContract.deployed();
         assert(bty.address, "not deployed")
@@ -86,6 +81,7 @@ contract('Public Events', (accounts) => {
         })
 
         await middleEvent.setAddresses(
+            eventAddr,
             PPAddr,
             {
                 from: owner
@@ -157,6 +153,36 @@ contract('Public Events', (accounts) => {
             console.log(err)
         })
         assert(!error, "contract return error")
+    })
+
+    it("Validate without players, contract must be reverted", async () => {
+        let id = 1;
+
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        await timeout(5000);
+        let whichAnswer = correctAnswer,
+            expertWallet = accounts[8],
+            reputation = 1
+
+
+        let tx = await events.setValidator(
+            id,
+            whichAnswer,
+            expertWallet,
+            reputation,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        truffleAssert.eventEmitted(tx, 'revertedEvent', (ev) => {
+            return ev.purpose == 'do not have players';
+        }, 'Contract must be reverted.');
     })
 
 })
