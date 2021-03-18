@@ -16,19 +16,90 @@ contract('Public Events', (accounts) => {
         CMDWallet = accounts[1],
         MFWallet = accounts[2],
         host = accounts[3],
-        players = 11,
+        players = [
+            {
+                wallet: accounts[4],
+                amount: 5,
+                answer: 0
+            }, {
+                wallet: accounts[5],
+                amount: 2,
+                answer: 1
+            }, {
+                wallet: accounts[6],
+                amount: 10,
+                answer: 2
+            }, {
+                wallet: accounts[7],
+                amount: 2,
+                answer: 1
+            }, {
+                wallet: accounts[8],
+                amount: 5,
+                answer: 0
+            }, {
+                wallet: accounts[9],
+                amount: 10,
+                answer: 1
+            }, {
+                wallet: accounts[10],
+                amount: 2,
+                answer: 1
+            }, {
+                wallet: accounts[11],
+                amount: 5,
+                answer: 0
+            }, {
+                wallet: accounts[12],
+                amount: 10,
+                answer: 1
+            }, {
+                wallet: accounts[13],
+                amount: 5,
+                answer: 1
+            }
+        ],
+        experts = [
+            {
+                wallet: accounts[14],
+                answer: 1,
+                reputation: 2
+            }, {
+                wallet: accounts[15],
+                answer: 0,
+                reputation: 0
+            }, {
+                wallet: accounts[16],
+                answer: 2,
+                reputation: 0
+            }, {
+                wallet: accounts[17],
+                answer: 1,
+                reputation: 1
+            }, {
+                wallet: accounts[18],
+                answer: 1,
+                reputation: 4
+            }, {
+                wallet: accounts[19],
+                answer: 0,
+                reputation: 0
+            }
+        ],
         pool = 0,
         correctAnswer = 1,
         mintTokens = 0,
         allReputation = 0,
-        maxValidIndex = 14,
         avarageBet = 0,
         calcMintedToken = 0,
-        activePlayers = 0
-
+        activePlayers = players.length;
 
     function getPercent(percent, from) {
         return (from * percent) / 100;
+    }
+
+    function calcPercent(number, from) {
+        return number * 100 / from;
     }
 
 
@@ -137,7 +208,7 @@ contract('Public Events', (accounts) => {
             date = new Date().setSeconds(new Date().getSeconds() + 5),
             endTime = Number(Math.floor(date / 1000).toFixed(0)),
             questAmount = 3,
-            amountExperts = 3,
+            amountExperts = 6,
             calculateExperts = false,
             amountPremiumEvent = 0,
             error = false
@@ -163,14 +234,13 @@ contract('Public Events', (accounts) => {
     it("let's participate", async () => {
         let beforeBalance = 0;
         let afterBalance = 0;
-        for (let i = 4; i < players; i++) {
+        for (let i = 0; i < players.length; i++) {
             beforeBalance = beforeBalance + 10;
-            ++activePlayers;
             let id = 1,
-                betAmount = i % 2 == 0 ? 4 : 8,
-                whichAnswer = i % 2 == 0 ? 1 : 0,
+                betAmount = players[i].amount,
+                whichAnswer = players[i].answer,
                 amount = web3.utils.toWei(String(betAmount), "ether"),
-                playerWallet = accounts[i]
+                playerWallet = players[i].wallet
 
             await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
 
@@ -201,12 +271,12 @@ contract('Public Events', (accounts) => {
         }
 
         await timeout(5000);
-        for (let i = players; i < maxValidIndex; i++) {
-            let whichAnswer = correctAnswer,
-                expertWallet = accounts[i],
-                reputation = i
+        for (let i = 0; i < experts.length; i++) {
+            let whichAnswer = experts[i].answer,
+                expertWallet = experts[i].wallet,
+                reputation = experts[i].reputation
 
-            allReputation += i;
+            allReputation += experts[i].reputation;
 
             tx = await events.setValidator(
                 id,
@@ -227,10 +297,28 @@ contract('Public Events', (accounts) => {
 
     it("check minted tokens amount", async () => {
         let GFindex = await middleEvent.getGFindex({ from: owner })
-        let controversy = (100 - activePlayers);
+
+        let bigValue = 0;
+        let bigValue2 = 0;
+        let id = 1;
+
+        for (let i = 0; i < 3; i++) {
+            let playersAmount = await events.getPlayerAmount(id, i, {
+                from: owner
+            }).catch((err) => {
+                console.log(err);
+            });
+            if (Number(playersAmount) > bigValue) {
+                bigValue2 = bigValue;
+                bigValue = Number(playersAmount);
+            } else if (Number(playersAmount) > bigValue2) {
+                bigValue2 = bigValue;
+            }
+        }
+
+        let controversy = (100 - calcPercent(bigValue, players.length) + calcPercent(bigValue2, players.length));
         let averageBet = pool / activePlayers;
         let tokens = (averageBet * activePlayers * controversy * Number(GFindex.toString())) / 10000;
-        let id = 1;
         let tx = await middleEvent.letsFindCorrectAnswer(
             id,
             {
@@ -244,6 +332,7 @@ contract('Public Events', (accounts) => {
             mintTokens = web3.utils.fromWei(ev.tokens.toString(), "ether");
             return Number(mintTokens).toFixed(2) == tokens.toFixed(2) && ev.correctAnswer.toString() == correctAnswer.toString()
         }, 'Contract do not have correct tokens on blance.');
+
     })
 
     it("check amount payed to companies", async () => {
@@ -317,7 +406,11 @@ contract('Public Events', (accounts) => {
             expertPercMint = 10,
             beforeBalance = 0,
             afterBalance = 0,
-            mintedTokens = Number(Number(mintTokens).toFixed(2))
+            mintedTokens = Number(Number(mintTokens).toFixed(2));
+
+        let loserPool = await middleEvent.getLoserPool(id, { from: owner }).catch(err => console.log(err))
+        let fromWeiLoser = web3.utils.fromWei(loserPool, 'ether');
+
         let tx = await middleEvent.letsPayToExperts(
             id,
             {
@@ -327,13 +420,13 @@ contract('Public Events', (accounts) => {
             console.log(err)
         })
 
-        for (let i = players; i < maxValidIndex; i++) {
-            let mintToken = (getPercent(mintedTokens, expertPercMint) * i) / allReputation;
-            let payToken = (getPercent(pool, percentPay) * i) / allReputation;
+        for (let i = 0; i < experts.length; i++) {
+            let mintToken = (getPercent(mintedTokens, expertPercMint) * experts[i].reputation) / allReputation;
+            let payToken = (getPercent(Number(fromWeiLoser), percentPay) * experts[i].reputation) / allReputation;
             beforeBalance = mintToken + payToken + beforeBalance + 10
         }
-        for (let i = players; i < maxValidIndex; i++) {
-            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+        for (let i = 0; i < experts.length; i++) {
+            let bal = await bet.balanceOf(experts[i].wallet, { from: experts[i].wallet }).catch(err => { console.log(err) })
             bal = web3.utils.fromWei(bal, "ether");
             afterBalance = afterBalance + Number(Number(bal).toFixed(2))
         }
@@ -371,8 +464,9 @@ contract('Public Events', (accounts) => {
             return ev.id.toString() == String(id);
         }, 'Contract do not return correct data.');
 
-        let tx3 = await playerPayEvent.payToReff(
+        let tx3 = await playerPayEvent.payRefToComp(
             id,
+            1,
             {
                 from: owner
             }).catch(err => { console.log(err) })
@@ -385,10 +479,10 @@ contract('Public Events', (accounts) => {
 
     it("Check public event balance", async () => {
         let bal = await bet.balanceOf(events.address, { from: owner }).catch(err => { console.log(err) })
-        bal = web3.utils.fromWei(bal, "ether");
+        let fromWei = web3.utils.fromWei(bal, "ether");
         console.log("Public balance")
-        console.log(bal)
-        assert(Number(Number(bal).toFixed(0)) == 0, "Public event balance is not 0")
+        console.log(bal.toString());
+        assert(Number(Number(fromWei).toFixed(0)) == 0, "Public event balance is not 0")
     })
 
     it("Check public event users balances", async () => {
@@ -401,7 +495,5 @@ contract('Public Events', (accounts) => {
 
         assert(false, "todo")
     })
-
-
 
 })

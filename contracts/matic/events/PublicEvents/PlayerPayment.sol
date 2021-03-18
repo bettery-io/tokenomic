@@ -49,7 +49,7 @@ contract PlayerPayment is Libs, PPConfig {
             );
             // pay tokens to users
             require(
-                PublicAddr.pay(userWallet, ((userBet / avarageBetWin) * winPool) + userBet),
+                PublicAddr.pay(userWallet, userBet / avarageBetWin * winPool + getPercent(playersPers, userBet)),
                 "pay to play"
             );
             if (eventsData.getPremiumAmount(_id) > 0) {
@@ -89,35 +89,30 @@ contract PlayerPayment is Libs, PPConfig {
        emit payToRefferers(_id);
     }
 
-    function payToReff(int _id, address payable[] memory _ref1, address payable[] memory _ref2, address payable[] memory _ref3 ) public {
+    function payToReff(int _id, address payable[] memory _ref1, uint[] memory _amount1, address payable[] memory _ref2, uint[] memory _amount2, address payable[] memory _ref3, uint[] memory _amount3 ) public {
         require(msg.sender == owner, "owner only");        
-        if(_ref1[0] == fakeAddr){
-            uint mintAmount = getPercent(firstRefer + secontRefer + thirdRefer, mpData.getTokenMinted(_id));
-            require(PublicAddr.mint(owner, mintAmount), "mint refAll to owner");
-        }else{
-            uint mintAmountRef1 = getPercent(firstRefer, mpData.getTokenMinted(_id)) / _ref1.length;
             for(uint i = 0; i < _ref1.length; i++){
-                require(PublicAddr.mint(_ref1[i], mintAmountRef1), "mint to ref1");
+                require(PublicAddr.mint(_ref1[i], _amount1[i]), "mint ref1");
             }
-            if(_ref2[0] == fakeAddr){
-                uint mintAmount = getPercent(secontRefer + thirdRefer, mpData.getTokenMinted(_id));
-                require(PublicAddr.mint(owner, mintAmount), "mint ref2 to owner");
-            }else{
-                uint mintAmountRef2 = getPercent(secontRefer, mpData.getTokenMinted(_id)) / _ref2.length;
-                for(uint z = 0; z < _ref2.length; z++){
-                    require(PublicAddr.mint(_ref2[z], mintAmountRef2), "mint ref2");
+            if(_ref2[0] != fakeAddr){
+                for(uint i = 0; i < _ref2.length; i++){
+                    require(PublicAddr.mint(_ref2[i], _amount2[i]), "mint ref2");
                 }
-                if(_ref3[0] == fakeAddr){
-                    uint mintAmount = getPercent(thirdRefer, mpData.getTokenMinted(_id));
-                    require(PublicAddr.mint(owner, mintAmount), "mint ref2 to owner");
-                }else{
-                    uint mintAmountRef3 = getPercent(thirdRefer, mpData.getTokenMinted(_id)) / _ref3.length;
-                    for(uint y = 0; y < _ref3.length; y++){
-                        require(PublicAddr.mint(_ref3[y], mintAmountRef3), "mint ref2");
-                    }
+            if(_ref3[0] != fakeAddr){
+                for(uint i = 0; i < _ref3.length; i++){
+                    require(PublicAddr.mint(_ref3[i], _amount3[i]), "mint ref2");
                 }
             }
         }
+        mpData.setFinishEvent(_id);
+        emit eventFinish(
+            _id
+        );
+    }
+
+    function payRefToComp(int _id, uint _amount) public {
+        require(msg.sender == owner, "owner only");        
+        require(PublicAddr.mint(owner, _amount), "mint refAll to owner");
         mpData.setFinishEvent(_id);
         emit eventFinish(
             _id

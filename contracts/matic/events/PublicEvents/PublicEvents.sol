@@ -12,9 +12,9 @@ contract PublicEvents is
     TimeValidation,
     PubStruct
 {
-    event calculateExpert(int256 id, uint256 activePlayers);
-    event findCorrectAnswer(int256 id);
-    event revertedEvent(int256 id, string purpose);
+    event calculateExpert(int id, uint activePlayers);
+    event findCorrectAnswer(int id);
+    event revertedEvent(int id, string purpose);
 
     uint minBet = 10000000000000000;
     BET public betToken;
@@ -64,7 +64,7 @@ contract PublicEvents is
         }
     }
 
-    function addAdvisor(address payable _advisor, int256 _id) public{
+    function addAdvisor(address payable _advisor, int _id) public{
         require( msg.sender == owner, "owner only");
         events[_id].advisor = _advisor;
     }

@@ -185,4 +185,34 @@ contract('Public Events', (accounts) => {
         }, 'Contract must be reverted.');
     })
 
+    it("Create second event", async () => {
+        let id = 2,
+            startTime = Number(Math.floor(Date.now() / 1000).toFixed(0)),
+            date = new Date().setSeconds(new Date().getSeconds() + 5),
+            endTime = Number(Math.floor(date / 1000).toFixed(0)),
+            questAmount = 3,
+            amountExperts = 3,
+            calculateExperts = false,
+            amountPremiumEvent = 0,
+            error = false
+
+        await events.newEvent(
+            id,
+            startTime,
+            endTime,
+            questAmount,
+            amountExperts,
+            calculateExperts,
+            host,
+            amountPremiumEvent,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            error = true;
+            console.log(err)
+        })
+        assert(!error, "contract return error")
+    })
+
 })

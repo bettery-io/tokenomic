@@ -62,10 +62,11 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
             // calculate minted tokens
             uint tokens =
                 calcMintedTokens(
-                    eventsData.getActivePlayers(_id),
-                    eventsData.getPool(_id),
-                    GFindex
+                    GFindex,
+                    _id,
+                    eventsData
                 );
+                
             MPData[_id].tokenMinted = tokens;
             emit payToCompanies(_id, tokens, correctAnswer);
         } else {
@@ -189,7 +190,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
                 require(PublicAddr.mint(expertWallet, amountMint), "mint exp");
 
                 // pay tokens
-                uint amount = (getPercent(eventsData.getPool(_id), percent) * uint(reputation)) / uint(allReputation);
+                uint amount = (getPercent(MPData[_id].loserPool, percent) * uint(reputation)) / uint(allReputation);
                 require(PublicAddr.pay(expertWallet, amount), "pay exp");
 
                 // pay in premium events
