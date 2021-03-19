@@ -274,5 +274,17 @@ contract('Public Events', (accounts) => {
         assert(bal == "10", "balance is not 10")
     })
 
+    it("check duplicates of validators", async () =>{
+
+    })
+
+    it("check if all users answer only one answer", async () =>{
+
+    })
+
+    it("check if no one choose correct answer", async () =>{
+
+    })
+
 
 })

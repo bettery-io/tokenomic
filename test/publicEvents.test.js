@@ -92,7 +92,10 @@ contract('Public Events', (accounts) => {
         allReputation = 0,
         avarageBet = 0,
         calcMintedToken = 0,
-        activePlayers = players.length;
+        activePlayers = players.length,
+        balances = ["13.920000000000000001", "13.136", "10.784", "14.92", "6.75", "12.151612903225806451", "3.5", "12.151612903225806451",
+            "6.75", "20.758064516129032259", "12.151612903225806451", "6.75", "20.758064516129032259", "15.379032258064516129",
+            "11.548571428571428571", "10", "10", "10.774285714285714285", "13.097142857142857142", "10"]
 
     function getPercent(percent, from) {
         return (from * percent) / 100;
@@ -376,10 +379,13 @@ contract('Public Events', (accounts) => {
     })
 
     it("Pay to host", async () => {
-        let id = 1,
-            mintedTokens = Number(Number(mintTokens).toFixed(2)),
+        let id = 1;
+        let loserPool = await middleEvent.getLoserPool(id, { from: owner }).catch(err => console.log(err))
+        loserPool = web3.utils.fromWei(loserPool, 'ether')
+
+        let mintedTokens = Number(Number(mintTokens).toFixed(2)),
             mintHost = getPercent(mintedTokens, 10),
-            payHost = getPercent(pool, 4);
+            payHost = getPercent(loserPool, 4);
 
         let tx = await middleEvent.letsPaytoHost(
             id,
@@ -447,11 +453,8 @@ contract('Public Events', (accounts) => {
             }).catch(err => { console.log(err) })
 
         truffleAssert.eventEmitted(tx, 'payToLosers', (ev) => {
-            console.log(ev);
             avarageBet = String(ev.avarageBet);
             calcMintedToken = String(ev.calcMintedToken);
-            console.log(calcMintedToken);
-            console.log(avarageBet);
             return ev.id.toString() == String(id);
         }, 'Contract do not return correct data.');
 
@@ -483,20 +486,15 @@ contract('Public Events', (accounts) => {
     it("Check public event balance", async () => {
         let bal = await bet.balanceOf(events.address, { from: owner }).catch(err => { console.log(err) })
         let fromWei = web3.utils.fromWei(bal, "ether");
-        console.log("Public balance")
-        console.log(bal.toString());
         assert(Number(Number(fromWei).toFixed(0)) == 0, "Public event balance is not 0")
     })
 
     it("Check public event users balances", async () => {
-        console.log("users balances")
         for (let i = 0; i < accounts.length; i++) {
             let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
-      //      bal = web3.utils.fromWei(bal, "ether");
-            console.log(bal.toString());
+            bal = web3.utils.fromWei(bal, "ether");
+            assert(balances[i] == bal.toString(), "balance " + accounts[i] + "is not correct")
         };
-
-        assert(false, "todo")
     })
 
 })
