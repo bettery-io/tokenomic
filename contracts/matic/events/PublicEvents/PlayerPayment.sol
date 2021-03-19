@@ -7,12 +7,13 @@ import {PPConfig} from "../../config/PPConfig.sol";
 import {PublicEvents} from "./PublicEvents.sol";
  
 contract PlayerPayment is Libs, PPConfig {
-    event payToLosers(int id, uint avarageBet, uint calcMintedToken);
+    event payToLosers(int id, uint avarageBet, uint calcMintedToken, uint rightPlay);
     event payToRefferers(int id);
     event eventFinish(int id);
     MPStruct mpData;
     PubStruct eventsData;
     PublicEvents PublicAddr;
+    uint x = 1000000000000000000;
 
     constructor(PublicEvents _addr, address _mpAddr) {
         PublicAddr = _addr;
@@ -32,35 +33,35 @@ contract PlayerPayment is Libs, PPConfig {
             betAmount += eventsData.getPlayerTokens(_id, mpData.getCorrectAnswer(_id), i);
         }
 
-        uint avarageBet = betAmount / activePlay;
+        uint avarageBet = eventsData.getPool(_id) / activePlay;
         uint avarageBetWin = betAmount / rightPlay;
-        uint calcMintedToken = getPercent(playersPersMint, mpData.getLoserPool(_id));
-        payToPlay(_id, rightPlay, avarageBet, calcMintedToken, activePlay, avarageBetWin, winPool, premimWin);
+        uint calcMintedToken = getPercent(playersPersMint, mpData.getTokenMinted(_id));
+        payToPlay(_id, rightPlay, avarageBet, calcMintedToken, avarageBetWin, winPool, activePlay, premimWin);
     }
 
-    function payToPlay(int _id, uint rightPlay, uint avarageBet, uint calcMintedToken, uint activePlay, uint avarageBetWin, uint winPool, uint premimWin) private {
+    function payToPlay(int _id, uint rightPlay, uint avarageBet, uint calcMintedToken, uint avarageBetWin, uint winPool, uint activePlay, uint premimWin) private {
        for ( uint i = 0; i < rightPlay; i++ ) {
             // mint token to users
             uint userBet = eventsData.getPlayerTokens(_id, mpData.getCorrectAnswer(_id), i);
             address payable userWallet = eventsData.getPlayerWallet(_id, mpData.getCorrectAnswer(_id), i);
             require(
-                PublicAddr.mint(userWallet, (userBet / avarageBet) * (calcMintedToken / activePlay)),
+                PublicAddr.mint(userWallet, calcMintedToken * userBet / (avarageBet * activePlay)),
                 "mint to play"
             );
             // pay tokens to users
             require(
-                PublicAddr.pay(userWallet, userBet / avarageBetWin * winPool + getPercent(playersPers, userBet)),
+                PublicAddr.pay(userWallet, ((winPool * userBet) / avarageBetWin) + userBet),
                 "pay to play"
             );
             if (eventsData.getPremiumAmount(_id) > 0) {
                 // pay premium tokens to user
                 require(
-                    PublicAddr.payBTY(userWallet, (userBet / avarageBetWin) * premimWin),
+                    PublicAddr.payBTY(userWallet, premimWin * userBet / avarageBetWin),
                     "prem pay yo play"
                 );
             }
         }
-        emit payToLosers(_id, avarageBet, calcMintedToken);
+        emit payToLosers(_id, avarageBet, calcMintedToken, rightPlay);
     }
 
     function calcPremiumWin(int _id, uint rightPlay) private view returns(uint){
@@ -81,7 +82,7 @@ contract PlayerPayment is Libs, PPConfig {
         for (uint i = 0; i < eventsData.getQuestAmount(_id); i++) {
             if (mpData.getCorrectAnswer(_id) != i && eventsData.getPlayerAmount(_id, i) != 0) {
                 for (uint z = 0; z < eventsData.getPlayerAmount(_id, i); z++) {
-                    uint mintLost = (eventsData.getPlayerTokens(_id, i, z) / _avarageBet) * (_calcMintedToken / eventsData.getActivePlayers(_id));
+                    uint mintLost = (_calcMintedToken * eventsData.getPlayerTokens(_id, i, z)) / ( _avarageBet * eventsData.getActivePlayers(_id));
                     require(PublicAddr.mint(eventsData.getPlayerWallet(_id, i, z), mintLost), "pay to losers");
                 }
             }

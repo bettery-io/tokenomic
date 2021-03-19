@@ -215,4 +215,64 @@ contract('Public Events', (accounts) => {
         assert(!error, "contract return error")
     })
 
+    it("let's participate", async () => {
+        let id = 2,
+            betAmount = 3,
+            whichAnswer = 1,
+            amount = web3.utils.toWei(String(betAmount), "ether"),
+            playerWallet = accounts[3]
+
+        await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
+
+        await events.setAnswer(
+            id,
+            whichAnswer,
+            amount,
+            playerWallet,
+            { from: owner }
+        ).catch((err) => {
+            console.log(err)
+        })
+
+        let bal = await bet.balanceOf(playerWallet, { from: playerWallet }).catch(err => { console.log(err) })
+        bal = web3.utils.fromWei(bal, "ether");
+        assert(bal == "7", "Balances are not 7")
+    })
+
+    it("Validate without players, contract must be reverted", async () => {
+        let id = 2;
+
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        await timeout(5000);
+        let whichAnswer = correctAnswer,
+            expertWallet = accounts[8],
+            reputation = 1
+
+
+        let tx = await events.setValidator(
+            id,
+            whichAnswer,
+            expertWallet,
+            reputation,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            console.log(err);
+        })
+
+        truffleAssert.eventEmitted(tx, 'revertedEvent', (ev) => {
+            return ev.purpose == "only one player on event"
+        }, 'Contract must be reverted.');
+
+        let playerWallet = accounts[3];
+        let bal = await bet.balanceOf(playerWallet, { from: playerWallet }).catch(err => { console.log(err) })
+        bal = web3.utils.fromWei(bal, "ether");
+        assert(bal == "10", "balance is not 10")
+    })
+
+
 })

@@ -447,8 +447,11 @@ contract('Public Events', (accounts) => {
             }).catch(err => { console.log(err) })
 
         truffleAssert.eventEmitted(tx, 'payToLosers', (ev) => {
+            console.log(ev);
             avarageBet = String(ev.avarageBet);
             calcMintedToken = String(ev.calcMintedToken);
+            console.log(calcMintedToken);
+            console.log(avarageBet);
             return ev.id.toString() == String(id);
         }, 'Contract do not return correct data.');
 
@@ -489,8 +492,8 @@ contract('Public Events', (accounts) => {
         console.log("users balances")
         for (let i = 0; i < accounts.length; i++) {
             let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
-            bal = web3.utils.fromWei(bal, "ether");
-            console.log(bal);
+      //      bal = web3.utils.fromWei(bal, "ether");
+            console.log(bal.toString());
         };
 
         assert(false, "todo")

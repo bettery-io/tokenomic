@@ -145,12 +145,12 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
                 "mint to advisor"
             );
             // pay tokens
-            payHost = getPercent(eventsData.getPool(_id), hostPerc + extraHostPerc);
+            payHost = getPercent(MPData[_id].loserPool, hostPerc + extraHostPerc);
             require(
                 PublicAddr.pay(eventsData.getHostAddr(_id), payHost),
                 "pay to host with advisor"
             );
-            payAdv = getPercent(eventsData.getPool(_id), advisorPepc);
+            payAdv = getPercent(MPData[_id].loserPool, advisorPepc);
             require(
                 PublicAddr.pay(eventsData.getAdvisorAddr(_id), payAdv),
                 "pay to advisor"
@@ -162,7 +162,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
                 PublicAddr.mint(eventsData.getHostAddr(_id), mintHost),
                 "mint to host"
             );
-            payHost = getPercent(eventsData.getPool(_id), hostPerc);
+            payHost = getPercent(MPData[_id].loserPool, hostPerc);
             // pay to host
             require(
                 PublicAddr.pay(eventsData.getHostAddr(_id), payHost),
