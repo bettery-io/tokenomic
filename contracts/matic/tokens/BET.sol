@@ -24,7 +24,7 @@ contract BET is MetaTransactLib, ERC20, ConfigVariables {
     }
 
     function mint(address wallet) public ownerOnly() {
-        require(balanceOf(wallet) == 0, "User has tokens on balance");
+    //    require(balanceOf(wallet) == 0, "User has tokens on balance"); TODO remove from prodaction
         _mint(wallet, welcomeBTYTokens);
     }
 

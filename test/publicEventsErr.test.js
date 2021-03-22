@@ -274,15 +274,309 @@ contract('Public Events', (accounts) => {
         assert(bal == "10", "balance is not 10")
     })
 
-    it("check duplicates of validators", async () =>{
+    it("Create third event", async () => {
+        let id = 3,
+            startTime = Number(Math.floor(Date.now() / 1000).toFixed(0)),
+            date = new Date().setSeconds(new Date().getSeconds() + 5),
+            endTime = Number(Math.floor(date / 1000).toFixed(0)),
+            questAmount = 3,
+            amountExperts = 5,
+            calculateExperts = false,
+            amountPremiumEvent = 0,
+            error = false
 
+        await events.newEvent(
+            id,
+            startTime,
+            endTime,
+            questAmount,
+            amountExperts,
+            calculateExperts,
+            host,
+            amountPremiumEvent,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            error = true;
+            console.log(err)
+        })
+        assert(!error, "contract return error")
     })
 
-    it("check if all users answer only one answer", async () =>{
+    function expertAnswers(i) {
+        if (i == 10) {
+            return 1
+        } else {
+            return i % 2 == 0 ? 2 : 0
+        }
+    }
 
+    it("check duplicates of validators", async () => {
+        let id = 3;
+        for (let i = 0; i < 6; i++) {
+            let betAmount = i + 1,
+                whichAnswer = i % 2 == 0 ? 1 : 0,
+                amount = web3.utils.toWei(String(betAmount), "ether"),
+                playerWallet = accounts[i];
+
+            await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
+
+            await events.setAnswer(
+                id,
+                whichAnswer,
+                amount,
+                playerWallet,
+                { from: owner }
+            ).catch((err) => {
+                console.log(err)
+            })
+        }
+
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        await timeout(5000);
+
+        let tx;
+
+        for (let i = 6; i < 11; i++) {
+            let whichAnswer = expertAnswers(i),
+                expWallet = accounts[i],
+                reputation = i;
+
+            tx = await events.setValidator(
+                id,
+                whichAnswer,
+                expWallet,
+                reputation,
+                {
+                    from: owner
+                }
+            ).catch((err) => {
+                console.log(err);
+            })
+        }
+
+        truffleAssert.eventEmitted(tx, 'findCorrectAnswer', (ev) => {
+            return ev.id == id;
+        }, 'Contract contain correct id.');
+
+        let tx2 = await middleEvent.letsFindCorrectAnswer(id, { from: owner }).catch((err) => {
+            console.log(err)
+        })
+
+        truffleAssert.eventEmitted(tx2, 'revertedEvent', (ev) => {
+            return ev.purpose == 'duplicat expert';
+        }, 'Contract must be reverted.');
+
+
+        let balances = 0;
+        for (let i = 0; i < 6; i++) {
+            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            balances += Number(bal);
+        }
+        assert(balances == 60, "Balances are not 50")
     })
 
-    it("check if no one choose correct answer", async () =>{
+    it("Create four event", async () => {
+        let id = 4,
+            startTime = Number(Math.floor(Date.now() / 1000).toFixed(0)),
+            date = new Date().setSeconds(new Date().getSeconds() + 5),
+            endTime = Number(Math.floor(date / 1000).toFixed(0)),
+            questAmount = 3,
+            amountExperts = 5,
+            calculateExperts = false,
+            amountPremiumEvent = 0,
+            error = false
+
+        await events.newEvent(
+            id,
+            startTime,
+            endTime,
+            questAmount,
+            amountExperts,
+            calculateExperts,
+            host,
+            amountPremiumEvent,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            error = true;
+            console.log(err)
+        })
+        assert(!error, "contract return error")
+    })
+
+    it("check if all users answer only one answer", async () => {
+        let id = 4;
+        for (let i = 0; i < 6; i++) {
+            let betAmount = i + 1,
+                whichAnswer = 0,
+                amount = web3.utils.toWei(String(betAmount), "ether"),
+                playerWallet = accounts[i];
+
+            await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
+
+            await events.setAnswer(
+                id,
+                whichAnswer,
+                amount,
+                playerWallet,
+                { from: owner }
+            ).catch((err) => {
+                console.log(err)
+            })
+        }
+
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        await timeout(5000);
+
+        let tx;
+
+        for (let i = 6; i < 11; i++) {
+            let whichAnswer = 1,
+                expWallet = accounts[i],
+                reputation = i;
+
+            tx = await events.setValidator(
+                id,
+                whichAnswer,
+                expWallet,
+                reputation,
+                {
+                    from: owner
+                }
+            ).catch((err) => {
+                console.log(err);
+            })
+        }
+
+        truffleAssert.eventEmitted(tx, 'findCorrectAnswer', (ev) => {
+            return ev.id == id;
+        }, 'Contract contain correct id.');
+
+        let tx2 = await middleEvent.letsFindCorrectAnswer(id, { from: owner }).catch((err) => {
+            console.log(err)
+        })
+
+        truffleAssert.eventEmitted(tx2, 'revertedEvent', (ev) => {
+            return ev.purpose = 'play chose one answer';
+        }, 'Contract must be reverted.');
+
+
+        let balances = 0;
+        for (let i = 0; i < 6; i++) {
+            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            balances += Number(bal);
+        }
+        assert(balances == 60, "Balances are not 50")
+    })
+
+    it("Create five event", async () => {
+        let id = 5,
+            startTime = Number(Math.floor(Date.now() / 1000).toFixed(0)),
+            date = new Date().setSeconds(new Date().getSeconds() + 5),
+            endTime = Number(Math.floor(date / 1000).toFixed(0)),
+            questAmount = 3,
+            amountExperts = 5,
+            calculateExperts = false,
+            amountPremiumEvent = 0,
+            error = false
+
+        await events.newEvent(
+            id,
+            startTime,
+            endTime,
+            questAmount,
+            amountExperts,
+            calculateExperts,
+            host,
+            amountPremiumEvent,
+            {
+                from: owner
+            }
+        ).catch((err) => {
+            error = true;
+            console.log(err)
+        })
+        assert(!error, "contract return error")
+    })
+
+    it("check if no one choose correct answer", async () => {
+        let id = 5;
+        for (let i = 0; i < 6; i++) {
+            let betAmount = i + 1,
+                whichAnswer = 0,
+                amount = web3.utils.toWei(String(betAmount), "ether"),
+                playerWallet = accounts[i];
+
+            await bet.approve(events.address, amount, { from: playerWallet }).catch((err) => console.log(err))
+
+            await events.setAnswer(
+                id,
+                whichAnswer,
+                amount,
+                playerWallet,
+                { from: owner }
+            ).catch((err) => {
+                console.log(err)
+            })
+        }
+
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        await timeout(5000);
+
+        let tx;
+
+        for (let i = 6; i < 11; i++) {
+            let whichAnswer = 0,
+                expWallet = accounts[i],
+                reputation = i;
+
+            tx = await events.setValidator(
+                id,
+                whichAnswer,
+                expWallet,
+                reputation,
+                {
+                    from: owner
+                }
+            ).catch((err) => {
+                console.log(err);
+            })
+        }
+
+        truffleAssert.eventEmitted(tx, 'findCorrectAnswer', (ev) => {
+            return ev.id == id;
+        }, 'Contract contain correct id.');
+
+        let tx2 = await middleEvent.letsFindCorrectAnswer(id, { from: owner }).catch((err) => {
+            console.log(err)
+        })
+
+        truffleAssert.eventEmitted(tx2, 'revertedEvent', (ev) => {
+            return ev.purpose = 'play chose one answer';
+        }, 'Contract must be reverted.');
+
+
+        let balances = 0;
+        for (let i = 0; i < 6; i++) {
+            let bal = await bet.balanceOf(accounts[i], { from: accounts[i] }).catch(err => { console.log(err) })
+            bal = web3.utils.fromWei(bal, "ether");
+            balances += Number(bal);
+        }
+        assert(balances == 60, "Balances are not 50")
 
     })
 

@@ -5,15 +5,37 @@ const config = require("./config/networks");
 
 module.exports = {
   networks: {
+    mainnet: {
+      provider: () => {
+        const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
+        return new HDWalletProvider(mnemonic, config.etherMain)
+      },
+      network_id: config.etherMainId,
+      gasPrice: 15000000001,
+      skipDryRun: true
+    },
     goerli: {
       provider: () => {
-        const mnemonic = readFileSync(path.join(__dirname, 'goerli_mnemonic'), 'utf-8')
+        const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
 
         return new HDWalletProvider(mnemonic, config.goerli, 0, 10)
       },
       network_id: config.goerliId,
       gasPrice: 15000000001,
       skipDryRun: true
+    },
+    mainMatic: {
+      matic: {
+        provider: () => {
+          const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
+          return new HDWalletProvider(mnemonic, config.maticMain)
+        },
+        network_id: config.maticMainId,
+        gasPrice: 0,
+        confirmations: 2,
+        timeoutBlocks: 200,
+        skipDryRun: true
+      },
     },
     matic: {
       provider: () => {
@@ -31,17 +53,6 @@ module.exports = {
       port: 7545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
-    main: {
-      provider: () => {
-        const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
-        return new HDWalletProvider(mnemonic, config.maticMain)
-      },
-      network_id: config.maticMainId,
-      gasPrice: 0,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    }
   },
   compilers: {
     solc: {

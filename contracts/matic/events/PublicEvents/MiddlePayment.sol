@@ -56,7 +56,6 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
         }
         
         uint lP = eventsData.getPool(_id) - B;
-        // TODO TEST
         if (lP > 0 && B > 0) {
              MPData[_id].loserPool = lP;
             // calculate minted tokens

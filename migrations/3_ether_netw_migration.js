@@ -6,7 +6,7 @@ const networkConfig = require("../config/networks");
 
 
 module.exports = async (deployer, network) => {
-  if (network === 'goerli' || network === "development") {
+  if (network === 'goerli') {
     let usdtAddress = '0xFCf9F99D135D8a78ab60CC59CcCF3108E813bA35'
     await deployContract(deployer, usdtAddress, networkConfig.goerliId)
   } else if(network === "mainnet") {

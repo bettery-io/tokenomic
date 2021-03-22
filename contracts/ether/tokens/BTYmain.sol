@@ -1,7 +1,5 @@
-pragma solidity >=0.4.22 <0.9.0;
-
-
 // SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.9.0;
 /*
  * @dev Provides information about the current execution context, including the
  * sender of the transaction and its data. While these are generally available
@@ -23,7 +21,6 @@ abstract contract Context {
     }
 }
 
-// SPDX-License-Identifier: MIT
 /**
  * @dev Interface of the ERC20 standard as defined in the EIP.
  */
@@ -98,7 +95,6 @@ interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
 
-// SPDX-License-Identifier: MIT
 /**
  * @dev Wrappers over Solidity's arithmetic operations with added overflow
  * checks.
@@ -332,7 +328,7 @@ contract ERC20 is Context, IERC20 {
      * All three of these values are immutable: they can only be set once during
      * construction.
      */
-    constructor (string memory name_, string memory symbol_) public {
+    constructor (string memory name_, string memory symbol_) {
         _name = name_;
         _symbol = symbol_;
         _decimals = 18;
@@ -585,7 +581,6 @@ contract ERC20 is Context, IERC20 {
     function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual { }
 }
 
-// SPDX-License-Identifier: MIT
 /**
  * @dev Library for managing
  * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive
@@ -880,7 +875,6 @@ library EnumerableSet {
     }
 }
 
-// SPDX-License-Identifier: MIT
 /**
  * @dev Collection of functions related to the address type
  */
@@ -1434,7 +1428,6 @@ contract MetaTransactLib is AccessControl, NetworkAgnostic {
     }
 }
 
-// SPDX-License-Identifier: MIT
 contract BTYmain is ERC20, MetaTransactLib {
     address public owner;
 
