@@ -7,23 +7,23 @@
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [],
-  "sourceMap": "73:333:11:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "73:333:11:-:0;;;;;;;;",
+  "sourceMap": "73:333:15:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "73:333:15:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\n//TODO\nlibrary GFStruct {\n    struct Player {\n        address payable players;\n        uint8 reputation;\n    }\n\n    struct EventData {\n        int256 id;\n        uint256 startTime;\n        uint256 endTime;\n        uint8 questAmount;\n        mapping(uint256 => Player[]) player;\n        bool eventFinish;\n        uint8 correctAnswer;\n    }\n}",
   "sourcePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/struct/GFStruct.sol",
   "ast": {
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/struct/GFStruct.sol",
     "exportedSymbols": {
       "GFStruct": [
-        3624
+        6681
       ]
     },
-    "id": 3625,
+    "id": 6682,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 3600,
+        "id": 6657,
         "literals": [
           "solidity",
           ">=",
@@ -34,7 +34,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:32:11"
+        "src": "32:32:15"
       },
       {
         "abstract": false,
@@ -42,25 +42,25 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 3624,
+        "id": 6681,
         "linearizedBaseContracts": [
-          3624
+          6681
         ],
         "name": "GFStruct",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "GFStruct.Player",
-            "id": 3605,
+            "id": 6662,
             "members": [
               {
                 "constant": false,
-                "id": 3602,
+                "id": 6659,
                 "mutability": "mutable",
                 "name": "players",
                 "nodeType": "VariableDeclaration",
-                "scope": 3605,
-                "src": "120:23:11",
+                "scope": 6662,
+                "src": "120:23:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -68,10 +68,10 @@
                   "typeString": "address payable"
                 },
                 "typeName": {
-                  "id": 3601,
+                  "id": 6658,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "120:15:11",
+                  "src": "120:15:15",
                   "stateMutability": "payable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
@@ -82,12 +82,12 @@
               },
               {
                 "constant": false,
-                "id": 3604,
+                "id": 6661,
                 "mutability": "mutable",
                 "name": "reputation",
                 "nodeType": "VariableDeclaration",
-                "scope": 3605,
-                "src": "153:16:11",
+                "scope": 6662,
+                "src": "153:16:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -95,10 +95,10 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 3603,
+                  "id": 6660,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "153:5:11",
+                  "src": "153:5:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -109,22 +109,22 @@
             ],
             "name": "Player",
             "nodeType": "StructDefinition",
-            "scope": 3624,
-            "src": "96:80:11",
+            "scope": 6681,
+            "src": "96:80:15",
             "visibility": "public"
           },
           {
             "canonicalName": "GFStruct.EventData",
-            "id": 3623,
+            "id": 6680,
             "members": [
               {
                 "constant": false,
-                "id": 3607,
+                "id": 6664,
                 "mutability": "mutable",
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "209:9:11",
+                "scope": 6680,
+                "src": "209:9:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -132,10 +132,10 @@
                   "typeString": "int256"
                 },
                 "typeName": {
-                  "id": 3606,
+                  "id": 6663,
                   "name": "int256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "209:6:11",
+                  "src": "209:6:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_int256",
                     "typeString": "int256"
@@ -145,12 +145,12 @@
               },
               {
                 "constant": false,
-                "id": 3609,
+                "id": 6666,
                 "mutability": "mutable",
                 "name": "startTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "228:17:11",
+                "scope": 6680,
+                "src": "228:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -158,10 +158,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3608,
+                  "id": 6665,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "228:7:11",
+                  "src": "228:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -171,12 +171,12 @@
               },
               {
                 "constant": false,
-                "id": 3611,
+                "id": 6668,
                 "mutability": "mutable",
                 "name": "endTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "255:15:11",
+                "scope": 6680,
+                "src": "255:15:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -184,10 +184,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 3610,
+                  "id": 6667,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "255:7:11",
+                  "src": "255:7:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -197,12 +197,12 @@
               },
               {
                 "constant": false,
-                "id": 3613,
+                "id": 6670,
                 "mutability": "mutable",
                 "name": "questAmount",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "280:17:11",
+                "scope": 6680,
+                "src": "280:17:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -210,10 +210,10 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 3612,
+                  "id": 6669,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "280:5:11",
+                  "src": "280:5:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -223,53 +223,53 @@
               },
               {
                 "constant": false,
-                "id": 3618,
+                "id": 6675,
                 "mutability": "mutable",
                 "name": "player",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "307:35:11",
+                "scope": 6680,
+                "src": "307:35:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3605_storage_$dyn_storage_$",
+                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6662_storage_$dyn_storage_$",
                   "typeString": "mapping(uint256 => struct GFStruct.Player[])"
                 },
                 "typeName": {
-                  "id": 3617,
+                  "id": 6674,
                   "keyType": {
-                    "id": 3614,
+                    "id": 6671,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "315:7:11",
+                    "src": "315:7:15",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "307:28:11",
+                  "src": "307:28:15",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$3605_storage_$dyn_storage_$",
+                    "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6662_storage_$dyn_storage_$",
                     "typeString": "mapping(uint256 => struct GFStruct.Player[])"
                   },
                   "valueType": {
                     "baseType": {
-                      "id": 3615,
+                      "id": 6672,
                       "name": "Player",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 3605,
-                      "src": "326:6:11",
+                      "referencedDeclaration": 6662,
+                      "src": "326:6:15",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$3605_storage_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6662_storage_ptr",
                         "typeString": "struct GFStruct.Player"
                       }
                     },
-                    "id": 3616,
+                    "id": 6673,
                     "nodeType": "ArrayTypeName",
-                    "src": "326:8:11",
+                    "src": "326:8:15",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_Player_$3605_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_Player_$6662_storage_$dyn_storage_ptr",
                       "typeString": "struct GFStruct.Player[]"
                     }
                   }
@@ -278,12 +278,12 @@
               },
               {
                 "constant": false,
-                "id": 3620,
+                "id": 6677,
                 "mutability": "mutable",
                 "name": "eventFinish",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "352:16:11",
+                "scope": 6680,
+                "src": "352:16:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -291,10 +291,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 3619,
+                  "id": 6676,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "352:4:11",
+                  "src": "352:4:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -304,12 +304,12 @@
               },
               {
                 "constant": false,
-                "id": 3622,
+                "id": 6679,
                 "mutability": "mutable",
                 "name": "correctAnswer",
                 "nodeType": "VariableDeclaration",
-                "scope": 3623,
-                "src": "378:19:11",
+                "scope": 6680,
+                "src": "378:19:15",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -317,10 +317,10 @@
                   "typeString": "uint8"
                 },
                 "typeName": {
-                  "id": 3621,
+                  "id": 6678,
                   "name": "uint8",
                   "nodeType": "ElementaryTypeName",
-                  "src": "378:5:11",
+                  "src": "378:5:15",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint8",
                     "typeString": "uint8"
@@ -331,23 +331,23 @@
             ],
             "name": "EventData",
             "nodeType": "StructDefinition",
-            "scope": 3624,
-            "src": "182:222:11",
+            "scope": 6681,
+            "src": "182:222:15",
             "visibility": "public"
           }
         ],
-        "scope": 3625,
-        "src": "73:333:11"
+        "scope": 6682,
+        "src": "73:333:15"
       }
     ],
-    "src": "32:374:11"
+    "src": "32:374:15"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/struct/GFStruct.sol",
       "exportedSymbols": {
         "GFStruct": [
-          3624
+          6681
         ]
       },
       "license": "MIT"
@@ -365,9 +365,9 @@
             ".0"
           ]
         },
-        "id": 3600,
+        "id": 6657,
         "name": "PragmaDirective",
-        "src": "32:32:11"
+        "src": "32:32:15"
       },
       {
         "attributes": {
@@ -381,17 +381,17 @@
           "contractKind": "library",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            3624
+            6681
           ],
           "name": "GFStruct",
-          "scope": 3625
+          "scope": 6682
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "GFStruct.Player",
               "name": "Player",
-              "scope": 3624,
+              "scope": 6681,
               "visibility": "public"
             },
             "children": [
@@ -400,7 +400,7 @@
                   "constant": false,
                   "mutability": "mutable",
                   "name": "players",
-                  "scope": 3605,
+                  "scope": 6662,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address payable",
@@ -413,21 +413,21 @@
                       "stateMutability": "payable",
                       "type": "address payable"
                     },
-                    "id": 3601,
+                    "id": 6658,
                     "name": "ElementaryTypeName",
-                    "src": "120:15:11"
+                    "src": "120:15:15"
                   }
                 ],
-                "id": 3602,
+                "id": 6659,
                 "name": "VariableDeclaration",
-                "src": "120:23:11"
+                "src": "120:23:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "reputation",
-                  "scope": 3605,
+                  "scope": 6662,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint8",
@@ -439,25 +439,25 @@
                       "name": "uint8",
                       "type": "uint8"
                     },
-                    "id": 3603,
+                    "id": 6660,
                     "name": "ElementaryTypeName",
-                    "src": "153:5:11"
+                    "src": "153:5:15"
                   }
                 ],
-                "id": 3604,
+                "id": 6661,
                 "name": "VariableDeclaration",
-                "src": "153:16:11"
+                "src": "153:16:15"
               }
             ],
-            "id": 3605,
+            "id": 6662,
             "name": "StructDefinition",
-            "src": "96:80:11"
+            "src": "96:80:15"
           },
           {
             "attributes": {
               "canonicalName": "GFStruct.EventData",
               "name": "EventData",
-              "scope": 3624,
+              "scope": 6681,
               "visibility": "public"
             },
             "children": [
@@ -466,7 +466,7 @@
                   "constant": false,
                   "mutability": "mutable",
                   "name": "id",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "int256",
@@ -478,21 +478,21 @@
                       "name": "int256",
                       "type": "int256"
                     },
-                    "id": 3606,
+                    "id": 6663,
                     "name": "ElementaryTypeName",
-                    "src": "209:6:11"
+                    "src": "209:6:15"
                   }
                 ],
-                "id": 3607,
+                "id": 6664,
                 "name": "VariableDeclaration",
-                "src": "209:9:11"
+                "src": "209:9:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "startTime",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -504,21 +504,21 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 3608,
+                    "id": 6665,
                     "name": "ElementaryTypeName",
-                    "src": "228:7:11"
+                    "src": "228:7:15"
                   }
                 ],
-                "id": 3609,
+                "id": 6666,
                 "name": "VariableDeclaration",
-                "src": "228:17:11"
+                "src": "228:17:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "endTime",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -530,21 +530,21 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 3610,
+                    "id": 6667,
                     "name": "ElementaryTypeName",
-                    "src": "255:7:11"
+                    "src": "255:7:15"
                   }
                 ],
-                "id": 3611,
+                "id": 6668,
                 "name": "VariableDeclaration",
-                "src": "255:15:11"
+                "src": "255:15:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "questAmount",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint8",
@@ -556,21 +556,21 @@
                       "name": "uint8",
                       "type": "uint8"
                     },
-                    "id": 3612,
+                    "id": 6669,
                     "name": "ElementaryTypeName",
-                    "src": "280:5:11"
+                    "src": "280:5:15"
                   }
                 ],
-                "id": 3613,
+                "id": 6670,
                 "name": "VariableDeclaration",
-                "src": "280:17:11"
+                "src": "280:17:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "player",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "mapping(uint256 => struct GFStruct.Player[])",
@@ -587,9 +587,9 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 3614,
+                        "id": 6671,
                         "name": "ElementaryTypeName",
-                        "src": "315:7:11"
+                        "src": "315:7:15"
                       },
                       {
                         "attributes": {
@@ -599,34 +599,34 @@
                           {
                             "attributes": {
                               "name": "Player",
-                              "referencedDeclaration": 3605,
+                              "referencedDeclaration": 6662,
                               "type": "struct GFStruct.Player"
                             },
-                            "id": 3615,
+                            "id": 6672,
                             "name": "UserDefinedTypeName",
-                            "src": "326:6:11"
+                            "src": "326:6:15"
                           }
                         ],
-                        "id": 3616,
+                        "id": 6673,
                         "name": "ArrayTypeName",
-                        "src": "326:8:11"
+                        "src": "326:8:15"
                       }
                     ],
-                    "id": 3617,
+                    "id": 6674,
                     "name": "Mapping",
-                    "src": "307:28:11"
+                    "src": "307:28:15"
                   }
                 ],
-                "id": 3618,
+                "id": 6675,
                 "name": "VariableDeclaration",
-                "src": "307:35:11"
+                "src": "307:35:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "eventFinish",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -638,21 +638,21 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 3619,
+                    "id": 6676,
                     "name": "ElementaryTypeName",
-                    "src": "352:4:11"
+                    "src": "352:4:15"
                   }
                 ],
-                "id": 3620,
+                "id": 6677,
                 "name": "VariableDeclaration",
-                "src": "352:16:11"
+                "src": "352:16:15"
               },
               {
                 "attributes": {
                   "constant": false,
                   "mutability": "mutable",
                   "name": "correctAnswer",
-                  "scope": 3623,
+                  "scope": 6680,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint8",
@@ -664,29 +664,29 @@
                       "name": "uint8",
                       "type": "uint8"
                     },
-                    "id": 3621,
+                    "id": 6678,
                     "name": "ElementaryTypeName",
-                    "src": "378:5:11"
+                    "src": "378:5:15"
                   }
                 ],
-                "id": 3622,
+                "id": 6679,
                 "name": "VariableDeclaration",
-                "src": "378:19:11"
+                "src": "378:19:15"
               }
             ],
-            "id": 3623,
+            "id": 6680,
             "name": "StructDefinition",
-            "src": "182:222:11"
+            "src": "182:222:15"
           }
         ],
-        "id": 3624,
+        "id": 6681,
         "name": "ContractDefinition",
-        "src": "73:333:11"
+        "src": "73:333:15"
       }
     ],
-    "id": 3625,
+    "id": 6682,
     "name": "SourceUnit",
-    "src": "32:374:11"
+    "src": "32:374:15"
   },
   "compiler": {
     "name": "solc",
@@ -694,7 +694,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-17T15:28:12.320Z",
+  "updatedAt": "2021-03-22T15:08:23.612Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

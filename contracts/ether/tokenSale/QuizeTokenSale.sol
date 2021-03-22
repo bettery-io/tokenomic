@@ -1,9 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import "../tokens/BTYmain.sol";
+import {BTYmain} from "../tokens/BTYmain.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-contract QuizeTokenSale {
+contract QuizeTokenSale is Initializable {
     address payable owner;
     BTYmain public tokenContract;
     BTYmain public usdttoken;
@@ -12,7 +13,7 @@ contract QuizeTokenSale {
 
     event Sell(address _buyer, uint256 _amount);
 
-    constructor(BTYmain _tokenContract, uint256 _tokenPrice, BTYmain _usdttoken) {
+    function _QuizeTokenSaleInit(BTYmain _tokenContract, uint256 _tokenPrice, BTYmain _usdttoken) public initializer {
         usdttoken = _usdttoken;
         owner = msg.sender;
         tokenContract = _tokenContract;
