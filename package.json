@@ -9,6 +9,7 @@
   "scripts": {
     "migrate:matic:reset": "truffle migrate --network matic --reset -all",
     "migrate:goerli:reset": "truffle migrate --network goerli --reset -all",
+    "migrate:goerli": "truffle migrate --network goerli",
     "test": "truffle test",
     "compile": "truffle compile",
     "build-contracts": "sol-merger \"./contracts/ether/tokensDev/*.sol\" ./contracts/ether/tokens"

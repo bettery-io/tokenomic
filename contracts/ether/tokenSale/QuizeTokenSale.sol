@@ -13,7 +13,7 @@ contract QuizeTokenSale is Initializable {
 
     event Sell(address _buyer, uint256 _amount);
 
-    function _QuizeTokenSaleInit(BTYmain _tokenContract, uint256 _tokenPrice, BTYmain _usdttoken) public initializer {
+    function __QuizeTokenSaleInit(BTYmain _tokenContract, uint256 _tokenPrice, BTYmain _usdttoken) public initializer {
         usdttoken = _usdttoken;
         owner = msg.sender;
         tokenContract = _tokenContract;
@@ -43,5 +43,9 @@ contract QuizeTokenSale is Initializable {
     function updatePrice(uint256 _tokenPrice) public {
         require(msg.sender == owner, "you are not a owner");
         tokenPrice = _tokenPrice;
+    }
+
+    function test() public pure returns(uint){
+        return 42;
     }
 }

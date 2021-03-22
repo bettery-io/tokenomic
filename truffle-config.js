@@ -17,12 +17,10 @@ module.exports = {
     goerli: {
       provider: () => {
         const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
-
         return new HDWalletProvider(mnemonic, config.goerli, 0, 10)
       },
       network_id: config.goerliId,
-      gasPrice: 15000000001,
-      skipDryRun: true
+      gasPrice: 15000000001
     },
     mainMatic: {
       matic: {

@@ -1,3 +1,4 @@
+const { deployProxy } = require('@openzeppelin/truffle-upgrades');
 const BTYmain = artifacts.require("BTYmain.sol");
 const QuizeTokenSale = artifacts.require("QuizeTokenSale.sol");
 const Web3 = require("web3");
@@ -22,8 +23,9 @@ async function deployContract(deployer, USDTAddress, chain_id){
   let decimals = config.decimals;
   let initSupCoins = config.initSupCoinsEtherNet;
   let initialSupplyCoins = web3.utils.toWei(String(initSupCoins), "ether");
-  await deployer.deploy(BTYmain, name, symbol, decimals, initialSupplyCoins, chain_id)
+  await deployProxy(BTYmain, [name, symbol, decimals, initialSupplyCoins, chain_id], { deployer, initializer: '__BTYmainInit' });
+
   // token price 
   let tokenPrice = web3.utils.toWei("0.01", "mwei");
-  return deployer.deploy(QuizeTokenSale, BTYmain.address, tokenPrice, USDTAddress);
+  return await deployProxy(QuizeTokenSale, [BTYmain.address, tokenPrice, USDTAddress], { deployer, initializer: '__QuizeTokenSaleInit' });
 }
