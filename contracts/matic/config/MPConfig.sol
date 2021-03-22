@@ -1,41 +1,82 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract MPConfig {
-    address owner;
-    constructor() {
-        owner = msg.sender;
-    }
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
+contract MPConfig is Initializable {
+    address owner;
     address payable public comMarketFundWallet; // Community Market Fund wallet
     address payable public moderatorsFundWallet; // Moderators Fund wallet
-    uint public developFundPerc = 10; // mint token percent for Development Fund
-    uint public developFundPercPremim = 10; // pay token percent for Developement Fund in Premium events
-    uint public comMarketFundPerc = 5; // 5 if advisor exist or comMarketFundPerc + advisorPercMint + extraHostPercMint = 8 if advisor not exist
-    uint public moderatorsFundPerc = 2; // Moderators Fund percent to pay token
-        // HOST
-    uint public hostPercMint = 10; // mint token percent for host 
-    uint public hostPerc = 4; // pay token percent for host
-    uint public extraHostPerc = 1; // if advisor exist we add extra coins to host
-    uint public extraHostPercMint = 1; // if advisor exist we add extra coins to host in mint token
+    uint256 public developFundPerc; // mint token percent for Development Fund
+    uint256 public developFundPercPremim; // pay token percent for Developement Fund in Premium events
+    uint256 public comMarketFundPerc; // 5 if advisor exist or comMarketFundPerc + advisorPercMint + extraHostPercMint = 8 if advisor not exist
+    uint256 public moderatorsFundPerc; // Moderators Fund percent to pay token
+    // HOST
+    uint256 public hostPercMint; // mint token percent for host
+    uint256 public hostPerc; // pay token percent for host
+    uint256 public extraHostPerc; // if advisor exist we add extra coins to host
+    uint256 public extraHostPercMint; // if advisor exist we add extra coins to host in mint token
     // EXPERT
-    uint public expertPercMint = 10; // mint token percent for expert 
-    uint public expertPerc = 4; // pay token percent for expert 
-    uint public expertExtraPerc = 2; // extra pay token parcent for expert if advisor not exist
-    uint public expertPremiumPerc = 15; // bty percent in premium events for experts
+    uint256 public expertPercMint; // mint token percent for expert
+    uint256 public expertPerc; // pay token percent for expert
+    uint256 public expertExtraPerc; // extra pay token parcent for expert if advisor not exist
+    uint256 public expertPremiumPerc; // bty percent in premium events for experts
     // ADVISORS
-    uint public advisorPercMint = 2; // mint token parcent for advisor 
-    uint public advisorPepc = 1;  // pay token parcent for advisor 
+    uint256 public advisorPercMint; // mint token parcent for advisor
+    uint256 public advisorPepc; // pay token parcent for advisor
 
-    uint public GFindex = 100;
+    uint256 public GFindex;
 
-    function setFundWallet(address payable _CMFWallet, address payable _MFWallet) public {
+    function __MPConfigInit(
+        uint256 _developFundPerc,
+        uint256 _developFundPercPremim,
+        uint256 _comMarketFundPerc,
+        uint256 _moderatorsFundPerc,
+        uint256 _hostPercMint,
+        uint256 _hostPerc,
+        uint256 _extraHostPerc,
+        uint256 _extraHostPercMint,
+        uint256 _expertPercMint,
+        uint256 _expertPerc,
+        uint256 _expertExtraPerc,
+        uint256 _expertPremiumPerc,
+        uint256 _advisorPercMint,
+        uint256 _advisorPepc,
+        uint256 _GFindex
+    ) public initializer {
+        owner = msg.sender;
+        developFundPerc = _developFundPerc;
+        developFundPercPremim = _developFundPercPremim;
+        comMarketFundPerc = _comMarketFundPerc;
+        moderatorsFundPerc = _moderatorsFundPerc;
+        hostPercMint = _hostPercMint;
+        hostPerc = _hostPerc;
+        extraHostPerc = _extraHostPerc;
+        extraHostPercMint = _extraHostPercMint;
+        expertPercMint = _expertPercMint;
+        expertPerc = _expertPerc;
+        expertExtraPerc = _expertExtraPerc;
+        expertPremiumPerc = _expertPremiumPerc;
+        advisorPercMint = _advisorPercMint;
+        advisorPepc = _advisorPepc;
+        GFindex = _GFindex;
+    }
+
+    function setFundWallet(
+        address payable _CMFWallet,
+        address payable _MFWallet
+    ) public {
         require(msg.sender == owner, "owner only");
         comMarketFundWallet = _CMFWallet;
         moderatorsFundWallet = _MFWallet;
     }
 
-    function setFundPerc(uint _dFPerc, uint _dFPPremim, uint _cMFPerc, uint _mFPerc) public {
+    function setFundPerc(
+        uint256 _dFPerc,
+        uint256 _dFPPremim,
+        uint256 _cMFPerc,
+        uint256 _mFPerc
+    ) public {
         require(msg.sender == owner, "owner only");
         developFundPerc = _dFPerc;
         developFundPercPremim = _dFPPremim;
@@ -43,7 +84,12 @@ contract MPConfig {
         moderatorsFundPerc = _mFPerc;
     }
 
-    function setHostPerc(uint _hostPercMint, uint _hostPerc, uint _eHPerc, uint _eHPMint) public {
+    function setHostPerc(
+        uint256 _hostPercMint,
+        uint256 _hostPerc,
+        uint256 _eHPerc,
+        uint256 _eHPMint
+    ) public {
         require(msg.sender == owner, "owner only");
         hostPercMint = _hostPercMint;
         hostPerc = _hostPerc;
@@ -51,7 +97,12 @@ contract MPConfig {
         extraHostPercMint = _eHPMint;
     }
 
-    function setExpertPerc(uint _ePercMint, uint _ePerc, uint _eExtraPerc, uint _ePremPerc) public {
+    function setExpertPerc(
+        uint256 _ePercMint,
+        uint256 _ePerc,
+        uint256 _eExtraPerc,
+        uint256 _ePremPerc
+    ) public {
         require(msg.sender == owner, "owner only");
         expertPercMint = _ePercMint;
         expertPerc = _ePerc;
@@ -59,18 +110,18 @@ contract MPConfig {
         expertPremiumPerc = _ePremPerc;
     }
 
-    function setAdvisorPerc(uint _adPercMint, uint _adPerc) public {
+    function setAdvisorPerc(uint256 _adPercMint, uint256 _adPerc) public {
         require(msg.sender == owner, "owner only");
         advisorPercMint = _adPercMint;
         advisorPepc = _adPerc;
     }
-    
-    function setGFindex(uint _GFindex) public{
+
+    function setGFindex(uint256 _GFindex) public {
         require(msg.sender == owner, "owner only");
         GFindex = _GFindex;
     }
 
-    function getGFindex() public view returns(uint) {
+    function getGFindex() public view returns (uint256) {
         return GFindex;
     }
 }

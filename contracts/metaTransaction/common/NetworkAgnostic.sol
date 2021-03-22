@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import {SafeMath} from "@openzeppelin/contracts/math/SafeMath.sol";
+import {SafeMathUpgradeable} from "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
 import {EIP712Base} from "./EIP712Base.sol";
 
 contract NetworkAgnostic is EIP712Base {
-    using SafeMath for uint256;
+    using SafeMathUpgradeable for uint256;
     bytes32 private constant META_TRANSACTION_TYPEHASH = keccak256(
         bytes(
             "MetaTransaction(uint256 nonce,address from,bytes functionSignature)"
@@ -29,11 +29,13 @@ contract NetworkAgnostic is EIP712Base {
         bytes functionSignature;
     }
 
-    constructor(
+    function __NetworkAgnosticInit(
         string memory name,
         string memory version,
         uint256 chainId
-    ) EIP712Base(name, version, chainId) {}
+    ) public initializer {
+        __EIP712BaseInit(name, version, chainId);
+    }
 
     function executeMetaTransaction(
         address userAddress,

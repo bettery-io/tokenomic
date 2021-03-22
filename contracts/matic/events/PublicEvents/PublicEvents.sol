@@ -8,9 +8,12 @@ import {PubStruct} from "../../struct/PubStruct.sol";
 import {MPStruct} from "../../struct/MPStruct.sol";
 import {MiddlePayment} from "./MiddlePayment.sol";
 
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
+
 contract PublicEvents is
     TimeValidation,
-    PubStruct
+    PubStruct,
+    Initializable
 {
     event calculateExpert(int id, uint activePlayers);
     event findCorrectAnswer(int id);
@@ -25,7 +28,7 @@ contract PublicEvents is
     address MPContract;
     address PPContract;
     
-    constructor(BET _betAddress, BTY _btyAddress){
+    function __PublicEventsInit(BET _betAddress, BTY _btyAddress) public initializer {
         betToken = _betAddress;
         btyToken = _btyAddress;
         owner = msg.sender;

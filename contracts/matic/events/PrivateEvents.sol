@@ -3,13 +3,14 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import {PrivStruct} from "../struct/PrivStruct.sol";
 import {TimeValidation} from "../helpers/TimeValidation.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-contract PrivateEvents is TimeValidation {
+contract PrivateEvents is TimeValidation, Initializable {
     event eventIsFinish(int256 question_id, uint8 correctAnswer);
     mapping(int256 => PrivStruct.EventData) events;
     address owner;
 
-    constructor() {
+    function __PrivateEvents() public initializer {
         owner = msg.sender;
     }
 

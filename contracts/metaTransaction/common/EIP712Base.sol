@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-contract EIP712Base {
+contract EIP712Base is Initializable {
     struct EIP712Domain {
         string name;
         string version;
@@ -16,11 +17,11 @@ contract EIP712Base {
     );
     bytes32 internal domainSeperator;
 
-    constructor(
+    function __EIP712BaseInit(
         string memory name,
         string memory version,
         uint256 _chainId
-    ) {
+    ) public initializer {
         domainSeperator = keccak256(
             abi.encode(
                 EIP712_DOMAIN_TYPEHASH,

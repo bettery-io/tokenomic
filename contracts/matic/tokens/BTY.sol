@@ -1,28 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import {BET} from "./BET.sol";
 import {MetaTransactLib} from "../../metaTransaction/MetaTransactLib.sol";
 import {ConfigVariables} from "../config/ConfigVariables.sol";
 
-contract BTY is ERC20, MetaTransactLib, ConfigVariables {
+contract BTY is ERC20Upgradeable, MetaTransactLib, ConfigVariables {
     BET private betToken;
 
     address public childChainManagerProxy;
     mapping(address => bool) public wallets;
 
-    constructor(
+    function __BTYinit(
         string memory _name,
         string memory _symbol,
         uint8 _decimals,
         BET _betAddress,
         address _childChainManagerProxy,
         uint _network_id
-    ) ERC20(_name, _symbol) MetaTransactLib("BTY_token", "1", _network_id) {
+    ) public initializer {
+        __ERC20_init(_name, _symbol);
+        _setupDecimals(_decimals);
+        __MetaTransactLibInit("BTY_token", "1", _network_id);
         betToken = _betAddress;
         childChainManagerProxy = _childChainManagerProxy;
-        _setupDecimals(_decimals);
     }
 
     function swipe(uint256 _amount) public {

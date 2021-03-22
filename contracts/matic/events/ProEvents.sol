@@ -5,15 +5,19 @@ import {ProStruct} from "../struct/ProStruct.sol";
 import {TimeValidation} from "../helpers/TimeValidation.sol";
 import {BET} from "../tokens/BET.sol";
 import {BTY} from "../tokens/BTY.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-contract ProEvents is TimeValidation {
+contract ProEvents is TimeValidation, Initializable {
     BET private betToken;
     BTY private btyToken;
     address owner;
 
     mapping(int256 => ProStruct.EventData) events;
 
-    constructor(BET _betAddress, BTY _btyAddress) {
+    function __ProEventsInit(BET _betAddress, BTY _btyAddress)
+        public
+        initializer
+    {
         betToken = _betAddress;
         btyToken = _btyAddress;
         owner = msg.sender;
@@ -71,10 +75,7 @@ contract ProEvents is TimeValidation {
         events[_id].player[_whichAnswer].push(player);
         events[_id].allPlayers[_playerWallet] = true;
         events[_id].activePlayers += 1;
-
     }
 
     //TODO add event finish logic
-
-
 }

@@ -1,12 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract MPStruct {
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
+
+contract MPStruct is Initializable {
     address ownerAddr;
     address PEContract;
     address PPContract;
 
-    constructor() {
+    function __MPStructInit() public initializer {
         ownerAddr = msg.sender;
     }
 

@@ -1,16 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract ConfigVariables {
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-    uint public firstWithdrawIndex = 10; 
-    uint public GFrewards = 100000000000000000000;
-    uint public welcomeBTYTokens = 10000000000000000000;
+contract ConfigVariables is Initializable {
+
+    uint public firstWithdrawIndex; 
+    uint public GFrewards;
+    uint public welcomeBTYTokens;
     address payable public owner; // Bettery Development Fund wallet
 
 
-    constructor() {
+    function __ConfigVariables(
+        uint _firstWithdrawIndex,
+        uint _GFrewards,
+        uint _welcomeBTYTokens
+        ) public initializer {
         owner = msg.sender;
+        firstWithdrawIndex = _firstWithdrawIndex;
+        GFrewards = _GFrewards;
+        welcomeBTYTokens = _welcomeBTYTokens;
     }
 
     modifier ownerOnly() {

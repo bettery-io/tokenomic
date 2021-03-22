@@ -13,9 +13,8 @@ contract PlayerPayment is Libs, PPConfig {
     MPStruct mpData;
     PubStruct eventsData;
     PublicEvents PublicAddr;
-    uint x = 1000000000000000000;
 
-    constructor(PublicEvents _addr, address _mpAddr) {
+    function __PlayerPaymentInit(PublicEvents _addr, address _mpAddr) public initializer {
         PublicAddr = _addr;
         eventsData = PubStruct(_addr);
         mpData = MPStruct(_mpAddr);

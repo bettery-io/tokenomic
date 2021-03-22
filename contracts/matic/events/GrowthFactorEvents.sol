@@ -3,14 +3,15 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import {GFStruct} from "../struct/GFStruct.sol";
 import {TimeValidation} from "../helpers/TimeValidation.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol";
 
-contract GrowthFactorEvents is TimeValidation {
+contract GrowthFactorEvents is TimeValidation, Initializable {
 
     mapping(int256 => GFStruct.EventData) events;
     event GFIsFinish(int256 _id, uint8 correctAnswer);
     address owner;
 
-    constructor(){
+    function __GrowthFactorEventsInit() public initializer{
         owner = msg.sender;
     }
 
