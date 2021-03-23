@@ -45,7 +45,7 @@ contract QuizeTokenSale is Initializable {
         tokenPrice = _tokenPrice;
     }
 
-    function test() public pure returns(uint){
-        return 42;
+    function test3() public pure returns(uint){
+        return 10 + 10;
     }
 }

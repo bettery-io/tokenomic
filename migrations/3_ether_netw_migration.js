@@ -7,10 +7,10 @@ const networkConfig = require("../config/networks");
 
 
 module.exports = async (deployer, network) => {
-  if (network === 'goerli') {
+  if (network === 'goerli' && process.env.NODE_ENV === "deploy") {
     let usdtAddress = '0xFCf9F99D135D8a78ab60CC59CcCF3108E813bA35'
     await deployContract(deployer, usdtAddress, networkConfig.goerliId)
-  } else if(network === "mainnet") {
+  } else if(network === "mainnet" && process.env.NODE_ENV === "deploy") {
     let usdtAddress = '0xdac17f958d2ee523a2206206994597c13d831ec7'
     await deployContract(deployer, usdtAddress, networkConfig.etherMainId)
   }

@@ -2,8 +2,8 @@
   "manifestVersion": "3.1",
   "impls": {
     "c8d55eb579bcfecb7bcf777c1ffe5b3e3d649d9f746e4636cb41b09c27f5ee17": {
-      "address": "0x0659f269958A1e7197B7650faC0E5124c80B7B31",
-      "txHash": "0xf59de4c77c6cf8d675f2e5a62cc294d5b2e41b19893efd843f12b8824c3217ba",
+      "address": "0xba806405321A7CF14C9EA3e3B4a1c6d0db4f79F7",
+      "txHash": "0xef152533f0d8ead895c34b1130bf064899886835e981ebbe727c9b2c21dd5c1f",
       "layout": {
         "storage": [
           {
@@ -69,7 +69,7 @@
           {
             "contract": "AccessControlUpgradeable",
             "label": "_roles",
-            "type": "t_mapping(t_bytes32,t_struct(RoleData)7904_storage)",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)7896_storage)",
             "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
           },
           {
@@ -110,15 +110,15 @@
           "t_bytes32": {
             "label": "bytes32"
           },
-          "t_mapping(t_bytes32,t_struct(RoleData)7904_storage)": {
+          "t_mapping(t_bytes32,t_struct(RoleData)7896_storage)": {
             "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
           },
-          "t_struct(RoleData)7904_storage": {
+          "t_struct(RoleData)7896_storage": {
             "label": "struct AccessControlUpgradeable.RoleData",
             "members": [
               {
                 "label": "members",
-                "type": "t_struct(AddressSet)9766_storage"
+                "type": "t_struct(AddressSet)9758_storage"
               },
               {
                 "label": "adminRole",
@@ -126,16 +126,16 @@
               }
             ]
           },
-          "t_struct(AddressSet)9766_storage": {
+          "t_struct(AddressSet)9758_storage": {
             "label": "struct EnumerableSetUpgradeable.AddressSet",
             "members": [
               {
                 "label": "_inner",
-                "type": "t_struct(Set)9501_storage"
+                "type": "t_struct(Set)9493_storage"
               }
             ]
           },
-          "t_struct(Set)9501_storage": {
+          "t_struct(Set)9493_storage": {
             "label": "struct EnumerableSetUpgradeable.Set",
             "members": [
               {
@@ -178,9 +178,9 @@
         }
       }
     },
-    "d470c9a69699e4bd8e938767b3536ad7fd5a2307f6cb0a419e1628bc417ad9ae": {
-      "address": "0x6a71F2a3c9f4D89047bEEcB86e22Ac43fB6c9B61",
-      "txHash": "0xa0460e107c2275e82eaedc3b9a45f03fe6bb305a3563cbb3c443b622160c2a28",
+    "04cd2d5e9c1414a12062ba36a166b9dfd6e518c36f35e03c8830def34a57cdeb": {
+      "address": "0x023CD13ed092aAfa9bA8822E4228B4124b73951e",
+      "txHash": "0xe22f7350b0618e7933dd4127bf48a5353e85b40276b4e321eab0718ab6422912",
       "layout": {
         "storage": [
           {
@@ -204,13 +204,13 @@
           {
             "contract": "QuizeTokenSale",
             "label": "tokenContract",
-            "type": "t_contract(BTYmain)2774",
+            "type": "t_contract(BTYmain)2766",
             "src": "ether/tokenSale/QuizeTokenSale.sol:9"
           },
           {
             "contract": "QuizeTokenSale",
             "label": "usdttoken",
-            "type": "t_contract(BTYmain)2774",
+            "type": "t_contract(BTYmain)2766",
             "src": "ether/tokenSale/QuizeTokenSale.sol:10"
           },
           {
@@ -230,7 +230,135 @@
           "t_address_payable": {
             "label": "address payable"
           },
-          "t_contract(BTYmain)2774": {
+          "t_contract(BTYmain)2766": {
+            "label": "contract BTYmain"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "ea58e7a40636279f49b7719ae385997b610826fb9700fa94e2f6db393e3c253f": {
+      "address": "0x0f8Ba2E38104deB0cF7606931e10B89EB55DEfb6",
+      "txHash": "0x93ec14f122f4e3c9ebfb565bba34c04826b61391ec4ee41b0655cfeef9da22f5",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "owner",
+            "type": "t_address_payable",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:8"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "tokenContract",
+            "type": "t_contract(BTYmain)2776",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:9"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "usdttoken",
+            "type": "t_contract(BTYmain)2776",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:10"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "tokenPrice",
+            "type": "t_uint256",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:11"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "tokensSold",
+            "type": "t_uint256",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:12"
+          }
+        ],
+        "types": {
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_contract(BTYmain)2776": {
+            "label": "contract BTYmain"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          }
+        }
+      }
+    },
+    "25e988c89c8498cb1f4754aec21ec339f64733cbd47a43ff8ac294c69f042a8e": {
+      "address": "0x731C5dbd770fd9278A383508EbbE913eFdeD0912",
+      "txHash": "0x59a97da74365dbbc0c1f16e7f66e19c29e72bb5b9f4f7d8af63082848126998a",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "owner",
+            "type": "t_address_payable",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:8"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "tokenContract",
+            "type": "t_contract(BTYmain)2776",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:9"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "usdttoken",
+            "type": "t_contract(BTYmain)2776",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:10"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "tokenPrice",
+            "type": "t_uint256",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:11"
+          },
+          {
+            "contract": "QuizeTokenSale",
+            "label": "tokensSold",
+            "type": "t_uint256",
+            "src": "ether/tokenSale/QuizeTokenSale.sol:12"
+          }
+        ],
+        "types": {
+          "t_address_payable": {
+            "label": "address payable"
+          },
+          "t_contract(BTYmain)2776": {
             "label": "contract BTYmain"
           },
           "t_uint256": {
@@ -244,7 +372,7 @@
     }
   },
   "admin": {
-    "address": "0x92646b7493dE85FcA02c9A9B3AA49B8Bc32Efd1E",
-    "txHash": "0x926d0acb5d9ba0dd639d64c09c0ec5014f460d157e33688a1ecdda9e75ad9b3e"
+    "address": "0x8b4D9bFEB78aED2082a04A18690502b1343bF189",
+    "txHash": "0xb36d4a9848a9b19bfd7a37fe41d65aec8f29288ebd799fcbb7f817ce4165e0e5"
   }
 }

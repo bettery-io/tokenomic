@@ -23,17 +23,16 @@ module.exports = {
       gasPrice: 15000000001
     },
     mainMatic: {
-      matic: {
-        provider: () => {
-          const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
-          return new HDWalletProvider(mnemonic, config.maticMain)
-        },
-        network_id: config.maticMainId,
-        gasPrice: 0,
-        confirmations: 2,
-        timeoutBlocks: 200,
-        skipDryRun: true
+      provider: () => {
+        const mnemonic = readFileSync(path.join(__dirname, './keys/goerli_mnemonic'), 'utf-8')
+        return new HDWalletProvider(mnemonic, config.maticMain)
       },
+      network_id: config.maticMainId,
+      gasPrice: 0,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+
     },
     matic: {
       provider: () => {
