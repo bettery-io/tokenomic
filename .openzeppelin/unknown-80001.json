@@ -1065,6 +1065,225 @@
           }
         }
       }
+    },
+    "44d6e0b1e03caaed201d050e5c439919c01e0c429852897d43062556ed8d4b24": {
+      "address": "0xBEe9e98fCB026F0C703c9a94536372135cc8555b",
+      "txHash": "0xdfab0d4f70e09f1cbbb95060142408fe6dbb87cfec2367a75aa0755bf9a31563",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "owner",
+            "type": "t_address",
+            "src": "matic/config/MPConfig.sol:7"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "comMarketFundWallet",
+            "type": "t_address_payable",
+            "src": "matic/config/MPConfig.sol:8"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "moderatorsFundWallet",
+            "type": "t_address_payable",
+            "src": "matic/config/MPConfig.sol:9"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "developFundPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:10"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "developFundPercPremim",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:11"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "comMarketFundPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:12"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "moderatorsFundPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:13"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "hostPercMint",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:15"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "hostPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:16"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "extraHostPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:17"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "extraHostPercMint",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:18"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "expertPercMint",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:20"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "expertPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:21"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "expertExtraPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:22"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "expertPremiumPerc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:23"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "advisorPercMint",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:25"
+          },
+          {
+            "contract": "MPConfig",
+            "label": "advisorPepc",
+            "type": "t_uint256",
+            "src": "matic/config/MPConfig.sol:26"
+          },
+          {
+            "contract": "MPStruct",
+            "label": "ownerAddr",
+            "type": "t_address",
+            "src": "matic/struct/MPStruct.sol:7"
+          },
+          {
+            "contract": "MPStruct",
+            "label": "PEContract",
+            "type": "t_address",
+            "src": "matic/struct/MPStruct.sol:8"
+          },
+          {
+            "contract": "MPStruct",
+            "label": "PPContract",
+            "type": "t_address",
+            "src": "matic/struct/MPStruct.sol:9"
+          },
+          {
+            "contract": "MPStruct",
+            "label": "MPData",
+            "type": "t_mapping(t_int256,t_struct(MiddlePaymentStruct)6683_storage)",
+            "src": "matic/struct/MPStruct.sol:24"
+          },
+          {
+            "contract": "MiddlePayment",
+            "label": "eventsData",
+            "type": "t_contract(PubStruct)7149",
+            "src": "matic/events/PublicEvents/MiddlePayment.sol:10"
+          },
+          {
+            "contract": "MiddlePayment",
+            "label": "PublicAddr",
+            "type": "t_contract(PublicEvents)6555",
+            "src": "matic/events/PublicEvents/MiddlePayment.sol:11"
+          },
+          {
+            "contract": "MiddlePayment",
+            "label": "pubAddr",
+            "type": "t_address",
+            "src": "matic/events/PublicEvents/MiddlePayment.sol:12"
+          }
+        ],
+        "types": {
+          "t_contract(PubStruct)7149": {
+            "label": "contract PubStruct"
+          },
+          "t_contract(PublicEvents)6555": {
+            "label": "contract PublicEvents"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_mapping(t_int256,t_struct(MiddlePaymentStruct)6683_storage)": {
+            "label": "mapping(int256 => struct MPStruct.MiddlePaymentStruct)"
+          },
+          "t_int256": {
+            "label": "int256"
+          },
+          "t_struct(MiddlePaymentStruct)6683_storage": {
+            "label": "struct MPStruct.MiddlePaymentStruct",
+            "members": [
+              {
+                "label": "id",
+                "type": "t_int256"
+              },
+              {
+                "label": "correctAnswer",
+                "type": "t_uint256"
+              },
+              {
+                "label": "loserPool",
+                "type": "t_uint256"
+              },
+              {
+                "label": "tokenMinted",
+                "type": "t_uint256"
+              },
+              {
+                "label": "reverted",
+                "type": "t_bool"
+              },
+              {
+                "label": "eventFinish",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_address_payable": {
+            "label": "address payable"
+          }
+        }
+      }
     }
   },
   "admin": {

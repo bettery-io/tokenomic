@@ -19,6 +19,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
 
     function __MiddlePaymentInit( PublicEvents _addr ) public initializer {
         __MPStructInit();
+        __MPConfig();
         PublicAddr = _addr;
         pubAddr = address(_addr);
         eventsData = PubStruct(_addr);

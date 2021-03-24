@@ -19,14 +19,16 @@ const setConfiguration = async () => {
 const setBetConfig = async (from) => {
     try {
         let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
+        console.log(networkId);
         let contr = await contract.init(from, BET);
         let publicEventsAddr = PublicEvents.networks[networkId].address;
         let btyAddr = BTY.networks[networkId].address;
         let gasEstimate = await contr.methods.setConfigContract(publicEventsAddr, btyAddr).estimateGas();
-        await contract.methods.setConfigContract(publicEventsAddr, btyAddr).send({
+        let tx = await contr.methods.setConfigContract(publicEventsAddr, btyAddr).send({
             gas: gasEstimate,
             gasPrice: 0
         });
+        console.log(tx);
     } catch (err) {
         console.log("from setBetConfig: ", err)
     }
@@ -39,10 +41,11 @@ const setPublicConfig = async (from) => {
         let MPAddr = MiddlePayment.networks[networkId].address;
         let PPAddr = PlayerPayment.networks[networkId].address;
         let gasEstimate = await contr.methods.setAddresses(MPAddr, PPAddr).estimateGas();
-        await contract.methods.setAddresses(MPAddr, PPAddr).send({
+        let tx = await contr.methods.setAddresses(MPAddr, PPAddr).send({
             gas: gasEstimate,
             gasPrice: 0
         });
+        console.log(tx);
     } catch (err) {
         console.log("from setPublicConfig: ", err)
     }
@@ -55,11 +58,12 @@ const setMiddlePaymentConfig = async (from) => {
         let PEAddr = PublicEvents.networks[networkId].address;
         let PPAddr = PlayerPayment.networks[networkId].address;
         let gasEstimate = await contr.methods.setAddresses(PEAddr, PPAddr).estimateGas();
-        await contract.methods.setAddresses(PEAddr, PPAddr).send({
+        let tx = await contr.methods.setAddresses(PEAddr, PPAddr).send({
             gas: gasEstimate,
             gasPrice: 0
         });
-    }catch (err) {
+        console.log(tx);
+    } catch (err) {
         console.log("from setMiddlePaymentConfig setAddresses: ", err)
     }
 
@@ -67,11 +71,12 @@ const setMiddlePaymentConfig = async (from) => {
         let advisorPercMint = mpConfig.advisorPercMint;
         let advisorPepc = mpConfig.advisorPepc;
         let gasEstimate = await contr.methods.setAdvisorPerc(advisorPercMint, advisorPepc).estimateGas();
-        await contract.methods.setAdvisorPerc(advisorPercMint, advisorPepc).send({
+        let tx = await contr.methods.setAdvisorPerc(advisorPercMint, advisorPepc).send({
             gas: gasEstimate,
             gasPrice: 0
         });
-    }catch (err) {
+        console.log(tx);
+    } catch (err) {
         console.log("from setAdvisorPerc setAddresses: ", err)
     }
 
@@ -81,11 +86,12 @@ const setMiddlePaymentConfig = async (from) => {
         let expertExtraPerc = mpConfig.expertExtraPerc;
         let expertPremiumPerc = mpConfig.expertPremiumPerc;
         let gasEstimate = await contr.methods.setExpertPerc(expertPercMint, expertPerc, expertExtraPerc, expertPremiumPerc).estimateGas();
-        await contract.methods.setExpertPerc(expertPercMint, expertPerc, expertExtraPerc, expertPremiumPerc).send({
+        let tx = await contr.methods.setExpertPerc(expertPercMint, expertPerc, expertExtraPerc, expertPremiumPerc).send({
             gas: gasEstimate,
             gasPrice: 0
         });
-    }catch (err) {
+        console.log(tx);
+    } catch (err) {
         console.log("from setMiddlePaymentConfig setExpertPerc: ", err)
     }
 
@@ -95,11 +101,12 @@ const setMiddlePaymentConfig = async (from) => {
         let extraHostPerc = mpConfig.extraHostPerc;
         let extraHostPercMint = mpConfig.extraHostPercMint;
         let gasEstimate = await contr.methods.setHostPerc(hostPercMint, hostPerc, extraHostPerc, extraHostPercMint).estimateGas();
-        await contract.methods.setHostPerc(hostPercMint, hostPerc, extraHostPerc, extraHostPercMint).send({
+        let tx = await contr.methods.setHostPerc(hostPercMint, hostPerc, extraHostPerc, extraHostPercMint).send({
             gas: gasEstimate,
             gasPrice: 0
         });
-    }catch (err) {
+        console.log(tx);
+    } catch (err) {
         console.log("from setMiddlePaymentConfig setHostPerc: ", err)
     }
 
@@ -109,11 +116,12 @@ const setMiddlePaymentConfig = async (from) => {
         let comMarketFundPerc = mpConfig.comMarketFundPerc;
         let moderatorsFundPerc = mpConfig.moderatorsFundPerc;
         let gasEstimate = await contr.methods.setFundPerc(developFundPerc, developFundPercPremim, comMarketFundPerc, moderatorsFundPerc).estimateGas();
-        await contract.methods.setFundPerc(developFundPerc, developFundPercPremim, comMarketFundPerc, moderatorsFundPerc).send({
+        let tx = await contr.methods.setFundPerc(developFundPerc, developFundPercPremim, comMarketFundPerc, moderatorsFundPerc).send({
             gas: gasEstimate,
             gasPrice: 0
         });
-    }catch (err) {
+        console.log(tx);
+    } catch (err) {
         console.log("from setMiddlePaymentConfig setFundPerc: ", err)
     }
 
@@ -121,17 +129,15 @@ const setMiddlePaymentConfig = async (from) => {
         let comMarketFundAddr = mpConfig.comMarketFundAddr;
         let moderatorsFundAddr = mpConfig.moderatorsFundAddr;
         let gasEstimate = await contr.methods.setFundWallet(comMarketFundAddr, moderatorsFundAddr).estimateGas();
-        await contract.methods.setFundWallet(comMarketFundAddr, moderatorsFundAddr).send({
+        let tx = await contr.methods.setFundWallet(comMarketFundAddr, moderatorsFundAddr).send({
             gas: gasEstimate,
             gasPrice: 0
         });
-    }catch (err) {
+        console.log(tx);
+    } catch (err) {
         console.log("from setMiddlePaymentConfig setFundWallet: ", err)
     }
 }
 
 
-
-module.exports = {
-    setConfiguration
-}
+setConfiguration();

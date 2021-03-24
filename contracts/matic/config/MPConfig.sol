@@ -25,6 +25,10 @@ contract MPConfig is Initializable {
     uint256 public advisorPercMint; // mint token parcent for advisor
     uint256 public advisorPepc; // pay token parcent for advisor
 
+    function __MPConfig() public initializer{
+        owner = msg.sender;
+    }
+
     function setFundWallet(
         address payable _CMFWallet,
         address payable _MFWallet
