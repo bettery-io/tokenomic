@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "migrate:matic": "NODE_ENV=deploy truffle migrate --network matic -all",
+    "migrate:matic": "truffle compile --all && NODE_ENV=deploy truffle migrate --network matic --reset",
     "migrate:goerli": "NODE_ENV=deploy truffle migrate --network goerli compile --reset",
     "migrate:goerli_update": "truffle compile --all && NODE_ENV=update truffle migrate --network goerli --reset",
     "test": "truffle test",

@@ -1,6 +1,6 @@
-let maticMumbai = "https://rpc-mumbai.matic.today",
+let maticMumbai = "wss://ws-mumbai.matic.today",
     maticMumbaiId = 80001,
-    maticMain = "https://rpc-mainnet.matic.network",
+    maticMain = "wss://ws-mainnet.matic.network",
     maticMainId = 137,
     goerli = "wss://goerli.infura.io/ws/v3/2b5ec85db4a74c8d8ed304ff2398690d",
     goerliId = 5,

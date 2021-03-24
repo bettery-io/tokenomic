@@ -18,10 +18,10 @@ module.exports = async function (deployer, network) {
   if (network === 'matic' || network === "development") {
     let chain_id;
     let ChildChainManagerProxy;
-    if (network === 'matic' || network === "development") {
+    if ((network === 'matic' || network === "development") && process.env.NODE_ENV == "deploy") {
       chain_id = networkConfig.maticMumbaiId;
       ChildChainManagerProxy = maticNetwork.child.ChildChainManagerProxy
-    } else if (network === "mainMatic") {
+    } else if (network === "mainMatic" && process.env.NODE_ENV == "deploy") {
       chain_id = networkConfig.maticMainId;
       ChildChainManagerProxy = "" // TODO add CHILDCHAIN
     }
