@@ -10,16 +10,20 @@ contract ConfigVariables is Initializable {
     uint public welcomeBTYTokens;
     address payable public owner; // Bettery Development Fund wallet
 
+    uint public GFindex;
+
 
     function __ConfigVariables(
         uint _firstWithdrawIndex,
         uint _GFrewards,
-        uint _welcomeBTYTokens
+        uint _welcomeBTYTokens,
+        uint _GFindex
         ) public initializer {
         owner = msg.sender;
         firstWithdrawIndex = _firstWithdrawIndex;
         GFrewards = _GFrewards;
         welcomeBTYTokens = _welcomeBTYTokens;
+        GFindex = _GFindex;
     }
 
     modifier ownerOnly() {
@@ -44,5 +48,13 @@ contract ConfigVariables is Initializable {
 
     function getFirstWithdraw() public view returns (uint) {
         return welcomeBTYTokens * firstWithdrawIndex;
+    }
+
+    function setGFindex(uint256 _GFindex) public ownerOnly() {
+        GFindex = _GFindex;
+    }
+
+    function getGFindex() public view returns (uint256) {
+        return GFindex;
     }
 }

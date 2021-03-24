@@ -17,7 +17,8 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
     event payToPlayers(int id);
     event revertedEvent(int id, string purpose);
 
-    function __MiddlePaymentInit(PublicEvents _addr) public initializer {
+    function __MiddlePaymentInit( PublicEvents _addr ) public initializer {
+        __MPStructInit();
         PublicAddr = _addr;
         pubAddr = address(_addr);
         eventsData = PubStruct(_addr);
@@ -61,7 +62,7 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
             // calculate minted tokens
             uint tokens =
                 calcMintedTokens(
-                    GFindex,
+                    PublicAddr.getGF(),
                     _id,
                     eventsData
                 );

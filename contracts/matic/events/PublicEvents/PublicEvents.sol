@@ -19,7 +19,7 @@ contract PublicEvents is
     event findCorrectAnswer(int id);
     event revertedEvent(int id, string purpose);
 
-    uint minBet = 10000000000000000;
+    uint minBet;
     BET public betToken;
     BTY public btyToken;
     MPStruct mpData;
@@ -28,10 +28,11 @@ contract PublicEvents is
     address MPContract;
     address PPContract;
     
-    function __PublicEventsInit(BET _betAddress, BTY _btyAddress) public initializer {
+    function __PublicEventsInit(BET _betAddress, BTY _btyAddress, uint _minBet) public initializer {
         betToken = _betAddress;
         btyToken = _btyAddress;
         owner = msg.sender;
+        minBet = _minBet;
     }
 
     function setAddresses(address _mpaddr, address _ppaddr) public {
@@ -169,6 +170,10 @@ contract PublicEvents is
         require( msg.sender == MPContract || msg.sender == PPContract, "owner only");
         require(btyToken.transfer(_addr, _amount),"mint err");
         return true;
+    }
+
+    function getGF() public view returns(uint) {
+        return betToken.getGFindex();
     }
 
 }

@@ -4,10 +4,10 @@ pragma solidity >=0.4.22 <0.9.0;
 import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import {BET} from "./BET.sol";
 import {MetaTransactLib} from "../../metaTransaction/MetaTransactLib.sol";
-import {ConfigVariables} from "../config/ConfigVariables.sol";
 
-contract BTY is ERC20Upgradeable, MetaTransactLib, ConfigVariables {
+contract BTY is ERC20Upgradeable, MetaTransactLib {
     BET private betToken;
+    address owner;
 
     address public childChainManagerProxy;
     mapping(address => bool) public wallets;
@@ -25,6 +25,7 @@ contract BTY is ERC20Upgradeable, MetaTransactLib, ConfigVariables {
         __MetaTransactLibInit("BTY_token", "1", _network_id);
         betToken = _betAddress;
         childChainManagerProxy = _childChainManagerProxy;
+        owner = msg.sender;
     }
 
     function swipe(uint256 _amount) public {
@@ -38,12 +39,12 @@ contract BTY is ERC20Upgradeable, MetaTransactLib, ConfigVariables {
 
     function updateChildChainManager(address newChildChainManagerProxy)
         external
-        ownerOnly()
     {
         require(
             newChildChainManagerProxy != address(0),
             "Bad ChildChainManagerProxy address"
         );
+        require(msg.sender == owner, "owner only");
         childChainManagerProxy = newChildChainManagerProxy;
     }
 
@@ -61,7 +62,7 @@ contract BTY is ERC20Upgradeable, MetaTransactLib, ConfigVariables {
         if (wallets[msgSender()]) {
             _burn(msgSender(), amount);
         } else {
-            require(amount >= getFirstWithdraw(), "do not have enough tokens for first withdraw");
+            require(amount >= betToken.getFirstWithdraw(), "do not have enough tokens for first withdraw");
             wallets[msgSender()] = true;
             _burn(msgSender(), amount);
         }

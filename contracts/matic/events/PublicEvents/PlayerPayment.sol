@@ -14,7 +14,26 @@ contract PlayerPayment is Libs, PPConfig {
     PubStruct eventsData;
     PublicEvents PublicAddr;
 
-    function __PlayerPaymentInit(PublicEvents _addr, address _mpAddr) public initializer {
+    function __PlayerPaymentInit(
+        PublicEvents _addr, 
+        address _mpAddr,
+        uint256 _playersPersMint,
+        uint256 _playersPers,
+        uint256 _playersPersPremiun,
+        uint256 _firstRefer,
+        uint256 _secontRefer,
+        uint256 _thirdRefer,
+        address _fakeAddr
+        ) public initializer {
+        __PPConfigInit(
+            _playersPersMint,
+            _playersPers,
+            _playersPersPremiun,
+            _firstRefer,
+            _secontRefer,
+            _thirdRefer,
+            _fakeAddr
+        ); 
         PublicAddr = _addr;
         eventsData = PubStruct(_addr);
         mpData = MPStruct(_mpAddr);

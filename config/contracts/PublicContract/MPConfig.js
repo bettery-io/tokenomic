@@ -1,3 +1,4 @@
+//Comapny 
 let developFundPerc = 10; // mint token percent for Development Fund
 let developFundPercPremim = 10; // pay token percent for Developement Fund in Premium events
 let comMarketFundPerc = 5; // 5 if advisor exist or comMarketFundPerc + advisorPercMint + extraHostPercMint = 8 if advisor not exist
@@ -15,8 +16,10 @@ let expertPremiumPerc = 15; // bty percent in premium events for experts
 // ADVISORS
 let advisorPercMint = 2; // mint token parcent for advisor
 let advisorPepc = 1; // pay token parcent for advisor
+//Company addresses
+let comMarketFundAddr = "0x6f37EBfbbc32238b479de419A4fa477957f2f02d";
+let moderatorsFundAddr = "0x3C7492FeDbd8b0D666fc42c907037F18c4e72B01";
 
-let GFindex = 100;
 
 module.exports = {
     developFundPerc,
@@ -33,5 +36,6 @@ module.exports = {
     expertPremiumPerc,
     advisorPercMint,
     advisorPepc,
-    GFindex
+    comMarketFundAddr,
+    moderatorsFundAddr
 }

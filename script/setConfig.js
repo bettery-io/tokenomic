@@ -1,14 +1,135 @@
 const BTY = require("../build/contracts/BTY.json");
 const BET = require("../build/contracts/BET.json");
-const PrivateEvents = require("../build/contracts/PrivateEvents.json");
 const PublicEvents = require("../build/contracts/PublicEvents.json");
-const ProEvents = require("../build/contracts/ProEvents.json");
-const GFEvents = require("../build/contracts/GrowthFactorEvents.json");
-const contrac = require("./contractInit");
+const MiddlePayment = require("../build/contracts/MiddlePayment.json");
+const PlayerPayment = require("../build/contracts/PlayerPayment.json");
 
-let setConfiguration = () =>{
-   // TODO
+const contract = require("./contractInit");
+const mpConfig = require("../config/contracts/PublicContract/MPConfig");
+const networkConfig = require("../config/networks");
+
+const setConfiguration = async () => {
+    let prodaction = "test"; // TODO switch to the prodaction
+    await setBetConfig(prodaction);
+    await setPublicConfig(prodaction);
+    await setMiddlePaymentConfig(prodaction);
+    console.log("FINISH");
 }
+
+const setBetConfig = async (from) => {
+    try {
+        let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
+        let contr = await contract.init(from, BET);
+        let publicEventsAddr = PublicEvents.networks[networkId].address;
+        let btyAddr = BTY.networks[networkId].address;
+        let gasEstimate = await contr.methods.setConfigContract(publicEventsAddr, btyAddr).estimateGas();
+        await contract.methods.setConfigContract(publicEventsAddr, btyAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    } catch (err) {
+        console.log("from setBetConfig: ", err)
+    }
+}
+
+const setPublicConfig = async (from) => {
+    try {
+        let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
+        let contr = await contract.init(from, PublicEvents);
+        let MPAddr = MiddlePayment.networks[networkId].address;
+        let PPAddr = PlayerPayment.networks[networkId].address;
+        let gasEstimate = await contr.methods.setAddresses(MPAddr, PPAddr).estimateGas();
+        await contract.methods.setAddresses(MPAddr, PPAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    } catch (err) {
+        console.log("from setPublicConfig: ", err)
+    }
+}
+
+const setMiddlePaymentConfig = async (from) => {
+    let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
+    let contr = await contract.init(from, MiddlePayment);
+    try {
+        let PEAddr = PublicEvents.networks[networkId].address;
+        let PPAddr = PlayerPayment.networks[networkId].address;
+        let gasEstimate = await contr.methods.setAddresses(PEAddr, PPAddr).estimateGas();
+        await contract.methods.setAddresses(PEAddr, PPAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    }catch (err) {
+        console.log("from setMiddlePaymentConfig setAddresses: ", err)
+    }
+
+    try {
+        let advisorPercMint = mpConfig.advisorPercMint;
+        let advisorPepc = mpConfig.advisorPepc;
+        let gasEstimate = await contr.methods.setAdvisorPerc(advisorPercMint, advisorPepc).estimateGas();
+        await contract.methods.setAdvisorPerc(advisorPercMint, advisorPepc).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    }catch (err) {
+        console.log("from setAdvisorPerc setAddresses: ", err)
+    }
+
+    try {
+        let expertPercMint = mpConfig.expertPercMint;
+        let expertPerc = mpConfig.expertPerc;
+        let expertExtraPerc = mpConfig.expertExtraPerc;
+        let expertPremiumPerc = mpConfig.expertPremiumPerc;
+        let gasEstimate = await contr.methods.setExpertPerc(expertPercMint, expertPerc, expertExtraPerc, expertPremiumPerc).estimateGas();
+        await contract.methods.setExpertPerc(expertPercMint, expertPerc, expertExtraPerc, expertPremiumPerc).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    }catch (err) {
+        console.log("from setMiddlePaymentConfig setExpertPerc: ", err)
+    }
+
+    try {
+        let hostPercMint = mpConfig.hostPercMint;
+        let hostPerc = mpConfig.hostPerc;
+        let extraHostPerc = mpConfig.extraHostPerc;
+        let extraHostPercMint = mpConfig.extraHostPercMint;
+        let gasEstimate = await contr.methods.setHostPerc(hostPercMint, hostPerc, extraHostPerc, extraHostPercMint).estimateGas();
+        await contract.methods.setHostPerc(hostPercMint, hostPerc, extraHostPerc, extraHostPercMint).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    }catch (err) {
+        console.log("from setMiddlePaymentConfig setHostPerc: ", err)
+    }
+
+    try {
+        let developFundPerc = mpConfig.developFundPerc;
+        let developFundPercPremim = mpConfig.developFundPercPremim;
+        let comMarketFundPerc = mpConfig.comMarketFundPerc;
+        let moderatorsFundPerc = mpConfig.moderatorsFundPerc;
+        let gasEstimate = await contr.methods.setFundPerc(developFundPerc, developFundPercPremim, comMarketFundPerc, moderatorsFundPerc).estimateGas();
+        await contract.methods.setFundPerc(developFundPerc, developFundPercPremim, comMarketFundPerc, moderatorsFundPerc).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    }catch (err) {
+        console.log("from setMiddlePaymentConfig setFundPerc: ", err)
+    }
+
+    try {
+        let comMarketFundAddr = mpConfig.comMarketFundAddr;
+        let moderatorsFundAddr = mpConfig.moderatorsFundAddr;
+        let gasEstimate = await contr.methods.setFundWallet(comMarketFundAddr, moderatorsFundAddr).estimateGas();
+        await contract.methods.setFundWallet(comMarketFundAddr, moderatorsFundAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+    }catch (err) {
+        console.log("from setMiddlePaymentConfig setFundWallet: ", err)
+    }
+}
+
 
 
 module.exports = {

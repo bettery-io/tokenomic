@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+import {
+    ERC20Upgradeable
+} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import {MetaTransactLib} from "../../metaTransaction/MetaTransactLib.sol";
 import {ConfigVariables} from "../config/ConfigVariables.sol";
 
@@ -13,27 +15,41 @@ contract BET is MetaTransactLib, ERC20Upgradeable, ConfigVariables {
         string memory _name,
         string memory _symbol,
         uint8 _decimals,
-        uint _network_id) public initializer {
+        uint _network_id,
+        uint _firstWithdrawIndex,
+        uint _GFrewards,
+        uint _welcomeBTYTokens,
+        uint _GFindex
+    ) public initializer {
+        __ConfigVariables(
+            _firstWithdrawIndex,
+            _GFrewards,
+            _welcomeBTYTokens,
+            _GFindex
+        );
         __ERC20_init(_name, _symbol);
         _setupDecimals(_decimals);
         __MetaTransactLibInit("BET_token", "1", _network_id);
     }
 
-    function setConfigContract(address _publicEvents, address _bty) public ownerOnly() {
+    function setConfigContract(address _publicEvents, address _bty)
+        public
+        ownerOnly()
+    {
         publicContract = _publicEvents;
         btyContract = _bty;
     }
 
     function mint(address wallet) public ownerOnly() {
-    //    require(balanceOf(wallet) == 0, "User has tokens on balance"); TODO remove from prodaction
+        //    require(balanceOf(wallet) == 0, "User has tokens on balance"); TODO remove from prodaction
         _mint(wallet, welcomeBTYTokens);
     }
 
-    function mintFromPublicContract(address wallet, uint256 amount) public returns(bool) {
-        require(
-            msg.sender == publicContract,
-            "only public contract"
-        );
+    function mintFromPublicContract(address wallet, uint256 amount)
+        public
+        returns (bool)
+    {
+        require(msg.sender == publicContract, "only public contract");
         _mint(wallet, amount);
         return true;
     }
