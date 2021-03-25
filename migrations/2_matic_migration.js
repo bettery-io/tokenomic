@@ -18,12 +18,15 @@ module.exports = async function (deployer, network) {
   if (network === 'matic' || network === "development") {
     let chain_id;
     let ChildChainManagerProxy;
+    let maticId;
     if ((network === 'matic' || network === "development") && process.env.NODE_ENV == "deploy") {
       chain_id = networkConfig.goerliId;
-      ChildChainManagerProxy = maticNetwork.child.ChildChainManagerProxy
+      ChildChainManagerProxy = maticNetwork.child.ChildChainManagerProxy;
+      maticId = networkConfig.maticMumbaiId;
     } else if (network === "mainMatic" && process.env.NODE_ENV == "deploy") {
       chain_id = networkConfig.etherMainId;
       ChildChainManagerProxy = "" // TODO add CHILDCHAIN
+      maticId = networkConfig.maticMainId;
     }
     let decimals = config.decimals;
     let nameBET = config.betName;
@@ -36,14 +39,14 @@ module.exports = async function (deployer, network) {
 
     let nameBTY = config.btyName;
     let symbolBTY = config.btySymbol;
-    await deployProxy(BTYTokenContract, [nameBTY, symbolBTY, decimals, BETTokenContract.address, ChildChainManagerProxy, chain_id], { deployer, initializer: '__BTYinit' });
+    await deployProxy(BTYTokenContract, [nameBTY, symbolBTY, decimals, ChildChainManagerProxy, chain_id], { deployer, initializer: '__BTYinit' });
 
     await deployProxy(PrivateEventContract, { deployer, initializer: '__PrivateEvents' });
 
     let minBet = globalConfig.minBet;
-    await deployProxy(PublicEventContract, [BETTokenContract.address, BTYTokenContract.address, minBet], { deployer, initializer: '__PublicEventsInit' });
+    await deployProxy(PublicEventContract, [minBet], { deployer, initializer: '__PublicEventsInit' });
 
-    await deployProxy(MiddlePaymentContract, [PublicEventContract.address], { deployer, initializer: '__MiddlePaymentInit' });
+    await deployProxy(MiddlePaymentContract, { deployer, initializer: '__MiddlePaymentInit' });
 
     let playersPersMint = ppConfig.playersPersMint;
     let playersPers = ppConfig.playersPers;
@@ -54,8 +57,6 @@ module.exports = async function (deployer, network) {
     let fakeAddr = ppConfig.fakeAddr;
 
     await deployProxy(PlayerPaymentContract, [
-      PublicEventContract.address,
-      MiddlePaymentContract.address,
       playersPersMint,
       playersPers,
       playersPersPremiun,

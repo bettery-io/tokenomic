@@ -11,8 +11,10 @@ const networkConfig = require("../config/networks");
 const setConfiguration = async () => {
     let prodaction = "test"; // TODO switch to the prodaction
     await setBetConfig(prodaction);
+    await setBtyConfig(prodaction);
     await setPublicConfig(prodaction);
     await setMiddlePaymentConfig(prodaction);
+    await PlayerPaymentConfig(prodaction);
     console.log("FINISH");
     process.exit();
 }
@@ -34,14 +36,32 @@ const setBetConfig = async (from) => {
     }
 }
 
+const setBtyConfig = async (from) =>{
+    try {
+        let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
+        let contr = await contract.init(from, BTY);
+        let betAddr = BET.networks[networkId].address;
+        let gasEstimate = await contr.methods.setBETaddr(betAddr).estimateGas();
+        let tx = await contr.methods.setBETaddr(betAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+        console.log(tx);
+    } catch (err) {
+        console.log("from setBtyConfig: ", err)
+    }
+}
+
 const setPublicConfig = async (from) => {
     try {
         let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
         let contr = await contract.init(from, PublicEvents);
         let MPAddr = MiddlePayment.networks[networkId].address;
         let PPAddr = PlayerPayment.networks[networkId].address;
-        let gasEstimate = await contr.methods.setAddresses(MPAddr, PPAddr).estimateGas();
-        let tx = await contr.methods.setAddresses(MPAddr, PPAddr).send({
+        let betAddr = BET.networks[networkId].address;
+        let btyAddr = BTY.networks[networkId].address;
+        let gasEstimate = await contr.methods.setAddresses(MPAddr, PPAddr, betAddr, btyAddr).estimateGas();
+        let tx = await contr.methods.setAddresses(MPAddr, PPAddr, betAddr, btyAddr).send({
             gas: gasEstimate,
             gasPrice: 0
         });
@@ -65,6 +85,18 @@ const setMiddlePaymentConfig = async (from) => {
         console.log(tx);
     } catch (err) {
         console.log("from setMiddlePaymentConfig setAddresses: ", err)
+    }
+
+    try {
+        let PEAddr = PublicEvents.networks[networkId].address;
+        let gasEstimate = await contr.methods.setAddr(PEAddr).estimateGas();
+        let tx = await contr.methods.setAddr(PEAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+        console.log(tx);
+    } catch (err) {
+        console.log("from setMiddlePaymentConfig setAddr: ", err)
     }
 
     try {
@@ -136,6 +168,23 @@ const setMiddlePaymentConfig = async (from) => {
         console.log(tx);
     } catch (err) {
         console.log("from setMiddlePaymentConfig setFundWallet: ", err)
+    }
+}
+
+const PlayerPaymentConfig = async (from) => {
+    let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
+    let contr = await contract.init(from, PlayerPayment);
+    try {
+        let PubAddr = PublicEvents.networks[networkId].address;
+        let MPAddr = MiddlePayment.networks[networkId].address;
+        let gasEstimate = await contr.methods.setAddr(PubAddr, MPAddr).estimateGas();
+        let tx = await contr.methods.setAddr(PubAddr, MPAddr).send({
+            gas: gasEstimate,
+            gasPrice: 0
+        });
+        console.log(tx);
+    } catch (err) {
+        console.log("from PlayerPaymentConfig: ", err)
     }
 }
 

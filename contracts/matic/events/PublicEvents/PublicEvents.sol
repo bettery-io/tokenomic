@@ -28,19 +28,19 @@ contract PublicEvents is
     address MPContract;
     address PPContract;
     
-    function __PublicEventsInit(BET _betAddress, BTY _btyAddress, uint _minBet) public initializer {
-        betToken = _betAddress;
-        btyToken = _btyAddress;
+    function __PublicEventsInit(uint _minBet) public initializer {
         owner = msg.sender;
         minBet = _minBet;
     }
 
-    function setAddresses(address _mpaddr, address _ppaddr) public {
+    function setAddresses(address _mpaddr, address _ppaddr, BET _betAddress, BTY _btyAddress) public {
         require( msg.sender == owner, "owner only");
         mpData = MPStruct(_mpaddr);
         mpContract = MiddlePayment(_mpaddr);
         MPContract = _mpaddr;
         PPContract = _ppaddr;
+        betToken = _betAddress;
+        btyToken = _btyAddress;
     }
 
     function newEvent(

@@ -17,9 +17,13 @@ contract MiddlePayment is Libs, MPConfig, MPStruct {
     event payToPlayers(int id);
     event revertedEvent(int id, string purpose);
 
-    function __MiddlePaymentInit( PublicEvents _addr ) public initializer {
+    function __MiddlePaymentInit() public initializer {
         __MPStructInit();
         __MPConfig();
+    }
+
+    function setAddr(PublicEvents _addr) public {
+        require(msg.sender == owner, "owner only");
         PublicAddr = _addr;
         pubAddr = address(_addr);
         eventsData = PubStruct(_addr);

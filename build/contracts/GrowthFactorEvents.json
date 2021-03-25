@@ -154,19 +154,19 @@
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/events/GrowthFactorEvents.sol",
     "exportedSymbols": {
       "AddressUpgradeable": [
-        9429
+        9465
       ],
       "GFStruct": [
-        6648
+        6672
       ],
       "GrowthFactorEvents": [
         3584
       ],
       "Initializable": [
-        8577
+        8613
       ],
       "TimeValidation": [
-        6622
+        6646
       ]
     },
     "id": 3585,
@@ -193,7 +193,7 @@
         "id": 3366,
         "nodeType": "ImportDirective",
         "scope": 3585,
-        "sourceUnit": 6649,
+        "sourceUnit": 6673,
         "src": "66:48:7",
         "symbolAliases": [
           {
@@ -215,7 +215,7 @@
         "id": 3368,
         "nodeType": "ImportDirective",
         "scope": 3585,
-        "sourceUnit": 6623,
+        "sourceUnit": 6647,
         "src": "115:61:7",
         "symbolAliases": [
           {
@@ -237,7 +237,7 @@
         "id": 3369,
         "nodeType": "ImportDirective",
         "scope": 3585,
-        "sourceUnit": 8578,
+        "sourceUnit": 8614,
         "src": "177:69:7",
         "symbolAliases": [],
         "unitAlias": ""
@@ -250,10 +250,10 @@
               "id": 3370,
               "name": "TimeValidation",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6622,
+              "referencedDeclaration": 6646,
               "src": "279:14:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TimeValidation_$6622",
+                "typeIdentifier": "t_contract$_TimeValidation_$6646",
                 "typeString": "contract TimeValidation"
               }
             },
@@ -266,10 +266,10 @@
               "id": 3372,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8577,
+              "referencedDeclaration": 8613,
               "src": "295:13:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$8577",
+                "typeIdentifier": "t_contract$_Initializable_$8613",
                 "typeString": "contract Initializable"
               }
             },
@@ -279,16 +279,16 @@
           }
         ],
         "contractDependencies": [
-          6622,
-          8577
+          6646,
+          8613
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 3584,
         "linearizedBaseContracts": [
           3584,
-          8577,
-          6622
+          8613,
+          6646
         ],
         "name": "GrowthFactorEvents",
         "nodeType": "ContractDefinition",
@@ -304,7 +304,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
               "typeString": "mapping(int256 => struct GFStruct.EventData)"
             },
             "typeName": {
@@ -322,17 +322,17 @@
               "nodeType": "Mapping",
               "src": "316:37:7",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                 "typeString": "mapping(int256 => struct GFStruct.EventData)"
               },
               "valueType": {
                 "id": 3375,
                 "name": "GFStruct.EventData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 6647,
+                "referencedDeclaration": 6671,
                 "src": "334:18:7",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_EventData_$6647_storage_ptr",
+                  "typeIdentifier": "t_struct$_EventData_$6671_storage_ptr",
                   "typeString": "struct GFStruct.EventData"
                 }
               }
@@ -511,7 +511,7 @@
                   "name": "initializer",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 8560,
+                  "referencedDeclaration": 8596,
                   "src": "484:11:7",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -685,7 +685,7 @@
                           "referencedDeclaration": 3377,
                           "src": "735:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -709,7 +709,7 @@
                         "nodeType": "IndexAccess",
                         "src": "735:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -720,7 +720,7 @@
                       "lValueRequested": true,
                       "memberName": "id",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6631,
+                      "referencedDeclaration": 6655,
                       "src": "735:14:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_int256",
@@ -768,7 +768,7 @@
                           "referencedDeclaration": 3377,
                           "src": "765:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -792,7 +792,7 @@
                         "nodeType": "IndexAccess",
                         "src": "765:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -803,7 +803,7 @@
                       "lValueRequested": true,
                       "memberName": "startTime",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6633,
+                      "referencedDeclaration": 6657,
                       "src": "765:21:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -851,7 +851,7 @@
                           "referencedDeclaration": 3377,
                           "src": "809:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -875,7 +875,7 @@
                         "nodeType": "IndexAccess",
                         "src": "809:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -886,7 +886,7 @@
                       "lValueRequested": true,
                       "memberName": "endTime",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6635,
+                      "referencedDeclaration": 6659,
                       "src": "809:19:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -934,7 +934,7 @@
                           "referencedDeclaration": 3377,
                           "src": "849:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -958,7 +958,7 @@
                         "nodeType": "IndexAccess",
                         "src": "849:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -969,7 +969,7 @@
                       "lValueRequested": true,
                       "memberName": "questAmount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6637,
+                      "referencedDeclaration": 6661,
                       "src": "849:23:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -1283,7 +1283,7 @@
                                   "referencedDeclaration": 3377,
                                   "src": "1142:6:7",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                                     "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                                   }
                                 },
@@ -1307,7 +1307,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1142:11:7",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                                  "typeIdentifier": "t_struct$_EventData_$6671_storage",
                                   "typeString": "struct GFStruct.EventData storage ref"
                                 }
                               },
@@ -1318,7 +1318,7 @@
                               "lValueRequested": false,
                               "memberName": "startTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 6633,
+                              "referencedDeclaration": 6657,
                               "src": "1142:21:7",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1335,7 +1335,7 @@
                                   "referencedDeclaration": 3377,
                                   "src": "1165:6:7",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                                     "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                                   }
                                 },
@@ -1359,7 +1359,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1165:11:7",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                                  "typeIdentifier": "t_struct$_EventData_$6671_storage",
                                   "typeString": "struct GFStruct.EventData storage ref"
                                 }
                               },
@@ -1370,7 +1370,7 @@
                               "lValueRequested": false,
                               "memberName": "endTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 6635,
+                              "referencedDeclaration": 6659,
                               "src": "1165:19:7",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1393,7 +1393,7 @@
                             "name": "timeAnswer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 6597,
+                            "referencedDeclaration": 6621,
                             "src": "1131:10:7",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_uint256_$_t_uint256_$returns$_t_int8_$",
@@ -1516,17 +1516,17 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                         "typeString": "struct GFStruct.Player"
                       },
                       "typeName": {
                         "id": 3481,
                         "name": "GFStruct.Player",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 6629,
+                        "referencedDeclaration": 6653,
                         "src": "1240:15:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Player_$6629_storage_ptr",
+                          "typeIdentifier": "t_struct$_Player_$6653_storage_ptr",
                           "typeString": "struct GFStruct.Player"
                         }
                       },
@@ -1552,7 +1552,7 @@
                       "referencedDeclaration": 3482,
                       "src": "1277:4:7",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                         "typeString": "struct GFStruct.Player memory"
                       }
                     },
@@ -1601,10 +1601,10 @@
                           "name": "GFStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 6648,
+                          "referencedDeclaration": 6672,
                           "src": "1284:8:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_GFStruct_$6648_$",
+                            "typeIdentifier": "t_type$_t_contract$_GFStruct_$6672_$",
                             "typeString": "type(library GFStruct)"
                           }
                         },
@@ -1615,10 +1615,10 @@
                         "lValueRequested": false,
                         "memberName": "Player",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 6629,
+                        "referencedDeclaration": 6653,
                         "src": "1284:15:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Player_$6629_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Player_$6653_storage_ptr_$",
                           "typeString": "type(struct GFStruct.Player storage pointer)"
                         }
                       },
@@ -1633,13 +1633,13 @@
                       "src": "1284:43:7",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                         "typeString": "struct GFStruct.Player memory"
                       }
                     },
                     "src": "1277:50:7",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                      "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                       "typeString": "struct GFStruct.Player memory"
                     }
                   },
@@ -1658,7 +1658,7 @@
                         "referencedDeclaration": 3482,
                         "src": "1375:4:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                          "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                           "typeString": "struct GFStruct.Player memory"
                         }
                       }
@@ -1666,7 +1666,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                          "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                           "typeString": "struct GFStruct.Player memory"
                         }
                       ],
@@ -1681,7 +1681,7 @@
                               "referencedDeclaration": 3377,
                               "src": "1337:6:7",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                                 "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                               }
                             },
@@ -1705,7 +1705,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1337:11:7",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                              "typeIdentifier": "t_struct$_EventData_$6671_storage",
                               "typeString": "struct GFStruct.EventData storage ref"
                             }
                           },
@@ -1716,10 +1716,10 @@
                           "lValueRequested": false,
                           "memberName": "player",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 6642,
+                          "referencedDeclaration": 6666,
                           "src": "1337:18:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6629_storage_$dyn_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6653_storage_$dyn_storage_$",
                             "typeString": "mapping(uint256 => struct GFStruct.Player storage ref[] storage ref)"
                           }
                         },
@@ -1743,7 +1743,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1337:32:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Player_$6629_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Player_$6653_storage_$dyn_storage",
                           "typeString": "struct GFStruct.Player storage ref[] storage ref"
                         }
                       },
@@ -1756,7 +1756,7 @@
                       "nodeType": "MemberAccess",
                       "src": "1337:37:7",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Player_$6629_storage_$returns$__$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Player_$6653_storage_$returns$__$",
                         "typeString": "function (struct GFStruct.Player storage ref)"
                       }
                     },
@@ -2155,7 +2155,7 @@
                                     "referencedDeclaration": 3377,
                                     "src": "1663:6:7",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                                      "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                                       "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                                     }
                                   },
@@ -2179,7 +2179,7 @@
                                   "nodeType": "IndexAccess",
                                   "src": "1663:11:7",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                                    "typeIdentifier": "t_struct$_EventData_$6671_storage",
                                     "typeString": "struct GFStruct.EventData storage ref"
                                   }
                                 },
@@ -2190,10 +2190,10 @@
                                 "lValueRequested": false,
                                 "memberName": "player",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 6642,
+                                "referencedDeclaration": 6666,
                                 "src": "1663:18:7",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6629_storage_$dyn_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6653_storage_$dyn_storage_$",
                                   "typeString": "mapping(uint256 => struct GFStruct.Player storage ref[] storage ref)"
                                 }
                               },
@@ -2217,7 +2217,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1663:21:7",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_Player_$6629_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_Player_$6653_storage_$dyn_storage",
                                 "typeString": "struct GFStruct.Player storage ref[] storage ref"
                               }
                             },
@@ -2295,7 +2295,7 @@
                                           "referencedDeclaration": 3377,
                                           "src": "1741:6:7",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                                           }
                                         },
@@ -2319,7 +2319,7 @@
                                         "nodeType": "IndexAccess",
                                         "src": "1741:11:7",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                                           "typeString": "struct GFStruct.EventData storage ref"
                                         }
                                       },
@@ -2330,10 +2330,10 @@
                                       "lValueRequested": false,
                                       "memberName": "player",
                                       "nodeType": "MemberAccess",
-                                      "referencedDeclaration": 6642,
+                                      "referencedDeclaration": 6666,
                                       "src": "1741:18:7",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6629_storage_$dyn_storage_$",
+                                        "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6653_storage_$dyn_storage_$",
                                         "typeString": "mapping(uint256 => struct GFStruct.Player storage ref[] storage ref)"
                                       }
                                     },
@@ -2357,7 +2357,7 @@
                                     "nodeType": "IndexAccess",
                                     "src": "1741:21:7",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_array$_t_struct$_Player_$6629_storage_$dyn_storage",
+                                      "typeIdentifier": "t_array$_t_struct$_Player_$6653_storage_$dyn_storage",
                                       "typeString": "struct GFStruct.Player storage ref[] storage ref"
                                     }
                                   },
@@ -2466,7 +2466,7 @@
                           "referencedDeclaration": 3377,
                           "src": "1615:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -2490,7 +2490,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1615:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -2501,7 +2501,7 @@
                       "lValueRequested": false,
                       "memberName": "questAmount",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6637,
+                      "referencedDeclaration": 6661,
                       "src": "1615:23:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -2619,7 +2619,7 @@
                           "referencedDeclaration": 3377,
                           "src": "1921:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -2643,7 +2643,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1921:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -2654,7 +2654,7 @@
                       "lValueRequested": true,
                       "memberName": "correctAnswer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6646,
+                      "referencedDeclaration": 6670,
                       "src": "1921:25:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -2702,7 +2702,7 @@
                           "referencedDeclaration": 3377,
                           "src": "1972:6:7",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6647_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6671_storage_$",
                             "typeString": "mapping(int256 => struct GFStruct.EventData storage ref)"
                           }
                         },
@@ -2726,7 +2726,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1972:11:7",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6647_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6671_storage",
                           "typeString": "struct GFStruct.EventData storage ref"
                         }
                       },
@@ -2737,7 +2737,7 @@
                       "lValueRequested": true,
                       "memberName": "eventFinish",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6644,
+                      "referencedDeclaration": 6668,
                       "src": "1972:23:7",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
@@ -2907,19 +2907,19 @@
       "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/events/GrowthFactorEvents.sol",
       "exportedSymbols": {
         "AddressUpgradeable": [
-          9429
+          9465
         ],
         "GFStruct": [
-          6648
+          6672
         ],
         "GrowthFactorEvents": [
           3584
         ],
         "Initializable": [
-          8577
+          8613
         ],
         "TimeValidation": [
-          6622
+          6646
         ]
       },
       "license": "MIT"
@@ -2943,7 +2943,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6649,
+          "SourceUnit": 6673,
           "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/struct/GFStruct.sol",
           "file": "../struct/GFStruct.sol",
           "scope": 3585,
@@ -2970,7 +2970,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6623,
+          "SourceUnit": 6647,
           "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/helpers/TimeValidation.sol",
           "file": "../helpers/TimeValidation.sol",
           "scope": 3585,
@@ -2997,7 +2997,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 8578,
+          "SourceUnit": 8614,
           "absolutePath": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
           "file": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
           "scope": 3585,
@@ -3014,15 +3014,15 @@
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            6622,
-            8577
+            6646,
+            8613
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             3584,
-            8577,
-            6622
+            8613,
+            6646
           ],
           "name": "GrowthFactorEvents",
           "scope": 3585
@@ -3034,7 +3034,7 @@
               {
                 "attributes": {
                   "name": "TimeValidation",
-                  "referencedDeclaration": 6622,
+                  "referencedDeclaration": 6646,
                   "type": "contract TimeValidation"
                 },
                 "id": 3370,
@@ -3052,7 +3052,7 @@
               {
                 "attributes": {
                   "name": "Initializable",
-                  "referencedDeclaration": 8577,
+                  "referencedDeclaration": 8613,
                   "type": "contract Initializable"
                 },
                 "id": 3372,
@@ -3093,7 +3093,7 @@
                   {
                     "attributes": {
                       "name": "GFStruct.EventData",
-                      "referencedDeclaration": 6647,
+                      "referencedDeclaration": 6671,
                       "type": "struct GFStruct.EventData"
                     },
                     "id": 3375,
@@ -3252,7 +3252,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 8560,
+                      "referencedDeclaration": 8596,
                       "type": "modifier ()",
                       "value": "initializer"
                     },
@@ -3625,7 +3625,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "id",
-                              "referencedDeclaration": 6631,
+                              "referencedDeclaration": 6655,
                               "type": "int256"
                             },
                             "children": [
@@ -3716,7 +3716,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "startTime",
-                              "referencedDeclaration": 6633,
+                              "referencedDeclaration": 6657,
                               "type": "uint256"
                             },
                             "children": [
@@ -3807,7 +3807,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "endTime",
-                              "referencedDeclaration": 6635,
+                              "referencedDeclaration": 6659,
                               "type": "uint256"
                             },
                             "children": [
@@ -3898,7 +3898,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "questAmount",
-                              "referencedDeclaration": 6637,
+                              "referencedDeclaration": 6661,
                               "type": "uint8"
                             },
                             "children": [
@@ -4332,7 +4332,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 6597,
+                                      "referencedDeclaration": 6621,
                                       "type": "function (uint256,uint256) view returns (int8)",
                                       "value": "timeAnswer"
                                     },
@@ -4347,7 +4347,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "startTime",
-                                      "referencedDeclaration": 6633,
+                                      "referencedDeclaration": 6657,
                                       "type": "uint256"
                                     },
                                     "children": [
@@ -4403,7 +4403,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "endTime",
-                                      "referencedDeclaration": 6635,
+                                      "referencedDeclaration": 6659,
                                       "type": "uint256"
                                     },
                                     "children": [
@@ -4524,7 +4524,7 @@
                           {
                             "attributes": {
                               "name": "GFStruct.Player",
-                              "referencedDeclaration": 6629,
+                              "referencedDeclaration": 6653,
                               "type": "struct GFStruct.Player"
                             },
                             "id": 3481,
@@ -4598,7 +4598,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "Player",
-                                  "referencedDeclaration": 6629,
+                                  "referencedDeclaration": 6653,
                                   "type": "type(struct GFStruct.Player storage pointer)"
                                 },
                                 "children": [
@@ -4607,7 +4607,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 6648,
+                                      "referencedDeclaration": 6672,
                                       "type": "type(library GFStruct)",
                                       "value": "GFStruct"
                                     },
@@ -4682,7 +4682,7 @@
                             "attributes": {
                               "argumentTypes": [
                                 {
-                                  "typeIdentifier": "t_struct$_Player_$6629_memory_ptr",
+                                  "typeIdentifier": "t_struct$_Player_$6653_memory_ptr",
                                   "typeString": "struct GFStruct.Player memory"
                                 }
                               ],
@@ -4710,7 +4710,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "player",
-                                      "referencedDeclaration": 6642,
+                                      "referencedDeclaration": 6666,
                                       "type": "mapping(uint256 => struct GFStruct.Player storage ref[] storage ref)"
                                     },
                                     "children": [
@@ -5183,7 +5183,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "questAmount",
-                              "referencedDeclaration": 6637,
+                              "referencedDeclaration": 6661,
                               "type": "uint8"
                             },
                             "children": [
@@ -5318,7 +5318,7 @@
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "member_name": "player",
-                                              "referencedDeclaration": 6642,
+                                              "referencedDeclaration": 6666,
                                               "type": "mapping(uint256 => struct GFStruct.Player storage ref[] storage ref)"
                                             },
                                             "children": [
@@ -5461,7 +5461,7 @@
                                                       "isPure": false,
                                                       "lValueRequested": false,
                                                       "member_name": "player",
-                                                      "referencedDeclaration": 6642,
+                                                      "referencedDeclaration": 6666,
                                                       "type": "mapping(uint256 => struct GFStruct.Player storage ref[] storage ref)"
                                                     },
                                                     "children": [
@@ -5630,7 +5630,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "correctAnswer",
-                              "referencedDeclaration": 6646,
+                              "referencedDeclaration": 6670,
                               "type": "uint8"
                             },
                             "children": [
@@ -5721,7 +5721,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "eventFinish",
-                              "referencedDeclaration": 6644,
+                              "referencedDeclaration": 6668,
                               "type": "bool"
                             },
                             "children": [
@@ -5897,7 +5897,7 @@
   },
   "networks": {},
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-25T10:30:29.516Z",
+  "updatedAt": "2021-03-25T12:53:33.857Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

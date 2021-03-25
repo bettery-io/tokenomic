@@ -16,16 +16,19 @@ contract BTY is ERC20Upgradeable, MetaTransactLib {
         string memory _name,
         string memory _symbol,
         uint8 _decimals,
-        BET _betAddress,
         address _childChainManagerProxy,
         uint _network_id
     ) public initializer {
         __ERC20_init(_name, _symbol);
         _setupDecimals(_decimals);
         __MetaTransactLibInit("BTY_token", "1", _network_id);
-        betToken = _betAddress;
         childChainManagerProxy = _childChainManagerProxy;
         owner = msg.sender;
+    }
+
+    function setBETaddr(BET _betAddress) public {
+        require(msg.sender == owner, "owner only");
+        betToken = _betAddress;
     }
 
     function swipe(uint256 _amount) public {

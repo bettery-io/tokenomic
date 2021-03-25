@@ -184,19 +184,19 @@
     "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/events/PrivateEvents.sol",
     "exportedSymbols": {
       "AddressUpgradeable": [
-        9429
+        9465
       ],
       "Initializable": [
-        8577
+        8613
       ],
       "PrivStruct": [
-        6849
+        6873
       ],
       "PrivateEvents": [
         3855
       ],
       "TimeValidation": [
-        6622
+        6646
       ]
     },
     "id": 3856,
@@ -223,7 +223,7 @@
         "id": 3588,
         "nodeType": "ImportDirective",
         "scope": 3856,
-        "sourceUnit": 6850,
+        "sourceUnit": 6874,
         "src": "66:52:8",
         "symbolAliases": [
           {
@@ -245,7 +245,7 @@
         "id": 3590,
         "nodeType": "ImportDirective",
         "scope": 3856,
-        "sourceUnit": 6623,
+        "sourceUnit": 6647,
         "src": "119:61:8",
         "symbolAliases": [
           {
@@ -267,7 +267,7 @@
         "id": 3591,
         "nodeType": "ImportDirective",
         "scope": 3856,
-        "sourceUnit": 8578,
+        "sourceUnit": 8614,
         "src": "181:69:8",
         "symbolAliases": [],
         "unitAlias": ""
@@ -280,10 +280,10 @@
               "id": 3592,
               "name": "TimeValidation",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 6622,
+              "referencedDeclaration": 6646,
               "src": "278:14:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_TimeValidation_$6622",
+                "typeIdentifier": "t_contract$_TimeValidation_$6646",
                 "typeString": "contract TimeValidation"
               }
             },
@@ -296,10 +296,10 @@
               "id": 3594,
               "name": "Initializable",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 8577,
+              "referencedDeclaration": 8613,
               "src": "294:13:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Initializable_$8577",
+                "typeIdentifier": "t_contract$_Initializable_$8613",
                 "typeString": "contract Initializable"
               }
             },
@@ -309,16 +309,16 @@
           }
         ],
         "contractDependencies": [
-          6622,
-          8577
+          6646,
+          8613
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 3855,
         "linearizedBaseContracts": [
           3855,
-          8577,
-          6622
+          8613,
+          6646
         ],
         "name": "PrivateEvents",
         "nodeType": "ContractDefinition",
@@ -402,7 +402,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
               "typeString": "mapping(int256 => struct PrivStruct.EventData)"
             },
             "typeName": {
@@ -420,17 +420,17 @@
               "nodeType": "Mapping",
               "src": "380:39:8",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                 "typeString": "mapping(int256 => struct PrivStruct.EventData)"
               },
               "valueType": {
                 "id": 3603,
                 "name": "PrivStruct.EventData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 6848,
+                "referencedDeclaration": 6872,
                 "src": "398:20:8",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_EventData_$6848_storage_ptr",
+                  "typeIdentifier": "t_struct$_EventData_$6872_storage_ptr",
                   "typeString": "struct PrivStruct.EventData"
                 }
               }
@@ -541,7 +541,7 @@
                   "name": "initializer",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 8560,
+                  "referencedDeclaration": 8596,
                   "src": "486:11:8",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
@@ -715,7 +715,7 @@
                           "referencedDeclaration": 3605,
                           "src": "765:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -739,7 +739,7 @@
                         "nodeType": "IndexAccess",
                         "src": "765:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -750,7 +750,7 @@
                       "lValueRequested": true,
                       "memberName": "id",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6826,
+                      "referencedDeclaration": 6850,
                       "src": "765:14:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_int256",
@@ -798,7 +798,7 @@
                           "referencedDeclaration": 3605,
                           "src": "795:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -822,7 +822,7 @@
                         "nodeType": "IndexAccess",
                         "src": "795:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -833,7 +833,7 @@
                       "lValueRequested": true,
                       "memberName": "startTime",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6828,
+                      "referencedDeclaration": 6852,
                       "src": "795:21:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -881,7 +881,7 @@
                           "referencedDeclaration": 3605,
                           "src": "839:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -905,7 +905,7 @@
                         "nodeType": "IndexAccess",
                         "src": "839:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -916,7 +916,7 @@
                       "lValueRequested": true,
                       "memberName": "endTime",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6830,
+                      "referencedDeclaration": 6854,
                       "src": "839:19:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -964,7 +964,7 @@
                           "referencedDeclaration": 3605,
                           "src": "879:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -988,7 +988,7 @@
                         "nodeType": "IndexAccess",
                         "src": "879:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -999,7 +999,7 @@
                       "lValueRequested": true,
                       "memberName": "host",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6845,
+                      "referencedDeclaration": 6869,
                       "src": "879:16:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1047,7 +1047,7 @@
                           "referencedDeclaration": 3605,
                           "src": "913:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -1071,7 +1071,7 @@
                         "nodeType": "IndexAccess",
                         "src": "913:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -1082,7 +1082,7 @@
                       "lValueRequested": true,
                       "memberName": "questionQuantity",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6843,
+                      "referencedDeclaration": 6867,
                       "src": "913:28:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -1415,7 +1415,7 @@
                           "referencedDeclaration": 3605,
                           "src": "1121:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -1439,7 +1439,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1121:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -1450,7 +1450,7 @@
                       "lValueRequested": true,
                       "memberName": "correctAnswerSetter",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6847,
+                      "referencedDeclaration": 6871,
                       "src": "1121:31:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1713,7 +1713,7 @@
                                   "referencedDeclaration": 3605,
                                   "src": "1393:6:8",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                     "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                   }
                                 },
@@ -1737,7 +1737,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1393:11:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                  "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                   "typeString": "struct PrivStruct.EventData storage ref"
                                 }
                               },
@@ -1748,7 +1748,7 @@
                               "lValueRequested": false,
                               "memberName": "startTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 6828,
+                              "referencedDeclaration": 6852,
                               "src": "1393:21:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1765,7 +1765,7 @@
                                   "referencedDeclaration": 3605,
                                   "src": "1416:6:8",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                     "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                   }
                                 },
@@ -1789,7 +1789,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1416:11:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                  "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                   "typeString": "struct PrivStruct.EventData storage ref"
                                 }
                               },
@@ -1800,7 +1800,7 @@
                               "lValueRequested": false,
                               "memberName": "endTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 6830,
+                              "referencedDeclaration": 6854,
                               "src": "1416:19:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -1823,7 +1823,7 @@
                             "name": "timeAnswer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 6597,
+                            "referencedDeclaration": 6621,
                             "src": "1382:10:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_uint256_$_t_uint256_$returns$_t_int8_$",
@@ -1954,7 +1954,7 @@
                                 "referencedDeclaration": 3605,
                                 "src": "1527:6:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                   "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                 }
                               },
@@ -1978,7 +1978,7 @@
                               "nodeType": "IndexAccess",
                               "src": "1527:11:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                 "typeString": "struct PrivStruct.EventData storage ref"
                               }
                             },
@@ -1989,7 +1989,7 @@
                             "lValueRequested": false,
                             "memberName": "allPlayers",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 6841,
+                            "referencedDeclaration": 6865,
                             "src": "1527:22:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
@@ -2121,17 +2121,17 @@
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                         "typeString": "struct PrivStruct.Player"
                       },
                       "typeName": {
                         "id": 3745,
                         "name": "PrivStruct.Player",
                         "nodeType": "UserDefinedTypeName",
-                        "referencedDeclaration": 6824,
+                        "referencedDeclaration": 6848,
                         "src": "1642:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Player_$6824_storage_ptr",
+                          "typeIdentifier": "t_struct$_Player_$6848_storage_ptr",
                           "typeString": "struct PrivStruct.Player"
                         }
                       },
@@ -2157,7 +2157,7 @@
                       "referencedDeclaration": 3746,
                       "src": "1681:4:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                         "typeString": "struct PrivStruct.Player memory"
                       }
                     },
@@ -2190,10 +2190,10 @@
                           "name": "PrivStruct",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 6849,
+                          "referencedDeclaration": 6873,
                           "src": "1688:10:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_PrivStruct_$6849_$",
+                            "typeIdentifier": "t_type$_t_contract$_PrivStruct_$6873_$",
                             "typeString": "type(library PrivStruct)"
                           }
                         },
@@ -2204,10 +2204,10 @@
                         "lValueRequested": false,
                         "memberName": "Player",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 6824,
+                        "referencedDeclaration": 6848,
                         "src": "1688:17:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Player_$6824_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Player_$6848_storage_ptr_$",
                           "typeString": "type(struct PrivStruct.Player storage pointer)"
                         }
                       },
@@ -2222,13 +2222,13 @@
                       "src": "1688:32:8",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                        "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                         "typeString": "struct PrivStruct.Player memory"
                       }
                     },
                     "src": "1681:39:8",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                      "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                       "typeString": "struct PrivStruct.Player memory"
                     }
                   },
@@ -2254,7 +2254,7 @@
                             "referencedDeclaration": 3605,
                             "src": "1730:6:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                              "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                               "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                             }
                           },
@@ -2278,7 +2278,7 @@
                           "nodeType": "IndexAccess",
                           "src": "1730:11:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                            "typeIdentifier": "t_struct$_EventData_$6872_storage",
                             "typeString": "struct PrivStruct.EventData storage ref"
                           }
                         },
@@ -2289,7 +2289,7 @@
                         "lValueRequested": false,
                         "memberName": "allPlayers",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 6841,
+                        "referencedDeclaration": 6865,
                         "src": "1730:22:8",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
@@ -2359,7 +2359,7 @@
                         "referencedDeclaration": 3746,
                         "src": "1822:4:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                          "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                           "typeString": "struct PrivStruct.Player memory"
                         }
                       }
@@ -2367,7 +2367,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                          "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                           "typeString": "struct PrivStruct.Player memory"
                         }
                       ],
@@ -2382,7 +2382,7 @@
                               "referencedDeclaration": 3605,
                               "src": "1784:6:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                 "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                               }
                             },
@@ -2406,7 +2406,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1784:11:8",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                              "typeIdentifier": "t_struct$_EventData_$6872_storage",
                               "typeString": "struct PrivStruct.EventData storage ref"
                             }
                           },
@@ -2417,10 +2417,10 @@
                           "lValueRequested": false,
                           "memberName": "player",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 6837,
+                          "referencedDeclaration": 6861,
                           "src": "1784:18:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6824_storage_$dyn_storage_$",
+                            "typeIdentifier": "t_mapping$_t_uint256_$_t_array$_t_struct$_Player_$6848_storage_$dyn_storage_$",
                             "typeString": "mapping(uint256 => struct PrivStruct.Player storage ref[] storage ref)"
                           }
                         },
@@ -2444,7 +2444,7 @@
                         "nodeType": "IndexAccess",
                         "src": "1784:32:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_Player_$6824_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_Player_$6848_storage_$dyn_storage",
                           "typeString": "struct PrivStruct.Player storage ref[] storage ref"
                         }
                       },
@@ -2457,7 +2457,7 @@
                       "nodeType": "MemberAccess",
                       "src": "1784:37:8",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Player_$6824_storage_$returns$__$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Player_$6848_storage_$returns$__$",
                         "typeString": "function (struct PrivStruct.Player storage ref)"
                       }
                     },
@@ -2734,7 +2734,7 @@
                           "referencedDeclaration": 3605,
                           "src": "2026:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -2758,7 +2758,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2026:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -2769,7 +2769,7 @@
                       "lValueRequested": false,
                       "memberName": "correctAnswerSetter",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6847,
+                      "referencedDeclaration": 6871,
                       "src": "2026:31:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2889,7 +2889,7 @@
                                     "referencedDeclaration": 3605,
                                     "src": "2129:6:8",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                      "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                       "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                     }
                                   },
@@ -2913,7 +2913,7 @@
                                   "nodeType": "IndexAccess",
                                   "src": "2129:11:8",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                    "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                     "typeString": "struct PrivStruct.EventData storage ref"
                                   }
                                 },
@@ -2924,7 +2924,7 @@
                                 "lValueRequested": false,
                                 "memberName": "correctAnswerSetter",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 6847,
+                                "referencedDeclaration": 6871,
                                 "src": "2129:31:8",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
@@ -3026,7 +3026,7 @@
                                   "referencedDeclaration": 3605,
                                   "src": "2290:6:8",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                     "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                   }
                                 },
@@ -3050,7 +3050,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2290:11:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                  "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                   "typeString": "struct PrivStruct.EventData storage ref"
                                 }
                               },
@@ -3061,7 +3061,7 @@
                               "lValueRequested": false,
                               "memberName": "startTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 6828,
+                              "referencedDeclaration": 6852,
                               "src": "2290:21:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -3078,7 +3078,7 @@
                                   "referencedDeclaration": 3605,
                                   "src": "2313:6:8",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                    "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                     "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                   }
                                 },
@@ -3102,7 +3102,7 @@
                                 "nodeType": "IndexAccess",
                                 "src": "2313:11:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                  "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                   "typeString": "struct PrivStruct.EventData storage ref"
                                 }
                               },
@@ -3113,7 +3113,7 @@
                               "lValueRequested": false,
                               "memberName": "endTime",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 6830,
+                              "referencedDeclaration": 6854,
                               "src": "2313:19:8",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -3136,7 +3136,7 @@
                             "name": "timeAnswer",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 6597,
+                            "referencedDeclaration": 6621,
                             "src": "2279:10:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_internal_view$_t_uint256_$_t_uint256_$returns$_t_int8_$",
@@ -3267,7 +3267,7 @@
                                 "referencedDeclaration": 3605,
                                 "src": "2423:6:8",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                                  "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                                   "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                                 }
                               },
@@ -3291,7 +3291,7 @@
                               "nodeType": "IndexAccess",
                               "src": "2423:11:8",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                                "typeIdentifier": "t_struct$_EventData_$6872_storage",
                                 "typeString": "struct PrivStruct.EventData storage ref"
                               }
                             },
@@ -3302,7 +3302,7 @@
                             "lValueRequested": false,
                             "memberName": "allPlayers",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 6841,
+                            "referencedDeclaration": 6865,
                             "src": "2423:22:8",
                             "typeDescriptions": {
                               "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
@@ -3435,7 +3435,7 @@
                           "referencedDeclaration": 3605,
                           "src": "2537:6:8",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6848_storage_$",
+                            "typeIdentifier": "t_mapping$_t_int256_$_t_struct$_EventData_$6872_storage_$",
                             "typeString": "mapping(int256 => struct PrivStruct.EventData storage ref)"
                           }
                         },
@@ -3459,7 +3459,7 @@
                         "nodeType": "IndexAccess",
                         "src": "2537:11:8",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_EventData_$6848_storage",
+                          "typeIdentifier": "t_struct$_EventData_$6872_storage",
                           "typeString": "struct PrivStruct.EventData storage ref"
                         }
                       },
@@ -3470,7 +3470,7 @@
                       "lValueRequested": true,
                       "memberName": "correctAnswer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 6832,
+                      "referencedDeclaration": 6856,
                       "src": "2537:25:8",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint8",
@@ -3689,19 +3689,19 @@
       "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/events/PrivateEvents.sol",
       "exportedSymbols": {
         "AddressUpgradeable": [
-          9429
+          9465
         ],
         "Initializable": [
-          8577
+          8613
         ],
         "PrivStruct": [
-          6849
+          6873
         ],
         "PrivateEvents": [
           3855
         ],
         "TimeValidation": [
-          6622
+          6646
         ]
       },
       "license": "MIT"
@@ -3725,7 +3725,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6850,
+          "SourceUnit": 6874,
           "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/struct/PrivStruct.sol",
           "file": "../struct/PrivStruct.sol",
           "scope": 3856,
@@ -3752,7 +3752,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 6623,
+          "SourceUnit": 6647,
           "absolutePath": "/Users/macbook/Documents/freelance/tokenominc/contracts/matic/helpers/TimeValidation.sol",
           "file": "../helpers/TimeValidation.sol",
           "scope": 3856,
@@ -3779,7 +3779,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 8578,
+          "SourceUnit": 8614,
           "absolutePath": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
           "file": "@openzeppelin/contracts-upgradeable/proxy/Initializable.sol",
           "scope": 3856,
@@ -3796,15 +3796,15 @@
         "attributes": {
           "abstract": false,
           "contractDependencies": [
-            6622,
-            8577
+            6646,
+            8613
           ],
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             3855,
-            8577,
-            6622
+            8613,
+            6646
           ],
           "name": "PrivateEvents",
           "scope": 3856
@@ -3816,7 +3816,7 @@
               {
                 "attributes": {
                   "name": "TimeValidation",
-                  "referencedDeclaration": 6622,
+                  "referencedDeclaration": 6646,
                   "type": "contract TimeValidation"
                 },
                 "id": 3592,
@@ -3834,7 +3834,7 @@
               {
                 "attributes": {
                   "name": "Initializable",
-                  "referencedDeclaration": 8577,
+                  "referencedDeclaration": 8613,
                   "type": "contract Initializable"
                 },
                 "id": 3594,
@@ -3947,7 +3947,7 @@
                   {
                     "attributes": {
                       "name": "PrivStruct.EventData",
-                      "referencedDeclaration": 6848,
+                      "referencedDeclaration": 6872,
                       "type": "struct PrivStruct.EventData"
                     },
                     "id": 3603,
@@ -4034,7 +4034,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 8560,
+                      "referencedDeclaration": 8596,
                       "type": "modifier ()",
                       "value": "initializer"
                     },
@@ -4434,7 +4434,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "id",
-                              "referencedDeclaration": 6826,
+                              "referencedDeclaration": 6850,
                               "type": "int256"
                             },
                             "children": [
@@ -4525,7 +4525,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "startTime",
-                              "referencedDeclaration": 6828,
+                              "referencedDeclaration": 6852,
                               "type": "uint256"
                             },
                             "children": [
@@ -4616,7 +4616,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "endTime",
-                              "referencedDeclaration": 6830,
+                              "referencedDeclaration": 6854,
                               "type": "uint256"
                             },
                             "children": [
@@ -4707,7 +4707,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "host",
-                              "referencedDeclaration": 6845,
+                              "referencedDeclaration": 6869,
                               "type": "address"
                             },
                             "children": [
@@ -4798,7 +4798,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "questionQuantity",
-                              "referencedDeclaration": 6843,
+                              "referencedDeclaration": 6867,
                               "type": "uint8"
                             },
                             "children": [
@@ -5114,7 +5114,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "correctAnswerSetter",
-                              "referencedDeclaration": 6847,
+                              "referencedDeclaration": 6871,
                               "type": "address"
                             },
                             "children": [
@@ -5522,7 +5522,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 6597,
+                                      "referencedDeclaration": 6621,
                                       "type": "function (uint256,uint256) view returns (int8)",
                                       "value": "timeAnswer"
                                     },
@@ -5537,7 +5537,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "startTime",
-                                      "referencedDeclaration": 6828,
+                                      "referencedDeclaration": 6852,
                                       "type": "uint256"
                                     },
                                     "children": [
@@ -5593,7 +5593,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "endTime",
-                                      "referencedDeclaration": 6830,
+                                      "referencedDeclaration": 6854,
                                       "type": "uint256"
                                     },
                                     "children": [
@@ -5763,7 +5763,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "allPlayers",
-                                      "referencedDeclaration": 6841,
+                                      "referencedDeclaration": 6865,
                                       "type": "mapping(address => bool)"
                                     },
                                     "children": [
@@ -5897,7 +5897,7 @@
                           {
                             "attributes": {
                               "name": "PrivStruct.Player",
-                              "referencedDeclaration": 6824,
+                              "referencedDeclaration": 6848,
                               "type": "struct PrivStruct.Player"
                             },
                             "id": 3745,
@@ -5967,7 +5967,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "Player",
-                                  "referencedDeclaration": 6824,
+                                  "referencedDeclaration": 6848,
                                   "type": "type(struct PrivStruct.Player storage pointer)"
                                 },
                                 "children": [
@@ -5976,7 +5976,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 6849,
+                                      "referencedDeclaration": 6873,
                                       "type": "type(library PrivStruct)",
                                       "value": "PrivStruct"
                                     },
@@ -6045,7 +6045,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "allPlayers",
-                                  "referencedDeclaration": 6841,
+                                  "referencedDeclaration": 6865,
                                   "type": "mapping(address => bool)"
                                 },
                                 "children": [
@@ -6158,7 +6158,7 @@
                             "attributes": {
                               "argumentTypes": [
                                 {
-                                  "typeIdentifier": "t_struct$_Player_$6824_memory_ptr",
+                                  "typeIdentifier": "t_struct$_Player_$6848_memory_ptr",
                                   "typeString": "struct PrivStruct.Player memory"
                                 }
                               ],
@@ -6186,7 +6186,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "player",
-                                      "referencedDeclaration": 6837,
+                                      "referencedDeclaration": 6861,
                                       "type": "mapping(uint256 => struct PrivStruct.Player storage ref[] storage ref)"
                                     },
                                     "children": [
@@ -6556,7 +6556,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "correctAnswerSetter",
-                              "referencedDeclaration": 6847,
+                              "referencedDeclaration": 6871,
                               "type": "address"
                             },
                             "children": [
@@ -6750,7 +6750,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "correctAnswerSetter",
-                                          "referencedDeclaration": 6847,
+                                          "referencedDeclaration": 6871,
                                           "type": "address"
                                         },
                                         "children": [
@@ -6924,7 +6924,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 6597,
+                                      "referencedDeclaration": 6621,
                                       "type": "function (uint256,uint256) view returns (int8)",
                                       "value": "timeAnswer"
                                     },
@@ -6939,7 +6939,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "startTime",
-                                      "referencedDeclaration": 6828,
+                                      "referencedDeclaration": 6852,
                                       "type": "uint256"
                                     },
                                     "children": [
@@ -6995,7 +6995,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "endTime",
-                                      "referencedDeclaration": 6830,
+                                      "referencedDeclaration": 6854,
                                       "type": "uint256"
                                     },
                                     "children": [
@@ -7165,7 +7165,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "allPlayers",
-                                      "referencedDeclaration": 6841,
+                                      "referencedDeclaration": 6865,
                                       "type": "mapping(address => bool)"
                                     },
                                     "children": [
@@ -7296,7 +7296,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "correctAnswer",
-                              "referencedDeclaration": 6832,
+                              "referencedDeclaration": 6856,
                               "type": "uint8"
                             },
                             "children": [
@@ -7492,12 +7492,12 @@
         }
       },
       "links": {},
-      "address": "0x66eC948c0B1a98cF34E4933c43c7D6f41F2651F0",
-      "transactionHash": "0x4c030a08fcaf442167b150527a0760d90cbe048ab178bcab19221aa462bd745a"
+      "address": "0x77f446d112e24B43B35be54D2045677681b60c14",
+      "transactionHash": "0xeafc41fd0140d8bea3edb5dcd62e33450c12ac16d2081b495d740c8e531e5244"
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-25T10:30:29.463Z",
+  "updatedAt": "2021-03-25T12:53:33.813Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

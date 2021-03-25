@@ -15,8 +15,6 @@ contract PlayerPayment is Libs, PPConfig {
     PublicEvents PublicAddr;
 
     function __PlayerPaymentInit(
-        PublicEvents _addr, 
-        address _mpAddr,
         uint256 _playersPersMint,
         uint256 _playersPers,
         uint256 _playersPersPremiun,
@@ -34,6 +32,13 @@ contract PlayerPayment is Libs, PPConfig {
             _thirdRefer,
             _fakeAddr
         ); 
+    }
+
+    function setAddr(
+        PublicEvents _addr, 
+        address _mpAddr
+        ) public{
+        require(msg.sender == owner, "owner only");
         PublicAddr = _addr;
         eventsData = PubStruct(_addr);
         mpData = MPStruct(_mpAddr);
