@@ -1,9 +1,9 @@
 {
   "manifestVersion": "3.1",
   "impls": {
-    "81e69c2d01ca7839024d85af0a8b9de6474a3d48881c2d94353823bcf7cb3af4": {
-      "address": "0x082102EdfA509d9BE3DCBecA1290A3DC35a7667E",
-      "txHash": "0x0d9445566986954749c08a819200e3d233d1882ed9fc990d8f117ecb84d3ca77",
+    "080cd8943dd74de21183579ed55c7217a204326342a23880f6b076d301868d51": {
+      "address": "0xBc8476fD9C38f0D81a63B287eC159f4bD2958Be5",
+      "txHash": "0x21f1b8433220732ad159bf72fc52701667904175fd434121d5d14463fae6335a",
       "layout": {
         "storage": [
           {
@@ -23,30 +23,6 @@
             "label": "__gap",
             "type": "t_array(t_uint256)50_storage",
             "src": "../@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:31"
-          },
-          {
-            "contract": "AccessControlUpgradeable",
-            "label": "_roles",
-            "type": "t_mapping(t_bytes32,t_struct(RoleData)7924_storage)",
-            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
-          },
-          {
-            "contract": "AccessControlUpgradeable",
-            "label": "__gap",
-            "type": "t_array(t_uint256)49_storage",
-            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:225"
-          },
-          {
-            "contract": "EIP712Base",
-            "label": "domainSeperator",
-            "type": "t_bytes32",
-            "src": "metaTransaction/common/EIP712Base.sol:18"
-          },
-          {
-            "contract": "NetworkAgnostic",
-            "label": "nonces",
-            "type": "t_mapping(t_address,t_uint256)",
-            "src": "metaTransaction/common/NetworkAgnostic.sol:19"
           },
           {
             "contract": "ERC20Upgradeable",
@@ -89,6 +65,30 @@
             "label": "__gap",
             "type": "t_array(t_uint256)44_storage",
             "src": "../@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol:312"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)7846_storage)",
+            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:225"
+          },
+          {
+            "contract": "EIP712Base",
+            "label": "domainSeperator",
+            "type": "t_bytes32",
+            "src": "metaTransaction/common/EIP712Base.sol:18"
+          },
+          {
+            "contract": "NetworkAgnostic",
+            "label": "nonces",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "metaTransaction/common/NetworkAgnostic.sol:19"
           },
           {
             "contract": "ConfigVariables",
@@ -124,13 +124,13 @@
             "contract": "BET",
             "label": "publicContract",
             "type": "t_address",
-            "src": "matic/tokens/BET.sol:11"
+            "src": "matic/tokens/BET.sol:8"
           },
           {
             "contract": "BET",
             "label": "btyContract",
             "type": "t_address",
-            "src": "matic/tokens/BET.sol:12"
+            "src": "matic/tokens/BET.sol:9"
           }
         ],
         "types": {
@@ -146,30 +146,18 @@
           "t_mapping(t_address,t_uint256)": {
             "label": "mapping(address => uint256)"
           },
-          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
-            "label": "mapping(address => mapping(address => uint256))"
-          },
-          "t_string_storage": {
-            "label": "string"
-          },
-          "t_uint8": {
-            "label": "uint8"
-          },
-          "t_array(t_uint256)44_storage": {
-            "label": "uint256[44]"
-          },
           "t_bytes32": {
             "label": "bytes32"
           },
-          "t_mapping(t_bytes32,t_struct(RoleData)7924_storage)": {
+          "t_mapping(t_bytes32,t_struct(RoleData)7846_storage)": {
             "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
           },
-          "t_struct(RoleData)7924_storage": {
+          "t_struct(RoleData)7846_storage": {
             "label": "struct AccessControlUpgradeable.RoleData",
             "members": [
               {
                 "label": "members",
-                "type": "t_struct(AddressSet)9786_storage"
+                "type": "t_struct(AddressSet)9708_storage"
               },
               {
                 "label": "adminRole",
@@ -177,16 +165,16 @@
               }
             ]
           },
-          "t_struct(AddressSet)9786_storage": {
+          "t_struct(AddressSet)9708_storage": {
             "label": "struct EnumerableSetUpgradeable.AddressSet",
             "members": [
               {
                 "label": "_inner",
-                "type": "t_struct(Set)9521_storage"
+                "type": "t_struct(Set)9443_storage"
               }
             ]
           },
-          "t_struct(Set)9521_storage": {
+          "t_struct(Set)9443_storage": {
             "label": "struct EnumerableSetUpgradeable.Set",
             "members": [
               {
@@ -208,6 +196,18 @@
           "t_array(t_uint256)49_storage": {
             "label": "uint256[49]"
           },
+          "t_mapping(t_address,t_mapping(t_address,t_uint256))": {
+            "label": "mapping(address => mapping(address => uint256))"
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
           "t_array(t_uint256)50_storage": {
             "label": "uint256[50]"
           },
@@ -217,9 +217,9 @@
         }
       }
     },
-    "0cc8b639d0cc969f61b993df3f87f780f54fbdf990dd9c8db6a9f0f5cb1b5ff5": {
-      "address": "0xe14Ad467A3042A3Cd1ad34E75BD2Bf8c6153041B",
-      "txHash": "0x775bc43e977c77076d544fbb4d77f496d6fb54a63f966596d0935885b4463a0a",
+    "e959719403e01bc532b6e1f5c8c9d5a40bb697a152e920e354866df122498555": {
+      "address": "0xf30194141A119Df00bf5ce736658B9FB2798362F",
+      "txHash": "0xced61a72408db50485049abea81c44ef91e3c44af15d7f92a70f036a80fba290",
       "layout": {
         "storage": [
           {
@@ -285,7 +285,7 @@
           {
             "contract": "AccessControlUpgradeable",
             "label": "_roles",
-            "type": "t_mapping(t_bytes32,t_struct(RoleData)7924_storage)",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)7846_storage)",
             "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
           },
           {
@@ -309,30 +309,30 @@
           {
             "contract": "BTY",
             "label": "betToken",
-            "type": "t_contract(BET)7313",
-            "src": "matic/tokens/BTY.sol:9"
+            "type": "t_contract(BET)7270",
+            "src": "matic/tokens/BTY.sol:8"
           },
           {
             "contract": "BTY",
             "label": "owner",
             "type": "t_address",
-            "src": "matic/tokens/BTY.sol:10"
+            "src": "matic/tokens/BTY.sol:9"
           },
           {
             "contract": "BTY",
             "label": "childChainManagerProxy",
             "type": "t_address",
-            "src": "matic/tokens/BTY.sol:12"
+            "src": "matic/tokens/BTY.sol:11"
           },
           {
             "contract": "BTY",
             "label": "wallets",
             "type": "t_mapping(t_address,t_bool)",
-            "src": "matic/tokens/BTY.sol:13"
+            "src": "matic/tokens/BTY.sol:12"
           }
         ],
         "types": {
-          "t_contract(BET)7313": {
+          "t_contract(BET)7270": {
             "label": "contract BET"
           },
           "t_address": {
@@ -353,15 +353,15 @@
           "t_bytes32": {
             "label": "bytes32"
           },
-          "t_mapping(t_bytes32,t_struct(RoleData)7924_storage)": {
+          "t_mapping(t_bytes32,t_struct(RoleData)7846_storage)": {
             "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
           },
-          "t_struct(RoleData)7924_storage": {
+          "t_struct(RoleData)7846_storage": {
             "label": "struct AccessControlUpgradeable.RoleData",
             "members": [
               {
                 "label": "members",
-                "type": "t_struct(AddressSet)9786_storage"
+                "type": "t_struct(AddressSet)9708_storage"
               },
               {
                 "label": "adminRole",
@@ -369,16 +369,16 @@
               }
             ]
           },
-          "t_struct(AddressSet)9786_storage": {
+          "t_struct(AddressSet)9708_storage": {
             "label": "struct EnumerableSetUpgradeable.AddressSet",
             "members": [
               {
                 "label": "_inner",
-                "type": "t_struct(Set)9521_storage"
+                "type": "t_struct(Set)9443_storage"
               }
             ]
           },
-          "t_struct(Set)9521_storage": {
+          "t_struct(Set)9443_storage": {
             "label": "struct EnumerableSetUpgradeable.Set",
             "members": [
               {
@@ -419,8 +419,8 @@
       }
     },
     "0eddbff92ea0a680c5d8cde5eed7289d9c4d4121064a0ddda1820b01299dfe49": {
-      "address": "0x49A3851b9aa75eAA9B060fd3125EC98FEdB4e7B4",
-      "txHash": "0xeafc41fd0140d8bea3edb5dcd62e33450c12ac16d2081b495d740c8e531e5244",
+      "address": "0xdE84CC7A04E6669878A9d9CCD15D196B93f52500",
+      "txHash": "0x03f0f13947842b3cfcf3be710a65868f1deb3006c3e3776e34ce7d16605ace56",
       "layout": {
         "storage": [
           {
@@ -438,7 +438,7 @@
           {
             "contract": "PrivateEvents",
             "label": "events",
-            "type": "t_mapping(t_int256,t_struct(EventData)6872_storage)",
+            "type": "t_mapping(t_int256,t_struct(EventData)6833_storage)",
             "src": "matic/events/PrivateEvents.sol:10"
           },
           {
@@ -449,13 +449,13 @@
           }
         ],
         "types": {
-          "t_mapping(t_int256,t_struct(EventData)6872_storage)": {
+          "t_mapping(t_int256,t_struct(EventData)6833_storage)": {
             "label": "mapping(int256 => struct PrivStruct.EventData)"
           },
           "t_int256": {
             "label": "int256"
           },
-          "t_struct(EventData)6872_storage": {
+          "t_struct(EventData)6833_storage": {
             "label": "struct PrivStruct.EventData",
             "members": [
               {
@@ -476,7 +476,7 @@
               },
               {
                 "label": "player",
-                "type": "t_mapping(t_uint256,t_array(t_struct(Player)6848_storage)dyn_storage)"
+                "type": "t_mapping(t_uint256,t_array(t_struct(Player)6809_storage)dyn_storage)"
               },
               {
                 "label": "allPlayers",
@@ -502,13 +502,13 @@
           "t_uint8": {
             "label": "uint8"
           },
-          "t_mapping(t_uint256,t_array(t_struct(Player)6848_storage)dyn_storage)": {
+          "t_mapping(t_uint256,t_array(t_struct(Player)6809_storage)dyn_storage)": {
             "label": "mapping(uint256 => struct PrivStruct.Player[])"
           },
-          "t_array(t_struct(Player)6848_storage)dyn_storage": {
+          "t_array(t_struct(Player)6809_storage)dyn_storage": {
             "label": "struct PrivStruct.Player[]"
           },
-          "t_struct(Player)6848_storage": {
+          "t_struct(Player)6809_storage": {
             "label": "struct PrivStruct.Player",
             "members": [
               {
@@ -530,14 +530,14 @@
       }
     },
     "cc10ae227738981a92667c4c8a05cf950402df529c43a3eb2a7e27ce8102e457": {
-      "address": "0x1Fcfc65Fe5D4490A3596FA5da8531282a8386F67",
-      "txHash": "0xe02a65feea2bd9fdc450bd2a1f3265d9085355cc247b4c7bf3002176060ba4d0",
+      "address": "0xC3AA622051fdD739D93a4Bbf99ed3fed04cbaF7A",
+      "txHash": "0x8066d19d78da55143ffb3fc01367ff7a9a24f2237b3abce9b40da78969f4056b",
       "layout": {
         "storage": [
           {
             "contract": "PubStruct",
             "label": "events",
-            "type": "t_mapping(t_int256,t_struct(EventData)6966_storage)",
+            "type": "t_mapping(t_int256,t_struct(EventData)6927_storage)",
             "src": "matic/struct/PubStruct.sol:33"
           },
           {
@@ -561,25 +561,25 @@
           {
             "contract": "PublicEvents",
             "label": "betToken",
-            "type": "t_contract(BET)7313",
+            "type": "t_contract(BET)7270",
             "src": "matic/events/PublicEvents/PublicEvents.sol:23"
           },
           {
             "contract": "PublicEvents",
             "label": "btyToken",
-            "type": "t_contract(BTY)7525",
+            "type": "t_contract(BTY)7478",
             "src": "matic/events/PublicEvents/PublicEvents.sol:24"
           },
           {
             "contract": "PublicEvents",
             "label": "mpData",
-            "type": "t_contract(MPStruct)6843",
+            "type": "t_contract(MPStruct)6804",
             "src": "matic/events/PublicEvents/PublicEvents.sol:25"
           },
           {
             "contract": "PublicEvents",
             "label": "mpContract",
-            "type": "t_contract(MiddlePayment)5223",
+            "type": "t_contract(MiddlePayment)5184",
             "src": "matic/events/PublicEvents/PublicEvents.sol:26"
           },
           {
@@ -605,16 +605,16 @@
           "t_uint256": {
             "label": "uint256"
           },
-          "t_contract(BET)7313": {
+          "t_contract(BET)7270": {
             "label": "contract BET"
           },
-          "t_contract(BTY)7525": {
+          "t_contract(BTY)7478": {
             "label": "contract BTY"
           },
-          "t_contract(MPStruct)6843": {
+          "t_contract(MPStruct)6804": {
             "label": "contract MPStruct"
           },
-          "t_contract(MiddlePayment)5223": {
+          "t_contract(MiddlePayment)5184": {
             "label": "contract MiddlePayment"
           },
           "t_address": {
@@ -623,13 +623,13 @@
           "t_bool": {
             "label": "bool"
           },
-          "t_mapping(t_int256,t_struct(EventData)6966_storage)": {
+          "t_mapping(t_int256,t_struct(EventData)6927_storage)": {
             "label": "mapping(int256 => struct PubStruct.EventData)"
           },
           "t_int256": {
             "label": "int256"
           },
-          "t_struct(EventData)6966_storage": {
+          "t_struct(EventData)6927_storage": {
             "label": "struct PubStruct.EventData",
             "members": [
               {
@@ -650,7 +650,7 @@
               },
               {
                 "label": "players",
-                "type": "t_mapping(t_uint256,t_array(t_struct(Player)6922_storage)dyn_storage)"
+                "type": "t_mapping(t_uint256,t_array(t_struct(Player)6883_storage)dyn_storage)"
               },
               {
                 "label": "allPlayers",
@@ -662,7 +662,7 @@
               },
               {
                 "label": "expert",
-                "type": "t_mapping(t_uint256,t_array(t_struct(Expert)6927_storage)dyn_storage)"
+                "type": "t_mapping(t_uint256,t_array(t_struct(Expert)6888_storage)dyn_storage)"
               },
               {
                 "label": "activeExperts",
@@ -694,13 +694,13 @@
               }
             ]
           },
-          "t_mapping(t_uint256,t_array(t_struct(Player)6922_storage)dyn_storage)": {
+          "t_mapping(t_uint256,t_array(t_struct(Player)6883_storage)dyn_storage)": {
             "label": "mapping(uint256 => struct PubStruct.Player[])"
           },
-          "t_array(t_struct(Player)6922_storage)dyn_storage": {
+          "t_array(t_struct(Player)6883_storage)dyn_storage": {
             "label": "struct PubStruct.Player[]"
           },
-          "t_struct(Player)6922_storage": {
+          "t_struct(Player)6883_storage": {
             "label": "struct PubStruct.Player",
             "members": [
               {
@@ -716,13 +716,13 @@
           "t_mapping(t_address,t_bool)": {
             "label": "mapping(address => bool)"
           },
-          "t_mapping(t_uint256,t_array(t_struct(Expert)6927_storage)dyn_storage)": {
+          "t_mapping(t_uint256,t_array(t_struct(Expert)6888_storage)dyn_storage)": {
             "label": "mapping(uint256 => struct PubStruct.Expert[])"
           },
-          "t_array(t_struct(Expert)6927_storage)dyn_storage": {
+          "t_array(t_struct(Expert)6888_storage)dyn_storage": {
             "label": "struct PubStruct.Expert[]"
           },
-          "t_struct(Expert)6927_storage": {
+          "t_struct(Expert)6888_storage": {
             "label": "struct PubStruct.Expert",
             "members": [
               {
@@ -742,8 +742,8 @@
       }
     },
     "eb3c928a1e46b93d140dfea7c1f3526296d0c7b3bbd20dd9a5e64539d32caae5": {
-      "address": "0x5336a8fA6cd07362521631257219087df737dCea",
-      "txHash": "0xade8007e231c9503f54f7bbb2c3393c21c57074d6d7df30e3c1c0d99e4979a44",
+      "address": "0x9EB4214f1F19e47692A60467926a53dFc1E482A0",
+      "txHash": "0x6d8402e903ab258eb0175f2622e3d803d686cd866e24e74ec93ec1f1693a88f8",
       "layout": {
         "storage": [
           {
@@ -881,19 +881,19 @@
           {
             "contract": "MPStruct",
             "label": "MPData",
-            "type": "t_mapping(t_int256,t_struct(MiddlePaymentStruct)6707_storage)",
+            "type": "t_mapping(t_int256,t_struct(MiddlePaymentStruct)6668_storage)",
             "src": "matic/struct/MPStruct.sol:24"
           },
           {
             "contract": "MiddlePayment",
             "label": "eventsData",
-            "type": "t_contract(PubStruct)7173",
+            "type": "t_contract(PubStruct)7134",
             "src": "matic/events/PublicEvents/MiddlePayment.sol:10"
           },
           {
             "contract": "MiddlePayment",
             "label": "PublicAddr",
-            "type": "t_contract(PublicEvents)6579",
+            "type": "t_contract(PublicEvents)6540",
             "src": "matic/events/PublicEvents/MiddlePayment.sol:11"
           },
           {
@@ -904,22 +904,22 @@
           }
         ],
         "types": {
-          "t_contract(PubStruct)7173": {
+          "t_contract(PubStruct)7134": {
             "label": "contract PubStruct"
           },
-          "t_contract(PublicEvents)6579": {
+          "t_contract(PublicEvents)6540": {
             "label": "contract PublicEvents"
           },
           "t_address": {
             "label": "address"
           },
-          "t_mapping(t_int256,t_struct(MiddlePaymentStruct)6707_storage)": {
+          "t_mapping(t_int256,t_struct(MiddlePaymentStruct)6668_storage)": {
             "label": "mapping(int256 => struct MPStruct.MiddlePaymentStruct)"
           },
           "t_int256": {
             "label": "int256"
           },
-          "t_struct(MiddlePaymentStruct)6707_storage": {
+          "t_struct(MiddlePaymentStruct)6668_storage": {
             "label": "struct MPStruct.MiddlePaymentStruct",
             "members": [
               {
@@ -961,8 +961,8 @@
       }
     },
     "0cea243047e381b8e4514cd42c845e2cc1ef90b38cf8989f39bac4dcc5b0771b": {
-      "address": "0xeD3fe22C0b39b32A2d93D72d6712Edc506A258E2",
-      "txHash": "0x2cdd35febc4578291acba2952789003def20ef46ba73a615aca79b6f16025d15",
+      "address": "0x40b290717A3303B9e52C24E56a99aB061c8D99Ea",
+      "txHash": "0x73c023744447d837ee3078f155d287dd942a8fd89c1b8f631ffec969591a7158",
       "layout": {
         "storage": [
           {
@@ -1028,30 +1028,30 @@
           {
             "contract": "PlayerPayment",
             "label": "mpData",
-            "type": "t_contract(MPStruct)6843",
+            "type": "t_contract(MPStruct)6804",
             "src": "matic/events/PublicEvents/PlayerPayment.sol:13"
           },
           {
             "contract": "PlayerPayment",
             "label": "eventsData",
-            "type": "t_contract(PubStruct)7173",
+            "type": "t_contract(PubStruct)7134",
             "src": "matic/events/PublicEvents/PlayerPayment.sol:14"
           },
           {
             "contract": "PlayerPayment",
             "label": "PublicAddr",
-            "type": "t_contract(PublicEvents)6579",
+            "type": "t_contract(PublicEvents)6540",
             "src": "matic/events/PublicEvents/PlayerPayment.sol:15"
           }
         ],
         "types": {
-          "t_contract(MPStruct)6843": {
+          "t_contract(MPStruct)6804": {
             "label": "contract MPStruct"
           },
-          "t_contract(PubStruct)7173": {
+          "t_contract(PubStruct)7134": {
             "label": "contract PubStruct"
           },
-          "t_contract(PublicEvents)6579": {
+          "t_contract(PublicEvents)6540": {
             "label": "contract PublicEvents"
           },
           "t_address": {
@@ -1068,7 +1068,7 @@
     }
   },
   "admin": {
-    "address": "0x3Be10BE5E6889c8c02C5D5203A5f737Fb5c63037",
-    "txHash": "0xceea75c83dc45b0c0bb680335d92965458fb536a8fa00b94e08cf78a5b6e4e8c"
+    "address": "0x2cF6134c81388E8ac6652704924606F271B81646",
+    "txHash": "0xf57eb5b184d698ef9bef2dc0c77fbd0df056ba244761b61b3ec43af65758ddcf"
   }
 }

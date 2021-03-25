@@ -29,14 +29,6 @@ contract NetworkAgnostic is EIP712Base {
         bytes functionSignature;
     }
 
-    function __NetworkAgnosticInit(
-        string memory name,
-        string memory version,
-        uint256 chainId
-    ) public initializer {
-        __EIP712BaseInit(name, version, chainId);
-    }
-
     function executeMetaTransaction(
         address userAddress,
         bytes memory functionSignature,

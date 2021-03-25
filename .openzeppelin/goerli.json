@@ -1,9 +1,9 @@
 {
   "manifestVersion": "3.1",
   "impls": {
-    "c8d55eb579bcfecb7bcf777c1ffe5b3e3d649d9f746e4636cb41b09c27f5ee17": {
-      "address": "0xba806405321A7CF14C9EA3e3B4a1c6d0db4f79F7",
-      "txHash": "0xef152533f0d8ead895c34b1130bf064899886835e981ebbe727c9b2c21dd5c1f",
+    "6c890db2b373e6ca72634e67d884520751fa3e9c3e60cd57f59e0f3e963e5afc": {
+      "address": "0xf1a5c13e3ED219F705cEf4B4f52492711eaaa08a",
+      "txHash": "0x187e8df3f7d9803dfedb3394d2a950652b388867c4215814b2beacc6c05a3bd7",
       "layout": {
         "storage": [
           {
@@ -69,7 +69,7 @@
           {
             "contract": "AccessControlUpgradeable",
             "label": "_roles",
-            "type": "t_mapping(t_bytes32,t_struct(RoleData)7896_storage)",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)7836_storage)",
             "src": "../@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol:61"
           },
           {
@@ -94,7 +94,7 @@
             "contract": "BTYmain",
             "label": "owner",
             "type": "t_address",
-            "src": "ether/tokens/BTYmain.sol:1482"
+            "src": "ether/tokens/BTYmain.sol:1470"
           }
         ],
         "types": {
@@ -110,15 +110,15 @@
           "t_bytes32": {
             "label": "bytes32"
           },
-          "t_mapping(t_bytes32,t_struct(RoleData)7896_storage)": {
+          "t_mapping(t_bytes32,t_struct(RoleData)7836_storage)": {
             "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
           },
-          "t_struct(RoleData)7896_storage": {
+          "t_struct(RoleData)7836_storage": {
             "label": "struct AccessControlUpgradeable.RoleData",
             "members": [
               {
                 "label": "members",
-                "type": "t_struct(AddressSet)9758_storage"
+                "type": "t_struct(AddressSet)9698_storage"
               },
               {
                 "label": "adminRole",
@@ -126,16 +126,16 @@
               }
             ]
           },
-          "t_struct(AddressSet)9758_storage": {
+          "t_struct(AddressSet)9698_storage": {
             "label": "struct EnumerableSetUpgradeable.AddressSet",
             "members": [
               {
                 "label": "_inner",
-                "type": "t_struct(Set)9493_storage"
+                "type": "t_struct(Set)9433_storage"
               }
             ]
           },
-          "t_struct(Set)9493_storage": {
+          "t_struct(Set)9433_storage": {
             "label": "struct EnumerableSetUpgradeable.Set",
             "members": [
               {
@@ -179,8 +179,8 @@
       }
     },
     "04cd2d5e9c1414a12062ba36a166b9dfd6e518c36f35e03c8830def34a57cdeb": {
-      "address": "0x023CD13ed092aAfa9bA8822E4228B4124b73951e",
-      "txHash": "0xe22f7350b0618e7933dd4127bf48a5353e85b40276b4e321eab0718ab6422912",
+      "address": "0x93D8E78B7175D0AD01BcF44Ca2c7513b6284549F",
+      "txHash": "0x82451dbfb3bab90f9ba50c0eee055552dfd6480dec883bae92848edc4206ee04",
       "layout": {
         "storage": [
           {
@@ -204,13 +204,13 @@
           {
             "contract": "QuizeTokenSale",
             "label": "tokenContract",
-            "type": "t_contract(BTYmain)2766",
+            "type": "t_contract(BTYmain)2731",
             "src": "ether/tokenSale/QuizeTokenSale.sol:9"
           },
           {
             "contract": "QuizeTokenSale",
             "label": "usdttoken",
-            "type": "t_contract(BTYmain)2766",
+            "type": "t_contract(BTYmain)2731",
             "src": "ether/tokenSale/QuizeTokenSale.sol:10"
           },
           {
@@ -230,135 +230,7 @@
           "t_address_payable": {
             "label": "address payable"
           },
-          "t_contract(BTYmain)2766": {
-            "label": "contract BTYmain"
-          },
-          "t_uint256": {
-            "label": "uint256"
-          },
-          "t_bool": {
-            "label": "bool"
-          }
-        }
-      }
-    },
-    "ea58e7a40636279f49b7719ae385997b610826fb9700fa94e2f6db393e3c253f": {
-      "address": "0x0f8Ba2E38104deB0cF7606931e10B89EB55DEfb6",
-      "txHash": "0x93ec14f122f4e3c9ebfb565bba34c04826b61391ec4ee41b0655cfeef9da22f5",
-      "layout": {
-        "storage": [
-          {
-            "contract": "Initializable",
-            "label": "_initialized",
-            "type": "t_bool",
-            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
-          },
-          {
-            "contract": "Initializable",
-            "label": "_initializing",
-            "type": "t_bool",
-            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "owner",
-            "type": "t_address_payable",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:8"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "tokenContract",
-            "type": "t_contract(BTYmain)2776",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:9"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "usdttoken",
-            "type": "t_contract(BTYmain)2776",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:10"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "tokenPrice",
-            "type": "t_uint256",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:11"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "tokensSold",
-            "type": "t_uint256",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:12"
-          }
-        ],
-        "types": {
-          "t_address_payable": {
-            "label": "address payable"
-          },
-          "t_contract(BTYmain)2776": {
-            "label": "contract BTYmain"
-          },
-          "t_uint256": {
-            "label": "uint256"
-          },
-          "t_bool": {
-            "label": "bool"
-          }
-        }
-      }
-    },
-    "25e988c89c8498cb1f4754aec21ec339f64733cbd47a43ff8ac294c69f042a8e": {
-      "address": "0x731C5dbd770fd9278A383508EbbE913eFdeD0912",
-      "txHash": "0x59a97da74365dbbc0c1f16e7f66e19c29e72bb5b9f4f7d8af63082848126998a",
-      "layout": {
-        "storage": [
-          {
-            "contract": "Initializable",
-            "label": "_initialized",
-            "type": "t_bool",
-            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:25"
-          },
-          {
-            "contract": "Initializable",
-            "label": "_initializing",
-            "type": "t_bool",
-            "src": "../@openzeppelin/contracts-upgradeable/proxy/Initializable.sol:30"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "owner",
-            "type": "t_address_payable",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:8"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "tokenContract",
-            "type": "t_contract(BTYmain)2776",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:9"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "usdttoken",
-            "type": "t_contract(BTYmain)2776",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:10"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "tokenPrice",
-            "type": "t_uint256",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:11"
-          },
-          {
-            "contract": "QuizeTokenSale",
-            "label": "tokensSold",
-            "type": "t_uint256",
-            "src": "ether/tokenSale/QuizeTokenSale.sol:12"
-          }
-        ],
-        "types": {
-          "t_address_payable": {
-            "label": "address payable"
-          },
-          "t_contract(BTYmain)2776": {
+          "t_contract(BTYmain)2731": {
             "label": "contract BTYmain"
           },
           "t_uint256": {
@@ -372,7 +244,7 @@
     }
   },
   "admin": {
-    "address": "0x8b4D9bFEB78aED2082a04A18690502b1343bF189",
-    "txHash": "0xb36d4a9848a9b19bfd7a37fe41d65aec8f29288ebd799fcbb7f817ce4165e0e5"
+    "address": "0xe5D36A67BADB3fCdBDc8F65995085aC105D2F6B4",
+    "txHash": "0xdaf06dbc118a0290b9845ea4f4816794eb357585bddf716b4c1a88dbe690ffe9"
   }
 }

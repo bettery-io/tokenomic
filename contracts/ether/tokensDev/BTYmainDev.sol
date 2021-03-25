@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import {MetaTransactLib} from "../../metaTransaction/MetaTransactLib.sol";
 
-contract BTYmainDev is ERC20Upgradeable, MetaTransactLib {
+contract BTYmainDev is MetaTransactLib {
     address public owner;
 
     function __BTYmainInit(
@@ -16,9 +15,9 @@ contract BTYmainDev is ERC20Upgradeable, MetaTransactLib {
     ) public initializer
     {
         owner = msg.sender;
+        __EIP712BaseInit("BET_main", "1", _network_id);  
         __ERC20_init(_name, _symbol);
         _setupDecimals(_decimals);
-        __MetaTransactLibInit("BET_main", "1", _network_id);  
         _mint(msg.sender, _initialSupplyCoins);
     }
 

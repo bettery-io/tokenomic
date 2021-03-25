@@ -44,8 +44,4 @@ contract QuizeTokenSale is Initializable {
         require(msg.sender == owner, "you are not a owner");
         tokenPrice = _tokenPrice;
     }
-
-    function test3() public pure returns(uint){
-        return 10 + 10;
-    }
 }

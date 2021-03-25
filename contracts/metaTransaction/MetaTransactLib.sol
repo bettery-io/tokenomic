@@ -2,20 +2,14 @@
 pragma solidity >=0.4.22 <0.9.0;
 import {AccessControlUpgradeable} from "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import {NetworkAgnostic} from "./common/NetworkAgnostic.sol";
+import {ERC20Upgradeable} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 
-contract MetaTransactLib is AccessControlUpgradeable, NetworkAgnostic {
-
-    function __MetaTransactLibInit(
-        string memory _name, 
-        string memory _version, 
-        uint _chain_id 
-    ) public initializer{
-        __NetworkAgnosticInit(_name, _version, _chain_id);
-    }
+contract MetaTransactLib is ERC20Upgradeable, AccessControlUpgradeable, NetworkAgnostic {
     
-    function msgSender()
+    function _msgSender()
         internal
         view
+        override
         returns (address payable sender)
     {
         if (msg.sender == address(this)) {

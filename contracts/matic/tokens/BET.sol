@@ -1,13 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-import {
-    ERC20Upgradeable
-} from "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
 import {MetaTransactLib} from "../../metaTransaction/MetaTransactLib.sol";
 import {ConfigVariables} from "../config/ConfigVariables.sol";
 
-contract BET is MetaTransactLib, ERC20Upgradeable, ConfigVariables {
+contract BET is MetaTransactLib, ConfigVariables {
     address publicContract;
     address btyContract;
 
@@ -21,6 +18,7 @@ contract BET is MetaTransactLib, ERC20Upgradeable, ConfigVariables {
         uint _welcomeBTYTokens,
         uint _GFindex
     ) public initializer {
+        __EIP712BaseInit("BET_token", "1", _network_id);
         __ConfigVariables(
             _firstWithdrawIndex,
             _GFrewards,
@@ -29,7 +27,6 @@ contract BET is MetaTransactLib, ERC20Upgradeable, ConfigVariables {
         );
         __ERC20_init(_name, _symbol);
         _setupDecimals(_decimals);
-        __MetaTransactLibInit("BET_token", "1", _network_id);
     }
 
     function setConfigContract(address _publicEvents, address _bty)
