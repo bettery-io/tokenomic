@@ -20341,13 +20341,66 @@
   },
   "networks": {
     "80001": {
-      "events": {},
+      "events": {
+        "0x7d056f7ad1cec2447e1046080437b34a925f7ddd6099486d01c4e0e01bd51a8c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "id",
+              "type": "int256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "activePlayers",
+              "type": "uint256"
+            }
+          ],
+          "name": "calculateExpert",
+          "type": "event"
+        },
+        "0xa41def8a44f88925e3e009abe2bb54653ea68faeeccd9a6a45ff94bb19f040d7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "id",
+              "type": "int256"
+            }
+          ],
+          "name": "findCorrectAnswer",
+          "type": "event"
+        },
+        "0x847521552ad126e64c52b14640c804737bd67f2b6674309b332d1e5b17f857d1": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "id",
+              "type": "int256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "purpose",
+              "type": "string"
+            }
+          ],
+          "name": "revertedEvent",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xbC6972752e4eEf95C2A9c7A09943D23dD924657f"
+      "address": "0x8135A015ce69a15da2705Db8b1F7e3eD1E675bF9",
+      "transactionHash": "0xb9554b9ab7505f9b181f2a07a1d435811aa6faf7b6b6c998c5fcaa8fd702a512"
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-24T17:23:22.260Z",
+  "updatedAt": "2021-03-25T10:30:29.473Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

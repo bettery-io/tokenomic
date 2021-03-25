@@ -18072,13 +18072,72 @@
   },
   "networks": {
     "80001": {
-      "events": {},
+      "events": {
+        "0x25da44ba4726d9f695af444bfab7e7216cbb2a722298eb04083ad9f507a7c996": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "id",
+              "type": "int256"
+            }
+          ],
+          "name": "eventFinish",
+          "type": "event"
+        },
+        "0xf9bce4ec54810e3225e8e7eb8fafb89a5e7bb13201788db4840ba6e1eb7f957f": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "id",
+              "type": "int256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "avarageBet",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "calcMintedToken",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "rightPlay",
+              "type": "uint256"
+            }
+          ],
+          "name": "payToLosers",
+          "type": "event"
+        },
+        "0x64c3aa83886a5aedbc17fdd025481bdd45090d3af68e72f3dd4e3f17385122ff": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "int256",
+              "name": "id",
+              "type": "int256"
+            }
+          ],
+          "name": "payToRefferers",
+          "type": "event"
+        }
+      },
       "links": {},
-      "address": "0xD52C7F56DD90238d8E69817A5320c16A4d149a64"
+      "address": "0x3A26A79b0343884b2047818FE190f086F31d6C04",
+      "transactionHash": "0x672d44447afefafe44075fbb422848bb85970919cda659f9ed5a310c157e78e8"
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-03-24T17:23:22.284Z",
+  "updatedAt": "2021-03-25T10:30:29.505Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

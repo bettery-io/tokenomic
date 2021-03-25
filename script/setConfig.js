@@ -14,12 +14,12 @@ const setConfiguration = async () => {
     await setPublicConfig(prodaction);
     await setMiddlePaymentConfig(prodaction);
     console.log("FINISH");
+    process.exit();
 }
 
 const setBetConfig = async (from) => {
     try {
         let networkId = from == "main" ? networkConfig.maticMainId : networkConfig.maticMumbaiId;
-        console.log(networkId);
         let contr = await contract.init(from, BET);
         let publicEventsAddr = PublicEvents.networks[networkId].address;
         let btyAddr = BTY.networks[networkId].address;

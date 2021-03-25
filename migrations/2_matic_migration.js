@@ -19,10 +19,10 @@ module.exports = async function (deployer, network) {
     let chain_id;
     let ChildChainManagerProxy;
     if ((network === 'matic' || network === "development") && process.env.NODE_ENV == "deploy") {
-      chain_id = networkConfig.maticMumbaiId;
+      chain_id = networkConfig.goerliId;
       ChildChainManagerProxy = maticNetwork.child.ChildChainManagerProxy
     } else if (network === "mainMatic" && process.env.NODE_ENV == "deploy") {
-      chain_id = networkConfig.maticMainId;
+      chain_id = networkConfig.etherMainId;
       ChildChainManagerProxy = "" // TODO add CHILDCHAIN
     }
     let decimals = config.decimals;
