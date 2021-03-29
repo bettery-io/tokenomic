@@ -1,10 +1,12 @@
+const keys = require("./keys");
+
 let maticMumbai = "wss://ws-mumbai.matic.today",
     maticMumbaiId = 80001,
     maticMain = "wss://ws-mainnet.matic.network",
     maticMainId = 137,
-    goerli = "wss://goerli.infura.io/ws/v3/2b5ec85db4a74c8d8ed304ff2398690d",
+    goerli = `wss://goerli.infura.io/ws/v3/${keys.infura}`,
     goerliId = 5,
-    etherMain = "wss://mainnet.infura.io/ws/v3/2b5ec85db4a74c8d8ed304ff2398690d",
+    etherMain = `wss://mainnet.infura.io/ws/v3/${keys.infura}`,
     etherMainId = 1
 
 
